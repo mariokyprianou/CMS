@@ -18,6 +18,7 @@ import buildProvider from 'DataProvider';
 import { CognitoLogin as Login } from '@thedistance/the-core-cms-module-authentication-amplify';
 import defaultTheme, { darkTheme, lightTheme } from 'theme';
 import { appStyles } from 'styles';
+import defaultMessages from 'ra-language-english';
 
 // Resources
 import { User } from 'Resources';
@@ -41,7 +42,7 @@ const App = () => {
           dataProvider,
           history,
           customReducers,
-          i18nProvider,
+          i18nProvider: () => defaultMessages,
           initialState: {},
         });
         window.__getStore = () => store;

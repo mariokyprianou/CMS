@@ -27,11 +27,29 @@ const englishMessages = {
   },
   resources: {
     user: {
-      name: 'User |||| Example Users',
+      name: 'User Management |||| User Management',
       fields: {
-        name: 'Full Name',
-        role: 'User Role',
+        givenName: 'First Name',
+        familyName: 'Last Name',
+        email: 'Email',
+        country: 'Country',
+        region: 'Region',
+        timeZone: 'Time Zone',
+        subscription: {
+          isSubscribed: 'Marketing',
+          platform: 'Subscriber',
+        },
       },
+    },
+  },
+  choices: {
+    booleanTranslated: {
+      true: 'Yes',
+      false: 'No',
+    },
+    subscriptionPlatform: {
+      android: 'Android',
+      ios: 'iOS',
     },
   },
   error: {

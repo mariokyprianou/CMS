@@ -7,15 +7,26 @@
  */
 
 // all choices available throughout the app
-const booleanTranslatedChoice = [
+const booleanTranslatedChoices = [
   {
     id: true,
-    name: 'Yes',
+    name: 'choices.booleanTranslated.true',
   },
   {
     id: false,
-    name: 'No',
+    name: 'choices.booleanTranslated.false',
   },
 ];
 
-export { booleanTranslatedChoice };
+const subscriptionPlatformChoices = [
+  {
+    id: 'ANDROID',
+    name: 'choices.subscriptionPlatform.android',
+  },
+  {
+    id: 'IOS',
+    name: 'choices.subscriptionPlatform.ios',
+  },
+];
+
+export { booleanTranslatedChoices, subscriptionPlatformChoices };

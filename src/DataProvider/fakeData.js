@@ -2,18 +2,29 @@ export default {
   user: [
     {
       id: '1',
-      name: 'Logan Schowalter',
-      role: 'admin',
+      givenName: 'Logan',
+      familyName: 'Schowalter',
+      email: 'logan@grr.la',
+      country: 'UK',
+      region: 'North Yorkshire',
+      timeZone: 'UTC +0',
+      subscription: {
+        isSubscribed: false,
+        platform: 'ANDROID',
+      },
     },
     {
       id: '2',
-      name: 'Breanna Gibson',
-      role: 'user',
-    },
-    {
-      id: '3',
-      name: 'Annamarie Mayer',
-      role: 'user',
+      givenName: 'Gabby',
+      familyName: 'Doodoo',
+      email: 'gabby@grr.la',
+      country: 'UK',
+      region: 'North Yorkshire',
+      timeZone: 'UTC +0',
+      subscription: {
+        isSubscribed: true,
+        platform: 'IOS',
+      },
     },
   ],
 };
