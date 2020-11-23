@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and uses the [react-admin](https://github.com/marmelab/react-admin) framework (v3).
 
-A custom app created by The Distance to demonstrate The Core (v4.1) feature set.
+A custom app created by The Distance for Power Digital Ltd.
 
 ## Set up
 
