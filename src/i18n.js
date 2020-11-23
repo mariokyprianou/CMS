@@ -36,6 +36,11 @@ const englishMessages = {
   },
   error: {
     generic: 'Oops! Something went wrong. Please try again',
+    permissions: {
+      title: 'Access Denied',
+      header: 'You do not have the required permissions to view this page',
+      subtitle: 'Contact your administrator for necessary permissions',
+    },
   },
 };
 
