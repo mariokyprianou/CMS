@@ -1,0 +1,48 @@
+import polyglotI18nProvider from 'ra-i18n-polyglot';
+import raEnglishMessages from 'ra-language-english';
+
+const englishMessages = {
+  ...raEnglishMessages,
+  authentication: {
+    login: {
+      submit: 'Login',
+      forgotPassword: 'Forgot password?',
+      username: 'Username',
+    },
+    forgotPassword: {
+      submit: 'Submit',
+      email: 'Email',
+      cardContent:
+        'Please enter your email address above. You will receive an email with a code that you can redeem to reset your password.',
+      verification: 'Verification Code',
+      verificationCardContent:
+        'We just sent you an email with a verification code attached. Please enter this here and type your new password below to reset.',
+      newPassword: 'New Password',
+    },
+    changePassword: {
+      password: 'Password',
+      submit: 'Change password',
+      cardContent: 'Please change your password to continue signing in.',
+    },
+  },
+  resources: {
+    user: {
+      name: 'User |||| Example Users',
+      fields: {
+        name: 'Full Name',
+        role: 'User Role',
+      },
+    },
+  },
+  error: {
+    generic: 'Oops! Something went wrong. Please try again',
+  },
+};
+
+const i18nProvider = polyglotI18nProvider((locale) => englishMessages, 'en', {
+  allowMissing: true,
+});
+
+export { englishMessages };
+
+export default i18nProvider;
