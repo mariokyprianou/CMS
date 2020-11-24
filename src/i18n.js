@@ -41,6 +41,13 @@ const englishMessages = {
         },
       },
     },
+    administrator: {
+      name: 'Admin Management |||| Admin Management',
+      fields: {
+        name: 'Name',
+        email: 'Email',
+      },
+    },
   },
   choices: {
     booleanTranslated: {

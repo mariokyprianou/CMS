@@ -6,6 +6,7 @@
  * Copyright (c) 2020 The Distance
  */
 
+import Administrator from './Administrator';
 import User from './User';
 
-export { User };
+export { Administrator, User };

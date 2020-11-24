@@ -61,4 +61,16 @@ export default {
       },
     },
   ],
+  administrator: [
+    {
+      id: '1',
+      name: 'Bob Daltry',
+      email: 'bob@grr.la',
+    },
+    {
+      id: '2',
+      name: 'Cynthia Pleasant',
+      email: 'cynthia@grr.la',
+    },
+  ],
 };

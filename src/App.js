@@ -21,7 +21,7 @@ import { appStyles } from 'styles';
 import defaultMessages from 'ra-language-english';
 
 // Resources
-import { User } from 'Resources';
+import { User, Administrator } from 'Resources';
 
 const history = createHistory();
 const stage = process.env.AWS_BRANCH;
@@ -78,7 +78,8 @@ const App = () => {
         >
           {/* permissions prop will contain an array of permissions from the AuthProvider e.g. ["SUPER"] */}
           {(permissions) => [
-            <Resource {...User} />, // TODO: example resource - remove if not required
+            <Resource {...User} />,
+            <Resource {...Administrator} />,
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}
