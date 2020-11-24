@@ -60,6 +60,7 @@ const createProvider = async () => {
       resources: {
         administrator: 'administrator',
         user: 'user',
+        trainer: 'trainer',
       },
     },
   ];

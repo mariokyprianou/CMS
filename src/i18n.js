@@ -51,6 +51,16 @@ const englishMessages = {
         email: 'Email',
       },
     },
+    trainer: {
+      name: 'Trainer |||| Trainers',
+      fields: {
+        locale: 'Locale',
+        name: 'Name',
+        trainerEnglish: 'Trainer (English)',
+        trainerHindi: 'Trainer (Hindi)',
+        trainerUrdu: 'Trainer (Urdu)',
+      },
+    },
   },
   choices: {
     booleanTranslated: {

@@ -73,4 +73,26 @@ export default {
       email: 'cynthia@grr.la',
     },
   ],
+  trainer: [
+    {
+      id: '1',
+      localisations: [
+        {
+          id: '1',
+          locale: 'English',
+          name: 'Katrina E',
+        },
+        {
+          id: '2',
+          locale: 'Hindi',
+          name: 'Katrina H',
+        },
+        {
+          id: '3',
+          locale: 'Urdu',
+          name: 'Katrina U',
+        },
+      ],
+    },
+  ],
 };

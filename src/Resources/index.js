@@ -7,6 +7,7 @@
  */
 
 import Administrator from './Administrator';
+import Trainer from './Trainer';
 import User from './User';
 
-export { Administrator, User };
+export { Administrator, Trainer, User };
