@@ -43,6 +43,9 @@ const englishMessages = {
     },
     administrator: {
       name: 'Admin Management |||| Admin Management',
+      titles: {
+        createAdministrator: 'Create Administrator',
+      },
       fields: {
         name: 'Name',
         email: 'Email',

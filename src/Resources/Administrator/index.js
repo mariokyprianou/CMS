@@ -8,11 +8,13 @@
 
 import list from './list';
 import create from './create';
+import edit from './edit';
 import { PersonOutline as icon } from '@material-ui/icons';
 
 export default {
   name: 'administrator',
   list,
   create,
+  edit,
   icon,
 };

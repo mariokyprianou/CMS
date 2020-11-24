@@ -7,15 +7,29 @@
  */
 
 import React from 'react';
-import { Create, SimpleForm, TextInput, required } from 'react-admin';
+import {
+  Create,
+  SimpleForm,
+  TextInput,
+  required,
+  useTranslate,
+} from 'react-admin';
 
-const AdministratorCreate = (props) => (
-  <Create {...props}>
-    <SimpleForm>
-      <TextInput source="name" validate={required()} />
-      <TextInput source="email" validate={required()} />
-    </SimpleForm>
-  </Create>
-);
+const AdministratorCreate = (props) => {
+  const translate = useTranslate();
+
+  return (
+    <Create
+      // TODO: Check that translate title is correct.
+      title={translate('resources.administrator.titles.createAdministrator')}
+      {...props}
+    >
+      <SimpleForm>
+        <TextInput source="name" validate={required()} />
+        <TextInput source="email" validate={required()} />
+      </SimpleForm>
+    </Create>
+  );
+};
 
 export default AdministratorCreate;

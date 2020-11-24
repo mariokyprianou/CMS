@@ -10,7 +10,6 @@ import React from 'react';
 import {
   Edit,
   SimpleForm,
-  TextField,
   TextInput,
   BooleanInput,
   SelectInput,
@@ -23,7 +22,6 @@ import { subscriptionPlatformChoices } from 'utils/choices';
 
 const UserEdit = (props) => {
   const classes = columnStyles();
-
   return (
     <Edit {...props}>
       <SimpleForm>
@@ -34,12 +32,13 @@ const UserEdit = (props) => {
             <TextInput source="email" />
             <TextInput source="country" />
             <TextInput
-              // TODO: Should only appear if Country === India
+              // TODO: Should only appear if Country === India.
               source="region"
             />
             <BooleanInput source="subscription.isSubscribed" disabled />
             <SelectInput
               source="subscription.platform"
+              // TODO: If neither is selected then 'No' should be an option.
               choices={subscriptionPlatformChoices}
             />
           </div>
