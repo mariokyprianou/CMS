@@ -19,14 +19,8 @@ import { subscriptionPlatformChoices } from 'utils/choices';
 import UserAction from './actions';
 import UserFilter from './filters';
 
-// TODO: Add in Actions for the exporting of CSV data (currently it removes the filters if put in).
-
 const UserList = (props) => (
-  <List
-    filters={<UserFilter />}
-    // actions={ <UserAction /> }
-    {...props}
-  >
+  <List filters={<UserFilter />} actions={<UserAction />} {...props}>
     <Datagrid>
       <TextField source="givenName" />
       <TextField source="familyName" />
