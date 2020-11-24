@@ -7,14 +7,12 @@
  */
 
 import list from './list';
-import create from './create';
 import edit from './edit';
 import { Person as icon } from '@material-ui/icons';
 
 export default {
   name: 'user',
   list,
-  create,
   edit,
   icon,
 };

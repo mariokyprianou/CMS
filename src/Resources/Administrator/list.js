@@ -8,10 +8,15 @@
 
 import React from 'react';
 import { List, Datagrid, TextField, EditButton } from 'react-admin';
+import AdministratorActions from './actions';
 import AdministratorFilter from './filters';
 
 const AdministratorList = (props) => (
-  <List filters={<AdministratorFilter />} {...props}>
+  <List
+    actions={<AdministratorActions />}
+    filters={<AdministratorFilter />}
+    {...props}
+  >
     <Datagrid>
       <TextField source="name" />
       <TextField source="email" />
