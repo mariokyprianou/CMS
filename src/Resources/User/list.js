@@ -1,3 +1,11 @@
+/*
+ * Jira Ticket: PDL-269
+ * Created Date: Mon, 23rd Nov 2020, 14:24:39 pm
+ * Author: Harry Crank
+ * Email: harry.crank@thedistance.co.uk
+ * Copyright (c) 2020 The Distance
+ */
+
 import React from 'react';
 import {
   List,
