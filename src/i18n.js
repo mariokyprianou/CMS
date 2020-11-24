@@ -53,6 +53,9 @@ const englishMessages = {
     },
     trainer: {
       name: 'Trainer |||| Trainers',
+      titles: {
+        trainerManagement: 'Trainer Management',
+      },
       fields: {
         locale: 'Locale',
         name: 'Name',
