@@ -17,7 +17,6 @@ import {
 
 const AdministratorCreate = (props) => {
   const translate = useTranslate();
-
   return (
     <Create
       // TODO: Check that translate title is correct.
