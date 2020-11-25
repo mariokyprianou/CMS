@@ -189,7 +189,7 @@ export default {
         {
           id: '1',
           language: 'en',
-          description: 'English',
+          description: 'Train with your icon, Katrina!',
         },
       ],
     },

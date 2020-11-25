@@ -7,10 +7,12 @@
  */
 
 import list from './list';
+import edit from './edit';
 import { Assignment as icon } from '@material-ui/icons';
 
 export default {
   name: 'programme',
   list,
+  edit,
   icon,
 };

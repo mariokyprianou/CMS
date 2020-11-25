@@ -33,7 +33,7 @@ const ProgrammeList = (props) => (
         label="resources.programme.fields.name"
       />
       <FunctionField
-        source={'stats.fitness'}
+        source="stats.fitness"
         label="resources.programme.fields.fitness"
         render={(record) => (
           <PercentageTextField value={record.stats.fitness} />

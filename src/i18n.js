@@ -74,6 +74,13 @@ const englishMessages = {
       titles: {
         programmeManagement: 'Programme Management',
       },
+      tabs: {
+        details: 'Details',
+        workouts: 'Workouts',
+        exercises: 'Exercises',
+        challenges: 'Challenges',
+        shareMedia: 'Share Media',
+      },
       fields: {
         name: 'Name',
         fitness: 'Fitness',
@@ -81,6 +88,10 @@ const englishMessages = {
         fatLoss: 'Fat Loss',
         environment: 'Environment',
         currentSubscribers: 'Current Subscribers',
+        trainerImages: 'Trainer Preview Images',
+        trainerDescriptionEnglish: 'Trainer Description (English)',
+        trainerDescriptionHindi: 'Trainer Description (Hindi)',
+        trainerDescriptionUrdu: 'Trainer Description (Urdu)',
       },
     },
   },
