@@ -61,6 +61,7 @@ const createProvider = async () => {
         administrator: 'administrator',
         user: 'user',
         trainer: 'trainer',
+        programme: 'programme',
       },
     },
   ];

@@ -7,36 +7,25 @@
  */
 
 import React from 'react';
-import {
-  List,
-  Datagrid,
-  TextField,
-  EditButton,
-  useTranslate,
-} from 'react-admin';
+import { List, Datagrid, TextField, EditButton } from 'react-admin';
 import TrainerActions from './actions';
 import TrainerFilter from './filters';
 
-const TrainerList = (props) => {
-  const { ...rest } = props;
-  const translate = useTranslate();
-  return (
-    <List
-      title={translate('resources.trainer.titles.trainerManagement')}
-      actions={<TrainerActions />}
-      filters={<TrainerFilter />}
-      {...rest}
-    >
-      <Datagrid>
-        <TextField
-          // TODO: Check with Jess if this is okay to do?
-          source="localisations[0].name"
-          label="resources.trainer.fields.name"
-        />
-        <EditButton />
-      </Datagrid>
-    </List>
-  );
-};
+const TrainerList = (props) => (
+  <List
+    {...props}
+    title="resources.trainer.titles.trainerManagement"
+    actions={<TrainerActions />}
+    filters={<TrainerFilter />}
+  >
+    <Datagrid>
+      <TextField
+        source="localisations[0].name"
+        label="resources.trainer.fields.name"
+      />
+      <EditButton />
+    </Datagrid>
+  </List>
+);
 
 export default TrainerList;

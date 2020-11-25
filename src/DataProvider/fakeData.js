@@ -14,11 +14,12 @@ export default {
       familyName: 'Schowalter',
       email: 'logan@grr.la',
       country: 'UK',
-      region: 'North Yorkshire',
-      timeZone: 'UTC +0',
+      region: '',
+      timeZone: 'UTC +2',
+      canChangeDevice: true,
       subscription: {
         isSubscribed: false,
-        platform: 'ANDROID',
+        platform: null,
       },
     },
     {
@@ -27,8 +28,9 @@ export default {
       familyName: 'Doodoo',
       email: 'gabby@grr.la',
       country: 'UK',
-      region: 'North Yorkshire',
+      region: '',
       timeZone: 'UTC +0',
+      canChangeDevice: false,
       subscription: {
         isSubscribed: true,
         platform: 'IOS',
@@ -40,8 +42,9 @@ export default {
       familyName: 'Greenwood',
       email: 'brod@grr.la',
       country: 'India',
-      region: 'Calcutta',
-      timeZone: 'UTC +0',
+      region: 'Goa',
+      timeZone: 'UTC +1',
+      canChangeDevice: false,
       subscription: {
         isSubscribed: false,
         platform: 'ANDROID',
@@ -55,6 +58,7 @@ export default {
       country: 'India',
       region: '',
       timeZone: 'UTC +0',
+      canChangeDevice: true,
       subscription: {
         isSubscribed: true,
         platform: 'IOS',
@@ -91,6 +95,101 @@ export default {
           id: '3',
           locale: 'Urdu',
           name: 'Katrina U',
+        },
+      ],
+    },
+    {
+      id: '2',
+      localisations: [
+        {
+          id: '1',
+          locale: 'English',
+          name: 'Donald E',
+        },
+        {
+          id: '2',
+          locale: 'Hindi',
+          name: 'Donald H',
+        },
+        {
+          id: '3',
+          locale: 'Urdu',
+          name: 'Donald U',
+        },
+      ],
+    },
+    {
+      id: '3',
+      localisations: [
+        {
+          id: '1',
+          locale: 'English',
+          name: 'Bilal E',
+        },
+        {
+          id: '2',
+          locale: 'Hindi',
+          name: 'Bilal H',
+        },
+        {
+          id: '3',
+          locale: 'Urdu',
+          name: 'Bilal U',
+        },
+      ],
+    },
+  ],
+  programme: [
+    {
+      id: '1',
+      type: 'HOME', // HOME / GYM
+      subscribers: 2,
+      stats: {
+        fitness: 99,
+        muscle: 30,
+        fatLoss: 55,
+      },
+      trainer: {
+        id: '1',
+        localisations: [
+          {
+            id: '1',
+            locale: 'English',
+            name: 'Katrina E',
+          },
+          {
+            id: '2',
+            locale: 'Hindi',
+            name: 'Katrina H',
+          },
+          {
+            id: '3',
+            locale: 'Urdu',
+            name: 'Katrina U',
+          },
+        ],
+      },
+      images: [
+        {
+          id: '1',
+          url:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
+        },
+      ],
+      shareMediaImages: [
+        {
+          id: '1',
+          type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
+          url:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
+          textColour: '#dad',
+        },
+      ],
+      localisations: [
+        {
+          id: '1',
+          language: 'en',
+          description: 'English',
         },
       ],
     },

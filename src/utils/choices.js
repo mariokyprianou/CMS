@@ -27,6 +27,73 @@ const subscriptionPlatformChoices = [
     id: 'IOS',
     name: 'choices.subscriptionPlatform.ios',
   },
+  {
+    id: 'NO',
+    name: 'choices.subscriptionPlatform.no',
+  },
 ];
 
-export { booleanTranslatedChoices, subscriptionPlatformChoices };
+const programmeEnvironmentChoices = [
+  {
+    id: 'HOME',
+    name: 'choices.programmeEnvironment.home',
+  },
+  {
+    id: 'GYM',
+    name: 'choices.programmeEnvironment.gym',
+  },
+];
+
+const countryChoices = [
+  {
+    id: 'UK',
+    name: 'UK',
+  },
+  {
+    id: 'India',
+    name: 'India',
+  },
+];
+
+const regionChoices = [
+  {
+    id: 'Assam',
+    name: 'Assam',
+  },
+  {
+    id: 'Bihar',
+    name: 'Bihar',
+  },
+  {
+    id: 'Goa',
+    name: 'Goa',
+  },
+];
+
+const timeZoneChoices = [
+  {
+    id: 'UTC +0',
+    name: 'UTC +0',
+  },
+  {
+    id: 'UTC +1',
+    name: 'UTC +1',
+  },
+  {
+    id: 'UTC +2',
+    name: 'UTC +2',
+  },
+  {
+    id: 'UTC +3',
+    name: 'UTC +3',
+  },
+];
+
+export {
+  booleanTranslatedChoices,
+  subscriptionPlatformChoices,
+  programmeEnvironmentChoices,
+  countryChoices,
+  regionChoices,
+  timeZoneChoices,
+};

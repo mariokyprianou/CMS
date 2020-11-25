@@ -20,7 +20,12 @@ import UserAction from './actions';
 import UserFilter from './filters';
 
 const UserList = (props) => (
-  <List filters={<UserFilter />} actions={<UserAction />} {...props}>
+  <List
+    {...props}
+    title="resources.user.titles.userManagement"
+    actions={<UserAction />}
+    filters={<UserFilter />}
+  >
     <Datagrid>
       <TextField source="givenName" />
       <TextField source="familyName" />

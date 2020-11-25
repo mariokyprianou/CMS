@@ -27,7 +27,10 @@ const englishMessages = {
   },
   resources: {
     user: {
-      name: 'User Management |||| User Management',
+      name: 'User |||| Users',
+      titles: {
+        userManagement: 'User Management',
+      },
       fields: {
         givenName: 'First Name',
         familyName: 'Last Name',
@@ -35,6 +38,7 @@ const englishMessages = {
         country: 'Country',
         region: 'Region',
         timeZone: 'Time Zone',
+        canChangeDevice: '30-day device limit',
         subscription: {
           isSubscribed: 'Marketing',
           platform: 'Subscriber',
@@ -42,8 +46,9 @@ const englishMessages = {
       },
     },
     administrator: {
-      name: 'Admin Management |||| Admin Management',
+      name: 'Administrator |||| Administrators',
       titles: {
+        administratorManagement: 'Administrator Management',
         createAdministrator: 'Create Administrator',
       },
       fields: {
@@ -64,6 +69,20 @@ const englishMessages = {
         trainerUrdu: 'Trainer (Urdu)',
       },
     },
+    programme: {
+      name: 'Programme |||| Programmes',
+      titles: {
+        programmeManagement: 'Programme Management',
+      },
+      fields: {
+        name: 'Name',
+        fitness: 'Fitness',
+        muscle: 'Muscle',
+        fatLoss: 'Fat Loss',
+        environment: 'Environment',
+        currentSubscribers: 'Current Subscribers',
+      },
+    },
   },
   choices: {
     booleanTranslated: {
@@ -73,6 +92,11 @@ const englishMessages = {
     subscriptionPlatform: {
       android: 'Android',
       ios: 'iOS',
+      no: 'No',
+    },
+    programmeEnvironment: {
+      home: 'Home',
+      gym: 'Gym',
     },
   },
   error: {

@@ -13,9 +13,10 @@ import AdministratorFilter from './filters';
 
 const AdministratorList = (props) => (
   <List
+    {...props}
+    title="resources.administrator.titles.administratorManagement"
     actions={<AdministratorActions />}
     filters={<AdministratorFilter />}
-    {...props}
   >
     <Datagrid>
       <TextField source="name" />
