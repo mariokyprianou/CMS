@@ -118,6 +118,11 @@ const englishMessages = {
       white: 'White',
       black: 'Black',
     },
+    challengeType: {
+      countdown: 'Countdown',
+      stopwatch: 'Stopwatch',
+      other: 'Other',
+    },
   },
   error: {
     generic: 'Oops! Something went wrong. Please try again',

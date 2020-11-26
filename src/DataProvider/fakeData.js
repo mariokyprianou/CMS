@@ -194,4 +194,33 @@ export default {
       ],
     },
   ],
+  challenge: [
+    {
+      id: '1',
+      type: 'COUNTDOWN',
+      localisations: [
+        {
+          id: '1',
+          locale: 'English',
+          name: '50 x Squats E',
+          description: 'Do 50 squats in 1 minute',
+          fieldLabel: 'field label here',
+        },
+        {
+          id: '2',
+          locale: 'Hindi',
+          name: '50 x Squats H',
+          description: 'Do 50 squats in 1 minute',
+          fieldLabel: 'field label here',
+        },
+        {
+          id: '3',
+          locale: 'Urdu',
+          name: '50 x Squats U',
+          description: 'Do 50 squats in 1 minute',
+          fieldLabel: 'field label here',
+        },
+      ],
+    },
+  ],
 };

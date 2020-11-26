@@ -100,6 +100,21 @@ const textColourChoices = [
   },
 ];
 
+const challengeTypeChoices = [
+  {
+    id: 'COUNTDOWN',
+    name: 'choices.challengeType.countdown',
+  },
+  {
+    id: 'STOPWATCH',
+    name: 'choices.challengeType.stopwatch',
+  },
+  {
+    id: 'OTHER',
+    name: 'choices.challengeType.other',
+  },
+];
+
 export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
@@ -108,4 +123,5 @@ export {
   regionChoices,
   timeZoneChoices,
   textColourChoices,
+  challengeTypeChoices,
 };

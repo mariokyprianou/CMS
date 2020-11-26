@@ -21,7 +21,7 @@ import { appStyles } from 'styles';
 import defaultMessages from 'ra-language-english';
 
 // Resources
-import { User, Administrator, Trainer, Programme } from 'Resources';
+import { User, Administrator, Trainer, Programme, Challenge } from 'Resources';
 
 const history = createHistory();
 const stage = process.env.AWS_BRANCH;
@@ -82,6 +82,7 @@ const App = () => {
             <Resource {...Administrator} />,
             <Resource {...Trainer} />,
             <Resource {...Programme} />,
+            <Resource {...Challenge} />,
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}

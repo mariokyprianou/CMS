@@ -7,8 +7,9 @@
  */
 
 import Administrator from './Administrator';
+import Challenge from './Challenge';
 import Programme from './Programme';
 import Trainer from './Trainer';
 import User from './User';
 
-export { Administrator, Programme, Trainer, User };
+export { Administrator, Challenge, Programme, Trainer, User };

@@ -7,16 +7,15 @@
  */
 
 import React, { Fragment } from 'react';
-import { columnStyles } from 'styles';
+import { EditButton } from 'react-admin';
 
-const ChallengeTab = () => {
-  const classes = columnStyles();
+const ChallengeTab = (props) => {
+  console.log('props: ', props);
+  // TODO: How to pull a list of Challenges in a Tab View.
   return (
     <Fragment>
-      <div className={classes.root}>
-        <div className={classes.column}>TODO: Working in Progress</div>
-        <div className={classes.column}>TODO: Working in Progress</div>
-      </div>
+      <div>List of Challenges should go here</div>
+      <EditButton />
     </Fragment>
   );
 };
