@@ -7,10 +7,12 @@
  */
 
 import list from './list';
+import create from './create';
 import { List as icon } from '@material-ui/icons';
 
 export default {
   name: 'exerciseCategory',
   list,
+  create,
   icon,
 };

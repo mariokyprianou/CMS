@@ -8,9 +8,16 @@
 
 import React from 'react';
 import { List, Datagrid, TextField, EditButton } from 'react-admin';
+import TrainerActions from './actions';
+import TrainerFilter from './filters';
 
 const ExerciseCategoryList = (props) => (
-  <List {...props}>
+  <List
+    {...props}
+    title="resources.exerciseCategory.titles.exerciseCategoryManagement"
+    actions={<TrainerActions />}
+    filters={<TrainerFilter />}
+  >
     <Datagrid>
       <TextField source="name" />
       <EditButton />

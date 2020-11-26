@@ -63,7 +63,7 @@ const englishMessages = {
       },
       fields: {
         locale: 'Locale',
-        name: 'Name',
+        name: 'Trainer Name',
         trainerEnglish: 'Trainer (English)',
         trainerHindi: 'Trainer (Hindi)',
         trainerUrdu: 'Trainer (Urdu)',
@@ -101,6 +101,12 @@ const englishMessages = {
     },
     exerciseCategory: {
       name: 'Exercise Category |||| Exercise Categories',
+      titles: {
+        exerciseCategoryManagement: 'Exercise Category Management',
+      },
+      fields: {
+        name: 'Category Name',
+      },
     },
   },
   choices: {

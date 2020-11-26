@@ -9,11 +9,9 @@
 import React from 'react';
 import { Filter, TextInput } from 'react-admin';
 
-// TODO: Add filter functionality.
-
 const TrainerFilter = (props) => (
   <Filter {...props}>
-    <TextInput source="name" />
+    <TextInput source="q" label="resources.trainer.fields.name" />
   </Filter>
 );
 
