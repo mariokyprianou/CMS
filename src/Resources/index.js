@@ -8,8 +8,9 @@
 
 import Administrator from './Administrator';
 import Challenge from './Challenge';
+import ExerciseCategory from './ExerciseCategory';
 import Programme from './Programme';
 import Trainer from './Trainer';
 import User from './User';
 
-export { Administrator, Challenge, Programme, Trainer, User };
+export { Administrator, Challenge, ExerciseCategory, Programme, Trainer, User };

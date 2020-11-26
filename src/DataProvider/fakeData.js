@@ -223,4 +223,14 @@ export default {
       ],
     },
   ],
+  exerciseCategory: [
+    {
+      id: '1',
+      name: 'Lunges',
+    },
+    {
+      id: '2',
+      name: 'Squats',
+    },
+  ],
 };

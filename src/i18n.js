@@ -99,6 +99,9 @@ const englishMessages = {
         progressImage: 'Progress Image',
       },
     },
+    exerciseCategory: {
+      name: 'Exercise Category |||| Exercise Categories',
+    },
   },
   choices: {
     booleanTranslated: {
