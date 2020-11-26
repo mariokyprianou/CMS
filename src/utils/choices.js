@@ -89,6 +89,17 @@ const timeZoneChoices = [
   },
 ];
 
+const textColourChoices = [
+  {
+    id: 'WHITE',
+    name: 'choices.textColour.white',
+  },
+  {
+    id: 'BLACK',
+    name: 'choices.textColour.black',
+  },
+];
+
 export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
@@ -96,4 +107,5 @@ export {
   countryChoices,
   regionChoices,
   timeZoneChoices,
+  textColourChoices,
 };

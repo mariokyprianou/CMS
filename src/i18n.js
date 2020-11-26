@@ -92,6 +92,11 @@ const englishMessages = {
         trainerDescriptionEnglish: 'Trainer Description (English)',
         trainerDescriptionHindi: 'Trainer Description (Hindi)',
         trainerDescriptionUrdu: 'Trainer Description (Urdu)',
+        textColour: 'Text Colour',
+        programmeStartImage: 'Programme Start Image',
+        weekCompleteImage: 'Week Complete Image',
+        challengeCompleteImage: 'Challenge Complete Image',
+        progressImage: 'Progress Image',
       },
     },
   },
@@ -108,6 +113,10 @@ const englishMessages = {
     programmeEnvironment: {
       home: 'Home',
       gym: 'Gym',
+    },
+    textColour: {
+      white: 'White',
+      black: 'Black',
     },
   },
   error: {

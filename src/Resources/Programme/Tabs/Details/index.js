@@ -61,6 +61,7 @@ const DetailTab = () => {
             source=""
             label="resources.programme.fields.trainerImages"
             validate={required()}
+            multiple
             options={{
               maxFiles: 5,
             }}
