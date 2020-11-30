@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-const TextByLocalisationField = ({
+const LocalisedTextField = ({
   classes,
   locale = 'English',
   source,
@@ -29,4 +29,4 @@ const TextByLocalisationField = ({
   );
 };
 
-export default TextByLocalisationField;
+export default LocalisedTextField;

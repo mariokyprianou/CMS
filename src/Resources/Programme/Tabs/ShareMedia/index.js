@@ -16,8 +16,8 @@ const ShareMediaTab = () => {
   const classes = columnStyles();
   return (
     <Fragment>
+      {/* 1st Row - Programme Start */}
       <div className={classes.root}>
-        {/* 1st Row - Programme Start */}
         <div className={classes.column}>
           <ImageInput
             source=""

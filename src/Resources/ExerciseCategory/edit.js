@@ -14,7 +14,7 @@ const ExerciseCategoryEdit = (props) => (
     <SimpleForm>
       <TextInput
         source="name"
-        label="resources.exerciseCategory.fields.name"
+        label="resources.exercise.fields.name"
         validate={required()}
       />
     </SimpleForm>

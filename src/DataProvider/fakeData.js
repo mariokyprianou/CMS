@@ -259,7 +259,7 @@ export default {
         {
           id: '1',
           url: 'https://www.google.co.uk',
-          difficulty: 'EASY',
+          difficulty: 'HARD',
         },
         {
           id: '2',
@@ -269,7 +269,7 @@ export default {
         {
           id: '3',
           url: 'https://www.google.co.uk',
-          difficulty: 'HARD',
+          difficulty: 'EASY',
         },
       ],
       localisations: [

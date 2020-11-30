@@ -7,10 +7,14 @@
  */
 
 import list from './list';
+import edit from './edit';
+import create from './create';
 import { FitnessCenter as icon } from '@material-ui/icons';
 
 export default {
   name: 'exercise',
   list,
+  edit,
+  create,
   icon,
 };
