@@ -83,17 +83,17 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'English',
+          locale: 'ENGLISH',
           name: '(E) Katrina',
         },
         {
           id: '2',
-          locale: 'Hindi',
+          locale: 'HINDI',
           name: '(H) Katrina',
         },
         {
           id: '3',
-          locale: 'Urdu',
+          locale: 'URDU',
           name: '(U) Katrina',
         },
       ],
@@ -103,17 +103,17 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'English',
+          locale: 'ENGLISH',
           name: '(E) Donald',
         },
         {
           id: '2',
-          locale: 'Hindi',
+          locale: 'HINDI',
           name: '(H) Donald',
         },
         {
           id: '3',
-          locale: 'Urdu',
+          locale: 'URDU',
           name: '(U) Donald',
         },
       ],
@@ -123,17 +123,17 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'English',
+          locale: 'ENGLISH',
           name: '(E) Bilal',
         },
         {
           id: '2',
-          locale: 'Hindi',
+          locale: 'HINDI',
           name: '(H) Bilal',
         },
         {
           id: '3',
-          locale: 'Urdu',
+          locale: 'URDU',
           name: '(U) Bilal',
         },
       ],
@@ -154,17 +154,17 @@ export default {
         localisations: [
           {
             id: '1',
-            locale: 'English',
+            locale: 'ENGLISH',
             name: '(E) Katrina',
           },
           {
             id: '2',
-            locale: 'Hindi',
+            locale: 'HINDI',
             name: '(H) Katrina',
           },
           {
             id: '3',
-            locale: 'Urdu',
+            locale: 'URDU',
             name: '(U) Katrina',
           },
         ],
@@ -188,17 +188,17 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'English',
+          locale: 'ENGLISH',
           description: '(E) Train with your icon, Katrina!',
         },
         {
           id: '2',
-          locale: 'Hindi',
+          locale: 'HINDI',
           description: '(H) Train with your icon, Katrina!',
         },
         {
           id: '3',
-          locale: 'Urdu',
+          locale: 'URDU',
           description: '(U) Train with your icon, Katrina!',
         },
       ],
@@ -211,21 +211,21 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'English',
+          locale: 'ENGLISH',
           name: '(E) 50 x Squats',
           description: '(E) Do 50 squats in 1 minute',
           fieldLabel: '(E) field label here',
         },
         {
           id: '2',
-          locale: 'Hindi',
+          locale: 'HINDI',
           name: '(H) 50 x Squats',
           description: '(H) Do 50 squats in 1 minute',
           fieldLabel: '(H) field label here',
         },
         {
           id: '3',
-          locale: 'Urdu',
+          locale: 'URDU',
           name: '(U) 50 x Squats',
           description: '(U) Do 50 squats in 1 minute',
           fieldLabel: '(U) field label here',
@@ -275,19 +275,19 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'English',
+          locale: 'ENGLISH',
           name: '(E) Squats',
           coachingTips: "(E) Let's got for it!",
         },
         {
           id: '2',
-          locale: 'Hindi',
+          locale: 'HINDI',
           name: '(H) Squats',
           coachingTips: "(H) Let's got for it!",
         },
         {
           id: '3',
-          locale: 'Urdu',
+          locale: 'URDU',
           name: '(U) Squats',
           coachingTips: "(U) Let's got for it!",
         },
@@ -320,19 +320,19 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'English',
+          locale: 'ENGLISH',
           name: '(E) Bicep Curls',
           coachingTips: "(E) Let's got for it!",
         },
         {
           id: '2',
-          locale: 'Hindi',
+          locale: 'HINDI',
           name: '(H) Bicep Curls',
           coachingTips: "(H) Let's got for it!",
         },
         {
           id: '3',
-          locale: 'Urdu',
+          locale: 'URDU',
           name: '(U) Bicep Curls',
           coachingTips: "(U) Let's got for it!",
         },
@@ -385,6 +385,74 @@ export default {
               type: '?',
               title: 'Title',
               body: 'Body',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  helpMeChoose: [
+    {
+      id: '1',
+      questions: [
+        {
+          id: '1',
+          localisations: [
+            {
+              id: '1',
+              locale: 'ENGLISH',
+              question: 'What exercise do you like doing?',
+              answer1: 'People watching',
+              answer2: 'Reading exercise books',
+              answer3: 'Day dreaming',
+              answer4: 'Twerking',
+            },
+            {
+              id: '2',
+              locale: 'HINDI',
+              question: 'What exercise do you like doing?',
+              answer1: 'People watching',
+              answer2: 'Reading exercise books',
+              answer3: 'Day dreaming',
+              answer4: 'Twerking',
+            },
+            {
+              id: '3',
+              locale: 'URDU',
+              question: 'What exercise do you like doing?',
+              answer1: 'People watching',
+              answer2: 'Reading exercise books',
+              answer3: 'Day dreaming',
+              answer4: 'Twerking',
+            },
+          ],
+          trainerScores: [
+            {
+              id: '1',
+              answer1: 10,
+              answer2: 20,
+              answer3: 30,
+              answer4: 40,
+              trainer: {
+                id: '1',
+                localisations: [
+                  {
+                    id: '1',
+                    locale: 'ENGLISH',
+                    name: '(E) Katrina',
+                  },
+                  {
+                    id: '2',
+                    locale: 'HINDI',
+                    name: '(H) Katrina',
+                  },
+                  {
+                    id: '3',
+                    locale: 'URDU',
+                    name: '(U) Katrina',
+                  },
+                ],
+              },
             },
           ],
         },

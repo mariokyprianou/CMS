@@ -29,6 +29,7 @@ import {
   Exercise,
   ExerciseCategory,
   Feedback,
+  HelpMeChoose,
   Notification,
   Programme,
   Trainer,
@@ -100,6 +101,7 @@ const App = () => {
             <Resource {...Exercise} />,
             <Resource {...Feedback} />,
             <Resource {...Configuration} />,
+            <Resource {...HelpMeChoose} />,
             <Resource {...Notification} />,
           ]}
         </Admin>

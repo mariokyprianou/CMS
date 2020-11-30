@@ -67,6 +67,7 @@ const createProvider = async () => {
         exercise: 'exercise',
         feedback: 'feedback',
         configuration: 'configuration',
+        helpMeChoose: 'helpMeChoose',
       },
     },
   ];

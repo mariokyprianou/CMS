@@ -12,6 +12,7 @@ import Configuration from './Configuration';
 import Exercise from './Exercise';
 import ExerciseCategory from './ExerciseCategory';
 import Feedback from './Feedback';
+import HelpMeChoose from './HelpMeChoose';
 import Notification from './Notification';
 import Programme from './Programme';
 import Trainer from './Trainer';
@@ -24,6 +25,7 @@ export {
   Exercise,
   ExerciseCategory,
   Feedback,
+  HelpMeChoose,
   Notification,
   Programme,
   Trainer,

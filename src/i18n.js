@@ -134,6 +134,15 @@ const englishMessages = {
       },
       fields: {},
     },
+    notification: {
+      name: 'Notification |||| Notifications',
+      titles: {
+        notificationManagement: 'Notification Management',
+      },
+    },
+    helpMeChoose: {
+      name: 'Help Me Choose |||| Help Me Choose',
+    },
   },
   choices: {
     booleanTranslated: {
