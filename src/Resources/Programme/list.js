@@ -15,7 +15,7 @@ import {
   SelectField,
   FunctionField,
 } from 'react-admin';
-import ProgrammeActions from './actions';
+import ProgrammeAction from './actions';
 import ProgrammeFilter from './filters';
 import { programmeEnvironmentChoices } from 'utils/choices';
 import { PercentageTextField } from 'Components/Fields';
@@ -24,7 +24,7 @@ const ProgrammeList = (props) => (
   <List
     {...props}
     title="resources.programme.titles.programmeManagement"
-    actions={<ProgrammeActions />}
+    actions={<ProgrammeAction />}
     filters={<ProgrammeFilter />}
   >
     <Datagrid>

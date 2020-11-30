@@ -14,7 +14,7 @@ import {
   sanitizeListRestProps,
 } from 'react-admin';
 
-const ExerciseActions = (props) => {
+const ExerciseAction = (props) => {
   const { className, exporter, filters, maxResults, ...rest } = props;
   const {
     resource,
@@ -38,4 +38,4 @@ const ExerciseActions = (props) => {
   );
 };
 
-export default ExerciseActions;
+export default ExerciseAction;

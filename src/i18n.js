@@ -127,6 +127,13 @@ const englishMessages = {
         videoEasy: 'Easier Video',
       },
     },
+    feedback: {
+      name: 'Feedback |||| Feedback',
+      titles: {
+        feedbackManagement: 'Workout Feedback',
+      },
+      fields: {},
+    },
   },
   choices: {
     booleanTranslated: {

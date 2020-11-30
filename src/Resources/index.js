@@ -11,6 +11,7 @@ import Challenge from './Challenge';
 import Exercise from './Exercise';
 import ExerciseCategory from './ExerciseCategory';
 import Programme from './Programme';
+import Feedback from './Feedback';
 import Trainer from './Trainer';
 import User from './User';
 
@@ -20,6 +21,7 @@ export {
   Exercise,
   ExerciseCategory,
   Programme,
+  Feedback,
   Trainer,
   User,
 };

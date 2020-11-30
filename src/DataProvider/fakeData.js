@@ -339,4 +339,17 @@ export default {
       ],
     },
   ],
+  feedback: [
+    {
+      id: '1',
+      trainer: 'Julia',
+      programme: 'Home',
+      workoutName: 'Bend & Snap',
+      emoji: 'happy',
+      user: 'barry.white@grr.la',
+      timeTaken: '60',
+      workoutIntensity: '33',
+      date: '30-11-2020',
+    },
+  ],
 };

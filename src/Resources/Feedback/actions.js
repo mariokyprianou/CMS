@@ -1,6 +1,6 @@
 /*
- * Jira Ticket: PDL-128
- * Created Date: Thu, 26th Nov 2020, 12:29:58 pm
+ * Jira Ticket: PDL-301
+ * Created Date: Mon, 30th Nov 2020, 11:48:04 am
  * Author: Harry Crank
  * Email: harry.crank@thedistance.co.uk
  * Copyright (c) 2020 The Distance
@@ -10,18 +10,17 @@ import React, { cloneElement } from 'react';
 import {
   useListContext,
   TopToolbar,
-  CreateButton,
+  ExportButton,
   sanitizeListRestProps,
 } from 'react-admin';
 
-const ExerciseCategoryAction = (props) => {
+const FeedbackAction = (props) => {
   const { className, exporter, filters, maxResults, ...rest } = props;
   const {
     resource,
     displayedFilters,
     filterValues,
     showFilter,
-    basePath,
   } = useListContext();
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
@@ -33,9 +32,9 @@ const ExerciseCategoryAction = (props) => {
           filterValues,
           context: 'button',
         })}
-      <CreateButton basePath={basePath} />
+      <ExportButton />
     </TopToolbar>
   );
 };
 
-export default ExerciseCategoryAction;
+export default FeedbackAction;
