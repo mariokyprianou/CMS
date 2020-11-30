@@ -108,6 +108,16 @@ const englishMessages = {
         name: 'Category Name',
       },
     },
+    exercise: {
+      name: 'Exercise |||| Exercises',
+      titles: {
+        exerciseManagement: 'Exercise Management',
+      },
+      fields: {
+        trainer: 'Trainer',
+        name: 'Name',
+      },
+    },
   },
   choices: {
     booleanTranslated: {
@@ -131,6 +141,11 @@ const englishMessages = {
       countdown: 'Countdown',
       stopwatch: 'Stopwatch',
       other: 'Other',
+    },
+    exerciseVideoDifficulty: {
+      easy: 'Easy',
+      medium: 'Medium',
+      hard: 'Hard',
     },
   },
   error: {

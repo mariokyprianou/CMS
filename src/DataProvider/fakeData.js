@@ -84,17 +84,17 @@ export default {
         {
           id: '1',
           locale: 'English',
-          name: 'Katrina E',
+          name: '(E) Katrina',
         },
         {
           id: '2',
           locale: 'Hindi',
-          name: 'Katrina H',
+          name: '(H) Katrina',
         },
         {
           id: '3',
           locale: 'Urdu',
-          name: 'Katrina U',
+          name: '(U) Katrina',
         },
       ],
     },
@@ -104,17 +104,17 @@ export default {
         {
           id: '1',
           locale: 'English',
-          name: 'Donald E',
+          name: '(E) Donald',
         },
         {
           id: '2',
           locale: 'Hindi',
-          name: 'Donald H',
+          name: '(H) Donald',
         },
         {
           id: '3',
           locale: 'Urdu',
-          name: 'Donald U',
+          name: '(U) Donald',
         },
       ],
     },
@@ -124,17 +124,17 @@ export default {
         {
           id: '1',
           locale: 'English',
-          name: 'Bilal E',
+          name: '(E) Bilal',
         },
         {
           id: '2',
           locale: 'Hindi',
-          name: 'Bilal H',
+          name: '(H) Bilal',
         },
         {
           id: '3',
           locale: 'Urdu',
-          name: 'Bilal U',
+          name: '(U) Bilal',
         },
       ],
     },
@@ -155,17 +155,17 @@ export default {
           {
             id: '1',
             locale: 'English',
-            name: 'Katrina E',
+            name: '(E) Katrina',
           },
           {
             id: '2',
             locale: 'Hindi',
-            name: 'Katrina H',
+            name: '(H) Katrina',
           },
           {
             id: '3',
             locale: 'Urdu',
-            name: 'Katrina U',
+            name: '(U) Katrina',
           },
         ],
       },
@@ -188,8 +188,18 @@ export default {
       localisations: [
         {
           id: '1',
-          language: 'en',
-          description: 'Train with your icon, Katrina!',
+          locale: 'English',
+          description: '(E) Train with your icon, Katrina!',
+        },
+        {
+          id: '2',
+          locale: 'Hindi',
+          description: '(H) Train with your icon, Katrina!',
+        },
+        {
+          id: '3',
+          locale: 'Urdu',
+          description: '(U) Train with your icon, Katrina!',
         },
       ],
     },
@@ -202,23 +212,23 @@ export default {
         {
           id: '1',
           locale: 'English',
-          name: '50 x Squats E',
-          description: 'Do 50 squats in 1 minute',
-          fieldLabel: 'field label here',
+          name: '(E) 50 x Squats',
+          description: '(E) Do 50 squats in 1 minute',
+          fieldLabel: '(E) field label here',
         },
         {
           id: '2',
           locale: 'Hindi',
-          name: '50 x Squats H',
-          description: 'Do 50 squats in 1 minute',
-          fieldLabel: 'field label here',
+          name: '(H) 50 x Squats',
+          description: '(H) Do 50 squats in 1 minute',
+          fieldLabel: '(H) field label here',
         },
         {
           id: '3',
           locale: 'Urdu',
-          name: '50 x Squats U',
-          description: 'Do 50 squats in 1 minute',
-          fieldLabel: 'field label here',
+          name: '(U) 50 x Squats',
+          description: '(U) Do 50 squats in 1 minute',
+          fieldLabel: '(U) field label here',
         },
       ],
     },
@@ -231,6 +241,102 @@ export default {
     {
       id: '2',
       name: 'Squats',
+    },
+    {
+      id: '3',
+      name: 'Bicep Curls',
+    },
+  ],
+  exercise: [
+    {
+      id: '1',
+      isWeight: false,
+      category: {
+        id: '2',
+        name: 'Squats',
+      },
+      videos: [
+        {
+          id: '1',
+          url: 'https://www.google.co.uk',
+          difficulty: 'EASY',
+        },
+        {
+          id: '2',
+          url: 'https://www.google.co.uk',
+          difficulty: 'MEDIUM',
+        },
+        {
+          id: '3',
+          url: 'https://www.google.co.uk',
+          difficulty: 'HARD',
+        },
+      ],
+      localisations: [
+        {
+          id: '1',
+          locale: 'English',
+          name: '(E) Squats',
+          coachingTips: "(E) Let's got for it!",
+        },
+        {
+          id: '2',
+          locale: 'Hindi',
+          name: '(H) Squats',
+          coachingTips: "(H) Let's got for it!",
+        },
+        {
+          id: '3',
+          locale: 'Urdu',
+          name: '(U) Squats',
+          coachingTips: "(U) Let's got for it!",
+        },
+      ],
+    },
+    {
+      id: '2',
+      isWeight: true,
+      category: {
+        id: '3',
+        name: 'Bicep Curls',
+      },
+      videos: [
+        {
+          id: '1',
+          url: 'https://www.google.co.uk',
+          difficulty: 'EASY',
+        },
+        {
+          id: '2',
+          url: 'https://www.google.co.uk',
+          difficulty: 'MEDIUM',
+        },
+        {
+          id: '3',
+          url: 'https://www.google.co.uk',
+          difficulty: 'HARD',
+        },
+      ],
+      localisations: [
+        {
+          id: '1',
+          locale: 'English',
+          name: '(E) Bicep Curls',
+          coachingTips: "(E) Let's got for it!",
+        },
+        {
+          id: '2',
+          locale: 'Hindi',
+          name: '(H) Bicep Curls',
+          coachingTips: "(H) Let's got for it!",
+        },
+        {
+          id: '3',
+          locale: 'Urdu',
+          name: '(U) Bicep Curls',
+          coachingTips: "(U) Let's got for it!",
+        },
+      ],
     },
   ],
 };

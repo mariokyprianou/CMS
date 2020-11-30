@@ -28,6 +28,7 @@ import {
   Programme,
   Challenge,
   ExerciseCategory,
+  Exercise,
 } from 'Resources';
 
 const history = createHistory();
@@ -91,6 +92,7 @@ const App = () => {
             <Resource {...Programme} />,
             <Resource {...Challenge} />,
             <Resource {...ExerciseCategory} />,
+            <Resource {...Exercise} />,
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}

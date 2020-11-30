@@ -115,6 +115,21 @@ const challengeTypeChoices = [
   },
 ];
 
+const exerciseVideoDifficultyChoices = [
+  {
+    id: 'EASY',
+    name: 'choices.exerciseVideoDifficulty.easy',
+  },
+  {
+    id: 'MEDIUM',
+    name: 'choices.exerciseVideoDifficulty.medium',
+  },
+  {
+    id: 'HARD',
+    name: 'choices.exerciseVideoDifficulty.hard',
+  },
+];
+
 export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
@@ -124,4 +139,5 @@ export {
   timeZoneChoices,
   textColourChoices,
   challengeTypeChoices,
+  exerciseVideoDifficultyChoices,
 };
