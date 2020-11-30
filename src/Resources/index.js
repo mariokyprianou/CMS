@@ -8,6 +8,7 @@
 
 import Administrator from './Administrator';
 import Challenge from './Challenge';
+import Configuration from './Configuration';
 import Exercise from './Exercise';
 import ExerciseCategory from './ExerciseCategory';
 import Feedback from './Feedback';
@@ -19,6 +20,7 @@ import User from './User';
 export {
   Administrator,
   Challenge,
+  Configuration,
   Exercise,
   ExerciseCategory,
   Feedback,

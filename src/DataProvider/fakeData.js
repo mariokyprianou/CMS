@@ -352,4 +352,43 @@ export default {
       date: '30-11-2020',
     },
   ],
+  configuration: [
+    {
+      id: '1',
+      localisations: [
+        {
+          id: '1',
+          locale: 'ENGLISH',
+          termAndConditions: 'Terms and Conditions',
+          privacyPolicy: 'Privacy Policy',
+          onboarding: [
+            {
+              id: '1',
+              text: 'Welcome Onboarding 1',
+              image: 'https://www.google.co.uk/images',
+            },
+            {
+              id: '2',
+              text: 'Welcome Onboarding 2',
+              image: 'https://www.google.co.uk/images',
+            },
+          ],
+          notifications: [
+            {
+              id: '1',
+              type: '?',
+              title: 'Title',
+              body: 'Body',
+            },
+            {
+              id: '2',
+              type: '?',
+              title: 'Title',
+              body: 'Body',
+            },
+          ],
+        },
+      ],
+    },
+  ],
 };

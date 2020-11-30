@@ -19,11 +19,13 @@ import { CognitoLogin as Login } from '@thedistance/the-core-cms-module-authenti
 import defaultTheme, { darkTheme, lightTheme } from 'theme';
 import { appStyles } from 'styles';
 import defaultMessages from 'ra-language-english';
+import customRoutes from 'routes';
 
 // Resources
 import {
   Administrator,
   Challenge,
+  Configuration,
   Exercise,
   ExerciseCategory,
   Feedback,
@@ -85,6 +87,7 @@ const App = () => {
           theme={defaultTheme} //comment this out if using ra-enterprise Admin component
           lightTheme={lightTheme}
           darkTheme={darkTheme}
+          customRoutes={customRoutes}
         >
           {/* permissions prop will contain an array of permissions from the AuthProvider e.g. ["SUPER"] */}
           {(permissions) => [
@@ -96,6 +99,7 @@ const App = () => {
             <Resource {...ExerciseCategory} />,
             <Resource {...Exercise} />,
             <Resource {...Feedback} />,
+            <Resource {...Configuration} />,
             <Resource {...Notification} />,
           ]}
         </Admin>
