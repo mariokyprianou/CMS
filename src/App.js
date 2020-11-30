@@ -22,14 +22,15 @@ import defaultMessages from 'ra-language-english';
 
 // Resources
 import {
-  User,
   Administrator,
-  Trainer,
-  Programme,
   Challenge,
-  ExerciseCategory,
   Exercise,
+  ExerciseCategory,
   Feedback,
+  Notification,
+  Programme,
+  Trainer,
+  User,
 } from 'Resources';
 
 const history = createHistory();
@@ -95,6 +96,7 @@ const App = () => {
             <Resource {...ExerciseCategory} />,
             <Resource {...Exercise} />,
             <Resource {...Feedback} />,
+            <Resource {...Notification} />,
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}

@@ -10,8 +10,9 @@ import Administrator from './Administrator';
 import Challenge from './Challenge';
 import Exercise from './Exercise';
 import ExerciseCategory from './ExerciseCategory';
-import Programme from './Programme';
 import Feedback from './Feedback';
+import Notification from './Notification';
+import Programme from './Programme';
 import Trainer from './Trainer';
 import User from './User';
 
@@ -20,8 +21,9 @@ export {
   Challenge,
   Exercise,
   ExerciseCategory,
-  Programme,
   Feedback,
+  Notification,
+  Programme,
   Trainer,
   User,
 };

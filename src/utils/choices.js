@@ -130,6 +130,21 @@ const exerciseVideoDifficultyChoices = [
   },
 ];
 
+const localeChoices = [
+  {
+    id: 'ENGLISH',
+    name: 'English',
+  },
+  {
+    id: 'HINDI',
+    name: 'Hindi',
+  },
+  {
+    id: 'URDU',
+    name: 'Urdu',
+  },
+];
+
 export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
@@ -140,4 +155,5 @@ export {
   textColourChoices,
   challengeTypeChoices,
   exerciseVideoDifficultyChoices,
+  localeChoices,
 };
