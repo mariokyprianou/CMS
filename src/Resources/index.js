@@ -17,6 +17,7 @@ import Notification from './Notification';
 import Programme from './Programme';
 import Trainer from './Trainer';
 import User from './User';
+import Workout from './Workout';
 
 export {
   Administrator,
@@ -30,4 +31,5 @@ export {
   Programme,
   Trainer,
   User,
+  Workout,
 };

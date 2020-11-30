@@ -34,6 +34,7 @@ import {
   Programme,
   Trainer,
   User,
+  Workout,
 } from 'Resources';
 
 const history = createHistory();
@@ -99,6 +100,7 @@ const App = () => {
             <Resource {...Challenge} />,
             <Resource {...ExerciseCategory} />,
             <Resource {...Exercise} />,
+            <Resource {...Workout} />,
             <Resource {...Feedback} />,
             <Resource {...Configuration} />,
             <Resource {...HelpMeChoose} />,

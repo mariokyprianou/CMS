@@ -130,7 +130,7 @@ const englishMessages = {
     feedback: {
       name: 'Feedback |||| Feedback',
       titles: {
-        feedbackManagement: 'Workout Feedback',
+        feedbackManagement: 'Feedback Management',
       },
       fields: {},
     },
@@ -139,9 +139,21 @@ const englishMessages = {
       titles: {
         notificationManagement: 'Notification Management',
       },
+      fields: {},
     },
     helpMeChoose: {
       name: 'Help Me Choose |||| Help Me Choose',
+      titles: {
+        helpMeChooseManagement: 'Help Me Choose Management',
+      },
+      fields: {},
+    },
+    workout: {
+      name: 'Workout |||| Workout',
+      titles: {
+        workoutManagement: 'Workout Management',
+      },
+      fields: {},
     },
   },
   choices: {
@@ -171,6 +183,10 @@ const englishMessages = {
       easy: 'Easy',
       medium: 'Medium',
       hard: 'Hard',
+    },
+    workoutExerciseType: {
+      repetitions: 'Repetitions',
+      timeInterval: 'Time Interval',
     },
   },
   error: {

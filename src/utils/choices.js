@@ -145,6 +145,17 @@ const localeChoices = [
   },
 ];
 
+const workoutExerciseTypeChoices = [
+  {
+    id: 'REPETITIONS',
+    name: 'choices.workoutExerciseType.repetitions',
+  },
+  {
+    id: 'TIME_INTERVAL',
+    name: 'choices.workoutExerciseType.timeInterval',
+  },
+];
+
 export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
@@ -156,4 +167,5 @@ export {
   challengeTypeChoices,
   exerciseVideoDifficultyChoices,
   localeChoices,
+  workoutExerciseTypeChoices,
 };

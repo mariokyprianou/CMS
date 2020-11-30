@@ -459,4 +459,143 @@ export default {
       ],
     },
   ],
+  workout: [
+    {
+      id: '1',
+      additionalInfo: 'Additional workout info',
+      headerImage: 'https://www.google.co.uk/images',
+      week: 1,
+      localisations: [
+        {
+          id: '1',
+          locale: 'ENGLISH',
+          name: '(E) Fun workout',
+        },
+        {
+          id: '2',
+          locale: 'HINDI',
+          name: '(H) Fun workout',
+        },
+        {
+          id: '3',
+          locale: 'URDU',
+          name: '(U) Fun workout',
+        },
+      ],
+      programme: {
+        id: '1',
+        type: 'HOME', // HOME / GYM
+        subscribers: 2,
+        stats: {
+          fitness: 99,
+          muscle: 30,
+          fatLoss: 55,
+        },
+        trainer: {
+          id: '1',
+          localisations: [
+            {
+              id: '1',
+              locale: 'ENGLISH',
+              name: '(E) Katrina',
+            },
+            {
+              id: '2',
+              locale: 'HINDI',
+              name: '(H) Katrina',
+            },
+            {
+              id: '3',
+              locale: 'URDU',
+              name: '(U) Katrina',
+            },
+          ],
+        },
+        images: [
+          {
+            id: '1',
+            url:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
+          },
+        ],
+        shareMediaImages: [
+          {
+            id: '1',
+            type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
+            url:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
+            textColour: '#dad',
+          },
+        ],
+        localisations: [
+          {
+            id: '1',
+            locale: 'ENGLISH',
+            description: '(E) Train with your icon, Katrina!',
+          },
+          {
+            id: '2',
+            locale: 'HINDI',
+            description: '(H) Train with your icon, Katrina!',
+          },
+          {
+            id: '3',
+            locale: 'URDU',
+            description: '(U) Train with your icon, Katrina!',
+          },
+        ],
+      },
+      exercises: [
+        {
+          id: '1',
+          type: 'REPETITIONS', // REPETITIONS || TIME_INTERVAL
+          exercise: {
+            id: '1',
+            isWeight: false,
+            category: {
+              id: '2',
+              name: 'Squats',
+            },
+            videos: [
+              {
+                id: '1',
+                url: 'https://www.google.co.uk',
+                difficulty: 'HARD',
+              },
+              {
+                id: '2',
+                url: 'https://www.google.co.uk',
+                difficulty: 'MEDIUM',
+              },
+              {
+                id: '3',
+                url: 'https://www.google.co.uk',
+                difficulty: 'EASY',
+              },
+            ],
+            localisations: [
+              {
+                id: '1',
+                locale: 'ENGLISH',
+                name: '(E) Squats',
+                coachingTips: "(E) Let's got for it!",
+              },
+              {
+                id: '2',
+                locale: 'HINDI',
+                name: '(H) Squats',
+                coachingTips: "(H) Let's got for it!",
+              },
+              {
+                id: '3',
+                locale: 'URDU',
+                name: '(U) Squats',
+                coachingTips: "(U) Let's got for it!",
+              },
+            ],
+          },
+        },
+      ],
+    },
+  ],
 };
