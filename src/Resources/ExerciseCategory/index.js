@@ -6,6 +6,7 @@
  * Copyright (c) 2020 The Distance
  */
 
+import edit from './edit';
 import list from './list';
 import create from './create';
 import { List as icon } from '@material-ui/icons';
@@ -13,6 +14,7 @@ import { List as icon } from '@material-ui/icons';
 export default {
   name: 'exerciseCategory',
   list,
+  edit,
   create,
   icon,
 };
