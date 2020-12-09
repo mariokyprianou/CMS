@@ -221,3 +221,50 @@ export const appBarStyles = makeStyles({
     fill: colors.white,
   },
 });
+
+export const longTextStyles = (width = '800px') =>
+  makeStyles({
+    div: {
+      width, // default 800px is approx 100 chars length
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
+    span: {
+      display: 'inline',
+    },
+  })();
+
+export const actionButtonStyles = (marginRight = 0) =>
+  makeStyles({
+    root: {
+      paddingBottom: 15,
+    },
+    approve: {
+      minWidth: '100px',
+      color: colors.white,
+      backgroundColor: colors.green,
+      marginRight,
+      '&:hover': {
+        backgroundColor: colors.darkenedGreen,
+      },
+    },
+    decline: {
+      minWidth: '100px',
+      color: colors.white,
+      backgroundColor: colors.red,
+      marginRight,
+      '&:hover': {
+        backgroundColor: colors.darkenedRed,
+      },
+    },
+    contactButtons: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '350px',
+    },
+    floatRight: {
+      float: 'right',
+    },
+  })();

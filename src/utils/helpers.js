@@ -7,3 +7,26 @@ export function partition(array, isValid) {
     [[], []]
   );
 }
+
+export const getLocalisedFieldByLanguage = ({
+  language,
+  source,
+  localisations,
+  format,
+  defaultValue = null,
+}) => {
+  let localisedField = null;
+  if (localisations && localisations.length > 0) {
+    const localisation = localisations.find(
+      (localisation) => localisation.language === language
+    );
+    localisedField = localisation && localisation[source];
+  } else {
+    localisedField = defaultValue;
+  }
+  if (format) {
+    // apply the desired formatting
+    localisedField = format(localisedField);
+  }
+  return localisedField;
+};

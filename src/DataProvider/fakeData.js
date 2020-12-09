@@ -82,19 +82,16 @@ export default {
       id: '1',
       localisations: [
         {
-          id: '1',
-          locale: 'ENGLISH',
-          name: '(E) Katrina',
+          language: 'en',
+          name: 'Katrina',
         },
         {
-          id: '2',
-          locale: 'HINDI',
-          name: '(H) Katrina',
+          language: 'hi',
+          name: 'कैटरिना',
         },
         {
-          id: '3',
-          locale: 'URDU',
-          name: '(U) Katrina',
+          language: 'ur',
+          name: 'کترینہ',
         },
       ],
     },
@@ -102,19 +99,16 @@ export default {
       id: '2',
       localisations: [
         {
-          id: '1',
-          locale: 'ENGLISH',
-          name: '(E) Donald',
+          language: 'en',
+          name: 'Donald',
         },
         {
-          id: '2',
-          locale: 'HINDI',
-          name: '(H) Donald',
+          language: 'hi',
+          name: 'डोनाल्ड',
         },
         {
-          id: '3',
-          locale: 'URDU',
-          name: '(U) Donald',
+          language: 'ur',
+          name: 'ڈونلڈ',
         },
       ],
     },
@@ -122,19 +116,16 @@ export default {
       id: '3',
       localisations: [
         {
-          id: '1',
-          locale: 'ENGLISH',
-          name: '(E) Bilal',
+          language: 'en',
+          name: 'Bilal',
         },
         {
-          id: '2',
-          locale: 'HINDI',
-          name: '(H) Bilal',
+          language: 'hi',
+          name: 'बिलाल',
         },
         {
-          id: '3',
-          locale: 'URDU',
-          name: '(U) Bilal',
+          language: 'ur',
+          name: 'بلال',
         },
       ],
     },
@@ -153,19 +144,16 @@ export default {
         id: '1',
         localisations: [
           {
-            id: '1',
-            locale: 'ENGLISH',
-            name: '(E) Katrina',
+            language: 'en',
+            name: 'Katrina',
           },
           {
-            id: '2',
-            locale: 'HINDI',
-            name: '(H) Katrina',
+            language: 'hi',
+            name: 'कैटरिना',
           },
           {
-            id: '3',
-            locale: 'URDU',
-            name: '(U) Katrina',
+            language: 'ur',
+            name: 'کترینہ',
           },
         ],
       },
@@ -188,17 +176,17 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'ENGLISH',
+          locale: 'en',
           description: '(E) Train with your icon, Katrina!',
         },
         {
           id: '2',
-          locale: 'HINDI',
+          locale: 'hi',
           description: '(H) Train with your icon, Katrina!',
         },
         {
           id: '3',
-          locale: 'URDU',
+          locale: 'ur',
           description: '(U) Train with your icon, Katrina!',
         },
       ],
@@ -211,21 +199,21 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'ENGLISH',
+          locale: 'en',
           name: '(E) 50 x Squats',
           description: '(E) Do 50 squats in 1 minute',
           fieldLabel: '(E) field label here',
         },
         {
           id: '2',
-          locale: 'HINDI',
+          locale: 'hi',
           name: '(H) 50 x Squats',
           description: '(H) Do 50 squats in 1 minute',
           fieldLabel: '(H) field label here',
         },
         {
           id: '3',
-          locale: 'URDU',
+          locale: 'ur',
           name: '(U) 50 x Squats',
           description: '(U) Do 50 squats in 1 minute',
           fieldLabel: '(U) field label here',
@@ -275,19 +263,19 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'ENGLISH',
+          locale: 'en',
           name: '(E) Squats',
           coachingTips: "(E) Let's got for it!",
         },
         {
           id: '2',
-          locale: 'HINDI',
+          locale: 'hi',
           name: '(H) Squats',
           coachingTips: "(H) Let's got for it!",
         },
         {
           id: '3',
-          locale: 'URDU',
+          locale: 'ur',
           name: '(U) Squats',
           coachingTips: "(U) Let's got for it!",
         },
@@ -320,19 +308,19 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'ENGLISH',
+          locale: 'en',
           name: '(E) Bicep Curls',
           coachingTips: "(E) Let's got for it!",
         },
         {
           id: '2',
-          locale: 'HINDI',
+          locale: 'hi',
           name: '(H) Bicep Curls',
           coachingTips: "(H) Let's got for it!",
         },
         {
           id: '3',
-          locale: 'URDU',
+          locale: 'ur',
           name: '(U) Bicep Curls',
           coachingTips: "(U) Let's got for it!",
         },
@@ -358,7 +346,7 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'ENGLISH',
+          locale: 'en',
           termAndConditions: 'Terms and Conditions',
           privacyPolicy: 'Privacy Policy',
           onboarding: [
@@ -400,7 +388,7 @@ export default {
           localisations: [
             {
               id: '1',
-              locale: 'ENGLISH',
+              locale: 'en',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
               answer2: 'Reading exercise books',
@@ -409,7 +397,7 @@ export default {
             },
             {
               id: '2',
-              locale: 'HINDI',
+              locale: 'hi',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
               answer2: 'Reading exercise books',
@@ -418,7 +406,7 @@ export default {
             },
             {
               id: '3',
-              locale: 'URDU',
+              locale: 'ur',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
               answer2: 'Reading exercise books',
@@ -438,17 +426,17 @@ export default {
                 localisations: [
                   {
                     id: '1',
-                    locale: 'ENGLISH',
+                    locale: 'en',
                     name: '(E) Katrina',
                   },
                   {
                     id: '2',
-                    locale: 'HINDI',
+                    locale: 'hi',
                     name: '(H) Katrina',
                   },
                   {
                     id: '3',
-                    locale: 'URDU',
+                    locale: 'ur',
                     name: '(U) Katrina',
                   },
                 ],
@@ -468,17 +456,17 @@ export default {
       localisations: [
         {
           id: '1',
-          locale: 'ENGLISH',
+          locale: 'en',
           name: '(E) Fun workout',
         },
         {
           id: '2',
-          locale: 'HINDI',
+          locale: 'hi',
           name: '(H) Fun workout',
         },
         {
           id: '3',
-          locale: 'URDU',
+          locale: 'ur',
           name: '(U) Fun workout',
         },
       ],
@@ -496,17 +484,17 @@ export default {
           localisations: [
             {
               id: '1',
-              locale: 'ENGLISH',
+              locale: 'en',
               name: '(E) Katrina',
             },
             {
               id: '2',
-              locale: 'HINDI',
+              locale: 'hi',
               name: '(H) Katrina',
             },
             {
               id: '3',
-              locale: 'URDU',
+              locale: 'ur',
               name: '(U) Katrina',
             },
           ],
@@ -530,17 +518,17 @@ export default {
         localisations: [
           {
             id: '1',
-            locale: 'ENGLISH',
+            locale: 'en',
             description: '(E) Train with your icon, Katrina!',
           },
           {
             id: '2',
-            locale: 'HINDI',
+            locale: 'hi',
             description: '(H) Train with your icon, Katrina!',
           },
           {
             id: '3',
-            locale: 'URDU',
+            locale: 'ur',
             description: '(U) Train with your icon, Katrina!',
           },
         ],
@@ -576,19 +564,19 @@ export default {
             localisations: [
               {
                 id: '1',
-                locale: 'ENGLISH',
+                locale: 'en',
                 name: '(E) Squats',
                 coachingTips: "(E) Let's got for it!",
               },
               {
                 id: '2',
-                locale: 'HINDI',
+                locale: 'hi',
                 name: '(H) Squats',
                 coachingTips: "(H) Let's got for it!",
               },
               {
                 id: '3',
-                locale: 'URDU',
+                locale: 'ur',
                 name: '(U) Squats',
                 coachingTips: "(U) Let's got for it!",
               },

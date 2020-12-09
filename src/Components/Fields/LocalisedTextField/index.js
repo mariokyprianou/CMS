@@ -7,21 +7,21 @@
  */
 
 import React from 'react';
+import { getLocalisedFieldByLanguage } from 'utils';
 
-const LocalisedTextField = ({
+const TextByLocalisationField = ({
   classes,
-  locale = 'English',
+  language = 'en',
   source,
   record,
 }) => {
   const { localisations } = record;
-  let localisedText;
-  if (localisations && localisations.length > 0) {
-    const localisation = localisations.find(
-      (localisation) => localisation.locale === locale
-    );
-    localisedText = localisation[source];
-  }
+  const localisedText = getLocalisedFieldByLanguage({
+    language,
+    source,
+    localisations,
+  });
+
   return (
     <div className={classes.div}>
       <span className={classes.span}>{localisedText}</span>
@@ -29,4 +29,4 @@ const LocalisedTextField = ({
   );
 };
 
-export default LocalisedTextField;
+export default TextByLocalisationField;

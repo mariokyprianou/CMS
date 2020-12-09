@@ -11,7 +11,7 @@ import { Filter, TextInput } from 'react-admin';
 
 const TrainerFilter = (props) => (
   <Filter {...props}>
-    <TextInput source="q" label="resources.trainer.fields.name" />
+    <TextInput source="name" label="resources.trainer.fields.name" />
   </Filter>
 );
 

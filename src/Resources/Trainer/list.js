@@ -7,25 +7,35 @@
  */
 
 import React from 'react';
-import { List, Datagrid, TextField, EditButton } from 'react-admin';
+import { List, Datagrid, EditButton } from 'react-admin';
 import TrainerAction from './actions';
 import TrainerFilter from './filters';
+import { LocalisedTextField } from 'Components/Fields';
+import { actionButtonStyles, longTextStyles } from 'styles';
 
-const TrainerList = (props) => (
-  <List
-    {...props}
-    title="resources.trainer.titles.trainerManagement"
-    actions={<TrainerAction />}
-    filters={<TrainerFilter />}
-  >
-    <Datagrid>
-      <TextField
-        source="localisations[0].name"
-        label="resources.trainer.fields.name"
-      />
-      <EditButton />
-    </Datagrid>
-  </List>
-);
+const TrainerList = (props) => {
+  const classes = actionButtonStyles();
+  const textTitleClasses = longTextStyles();
+
+  return (
+    <List
+      {...props}
+      title="resources.trainer.titles.trainerManagement"
+      actions={<TrainerAction />}
+      filters={<TrainerFilter />}
+    >
+      <Datagrid>
+        <LocalisedTextField
+          source="name"
+          classes={textTitleClasses}
+          language="en"
+          sortable={false}
+          label="resources.trainer.fields.name"
+        />
+        <EditButton className={classes.floatRight} />
+      </Datagrid>
+    </List>
+  );
+};
 
 export default TrainerList;
