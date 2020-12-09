@@ -25,24 +25,23 @@ export const appStyles = makeStyles({
   },
 });
 
-export const columnStyles = makeStyles({
-  root: {
-    display: 'flex',
-    width: '100%',
-    flexDirection: 'row',
-    marginBottom: 10,
-  },
-  column: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '20vw',
-    height: '50%',
-    marginRight: 25,
-  },
-  columnImage: {
-    marginTop: -24,
-  },
-});
+export const columnStyles = (flexDirection = 'column') =>
+  makeStyles({
+    root: {
+      display: 'flex',
+      width: '100%',
+      flexDirection: 'row',
+      marginBottom: 10,
+      justifyContent: 'space-between',
+    },
+    column: {
+      display: 'flex',
+      flexDirection,
+      width: flexDirection === 'column' && '20vw',
+      // height: '50%',
+      marginRight: 25,
+    },
+  })();
 
 export const toolbarStyles = makeStyles((theme) => ({
   root: {

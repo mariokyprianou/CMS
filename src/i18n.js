@@ -67,6 +67,7 @@ const englishMessages = {
         trainerEnglish: 'Trainer (English)',
         trainerHindi: 'Trainer (Hindi)',
         trainerUrdu: 'Trainer (Urdu)',
+        trainer: 'Trainer',
       },
     },
     programme: {
