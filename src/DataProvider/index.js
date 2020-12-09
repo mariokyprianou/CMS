@@ -58,7 +58,17 @@ const createProvider = async () => {
       dataProvider: jsonRestProvider(data, true),
       //add resources here to override with fake data
       resources: {
+        administrator: 'administrator',
         user: 'user',
+        trainer: 'trainer',
+        programme: 'programme',
+        challenge: 'challenge',
+        exerciseCategory: 'exerciseCategory',
+        exercise: 'exercise',
+        feedback: 'feedback',
+        configuration: 'configuration',
+        helpMeChoose: 'helpMeChoose',
+        workout: 'workout',
       },
     },
   ];

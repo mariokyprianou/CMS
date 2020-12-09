@@ -18,9 +18,24 @@ import buildProvider from 'DataProvider';
 import { CognitoLogin as Login } from '@thedistance/the-core-cms-module-authentication-amplify';
 import defaultTheme, { darkTheme, lightTheme } from 'theme';
 import { appStyles } from 'styles';
+import defaultMessages from 'ra-language-english';
+import customRoutes from 'routes';
 
 // Resources
-import { User } from 'Resources';
+import {
+  Administrator,
+  Challenge,
+  Configuration,
+  Exercise,
+  ExerciseCategory,
+  Feedback,
+  HelpMeChoose,
+  Notification,
+  Programme,
+  Trainer,
+  User,
+  Workout,
+} from 'Resources';
 
 const history = createHistory();
 const stage = process.env.AWS_BRANCH;
@@ -41,7 +56,7 @@ const App = () => {
           dataProvider,
           history,
           customReducers,
-          i18nProvider,
+          i18nProvider: () => defaultMessages,
           initialState: {},
         });
         window.__getStore = () => store;
@@ -74,10 +89,22 @@ const App = () => {
           theme={defaultTheme} //comment this out if using ra-enterprise Admin component
           lightTheme={lightTheme}
           darkTheme={darkTheme}
+          customRoutes={customRoutes}
         >
           {/* permissions prop will contain an array of permissions from the AuthProvider e.g. ["SUPER"] */}
           {(permissions) => [
-            <Resource {...User} />, // TODO: example resource - remove if not required
+            <Resource {...User} />,
+            <Resource {...Administrator} />,
+            <Resource {...Trainer} />,
+            <Resource {...Programme} />,
+            <Resource {...Challenge} />,
+            <Resource {...ExerciseCategory} />,
+            <Resource {...Exercise} />,
+            <Resource {...Workout} />,
+            <Resource {...Feedback} />,
+            <Resource {...Configuration} />,
+            <Resource {...HelpMeChoose} />,
+            <Resource {...Notification} />,
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}

@@ -1,12 +1,43 @@
-import React from 'react';
-import { List, Datagrid, TextField } from 'react-admin';
+/*
+ * Jira Ticket: PDL-269
+ * Created Date: Mon, 23rd Nov 2020, 14:24:39 pm
+ * Author: Harry Crank
+ * Email: harry.crank@thedistance.co.uk
+ * Copyright (c) 2020 The Distance
+ */
 
-const UserList = props => (
-  <List {...props}>
+import React from 'react';
+import {
+  List,
+  Datagrid,
+  TextField,
+  BooleanField,
+  SelectField,
+  EditButton,
+} from 'react-admin';
+import { subscriptionPlatformChoices } from 'utils/choices';
+import UserAction from './actions';
+import UserFilter from './filters';
+
+const UserList = (props) => (
+  <List
+    {...props}
+    title="resources.user.titles.userManagement"
+    actions={<UserAction />}
+    filters={<UserFilter />}
+  >
     <Datagrid>
-      <TextField source="id" />
-      <TextField source="name" />
-      <TextField source="role" />
+      <TextField source="givenName" />
+      <TextField source="familyName" />
+      <TextField source="email" />
+      <TextField source="country" />
+      <TextField source="region" />
+      <BooleanField source="subscription.isSubscribed" />
+      <SelectField
+        source="subscription.platform"
+        choices={subscriptionPlatformChoices}
+      />
+      <EditButton />
     </Datagrid>
   </List>
 );

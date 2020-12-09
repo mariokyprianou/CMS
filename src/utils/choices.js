@@ -7,15 +7,165 @@
  */
 
 // all choices available throughout the app
-const booleanTranslatedChoice = [
+const booleanTranslatedChoices = [
   {
     id: true,
-    name: 'Yes',
+    name: 'choices.booleanTranslated.true',
   },
   {
     id: false,
-    name: 'No',
+    name: 'choices.booleanTranslated.false',
   },
 ];
 
-export { booleanTranslatedChoice };
+const subscriptionPlatformChoices = [
+  {
+    id: 'ANDROID',
+    name: 'choices.subscriptionPlatform.android',
+  },
+  {
+    id: 'IOS',
+    name: 'choices.subscriptionPlatform.ios',
+  },
+  {
+    id: 'NO',
+    name: 'choices.subscriptionPlatform.no',
+  },
+];
+
+const programmeEnvironmentChoices = [
+  {
+    id: 'HOME',
+    name: 'choices.programmeEnvironment.home',
+  },
+  {
+    id: 'GYM',
+    name: 'choices.programmeEnvironment.gym',
+  },
+];
+
+const countryChoices = [
+  {
+    id: 'UK',
+    name: 'UK',
+  },
+  {
+    id: 'India',
+    name: 'India',
+  },
+];
+
+const regionChoices = [
+  {
+    id: 'Assam',
+    name: 'Assam',
+  },
+  {
+    id: 'Bihar',
+    name: 'Bihar',
+  },
+  {
+    id: 'Goa',
+    name: 'Goa',
+  },
+];
+
+const timeZoneChoices = [
+  {
+    id: 'UTC +0',
+    name: 'UTC +0',
+  },
+  {
+    id: 'UTC +1',
+    name: 'UTC +1',
+  },
+  {
+    id: 'UTC +2',
+    name: 'UTC +2',
+  },
+  {
+    id: 'UTC +3',
+    name: 'UTC +3',
+  },
+];
+
+const textColourChoices = [
+  {
+    id: 'WHITE',
+    name: 'choices.textColour.white',
+  },
+  {
+    id: 'BLACK',
+    name: 'choices.textColour.black',
+  },
+];
+
+const challengeTypeChoices = [
+  {
+    id: 'COUNTDOWN',
+    name: 'choices.challengeType.countdown',
+  },
+  {
+    id: 'STOPWATCH',
+    name: 'choices.challengeType.stopwatch',
+  },
+  {
+    id: 'OTHER',
+    name: 'choices.challengeType.other',
+  },
+];
+
+const exerciseVideoDifficultyChoices = [
+  {
+    id: 'EASY',
+    name: 'choices.exerciseVideoDifficulty.easy',
+  },
+  {
+    id: 'MEDIUM',
+    name: 'choices.exerciseVideoDifficulty.medium',
+  },
+  {
+    id: 'HARD',
+    name: 'choices.exerciseVideoDifficulty.hard',
+  },
+];
+
+const localeChoices = [
+  {
+    id: 'ENGLISH',
+    name: 'English',
+  },
+  {
+    id: 'HINDI',
+    name: 'Hindi',
+  },
+  {
+    id: 'URDU',
+    name: 'Urdu',
+  },
+];
+
+const workoutExerciseTypeChoices = [
+  {
+    id: 'REPETITIONS',
+    name: 'choices.workoutExerciseType.repetitions',
+  },
+  {
+    id: 'TIME_INTERVAL',
+    name: 'choices.workoutExerciseType.timeInterval',
+  },
+];
+
+export {
+  booleanTranslatedChoices,
+  subscriptionPlatformChoices,
+  programmeEnvironmentChoices,
+  countryChoices,
+  regionChoices,
+  timeZoneChoices,
+  textColourChoices,
+  challengeTypeChoices,
+  exerciseVideoDifficultyChoices,
+  localeChoices,
+  workoutExerciseTypeChoices,
+};
