@@ -18,21 +18,6 @@ const TrainerEdit = (props) => (
         source="name"
         label="trainer"
       />
-      {/* <TextInput
-        source="localisations[0].name"
-        label="resources.trainer.fields.trainerEnglish"
-        validate={required()}
-      />
-      <TextInput
-        source="localisations[1].name"
-        label="resources.trainer.fields.trainerHindi"
-        validate={required()}
-      />
-      <TextInput
-        source="localisations[2].name"
-        label="resources.trainer.fields.trainerUrdu"
-        validate={required()}
-      /> */}
     </SimpleForm>
   </Edit>
 );

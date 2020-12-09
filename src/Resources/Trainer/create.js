@@ -8,24 +8,15 @@
 
 import React from 'react';
 import { Create, SimpleForm, TextInput, required } from 'react-admin';
+import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 
 const TrainerCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput
-        source="localisations[0].name"
-        label="resources.trainer.fields.trainerEnglish"
-        validate={required()}
-      />
-      <TextInput
-        source="localisations[1].name"
-        label="resources.trainer.fields.trainerHindi"
-        validate={required()}
-      />
-      <TextInput
-        source="localisations[2].name"
-        label="resources.trainer.fields.trainerUrdu"
-        validate={required()}
+      <LocalisedComponentCloner
+        component={<TextInput validate={required()} />}
+        source="name"
+        label="trainer"
       />
     </SimpleForm>
   </Create>

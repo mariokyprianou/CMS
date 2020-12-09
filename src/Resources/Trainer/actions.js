@@ -14,6 +14,8 @@ import {
   sanitizeListRestProps,
 } from 'react-admin';
 
+const supportedLanguages = process.env.REACT_APP_SUPPORTED_LANG.split(' ');
+
 const TrainerAction = (props) => {
   const { className, exporter, filters, maxResults, ...rest } = props;
   const {
@@ -33,7 +35,20 @@ const TrainerAction = (props) => {
           filterValues,
           context: 'button',
         })}
-      <CreateButton basePath={basePath} />
+      {/* Because of our special LocalisedCOmponentCloner, initialise the form via the button */}
+      <CreateButton
+        basePath={basePath}
+        to={{
+          pathname: `${basePath}/create`,
+          state: {
+            record: {
+              localisations: supportedLanguages.map((language) => {
+                return { language, name: null };
+              }),
+            },
+          },
+        }}
+      />
     </TopToolbar>
   );
 };
