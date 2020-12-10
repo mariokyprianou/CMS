@@ -9,8 +9,6 @@
 import React from 'react';
 import { Filter, TextInput } from 'react-admin';
 
-// TODO: Add filter functionality.
-
 const AdministratorFilter = (props) => (
   <Filter {...props}>
     <TextInput source="email" />

@@ -11,10 +11,9 @@ import { List, Datagrid, EditButton } from 'react-admin';
 import TrainerAction from './actions';
 import TrainerFilter from './filters';
 import { LocalisedTextField } from 'Components/Fields';
-import { actionButtonStyles, longTextStyles } from 'styles';
+import { longTextStyles } from 'styles';
 
 const TrainerList = (props) => {
-  const classes = actionButtonStyles();
   const textTitleClasses = longTextStyles();
 
   return (
@@ -32,7 +31,7 @@ const TrainerList = (props) => {
           sortable={false}
           label="resources.trainer.fields.name"
         />
-        <EditButton className={classes.floatRight} />
+        <EditButton />
       </Datagrid>
     </List>
   );
