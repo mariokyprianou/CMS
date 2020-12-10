@@ -32,13 +32,11 @@ export const columnStyles = (flexDirection = 'column') =>
       width: '100%',
       flexDirection: 'row',
       marginBottom: 10,
-      justifyContent: 'space-between',
     },
     column: {
       display: 'flex',
       flexDirection,
       width: flexDirection === 'column' && '20vw',
-      // height: '50%',
       marginRight: 25,
     },
   })();

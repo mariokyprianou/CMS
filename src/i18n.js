@@ -38,10 +38,15 @@ const englishMessages = {
         country: 'Country',
         region: 'Region',
         timeZone: 'Time Zone',
-        canChangeDevice: '30-day device limit',
+        previousTrainers: 'Previous Trainers',
+        canChangeDevice: '30-day Device Limit',
         subscription: {
-          isSubscribed: 'Marketing',
-          platform: 'Subscriber',
+          isSubscribed: 'Email Marketing Preference',
+          platform: 'Subscriber Status',
+        },
+        currentTrainerProgram: {
+          programme: 'Current Programme',
+          currentWeek: 'Current Week',
         },
       },
     },

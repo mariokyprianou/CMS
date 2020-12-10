@@ -105,6 +105,7 @@ const App = () => {
             <Resource {...Configuration} />,
             <Resource {...HelpMeChoose} />,
             <Resource {...Notification} />,
+            // TODO: Add resources Country/Region/TimeZone
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}

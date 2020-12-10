@@ -40,6 +40,7 @@ const programmeEnvironmentChoices = [
   },
 ];
 
+// TODO: comes form the backend as County resource
 const countryChoices = [
   {
     id: 'UK',
@@ -51,6 +52,7 @@ const countryChoices = [
   },
 ];
 
+// TODO: comes form the backend as Region resource
 const regionChoices = [
   {
     id: 'Assam',
@@ -66,6 +68,7 @@ const regionChoices = [
   },
 ];
 
+// TODO: comes form the backend as TimeZone resource
 const timeZoneChoices = [
   {
     id: 'UTC +0',

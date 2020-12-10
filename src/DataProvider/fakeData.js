@@ -21,6 +21,12 @@ export default {
         isSubscribed: false,
         platform: null,
       },
+      currentTrainer: { id: '1' },
+      previousTrainers: ['2'],
+      currentTrainerProgram: {
+        id: '1',
+        currentWeek: 1,
+      },
     },
     {
       id: '2',
@@ -35,6 +41,8 @@ export default {
         isSubscribed: true,
         platform: 'IOS',
       },
+      currentTrainer: { id: '2' },
+      previousTrainers: [],
     },
     {
       id: '3',
@@ -49,6 +57,8 @@ export default {
         isSubscribed: false,
         platform: 'ANDROID',
       },
+      currentTrainer: { id: '2' },
+      previousTrainers: [],
     },
     {
       id: '4',
@@ -63,6 +73,8 @@ export default {
         isSubscribed: true,
         platform: 'IOS',
       },
+      currentTrainer: { id: '2' },
+      previousTrainers: [],
     },
   ],
   administrator: [
@@ -133,7 +145,7 @@ export default {
   programme: [
     {
       id: '1',
-      type: 'HOME', // HOME / GYM
+      environment: 'HOME', // HOME / GYM
       subscribers: 2,
       stats: {
         fitness: 99,
