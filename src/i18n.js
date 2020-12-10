@@ -32,8 +32,8 @@ const englishMessages = {
         userManagement: 'User Management',
       },
       fields: {
-        givenName: 'First Name',
-        familyName: 'Last Name',
+        firstName: 'First Name',
+        lastName: 'Last Name',
         email: 'Email',
         country: 'Country',
         region: 'Region',

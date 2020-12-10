@@ -10,11 +10,11 @@ export default {
   user: [
     {
       id: '1',
-      givenName: 'Logan',
-      familyName: 'Schowalter',
+      firstName: 'Logan',
+      lastName: 'Schowalter',
       email: 'logan@grr.la',
       country: 'UK',
-      region: '',
+      region: null,
       timeZone: 'UTC +2',
       canChangeDevice: true,
       subscription: {
@@ -24,11 +24,11 @@ export default {
     },
     {
       id: '2',
-      givenName: 'Gabby',
-      familyName: 'Doodoo',
+      firstName: 'Gabby',
+      lastName: 'Doodoo',
       email: 'gabby@grr.la',
       country: 'UK',
-      region: '',
+      region: null,
       timeZone: 'UTC +0',
       canChangeDevice: false,
       subscription: {
@@ -38,8 +38,8 @@ export default {
     },
     {
       id: '3',
-      givenName: 'Brod',
-      familyName: 'Greenwood',
+      firstName: 'Brod',
+      lastName: 'Greenwood',
       email: 'brod@grr.la',
       country: 'India',
       region: 'Goa',
@@ -52,11 +52,11 @@ export default {
     },
     {
       id: '4',
-      givenName: 'Fran',
-      familyName: 'Smith',
+      firstName: 'Fran',
+      lastName: 'Smith',
       email: 'fran@grr.la',
       country: 'India',
-      region: '',
+      region: null,
       timeZone: 'UTC +0',
       canChangeDevice: true,
       subscription: {

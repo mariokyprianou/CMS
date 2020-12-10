@@ -27,10 +27,6 @@ const subscriptionPlatformChoices = [
     id: 'IOS',
     name: 'choices.subscriptionPlatform.ios',
   },
-  {
-    id: 'NO',
-    name: 'choices.subscriptionPlatform.no',
-  },
 ];
 
 const programmeEnvironmentChoices = [

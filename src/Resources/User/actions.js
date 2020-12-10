@@ -14,7 +14,7 @@ import {
   sanitizeListRestProps,
 } from 'react-admin';
 
-// TODO: Add action to Export Button
+// TODO: Add action to Export Button - this will be a custom request to the backend
 // https://thedistance.atlassian.net/wiki/spaces/PDL/pages/2026242085/2.1+User+Management
 // A csv report can be exported from the user list which will comprise the following columns:
 
