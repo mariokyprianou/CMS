@@ -132,6 +132,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
         />
       </div>
       <div className={classes.column}>
+        {/* TODO: may need to support empty values */}
         <ReferenceInput
           resource={resource}
           source="currentTrainerProgram.id"
