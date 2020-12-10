@@ -17,6 +17,7 @@ import authProvider from 'AuthProvider';
 import buildProvider from 'DataProvider';
 import { CognitoLogin as Login } from '@thedistance/the-core-cms-module-authentication-amplify';
 import defaultTheme, { darkTheme, lightTheme } from 'theme';
+import Layout from 'Layout';
 import { appStyles } from 'styles';
 import defaultMessages from 'ra-language-english';
 import customRoutes from 'routes';
@@ -26,12 +27,15 @@ import {
   Administrator,
   Challenge,
   Configuration,
+  Country,
   Exercise,
   ExerciseCategory,
   Feedback,
   HelpMeChoose,
   Notification,
   Programme,
+  Region,
+  TimeZone,
   Trainer,
   User,
   Workout,
@@ -85,6 +89,7 @@ const App = () => {
           dataProvider={dataProvider}
           title="Power - Admin"
           loginPage={Login}
+          layout={Layout}
           i18nProvider={i18nProvider}
           theme={defaultTheme} //comment this out if using ra-enterprise Admin component
           lightTheme={lightTheme}
@@ -97,15 +102,17 @@ const App = () => {
             <Resource {...Administrator} />,
             <Resource {...Trainer} />,
             <Resource {...Programme} />,
-            <Resource {...Challenge} />,
+            <Resource {...Workout} />,
             <Resource {...ExerciseCategory} />,
             <Resource {...Exercise} />,
-            <Resource {...Workout} />,
-            <Resource {...Feedback} />,
             <Resource {...Configuration} />,
             <Resource {...HelpMeChoose} />,
             <Resource {...Notification} />,
-            // TODO: Add resources Country/Region/TimeZone
+            <Resource {...Feedback} />,
+            <Resource {...Challenge} />,
+            <Resource {...Country} />,
+            <Resource {...Region} />,
+            <Resource {...TimeZone} />,
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}

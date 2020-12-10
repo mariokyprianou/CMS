@@ -114,6 +114,12 @@ const englishMessages = {
         name: 'Category Name',
       },
     },
+    configuration: {
+      name: 'Configuration',
+      fields: {
+        name: 'Category Name',
+      },
+    },
     exercise: {
       name: 'Exercise |||| Exercises',
       titles: {
@@ -134,7 +140,7 @@ const englishMessages = {
       },
     },
     feedback: {
-      name: 'Feedback |||| Feedback',
+      name: 'Feedback |||| Workout Feedback',
       titles: {
         feedbackManagement: 'Feedback Management',
       },
@@ -155,7 +161,7 @@ const englishMessages = {
       fields: {},
     },
     workout: {
-      name: 'Workout |||| Workout',
+      name: 'Workout |||| Workouts',
       titles: {
         workoutManagement: 'Workout Management',
       },

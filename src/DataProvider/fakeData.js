@@ -422,8 +422,7 @@ export default {
       id: '1',
       localisations: [
         {
-          id: '1',
-          locale: 'en',
+          language: 'en',
           termAndConditions: 'Terms and Conditions',
           privacyPolicy: 'Privacy Policy',
           onboarding: [
@@ -447,6 +446,68 @@ export default {
             },
             {
               id: '2',
+              type: '?',
+              title: 'Title',
+              body: 'Body',
+            },
+          ],
+        },
+        {
+          language: 'hi',
+          termAndConditions: 'नियम और शर्',
+          privacyPolicy: 'गोपनीयता नीति',
+          onboarding: [
+            {
+              id: '1',
+              text: 'Welcome Onboarding 1',
+              image: 'https://www.google.co.uk/images',
+            },
+            {
+              id: '2',
+              text: 'Welcome Onboarding 2',
+              image: 'https://www.google.co.uk/images',
+            },
+          ],
+          notifications: [
+            {
+              id: '1',
+              type: '?',
+              title: 'Title',
+              body: 'Body',
+            },
+            {
+              id: '2',
+              type: '?',
+              title: 'Title',
+              body: 'Body',
+            },
+          ],
+        },
+        {
+          language: 'ur',
+          termAndConditions: 'شرائط و ضوابط',
+          privacyPolicy: 'رازداری کی پالیسی',
+          onboardings: [
+            {
+              orderIndex: 1,
+              title: 'Welcome Onboarding 1',
+              description: 'This is the text for the onboarding screen 1',
+              image: 'https://www.google.co.uk/images',
+            },
+            {
+              orderIndex: 2,
+              title: 'Welcome Onboarding 2',
+              description: 'This is the text for the onboarding screen 2',
+              image: 'https://www.google.co.uk/images',
+            },
+          ],
+          notifications: [
+            {
+              type: '?',
+              title: 'Title',
+              body: 'Body',
+            },
+            {
               type: '?',
               title: 'Title',
               body: 'Body',

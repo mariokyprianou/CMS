@@ -7,6 +7,6 @@
  */
 
 export default {
-  name: 'challenge',
+  name: 'timezone',
   options: { excludeFromMenu: true },
 };

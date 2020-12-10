@@ -15,4 +15,7 @@ export default {
   list,
   edit,
   icon,
+  options: {
+    menuIndex: 4,
+  },
 };

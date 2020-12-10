@@ -9,12 +9,15 @@
 import Administrator from './Administrator';
 import Challenge from './Challenge';
 import Configuration from './Configuration';
+import Country from './Country';
 import Exercise from './Exercise';
 import ExerciseCategory from './ExerciseCategory';
 import Feedback from './Feedback';
 import HelpMeChoose from './HelpMeChoose';
 import Notification from './Notification';
 import Programme from './Programme';
+import Region from './Region';
+import TimeZone from './TimeZone';
 import Trainer from './Trainer';
 import User from './User';
 import Workout from './Workout';
@@ -23,12 +26,15 @@ export {
   Administrator,
   Challenge,
   Configuration,
+  Country,
   Exercise,
   ExerciseCategory,
   Feedback,
   HelpMeChoose,
   Notification,
   Programme,
+  Region,
+  TimeZone,
   Trainer,
   User,
   Workout,

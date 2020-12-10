@@ -9,7 +9,7 @@
 import list from './list';
 import create from './create';
 import edit from './edit';
-import { Person as icon } from '@material-ui/icons';
+import { AccessibilityNew as icon } from '@material-ui/icons';
 
 export default {
   name: 'trainer',
@@ -17,4 +17,7 @@ export default {
   create,
   edit,
   icon,
+  options: {
+    menuIndex: 1,
+  },
 };

@@ -7,6 +7,6 @@
  */
 
 export default {
-  name: 'challenge',
+  name: 'region',
   options: { excludeFromMenu: true },
 };

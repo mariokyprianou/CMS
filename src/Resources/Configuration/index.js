@@ -13,4 +13,7 @@ export default {
   name: 'configuration',
   edit,
   icon,
+  options: {
+    menuIndex: 3,
+  },
 };

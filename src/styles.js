@@ -265,3 +265,27 @@ export const actionButtonStyles = (marginRight = 0) =>
       float: 'right',
     },
   })();
+
+export const centeredStyle = makeStyles({
+  root: {
+    margin: 50,
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    maxHeight: '10em',
+  },
+});
+
+export const multiLangFormStyles = makeStyles({
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  removeTranslation: {
+    height: '100%',
+    color: colors.white,
+    backgroundColor: colors.red,
+    '&:hover': {
+      backgroundColor: colors.darkenedRed,
+    },
+  },
+});

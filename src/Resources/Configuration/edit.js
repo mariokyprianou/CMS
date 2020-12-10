@@ -1,46 +1,44 @@
 /*
- * Jira Ticket: PDL-364
- * Created Date: Mon, 30th Nov 2020, 13:29:46 pm
- * Author: Harry Crank
- * Email: harry.crank@thedistance.co.uk
+ * Jira Ticket:
+ * Created Date: Wed, 9th Dec 2020, 15:13:10 pm
+ * Author: Jessica Mowatt
+ * Email: jessica.mowatt@thedistance.co.uk
  * Copyright (c) 2020 The Distance
  */
 
 import React from 'react';
-import {
-  fetchStart,
-  fetchEnd,
-  SimpleForm,
-  useDataProvider,
-  useNotify,
-} from 'react-admin';
+import { Edit, required, SimpleFormIterator, TextInput } from 'react-admin';
+import { MultiLanguageForm } from 'Components/Forms';
+import RichTextInput from 'ra-input-rich-text';
+import { columnStyles } from 'styles';
 
-const ConfigurationPage = (props) => {
-  const resource = 'Configuration';
-  const dataProvider = useDataProvider();
-  const notify = useNotify();
-  const { staticContext, ...customProps } = {
-    resource,
-    basePath: `/${resource}`,
-    ...props,
-  };
-  const toolbarProps = {
-    dataProvider,
-    dispatch,
-    fetchStart,
-    fetchEnd,
-    notify,
-  };
+const supportedLanguages = process.env.REACT_APP_SUPPORTED_LANG.split(' ');
 
+const ConfigurationPage = ({ staticContext, ...props }) => {
+  const classes = columnStyles();
   return (
-    <SimpleForm
-      // toolbar={<ConfigToolbar {...toolbarProps} />}
-      {...customProps}
+    <Edit
+      {...props}
+      id="1"
+      basePath="/configuration"
+      resource="configuration"
+      title="resources.configuration.name"
     >
-      {/* TODO: Show the Resource on the left hand side and then show the
-      contents for the screen. See FDs for design
-      (https://thedistance.atlassian.net/wiki/spaces/PDL/pages/2026373158/2.6+Configuration) */}
-    </SimpleForm>
+      <MultiLanguageForm
+        supportedLanguages={supportedLanguages}
+        allowLanguageRemoval={false}
+        extendToolbar={0}
+        sourcesToSkipRecursion={['image', 'downloads']} // skip nested fields to avoid breaking on recursive children
+      >
+        <RichTextInput source="termAndConditions" validation={required()} />
+        <RichTextInput source="privacyPolicy" validation={required()} />
+        {/* TODO: fix below, simple form iterator might not work for us */}
+        {/* <SimpleFormIterator>
+          <TextInput source="title" />
+          <TextInput source="text" />
+        </SimpleFormIterator> */}
+      </MultiLanguageForm>
+    </Edit>
   );
 };
 

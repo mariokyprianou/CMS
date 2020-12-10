@@ -17,4 +17,7 @@ export default {
   create,
   edit,
   icon,
+  options: {
+    menuIndex: 1,
+  },
 };
