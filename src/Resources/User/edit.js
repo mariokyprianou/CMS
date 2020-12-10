@@ -19,24 +19,31 @@ import {
   SelectInput,
   SimpleForm,
   TextInput,
+  useTranslate,
 } from 'react-admin';
 import { columnStyles } from 'styles';
 import { getLocalisedFieldByLanguage } from 'utils';
 import {
+  programmeEnvironmentChoices,
   subscriptionPlatformChoices,
   countryChoices,
   regionChoices,
   timeZoneChoices,
 } from 'utils/choices';
 
-const TrainerChoices = ({ choices, ...props }) => {
+const TrainerChoices = ({
+  choices,
+  language = 'en',
+  localisedFieldSource,
+  ...props
+}) => {
   const enChoices = choices.map((choice) => {
     return {
       ...choice,
       enName: getLocalisedFieldByLanguage({
-        language: 'en',
+        language,
         localisations: choice.localisations,
-        source: 'name',
+        source: localisedFieldSource,
       }),
     };
   });
@@ -45,7 +52,37 @@ const TrainerChoices = ({ choices, ...props }) => {
   );
 };
 
-const SanitizedForm = ({ basePath, classes, ...props }) => {
+const ProgrammeChoices = ({
+  choices,
+  language = 'en',
+  localisedFieldSource,
+  ...props
+}) => {
+  const { translate } = props;
+  const trainerProgrammeChoices = choices.map((choice) => {
+    return {
+      ...choice,
+      programmeName: `${getLocalisedFieldByLanguage({
+        language,
+        localisations: choice.trainer.localisations,
+        source: localisedFieldSource,
+      })} - ${translate(
+        programmeEnvironmentChoices
+          .filter((programmeEnv) => programmeEnv.id === choice.environment)
+          .map((env) => env.name)[0]
+      )}`,
+    };
+  });
+  return (
+    <SelectInput
+      {...props}
+      optionText="programmeName"
+      choices={trainerProgrammeChoices}
+    />
+  );
+};
+
+const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
   const { resource } = props;
   return (
     <div className={classes.root}>
@@ -61,6 +98,7 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
           validate={required()}
         />
         <TextInput resource={resource} source="email" validate={required()} />
+        {/* TODO: probably needs to be a referenceinput */}
         <SelectInput
           resource={resource}
           source="country"
@@ -70,6 +108,7 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
         <FormDataConsumer>
           {({ formData }) =>
             formData.country === 'India' && (
+              // TODO: probably needs to be a referenceinput
               <SelectInput
                 resource={resource}
                 source="region"
@@ -95,11 +134,15 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
       <div className={classes.column}>
         <ReferenceInput
           resource={resource}
-          source="trainer"
-          reference="trainer"
+          source="currentTrainerProgram.id"
+          reference="programme"
           validate={required()}
         >
-          <SelectInput optionText="localisations[0].name" />
+          <ProgrammeChoices
+            langauge="en"
+            localisedFieldSource="name"
+            translate={translate}
+          />
         </ReferenceInput>
         {/* TODO: add currentWeek validation, int > 0 */}
         <NumberInput
@@ -112,12 +155,12 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
           resource={resource}
           reference="trainer"
           source="previousTrainers"
-          label={`resources.${resource}.fields.previousTrainers`}
           disabled
         >
-          <TrainerChoices />
+          <TrainerChoices langauge="en" localisedFieldSource="name" />
         </ReferenceArrayInput>
         <BooleanInput resource={resource} source="canChangeDevice" />
+        {/* TODO: probably needs to be a referenceinput */}
         <SelectInput
           resource={resource}
           source="timeZone"
@@ -131,10 +174,11 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
 
 const UserEdit = (props) => {
   const classes = columnStyles();
+  const translate = useTranslate();
   return (
     <Edit {...props}>
       <SimpleForm>
-        <SanitizedForm classes={classes} />
+        <SanitizedForm classes={classes} translate={translate} />
       </SimpleForm>
     </Edit>
   );

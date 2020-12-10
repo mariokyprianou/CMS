@@ -21,7 +21,6 @@ export default {
         isSubscribed: false,
         platform: null,
       },
-      currentTrainer: { id: '1' },
       previousTrainers: ['2'],
       currentTrainerProgram: {
         id: '1',
@@ -41,7 +40,7 @@ export default {
         isSubscribed: true,
         platform: 'IOS',
       },
-      currentTrainer: { id: '2' },
+      currentTrainerProgram: {},
       previousTrainers: [],
     },
     {
@@ -57,7 +56,10 @@ export default {
         isSubscribed: false,
         platform: 'ANDROID',
       },
-      currentTrainer: { id: '2' },
+      currentTrainerProgram: {
+        id: '1',
+        currentWeek: 1,
+      },
       previousTrainers: [],
     },
     {
@@ -73,7 +75,10 @@ export default {
         isSubscribed: true,
         platform: 'IOS',
       },
-      currentTrainer: { id: '2' },
+      currentTrainerProgram: {
+        id: '1',
+        currentWeek: 1,
+      },
       previousTrainers: [],
     },
   ],
@@ -146,6 +151,66 @@ export default {
     {
       id: '1',
       environment: 'HOME', // HOME / GYM
+      subscribers: 2,
+      stats: {
+        fitness: 99,
+        muscle: 30,
+        fatLoss: 55,
+      },
+      trainer: {
+        id: '1',
+        localisations: [
+          {
+            language: 'en',
+            name: 'Katrina',
+          },
+          {
+            language: 'hi',
+            name: 'कैटरिना',
+          },
+          {
+            language: 'ur',
+            name: 'کترینہ',
+          },
+        ],
+      },
+      images: [
+        {
+          id: '1',
+          url:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
+        },
+      ],
+      shareMediaImages: [
+        {
+          id: '1',
+          type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
+          url:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
+          textColour: '#dad',
+        },
+      ],
+      localisations: [
+        {
+          id: '1',
+          locale: 'en',
+          description: '(E) Train with your icon, Katrina!',
+        },
+        {
+          id: '2',
+          locale: 'hi',
+          description: '(H) Train with your icon, Katrina!',
+        },
+        {
+          id: '3',
+          locale: 'ur',
+          description: '(U) Train with your icon, Katrina!',
+        },
+      ],
+    },
+    {
+      id: '2',
+      environment: 'GYM', // HOME / GYM
       subscribers: 2,
       stats: {
         fitness: 99,

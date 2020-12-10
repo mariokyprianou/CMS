@@ -45,7 +45,7 @@ const englishMessages = {
           platform: 'Subscriber Status',
         },
         currentTrainerProgram: {
-          programme: 'Current Programme',
+          id: 'Current Programme',
           currentWeek: 'Current Week',
         },
       },
