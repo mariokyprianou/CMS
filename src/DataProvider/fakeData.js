@@ -407,14 +407,15 @@ export default {
   feedback: [
     {
       id: '1',
-      trainer: 'Julia',
+      trainerName: 'Julia',
+      week: 1,
       programme: 'Home',
       workoutName: 'Bend & Snap',
-      emoji: 'happy',
-      user: 'barry.white@grr.la',
-      timeTaken: '60',
-      workoutIntensity: '33',
-      date: '30-11-2020',
+      emojis: ['😊'],
+      userEmail: 'barry.white@grr.la',
+      timeTaken: 60,
+      workoutIntensity: 33,
+      date: '2020-11-30',
     },
   ],
   configuration: [
@@ -589,7 +590,7 @@ export default {
     {
       id: '1',
       additionalInfo: 'Additional workout info',
-      headerImage: 'https://www.google.co.uk/images',
+      overviewImage: 'https://www.google.co.uk/images',
       week: 1,
       localisations: [
         {

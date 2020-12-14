@@ -289,3 +289,15 @@ export const multiLangFormStyles = makeStyles({
     },
   },
 });
+
+export const horizontalList = makeStyles({
+  root: {
+    listStyleType: 'none',
+    display: 'flex',
+    flexDirection: 'row',
+    margin: 0,
+    padding: 0,
+    minWidth: '100px', // allows 6 emojis to be spaced
+    justifyContent: 'space-between',
+  },
+});

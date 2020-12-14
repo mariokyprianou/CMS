@@ -142,9 +142,18 @@ const englishMessages = {
     feedback: {
       name: 'Feedback |||| Workout Feedback',
       titles: {
-        feedbackManagement: 'Feedback Management',
+        feedback: 'Feedback',
       },
-      fields: {},
+      fields: {
+        trainerName: 'Trainer',
+        week: 'Week',
+        workoutName: 'Session',
+        programme: 'Programme',
+        emojis: 'Emoji',
+        userEmail: 'User',
+        timeTaken: 'Time Taken',
+        workoutIntensity: 'Workout Intensity',
+      },
     },
     notification: {
       name: 'Notification |||| Notifications',

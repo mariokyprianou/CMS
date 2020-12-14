@@ -7,28 +7,62 @@
  */
 
 import React from 'react';
-import { List, Datagrid, TextField } from 'react-admin';
+import {
+  Datagrid,
+  DateField,
+  FunctionField,
+  List,
+  NumberField,
+  TextField,
+} from 'react-admin';
 import FeedbackAction from './actions';
 import FeedbackFilter from './filters';
+import { horizontalList } from 'styles';
 
-const FeedbackList = (props) => (
-  <List
-    {...props}
-    title="resources.feedback.titles.feedbackManagement"
-    actions={<FeedbackAction />}
-    filters={<FeedbackFilter />}
-  >
-    <Datagrid>
-      <TextField source="trainer" />
-      <TextField source="programme" />
-      <TextField source="workoutName" />
-      <TextField source="emoji" />
-      <TextField source="user" />
-      <TextField source="timeTaken" />
-      <TextField source="workoutIntensity" />
-      <TextField source="date" />
-    </Datagrid>
-  </List>
-);
+const EmojisField = ({ record, source }) => {
+  const classes = horizontalList();
+  return (
+    <ul className={classes.root}>
+      {record[source].map((emoji, index) => (
+        <span role="img" key={`emoji-${index}`} aria-label={emoji}>
+          {emoji}
+        </span>
+      ))}
+    </ul>
+  );
+};
+
+const FeedbackList = (props) => {
+  // TODO: export feedback CSV Logic - use callDataProvider
+  const exportCSV = (filterValues) => {
+    console.log('filterValues: ', filterValues);
+  };
+
+  return (
+    <List
+      {...props}
+      actions={<FeedbackAction onClick={exportCSV} />}
+      filters={<FeedbackFilter />}
+    >
+      <Datagrid>
+        <TextField source="trainerName" />
+        <NumberField source="week" />
+        <TextField source="workoutName" />
+        <EmojisField source="emojis" />
+        <TextField source="userEmail" />
+        <FunctionField
+          source="timeTaken"
+          render={(record) => record.timeTaken + ' mins'}
+        />
+        <TextField source="workoutIntensity" />
+        <DateField source="date" />
+      </Datagrid>
+    </List>
+  );
+};
+
+EmojisField.defaultProps = {
+  addLabel: true,
+};
 
 export default FeedbackList;

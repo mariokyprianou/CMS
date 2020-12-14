@@ -13,12 +13,7 @@ import WorkoutFilter from './filters';
 
 // TODO: Update sources and labels to match the data structure in fakeData.
 const WorkoutList = (props) => (
-  <List
-    {...props}
-    title="resources.workout.titles.workoutManagement"
-    actions={<WorkoutAction />}
-    filters={<WorkoutFilter />}
-  >
+  <List {...props} actions={<WorkoutAction />} filters={<WorkoutFilter />}>
     <Datagrid>
       <TextField source="trainer" />
       <TextField source="week" />

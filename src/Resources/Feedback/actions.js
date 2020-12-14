@@ -7,15 +7,12 @@
  */
 
 import React, { cloneElement } from 'react';
-import {
-  useListContext,
-  TopToolbar,
-  ExportButton,
-  sanitizeListRestProps,
-} from 'react-admin';
+import { useListContext, TopToolbar, sanitizeListRestProps } from 'react-admin';
+import { ActionButton } from 'Components/Buttons';
+import { GetApp } from '@material-ui/icons';
 
 const FeedbackAction = (props) => {
-  const { className, exporter, filters, maxResults, ...rest } = props;
+  const { className, exporter, filters, maxResults, onClick, ...rest } = props;
   const {
     resource,
     displayedFilters,
@@ -32,7 +29,12 @@ const FeedbackAction = (props) => {
           filterValues,
           context: 'button',
         })}
-      <ExportButton />
+      <ActionButton
+        label={'ra.action.export'}
+        variant="text"
+        onClick={() => onClick(filterValues)}
+        icon={<GetApp />}
+      />
     </TopToolbar>
   );
 };
