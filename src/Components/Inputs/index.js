@@ -7,5 +7,11 @@
  */
 
 import PercentageInput from './PercentageInput';
+import LocalisedReferenceArrayInput from './LocalisedReferenceArrayInput';
+import LocalisedReferenceInput from './LocalisedReferenceInput';
 
-export { PercentageInput };
+export {
+  LocalisedReferenceArrayInput,
+  LocalisedReferenceInput,
+  PercentageInput,
+};

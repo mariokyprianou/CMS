@@ -21,7 +21,7 @@ export default {
         isSubscribed: false,
         platform: null,
       },
-      previousTrainers: ['2'],
+      previousTrainers: ['2', '3'],
       currentTrainerProgram: {
         id: '1',
         currentWeek: 1,
