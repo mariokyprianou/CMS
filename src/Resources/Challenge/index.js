@@ -6,7 +6,12 @@
  * Copyright (c) 2020 The Distance
  */
 
+import create from './create';
+import edit from './edit';
+
 export default {
   name: 'challenge',
+  create,
+  edit,
   options: { excludeFromMenu: true },
 };

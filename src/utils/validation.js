@@ -5,3 +5,32 @@
  * Email: jessica.mowatt@thedistance.co.uk
  * Copyright (c) 2020 The Distance
  */
+
+export const nonNegativeNonZeroInt = (num = 0) => {
+  console.log('num: ', num);
+  if (num !== null) {
+    if (Number.isInteger(num)) {
+      if (num <= 0) {
+        return 'validation.positivieNonZeroInt';
+      }
+    } else {
+      return 'validation.notAnInt';
+    }
+  } else {
+    return 'ra.validation.required';
+  }
+};
+
+export const nonNegativeInt = (num) => {
+  if (num !== null) {
+    if (Number.isInteger(num)) {
+      if (num < 0) {
+        return 'validation.positivieInt';
+      }
+    } else {
+      return 'validation.notAnInt';
+    }
+  } else {
+    return 'ra.validation.required';
+  }
+};

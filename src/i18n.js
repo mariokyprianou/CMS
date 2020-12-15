@@ -107,6 +107,14 @@ const englishMessages = {
         },
       },
     },
+    challenge: {
+      name: 'Challenge |||| Challenges',
+      fields: {
+        name: 'Challenge Name',
+        fieldTitle: 'Challenge Field Title',
+        fieldDescription: 'Challenge Description',
+      },
+    },
     exerciseCategory: {
       name: 'Exercise Category |||| Exercise Categories',
       titles: {
@@ -225,6 +233,20 @@ const englishMessages = {
       header: 'You do not have the required permissions to view this page',
       subtitle: 'Contact your administrator for necessary permissions',
     },
+  },
+  validation: {
+    passwdSpecial: 'Password must contain a special character',
+    passwdNumber: 'Password must contain a number',
+    passwdLower: 'Password must contain a lowercase character',
+    passwdUpper: 'Password must contain an uppercase character',
+    passwdMinLen: 'Password must be at least 8 characters',
+    passwdMaxLen: 'Password must be no more than 99 characters',
+    invalidEmail: 'Invalid email format',
+    invalidPhone: 'Not a valid phone number of the form +17895551234',
+    invalidUrl: 'Invalid URL format',
+    notAnInt: 'Not an integer',
+    positivieNonZeroInt: 'Please enter a number greater than 0',
+    positivieInt: 'Please enter a positive integer',
   },
 };
 
