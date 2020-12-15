@@ -17,7 +17,7 @@ import ShareMedia from './Tabs/ShareMedia';
 const ProgrammeEdit = (props) => {
   const { resource } = props;
   return (
-    <Edit {...props}>
+    <Edit undoable={false} {...props}>
       <TabbedForm>
         <FormTab label={`resources.${resource}.tabs.details`}>
           <Details />

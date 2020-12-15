@@ -7,28 +7,33 @@
  */
 
 import React, { Fragment } from 'react';
-import { SelectInput, required, ImageInput } from 'react-admin';
+import { ImageField, ImageInput, SelectInput, required } from 'react-admin';
+import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { columnStyles } from 'styles';
 import { textColourChoices } from 'utils/choices';
 
-// TODO: Check with Jess about the source's for Images and Select Inputs, and for the labels to append numbers.
+// TODO: Unclear which fields were localised here
 const ShareMediaTab = () => {
   const classes = columnStyles();
   return (
     <Fragment>
       {/* 1st Row - Programme Start */}
+      <LocalisedComponentCloner
+        component={
+          <ImageInput>
+            <ImageField source="src" title="programmeStartImage" />
+          </ImageInput>
+        }
+        resource="programme"
+        direction="row"
+        fullWidth
+        source="programmeStartImage"
+        label="programmeStartImage"
+      />
       <div className={classes.root}>
         <div className={classes.column}>
-          <ImageInput
-            source=""
-            label="resources.programme.fields.programmeStartImage"
-            multiple
-            options={{
-              maxFiles: 3,
-            }}
-          />
           <SelectInput
-            source="textColour"
+            source="programmeStartImageColour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             validate={required()}
@@ -39,11 +44,13 @@ const ShareMediaTab = () => {
       <div className={classes.root}>
         <div className={classes.column}>
           <ImageInput
-            source=""
-            label="resources.programme.fields.weekCompleteImage"
-          />
+            source="weekCompleteImage1"
+            label="resources.programme.fields.weekCompleteImage1"
+          >
+            <ImageField source="src" title="weekCompleteImage1" />
+          </ImageInput>
           <SelectInput
-            source="textColour"
+            source="weekCompleteImage1Colour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             validate={required()}
@@ -51,11 +58,13 @@ const ShareMediaTab = () => {
         </div>
         <div className={classes.column}>
           <ImageInput
-            source=""
-            label="resources.programme.fields.weekCompleteImage"
-          />
+            source="weekCompleteImage2"
+            label="resources.programme.fields.weekCompleteImage2"
+          >
+            <ImageField source="src" title="weekCompleteImage2" />
+          </ImageInput>
           <SelectInput
-            source="textColour"
+            source="weekCompleteImage2Colour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             validate={required()}
@@ -63,11 +72,13 @@ const ShareMediaTab = () => {
         </div>
         <div className={classes.column}>
           <ImageInput
-            source=""
-            label="resources.programme.fields.weekCompleteImage"
-          />
+            source="weekCompleteImage3"
+            label="resources.programme.fields.weekCompleteImage3"
+          >
+            <ImageField source="src" title="weekCompleteImage3" />
+          </ImageInput>
           <SelectInput
-            source="textColour"
+            source="weekCompleteImage3Colour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             validate={required()}
@@ -78,11 +89,13 @@ const ShareMediaTab = () => {
       <div className={classes.root}>
         <div className={classes.column}>
           <ImageInput
-            source=""
-            label="resources.programme.fields.challengeCompleteImage"
-          />
+            source="challengeImage1"
+            label="resources.programme.fields.challengeCompleteImage1"
+          >
+            <ImageField source="src" title="challengeImage1" />
+          </ImageInput>
           <SelectInput
-            source="textColour"
+            source="challengeImage1Colour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             validate={required()}
@@ -90,11 +103,13 @@ const ShareMediaTab = () => {
         </div>
         <div className={classes.column}>
           <ImageInput
-            source=""
-            label="resources.programme.fields.challengeCompleteImage"
-          />
+            source="challengeImage2"
+            label="resources.programme.fields.challengeCompleteImage2"
+          >
+            <ImageField source="src" title="challengeImage2" />
+          </ImageInput>
           <SelectInput
-            source="textColour"
+            source="challengeImage2Colour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             validate={required()}
@@ -105,8 +120,16 @@ const ShareMediaTab = () => {
       <div className={classes.root}>
         <div className={classes.column}>
           <ImageInput
-            source=""
+            source="progressImage"
             label="resources.programme.fields.progressImage"
+          >
+            <ImageField source="src" title="progressImage" />
+          </ImageInput>
+          <SelectInput
+            source="progressImageColour"
+            label="resources.programme.fields.textColour"
+            choices={textColourChoices}
+            validate={required()}
           />
         </div>
       </div>

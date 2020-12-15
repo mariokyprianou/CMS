@@ -98,8 +98,11 @@ const englishMessages = {
         description: 'Trainer Description',
         textColour: 'Text Colour',
         programmeStartImage: 'Programme Start Image',
-        weekCompleteImage: 'Week Complete Image',
-        challengeCompleteImage: 'Challenge Complete Image',
+        weekCompleteImage1: 'Week Complete - Image 1',
+        weekCompleteImage2: 'Week Complete - Image 2',
+        weekCompleteImage3: 'Week Complete - Image 3',
+        challengeCompleteImage1: 'Challenge Complete - Image 1',
+        challengeCompleteImage2: 'Challenge Complete - Image 2',
         progressImage: 'Progress Image',
         trainerName: 'Trainer',
         trainer: {
