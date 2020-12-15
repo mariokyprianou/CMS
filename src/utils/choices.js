@@ -40,6 +40,11 @@ const programmeEnvironmentChoices = [
   },
 ];
 
+const publishStatusChoices = [
+  { id: 'PUBLISHED', name: 'choices.publishStatus.published' },
+  { id: 'DRAFT', name: 'choices.publishStatus.draft' },
+];
+
 // TODO: comes form the backend as County resource
 const countryChoices = [
   {
@@ -167,4 +172,5 @@ export {
   exerciseVideoDifficultyChoices,
   localeChoices,
   workoutExerciseTypeChoices,
+  publishStatusChoices,
 };

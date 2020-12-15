@@ -228,6 +228,10 @@ const englishMessages = {
       repetitions: 'Repetitions',
       timeInterval: 'Time Interval',
     },
+    publishStatus: {
+      published: 'Published',
+      draft: 'Draft',
+    },
   },
   error: {
     generic: 'Oops! Something went wrong. Please try again',

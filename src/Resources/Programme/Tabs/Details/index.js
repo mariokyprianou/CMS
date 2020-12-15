@@ -16,7 +16,10 @@ import {
 } from 'react-admin';
 import { LocalisedReferenceInput, PercentageInput } from 'Components/Inputs';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
-import { programmeEnvironmentChoices } from 'utils/choices';
+import {
+  programmeEnvironmentChoices,
+  publishStatusChoices,
+} from 'utils/choices';
 import { columnStyles } from 'styles';
 
 const DetailTab = (props) => {
@@ -38,6 +41,12 @@ const DetailTab = (props) => {
             source="environment"
             choices={programmeEnvironmentChoices}
             validate={required()}
+          />
+          <SelectInput
+            source="status"
+            choices={publishStatusChoices}
+            validate={required()}
+            defaultValue="DRAFT"
           />
         </div>
         <div className={classes.column}>

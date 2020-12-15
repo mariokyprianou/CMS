@@ -156,6 +156,7 @@ export default {
       muscle: 30,
       fatLoss: 55,
       workoutIds: [1, 2],
+      status: 'PUBLISHED',
       trainer: {
         id: 1,
         localisations: [
@@ -212,6 +213,7 @@ export default {
       environment: 'GYM', // HOME / GYM
       subscribers: 2,
       fitness: 99,
+      status: 'DRAFT',
       workoutIds: [1, 2],
       muscle: 30,
       fatLoss: 55,
