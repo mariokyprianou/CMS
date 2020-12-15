@@ -611,30 +611,25 @@ export default {
       ],
       programme: {
         id: '1',
-        type: 'HOME', // HOME / GYM
+        environment: 'HOME', // HOME / GYM
         subscribers: 2,
-        stats: {
-          fitness: 99,
-          muscle: 30,
-          fatLoss: 55,
-        },
+        fitness: 99,
+        muscle: 30,
+        fatLoss: 55,
         trainer: {
           id: '1',
           localisations: [
             {
-              id: '1',
-              locale: 'en',
-              name: '(E) Katrina',
+              language: 'en',
+              name: 'Katrina',
             },
             {
-              id: '2',
-              locale: 'hi',
-              name: '(H) Katrina',
+              language: 'hi',
+              name: 'कैटरिना',
             },
             {
-              id: '3',
-              locale: 'ur',
-              name: '(U) Katrina',
+              language: 'ur',
+              name: 'کترینہ',
             },
           ],
         },

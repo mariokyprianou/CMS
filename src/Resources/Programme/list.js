@@ -15,10 +15,10 @@ import {
   SelectField,
   FunctionField,
 } from 'react-admin';
+import { LocalisedTextField, PercentageTextField } from 'Components/Fields';
 import ProgrammeAction from './actions';
 import ProgrammeFilter from './filters';
 import { programmeEnvironmentChoices } from 'utils/choices';
-import { PercentageTextField } from 'Components/Fields';
 
 const ProgrammeList = (props) => (
   <List
@@ -28,34 +28,33 @@ const ProgrammeList = (props) => (
     filters={<ProgrammeFilter />}
   >
     <Datagrid>
-      <TextField
-        source="trainer.localisations[0].name"
-        label="resources.programme.fields.name"
+      <LocalisedTextField
+        parent="trainer"
+        source="name"
+        language="en"
+        sortable={false}
+        textVisibleLength="100px"
+        label="resources.programme.fields.trainerName"
       />
       <FunctionField
-        source="stats.fitness"
-        label="resources.programme.fields.fitness"
+        source="fitness"
         render={(record) => (
           <PercentageTextField value={record.stats.fitness} />
         )}
       />
       <FunctionField
-        source="stats.muscle"
-        label="resources.programme.fields.muscle"
+        source="muscle"
         render={(record) => <PercentageTextField value={record.stats.muscle} />}
       />
       <FunctionField
-        source="stats.fatLoss"
+        source="fatLoss"
         label="resources.programme.fields.fatLoss"
         render={(record) => (
           <PercentageTextField value={record.stats.fatLoss} />
         )}
       />
-      <SelectField source="type" choices={programmeEnvironmentChoices} />
-      <TextField
-        source="subscribers"
-        label="resources.programme.fields.currentSubscribers"
-      />
+      <SelectField source="environment" choices={programmeEnvironmentChoices} />
+      <TextField source="subscribers" />
       <EditButton />
     </Datagrid>
   </List>

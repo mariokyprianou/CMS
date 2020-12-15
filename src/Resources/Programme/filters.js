@@ -7,14 +7,13 @@
  */
 
 import React from 'react';
-import { Filter, TextInput } from 'react-admin';
-
-// TODO: Add filter functionality.
+import { Filter, SelectInput, TextInput } from 'react-admin';
+import { programmeEnvironmentChoices } from 'utils/choices';
 
 const ProgrammeFilter = (props) => (
   <Filter {...props}>
     <TextInput source="trainer" />
-    <TextInput source="environment" />
+    <SelectInput source="environment" choices={programmeEnvironmentChoices} />
   </Filter>
 );
 

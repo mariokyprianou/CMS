@@ -93,7 +93,7 @@ const englishMessages = {
         muscle: 'Muscle',
         fatLoss: 'Fat Loss',
         environment: 'Environment',
-        currentSubscribers: 'Current Subscribers',
+        subscribers: 'Current Subscribers',
         trainerImages: 'Trainer Preview Images',
         trainerDescriptionEnglish: 'Trainer Description (English)',
         trainerDescriptionHindi: 'Trainer Description (Hindi)',
@@ -103,6 +103,7 @@ const englishMessages = {
         weekCompleteImage: 'Week Complete Image',
         challengeCompleteImage: 'Challenge Complete Image',
         progressImage: 'Progress Image',
+        trainerName: 'Trainer',
       },
     },
     exerciseCategory: {

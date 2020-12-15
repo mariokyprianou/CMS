@@ -8,14 +8,22 @@
 
 import React from 'react';
 import { getLocalisedFieldByLanguage } from 'utils';
+import { longTextStyles } from 'styles';
 
 const TextByLocalisationField = ({
-  classes,
+  parent = null,
   language = 'en',
   source,
   record,
+  textVisibleLength,
 }) => {
-  const { localisations } = record;
+  const classes = longTextStyles(textVisibleLength);
+
+  let recordData = record;
+  if (parent) {
+    recordData = record[parent];
+  }
+  const { localisations } = recordData;
   const localisedText = getLocalisedFieldByLanguage({
     language,
     source,
