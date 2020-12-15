@@ -7,9 +7,10 @@
  */
 
 import React from 'react';
-import { List, Datagrid, TextField, EditButton } from 'react-admin';
+import { List, Datagrid, EditButton } from 'react-admin';
 import ExerciseActions from './actions';
 import ExerciseFilter from './filters';
+import { LocalisedTextField } from 'Components/Fields';
 
 const ExerciseList = (props) => (
   <List
@@ -19,14 +20,18 @@ const ExerciseList = (props) => (
     filters={<ExerciseFilter />}
   >
     <Datagrid>
-      <TextField
-        // TODO: Trainer isn't in the Exercise schema nor could I find how a Trainer is associated to the Exercise object. See FDs: https://thedistance.atlassian.net/wiki/spaces/PDL/pages/2026078245/2.5.2+Exercises
-        source="trainer"
-        label="resources.exercise.fields.trainer"
+      <LocalisedTextField
+        parentPath="trainer"
+        source="name"
+        language="en"
+        sortable={false}
+        textVisibleLength="100px"
       />
-      <TextField
-        source="localisations[0].name"
-        label="resources.exercise.fields.name"
+      <LocalisedTextField
+        source="name"
+        language="en"
+        sortable={false}
+        textVisibleLength="100px"
       />
       <EditButton />
     </Datagrid>

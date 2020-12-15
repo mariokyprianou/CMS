@@ -1,24 +1,57 @@
 /*
- * Jira Ticket: PDL-362
- * Created Date: Wed, 25th Nov 2020, 12:23:32 pm
- * Author: Harry Crank
- * Email: harry.crank@thedistance.co.uk
+ * Jira Ticket:
+ * Created Date: Wed, 9th Dec 2020, 15:13:10 pm
+ * Author: Jessica Mowatt
+ * Email: jessica.mowatt@thedistance.co.uk
  * Copyright (c) 2020 The Distance
  */
 
 import React, { Fragment } from 'react';
-import { columnStyles } from 'styles';
+import {
+  Datagrid,
+  EditButton,
+  FunctionField,
+  Pagination,
+  ReferenceManyField,
+} from 'react-admin';
+import { LocalisedTextField } from 'Components/Fields';
 
-const ExercisesTab = () => {
-  const classes = columnStyles();
+const ExerciseTab = (props) => {
   return (
     <Fragment>
-      <div className={classes.root}>
-        <div className={classes.column}>TODO: Working in Progress</div>
-        <div className={classes.column}>TODO: Working in Progress</div>
-      </div>
+      <ReferenceManyField
+        reference="exercise"
+        target="programmeId"
+        pagination={<Pagination />}
+        {...props}
+      >
+        <Datagrid>
+          <LocalisedTextField
+            parentPath="trainer"
+            source="name"
+            language="en"
+            sortable={false}
+            textVisibleLength="100px"
+          />
+          <LocalisedTextField
+            source="name"
+            language="en"
+            sortable={false}
+            textVisibleLength="100px"
+          />
+          <FunctionField
+            render={(record) => (
+              <EditButton
+                to={{
+                  pathname: `/exercise/${record.id}`,
+                }}
+              />
+            )}
+          />
+        </Datagrid>
+      </ReferenceManyField>
     </Fragment>
   );
 };
 
-export default ExercisesTab;
+export default ExerciseTab;

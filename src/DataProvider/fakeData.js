@@ -318,6 +318,24 @@ export default {
         id: 2,
         name: 'Squats',
       },
+      trainerId: 1,
+      trainer: {
+        id: 1,
+        localisations: [
+          {
+            language: 'en',
+            name: 'Katrina',
+          },
+          {
+            language: 'hi',
+            name: 'कैटरिना',
+          },
+          {
+            language: 'ur',
+            name: 'کترینہ',
+          },
+        ],
+      },
       videos: [
         {
           id: 1,
@@ -339,25 +357,44 @@ export default {
         {
           id: 1,
           language: 'en',
-          name: '(E) Squats',
-          coachingTips: "(E) Let's got for it!",
+          name: 'Squats',
+          coachingTips: "Let's got for it!",
         },
         {
           id: 2,
           language: 'hi',
-          name: '(H) Squats',
-          coachingTips: "(H) Let's got for it!",
+          name: 'स्क्वाट',
+          coachingTips: 'इसके लिए चलो!',
         },
         {
           id: 3,
           language: 'ur',
-          name: '(U) Squats',
-          coachingTips: "(U) Let's got for it!",
+          name: 'اسکواٹس',
+          coachingTips: 'چلو اس کے لئے مل گیا!',
         },
       ],
     },
     {
       id: 2,
+      trainerId: 1,
+      trainer: {
+        id: 1,
+        localisations: [
+          {
+            language: 'en',
+            name: 'Katrina',
+          },
+          {
+            language: 'hi',
+            name: 'कैटरिना',
+          },
+          {
+            language: 'ur',
+            name: 'کترینہ',
+          },
+        ],
+      },
+      programmeId: 1,
       isWeight: true,
       category: {
         id: 3,
@@ -384,20 +421,20 @@ export default {
         {
           id: 1,
           language: 'en',
-          name: '(E) Bicep Curls',
-          coachingTips: "(E) Let's got for it!",
+          name: 'Bicep Curls',
+          coachingTips: "Let's got for it!",
         },
         {
           id: 2,
           language: 'hi',
-          name: '(H) Bicep Curls',
-          coachingTips: "(H) Let's got for it!",
+          name: 'वज़न उठाने का प्रशिक्षण',
+          coachingTips: 'इसके लिए चलो!',
         },
         {
           id: 3,
           language: 'ur',
-          name: '(U) Bicep Curls',
-          coachingTips: "(U) Let's got for it!",
+          name: 'بائسپ curls',
+          coachingTips: 'چلو اس کے لئے مل گیا!',
         },
       ],
     },
