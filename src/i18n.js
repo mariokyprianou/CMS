@@ -189,10 +189,18 @@ const englishMessages = {
       },
       fields: {
         trainer: 'Trainer',
-        name: 'Name',
+        name: 'Workout Title',
         programme: {
           environment: 'Programme',
         },
+        duration: 'Duration (Minutes)',
+        overviewImage: 'Workout Header Image (Optional)',
+        additionalTrainerInfo: 'Additional Trainer Info',
+        setType: 'Set Type',
+        restTime: 'Rest Time (Optional)',
+        set: 'Set',
+        exercise: 'Exercise *',
+        work: 'Work',
       },
     },
   },
@@ -232,6 +240,15 @@ const englishMessages = {
       published: 'Published',
       draft: 'Draft',
     },
+    intensity: {
+      low: 'Low',
+      mod: 'Moderate',
+      high: 'High',
+    },
+    exerciseType: {
+      reps: 'Repetitions',
+      time: 'Time',
+    },
   },
   error: {
     generic: 'Oops! Something went wrong. Please try again',
@@ -254,6 +271,11 @@ const englishMessages = {
     notAnInt: 'Not an integer',
     positivieNonZeroInt: 'Please enter a number greater than 0',
     positivieInt: 'Please enter a positive integer',
+  },
+  util: {
+    seconds: 'seconds',
+    minutes: 'minutes',
+    reps: 'repetitions',
   },
 };
 

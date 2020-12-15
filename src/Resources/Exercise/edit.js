@@ -61,7 +61,6 @@ const ExerciseEdit = (props) => {
             </FormDataConsumer>
           </div>
         </div>
-
         {/* 2nd Row - Name (Locale) */}
         <div className={classes.root}>
           <div className={classes.column}>

@@ -629,8 +629,10 @@ export default {
     {
       id: 1,
       additionalInfo: 'Additional workout info',
-      overviewImage: 'https://www.google.co.uk/images',
-      week: 1,
+      overviewImage: { id: 1, url: 'https://www.google.co.uk/images' },
+      weekNumber: 1,
+      orderIndex: 1,
+      duration: 60,
       programmeId: 1,
       localisations: [
         {
@@ -760,7 +762,9 @@ export default {
       id: 2,
       additionalInfo: 'Additional workout info',
       overviewImage: 'https://www.google.co.uk/images',
-      week: 1,
+      weekNumber: 2,
+      orderIndex: 2,
+      duration: 30,
       programmeId: 2,
       localisations: [
         {

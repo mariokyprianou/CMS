@@ -160,6 +160,32 @@ const workoutExerciseTypeChoices = [
   },
 ];
 
+const intensityChoices = [
+  {
+    id: 'LOW',
+    name: 'choices.intensity.low',
+  },
+  {
+    id: 'MOD',
+    name: 'choices.intensity.mod',
+  },
+  {
+    id: 'HIGH',
+    name: 'choices.intensity.high',
+  },
+];
+
+const exerciseTypeChoices = [
+  {
+    id: 'REPS',
+    name: 'choices.exerciseType.reps',
+  },
+  {
+    id: 'TIME',
+    name: 'choices.exerciseType.time',
+  },
+];
+
 export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
@@ -173,4 +199,6 @@ export {
   localeChoices,
   workoutExerciseTypeChoices,
   publishStatusChoices,
+  intensityChoices,
+  exerciseTypeChoices,
 };

@@ -7,7 +7,6 @@
  */
 
 export const nonNegativeNonZeroInt = (num = 0) => {
-  console.log('num: ', num);
   if (num !== null) {
     if (Number.isInteger(num)) {
       if (num <= 0) {

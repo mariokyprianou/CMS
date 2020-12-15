@@ -16,7 +16,7 @@ const TrainerEdit = (props) => (
       <LocalisedComponentCloner
         component={<TextInput validate={required()} />}
         source="name"
-        label="trainer"
+        label="resources.trainer.fields.trainer"
       />
     </SimpleForm>
   </Edit>

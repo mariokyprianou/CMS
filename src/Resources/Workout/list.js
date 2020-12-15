@@ -45,15 +45,6 @@ const WorkoutList = (props) => (
         source="programme.environment"
         choices={programmeEnvironmentChoices}
       />
-      <FunctionField
-        render={(record) => (
-          <EditButton
-            to={{
-              pathname: `/workout/${record.id}`,
-            }}
-          />
-        )}
-      />
       <EditButton />
     </Datagrid>
   </List>

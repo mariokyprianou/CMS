@@ -7,10 +7,14 @@
  */
 
 import list from './list';
+import edit from './edit';
+import create from './create';
 import { WatchLater as icon } from '@material-ui/icons';
 
 export default {
   name: 'workout',
   list,
   icon,
+  edit,
+  create,
 };

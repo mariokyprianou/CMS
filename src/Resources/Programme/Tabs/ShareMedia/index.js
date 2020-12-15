@@ -29,7 +29,6 @@ const ShareMediaTab = () => {
         direction="row"
         fullWidth
         source="programmeStartImage"
-        label="programmeStartImage"
       />
       {/* 2nd Row - Week Complete */}
       <div className={classes.root}>

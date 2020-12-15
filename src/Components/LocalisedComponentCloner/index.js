@@ -51,14 +51,15 @@ const LocalisedComponentCloner = ({
         notFoundIndex++;
       }
     }
+    const fieldLabel = label
+      ? translate(label)
+      : translate(`resources.${resource}.fields.${source}`);
     children.push(
       <div key={`localisations[${index}].${source}`} className={classes.column}>
         {React.cloneElement(component, {
           ...props,
           source: `localisations[${index}].${source}`,
-          label: `${translate(
-            `resources.${resource}.fields.${label || source}`
-          )} (${languageNames.of(language)})`,
+          label: `${fieldLabel} (${languageNames.of(language)})`,
           initialValue,
           defaultValue: initialValue,
         })}
