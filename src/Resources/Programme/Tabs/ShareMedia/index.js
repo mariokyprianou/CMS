@@ -12,7 +12,8 @@ import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { columnStyles } from 'styles';
 import { textColourChoices } from 'utils/choices';
 
-// TODO: Unclear which fields were localised here
+// TODO: CMS Logic need to format the data to localised fields to match backend
+// and pull out data from localised fields to match the form requirements here
 const ShareMediaTab = () => {
   const classes = columnStyles();
   return (
@@ -30,16 +31,6 @@ const ShareMediaTab = () => {
         source="programmeStartImage"
         label="programmeStartImage"
       />
-      <div className={classes.root}>
-        <div className={classes.column}>
-          <SelectInput
-            source="programmeStartImageColour"
-            label="resources.programme.fields.textColour"
-            choices={textColourChoices}
-            validate={required()}
-          />
-        </div>
-      </div>
       {/* 2nd Row - Week Complete */}
       <div className={classes.root}>
         <div className={classes.column}>
