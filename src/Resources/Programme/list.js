@@ -29,7 +29,7 @@ const ProgrammeList = (props) => (
   >
     <Datagrid>
       <LocalisedTextField
-        parent="trainer"
+        parentPath="trainer"
         source="name"
         language="en"
         sortable={false}

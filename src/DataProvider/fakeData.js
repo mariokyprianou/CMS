@@ -155,6 +155,7 @@ export default {
       fitness: 99,
       muscle: 30,
       fatLoss: 55,
+      workoutIds: [1, 2],
       trainer: {
         id: 1,
         localisations: [
@@ -191,17 +192,17 @@ export default {
       localisations: [
         {
           id: 1,
-          locale: 'en',
+          language: 'en',
           description: 'Train with your icon, Katrina!',
         },
         {
           id: 2,
-          locale: 'hi',
+          language: 'hi',
           description: 'अपने आइकन के साथ ट्रेन, कैटरीना!',
         },
         {
           id: 3,
-          locale: 'ur',
+          language: 'ur',
           description: 'اپنے آئیکن کے ساتھ ٹرین ، کترینہ!',
         },
       ],
@@ -211,6 +212,7 @@ export default {
       environment: 'GYM', // HOME / GYM
       subscribers: 2,
       fitness: 99,
+      workoutIds: [1, 2],
       muscle: 30,
       fatLoss: 55,
       trainer: {
@@ -249,17 +251,17 @@ export default {
       localisations: [
         {
           id: 1,
-          locale: 'en',
+          language: 'en',
           description: 'Train with your icon, Katrina!',
         },
         {
           id: 2,
-          locale: 'hi',
+          language: 'hi',
           description: 'अपने आइकन के साथ ट्रेन, कैटरीना!',
         },
         {
           id: 3,
-          locale: 'ur',
+          language: 'ur',
           description: 'اپنے آئیکن کے ساتھ ٹرین ، کترینہ!',
         },
       ],
@@ -272,21 +274,21 @@ export default {
       localisations: [
         {
           id: 1,
-          locale: 'en',
+          language: 'en',
           name: '(E) 50 x Squats',
           description: '(E) Do 50 squats in 1 minute',
           fieldLabel: '(E) field label here',
         },
         {
           id: 2,
-          locale: 'hi',
+          language: 'hi',
           name: '(H) 50 x Squats',
           description: '(H) Do 50 squats in 1 minute',
           fieldLabel: '(H) field label here',
         },
         {
           id: 3,
-          locale: 'ur',
+          language: 'ur',
           name: '(U) 50 x Squats',
           description: '(U) Do 50 squats in 1 minute',
           fieldLabel: '(U) field label here',
@@ -336,19 +338,19 @@ export default {
       localisations: [
         {
           id: 1,
-          locale: 'en',
+          language: 'en',
           name: '(E) Squats',
           coachingTips: "(E) Let's got for it!",
         },
         {
           id: 2,
-          locale: 'hi',
+          language: 'hi',
           name: '(H) Squats',
           coachingTips: "(H) Let's got for it!",
         },
         {
           id: 3,
-          locale: 'ur',
+          language: 'ur',
           name: '(U) Squats',
           coachingTips: "(U) Let's got for it!",
         },
@@ -381,19 +383,19 @@ export default {
       localisations: [
         {
           id: 1,
-          locale: 'en',
+          language: 'en',
           name: '(E) Bicep Curls',
           coachingTips: "(E) Let's got for it!",
         },
         {
           id: 2,
-          locale: 'hi',
+          language: 'hi',
           name: '(H) Bicep Curls',
           coachingTips: "(H) Let's got for it!",
         },
         {
           id: 3,
-          locale: 'ur',
+          language: 'ur',
           name: '(U) Bicep Curls',
           coachingTips: "(U) Let's got for it!",
         },
@@ -523,7 +525,7 @@ export default {
           localisations: [
             {
               id: 1,
-              locale: 'en',
+              language: 'en',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
               answer2: 'Reading exercise books',
@@ -532,7 +534,7 @@ export default {
             },
             {
               id: 2,
-              locale: 'hi',
+              language: 'hi',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
               answer2: 'Reading exercise books',
@@ -541,7 +543,7 @@ export default {
             },
             {
               id: 3,
-              locale: 'ur',
+              language: 'ur',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
               answer2: 'Reading exercise books',
@@ -561,17 +563,17 @@ export default {
                 localisations: [
                   {
                     id: 1,
-                    locale: 'en',
+                    language: 'en',
                     name: '(E) Katrina',
                   },
                   {
                     id: 2,
-                    locale: 'hi',
+                    language: 'hi',
                     name: '(H) Katrina',
                   },
                   {
                     id: 3,
-                    locale: 'ur',
+                    language: 'ur',
                     name: '(U) Katrina',
                   },
                 ],
@@ -588,21 +590,19 @@ export default {
       additionalInfo: 'Additional workout info',
       overviewImage: 'https://www.google.co.uk/images',
       week: 1,
+      programmeId: 1,
       localisations: [
         {
-          id: 1,
-          locale: 'en',
-          name: '(E) Fun workout',
+          language: 'en',
+          name: 'Fun workout',
         },
         {
-          id: 2,
-          locale: 'hi',
-          name: '(H) Fun workout',
+          language: 'hi',
+          name: 'मजेदार कसरत',
         },
         {
-          id: 3,
-          locale: 'ur',
-          name: '(U) Fun workout',
+          language: 'ur',
+          name: 'تفریح ​​ورزش',
         },
       ],
       programme: {
@@ -648,18 +648,18 @@ export default {
         localisations: [
           {
             id: 1,
-            locale: 'en',
-            description: '(E) Train with your icon, Katrina!',
+            language: 'en',
+            description: 'Train with your icon, Katrina!',
           },
           {
             id: 2,
-            locale: 'hi',
-            description: '(H) Train with your icon, Katrina!',
+            language: 'hi',
+            description: 'अपने आइकन के साथ ट्रेन, कैटरीना!',
           },
           {
             id: 3,
-            locale: 'ur',
-            description: '(U) Train with your icon, Katrina!',
+            language: 'ur',
+            description: 'اپنے آئیکن کے ساتھ ٹرین ، کترینہ!',
           },
         ],
       },
@@ -694,19 +694,149 @@ export default {
             localisations: [
               {
                 id: 1,
-                locale: 'en',
+                language: 'en',
                 name: '(E) Squats',
                 coachingTips: "(E) Let's got for it!",
               },
               {
                 id: 2,
-                locale: 'hi',
+                language: 'hi',
                 name: '(H) Squats',
                 coachingTips: "(H) Let's got for it!",
               },
               {
                 id: 3,
-                locale: 'ur',
+                language: 'ur',
+                name: '(U) Squats',
+                coachingTips: "(U) Let's got for it!",
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      id: 2,
+      additionalInfo: 'Additional workout info',
+      overviewImage: 'https://www.google.co.uk/images',
+      week: 1,
+      programmeId: 2,
+      localisations: [
+        {
+          language: 'en',
+          name: 'Fun workout 2',
+        },
+        {
+          language: 'hi',
+          name: 'मजेदार कसरत 2',
+        },
+        {
+          language: 'ur',
+          name: 'تفریح ​​ورزش 2',
+        },
+      ],
+      programme: {
+        id: 1,
+        environment: 'HOME', // HOME / GYM
+        subscribers: 2,
+        fitness: 99,
+        muscle: 30,
+        fatLoss: 55,
+        trainer: {
+          id: 1,
+          localisations: [
+            {
+              language: 'en',
+              name: 'Katrina',
+            },
+            {
+              language: 'hi',
+              name: 'कैटरिना',
+            },
+            {
+              language: 'ur',
+              name: 'کترینہ',
+            },
+          ],
+        },
+        images: [
+          {
+            id: 1,
+            url:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
+          },
+        ],
+        shareMediaImages: [
+          {
+            id: 1,
+            type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
+            url:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
+            textColour: '#dad',
+          },
+        ],
+        localisations: [
+          {
+            id: 1,
+            language: 'en',
+            description: 'Train with your icon, Katrina!',
+          },
+          {
+            id: 2,
+            language: 'hi',
+            description: 'अपने आइकन के साथ ट्रेन, कैटरीना!',
+          },
+          {
+            id: 3,
+            language: 'ur',
+            description: 'اپنے آئیکن کے ساتھ ٹرین ، کترینہ!',
+          },
+        ],
+      },
+      exercises: [
+        {
+          id: 1,
+          type: 'REPETITIONS', // REPETITIONS || TIME_INTERVAL
+          exercise: {
+            id: 1,
+            isWeight: false,
+            category: {
+              id: 2,
+              name: 'Squats',
+            },
+            videos: [
+              {
+                id: 1,
+                url: 'https://www.google.co.uk',
+                difficulty: 'HARD',
+              },
+              {
+                id: 2,
+                url: 'https://www.google.co.uk',
+                difficulty: 'MEDIUM',
+              },
+              {
+                id: 3,
+                url: 'https://www.google.co.uk',
+                difficulty: 'EASY',
+              },
+            ],
+            localisations: [
+              {
+                id: 1,
+                language: 'en',
+                name: '(E) Squats',
+                coachingTips: "(E) Let's got for it!",
+              },
+              {
+                id: 2,
+                language: 'hi',
+                name: '(H) Squats',
+                coachingTips: "(H) Let's got for it!",
+              },
+              {
+                id: 3,
+                language: 'ur',
                 name: '(U) Squats',
                 coachingTips: "(U) Let's got for it!",
               },

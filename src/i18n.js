@@ -176,7 +176,13 @@ const englishMessages = {
       titles: {
         workoutManagement: 'Workout Management',
       },
-      fields: {},
+      fields: {
+        trainer: 'Trainer',
+        name: 'Name',
+        programme: {
+          environment: 'Programme',
+        },
+      },
     },
   },
   choices: {

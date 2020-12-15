@@ -9,9 +9,10 @@
 import React from 'react';
 import { getLocalisedFieldByLanguage } from 'utils';
 import { longTextStyles } from 'styles';
+import get from 'lodash/get';
 
 const TextByLocalisationField = ({
-  parent = null,
+  parentPath = null,
   language = 'en',
   source,
   record,
@@ -20,8 +21,8 @@ const TextByLocalisationField = ({
   const classes = longTextStyles(textVisibleLength);
 
   let recordData = record;
-  if (parent) {
-    recordData = record[parent];
+  if (parentPath) {
+    recordData = get(record, parentPath);
   }
   const { localisations } = recordData;
   const localisedText = getLocalisedFieldByLanguage({

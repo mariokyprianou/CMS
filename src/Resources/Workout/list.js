@@ -7,19 +7,53 @@
  */
 
 import React from 'react';
-import { List, Datagrid, TextField, EditButton } from 'react-admin';
+import {
+  EditButton,
+  FunctionField,
+  List,
+  Datagrid,
+  SelectField,
+  TextField,
+} from 'react-admin';
 import WorkoutAction from './actions';
 import WorkoutFilter from './filters';
+import { LocalisedTextField } from 'Components/Fields';
+import { programmeEnvironmentChoices } from 'utils/choices';
 
-// TODO: Update sources and labels to match the data structure in fakeData.
 const WorkoutList = (props) => (
   <List {...props} actions={<WorkoutAction />} filters={<WorkoutFilter />}>
     <Datagrid>
-      <TextField source="trainer" />
+      <LocalisedTextField
+        parentPath="programme.trainer"
+        source="name"
+        language="en"
+        label="resources.trainer.fields.name"
+        textVisibleLength="100px"
+      />
       <TextField source="week" />
-      <TextField source="name" />
-      <TextField source="exercise" />
-      <TextField source="programme" />
+      <LocalisedTextField
+        source="name"
+        language="en"
+        label="resources.workout.fields.name"
+        textVisibleLength="200px"
+      />
+      <FunctionField
+        source="exercises"
+        render={(record) => record.exercises.length}
+      />
+      <SelectField
+        source="programme.environment"
+        choices={programmeEnvironmentChoices}
+      />
+      <FunctionField
+        render={(record) => (
+          <EditButton
+            to={{
+              pathname: `/workout/${record.id}`,
+            }}
+          />
+        )}
+      />
       <EditButton />
     </Datagrid>
   </List>
