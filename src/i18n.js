@@ -201,6 +201,7 @@ const englishMessages = {
         set: 'Set',
         exercise: 'Exercise *',
         work: 'Work',
+        weekNumber: 'Week',
       },
     },
   },

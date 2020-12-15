@@ -30,7 +30,7 @@ const WorkoutList = (props) => (
         label="resources.trainer.fields.name"
         textVisibleLength="100px"
       />
-      <TextField source="week" />
+      <TextField source="weekNumber" />
       <LocalisedTextField
         source="name"
         language="en"
