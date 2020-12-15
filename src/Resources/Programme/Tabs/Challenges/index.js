@@ -1,23 +1,61 @@
 /*
- * Jira Ticket: PDL-362
- * Created Date: Wed, 25th Nov 2020, 12:23:52 pm
- * Author: Harry Crank
- * Email: harry.crank@thedistance.co.uk
+ * Jira Ticket:
+ * Created Date: Wed, 9th Dec 2020, 15:13:10 pm
+ * Author: Jessica Mowatt
+ * Email: jessica.mowatt@thedistance.co.uk
  * Copyright (c) 2020 The Distance
  */
 
 import React, { Fragment } from 'react';
-import { EditButton } from 'react-admin';
+import {
+  Datagrid,
+  EditButton,
+  FunctionField,
+  Pagination,
+  ReferenceManyField,
+} from 'react-admin';
+import { LinkButton as CreateButton } from 'Components/Buttons';
+import { Add } from '@material-ui/icons';
+import { LocalisedTextField } from 'Components/Fields';
+import { tabbedLists } from 'styles';
 
-const ChallengeTab = (props) => {
-  console.log('props: ', props);
-  // TODO: How to pull a list of Challenges in a Tab View.
+const ChallengesTab = (props) => {
+  const classes = tabbedLists();
   return (
     <Fragment>
-      <div>List of Challenges should go here</div>
-      <EditButton />
+      <div className={classes.actions}>
+        <CreateButton
+          label={'ra.action.create'}
+          pathname={'/challenge/create'}
+          state={{
+            record: {
+              programmeId: props && props.record ? props.record.id : null,
+            },
+          }}
+          icon={<Add />}
+        />
+      </div>
+      <ReferenceManyField
+        reference="challenge"
+        target="programmeId"
+        pagination={<Pagination />}
+        {...props}
+      >
+        <Datagrid>
+          <LocalisedTextField source="name" language="en" sortable={false} />
+          <FunctionField
+            render={(record) => (
+              <EditButton
+                to={{
+                  pathname: `/challenge/${record.id}`,
+                }}
+              />
+            )}
+          />
+        </Datagrid>
+      </ReferenceManyField>
     </Fragment>
   );
 };
 
-export default ChallengeTab;
+export default ChallengesTab;

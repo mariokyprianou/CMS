@@ -77,6 +77,14 @@ export const defaultButton = makeStyles((theme) => ({
   },
 }));
 
+export const linkButton = makeStyles({
+  root: {
+    paddingTop: '0.5%',
+    marginTop: '2%',
+    height: '6%',
+  },
+});
+
 export const authFormStyles = () => ({
   form: {
     padding: '5%',
@@ -299,5 +307,15 @@ export const horizontalList = makeStyles({
     padding: 0,
     minWidth: '100px', // allows 6 emojis to be spaced
     justifyContent: 'space-between',
+  },
+});
+
+export const tabbedLists = makeStyles({
+  root: {
+    width: '100%',
+  },
+  actions: {
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
 });
