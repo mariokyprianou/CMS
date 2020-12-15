@@ -319,3 +319,97 @@ export const tabbedLists = makeStyles({
     justifyContent: 'flex-end',
   },
 });
+
+export const formStyles = () => ({
+  form: {
+    padding: '5%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
+    marginTop: '1em',
+    width: '90%',
+    lineHeight: 'normal',
+  },
+  button: {
+    display: 'flex',
+    marginLeft: '7.5%',
+    width: '85%',
+    paddingTop: 15,
+    paddingBottom: 15,
+    marginBottom: '3%',
+    fontSize: 16,
+    ...theme.button,
+  },
+  loadingIndicator: {
+    color: colors.turquoise,
+  },
+  forgotpassword: {
+    display: 'flex',
+    fontWeight: 'bold',
+    marginLeft: '7.5%',
+    width: '85%',
+    color: colors.turquoise,
+    textDecoration: 'none',
+    '&:hover': {
+      color: colors.darkTurquoise,
+    },
+  },
+});
+
+export const pageStyles = () => ({
+  main: {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+    alignItems: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundColor: colors.lightGrey,
+  },
+  card: {
+    width: 550,
+    marginTop: '6em',
+  },
+  avatar: {
+    margin: '1em',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    width: 50,
+    height: 50,
+    marginTop: '2%',
+  },
+});
+
+export const dialogStyles = () => ({
+  root: {
+    margin: 0,
+    padding: 16,
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 8,
+    top: 8,
+    color: 'grey',
+  },
+  dialogActionsRoot: {
+    margin: 0,
+    padding: 8,
+  },
+  dialogContentRoot: {
+    padding: 16,
+  },
+  loadingIndicator: {
+    color: colors.turquoise,
+  },
+  termsWindow: {
+    whiteSpace: 'pre-wrap',
+    width: '550px',
+    overflow: 'auto',
+  },
+});

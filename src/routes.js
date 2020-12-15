@@ -8,9 +8,16 @@
 
 import React from 'react';
 import { Route } from 'react-router-dom';
-import ConfigurationPage from './Resources/Configuration/edit';
+import { ForgotPassword } from 'Resources/auth';
+import ConfigurationPage from 'Resources/Configuration/edit';
 
 export default [
+  <Route
+    exact
+    path="/forgotPassword"
+    render={(props) => <ForgotPassword {...props} />}
+    noLayout
+  />,
   <Route
     exact
     path="/Configuration"

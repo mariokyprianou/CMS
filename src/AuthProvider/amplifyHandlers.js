@@ -9,18 +9,12 @@
 import { Auth } from 'aws-amplify';
 import { CognitoUser } from 'amazon-cognito-identity-js';
 import i18nProvider from 'i18n';
+import { isNewPasswordRequired } from 'utils/auth';
 
 const { translate } = i18nProvider;
 
-const isNewPasswordRequired = (user = {}) =>
-  user.challengeName === 'NEW_PASSWORD_REQUIRED';
-
 export const forceChangePassword = async ({ cognitoUser, password }) => {
   const user = await Auth.completeNewPassword(cognitoUser, password);
-  // Set the permissions
-  if (user && user.signInUserSession) {
-    localStorage.setItem('userSub', user.signInUserSession.idToken.payload.id);
-  }
   return user;
 };
 
@@ -61,11 +55,6 @@ export const checkAuth = () => {
       if (!session) {
         return Promise.reject(translate('error.userNotLoggedIn'));
       }
-      const userSub = localStorage.getItem('userSub');
-      // Update the userSub
-      if (session.idToken.payload && session.idToken.payload.id !== userSub) {
-        localStorage.setItem('userSub', session.idToken.payload.id);
-      }
       return session;
     })
     .catch((error) => {
@@ -97,10 +86,6 @@ export const login = async (params) => {
     }
     return Promise.reject(error);
   });
-  // Set the permissions
-  if (user && user.signInUserSession) {
-    localStorage.setItem('userSub', user.signInUserSession.idToken.payload.id);
-  }
 
   // Reject with the user if new password is required to allow change in login flow
   if (isNewPasswordRequired(user)) {
@@ -111,18 +96,9 @@ export const login = async (params) => {
 };
 
 export const logout = () => {
-  return Auth.signOut({ global: true })
-    .then(() => {
-      localStorage.removeItem('userSub');
-      localStorage.removeItem('org_permissions');
-    })
-    .catch((error) => {
-      if (process.env.NODE_ENV === 'development')
-        console.error('Logout error:', error);
-      return Auth.signOut().then(() => {
-        //if there are separate logins with the same user, global signout revokes all tokens and second user can't sign out, so use single session sign out
-        localStorage.removeItem('userSub');
-        localStorage.removeItem('org_permissions');
-      });
-    });
+  return Auth.signOut({ global: true }).catch((error) => {
+    if (process.env.NODE_ENV === 'development')
+      console.error('Logout error:', error);
+    return Auth.signOut();
+  });
 };

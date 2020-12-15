@@ -15,7 +15,7 @@ import i18nProvider from './i18n';
 import { CircularProgress } from '@material-ui/core';
 import authProvider from 'AuthProvider';
 import buildProvider from 'DataProvider';
-import { CognitoLogin as Login } from '@thedistance/the-core-cms-module-authentication-amplify';
+import { Login } from 'Resources/auth';
 import defaultTheme, { darkTheme, lightTheme } from 'theme';
 import Layout from 'Layout';
 import { appStyles } from 'styles';
