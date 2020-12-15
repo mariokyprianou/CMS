@@ -7,16 +7,41 @@
  */
 
 import React from 'react';
-import { Filter, TextInput, SelectInput } from 'react-admin';
+import { Filter, NumberInput, SelectInput, TextInput } from 'react-admin';
+import { LocalisedReferenceInput } from 'Components/Inputs';
+import { programmeEnvironmentChoices } from 'utils/choices';
 
-// TODO: Hook up to filter data.
-const WorkoutFilter = (props) => (
-  <Filter {...props}>
-    <SelectInput source="trainer" />
-    <SelectInput source="week" />
-    <TextInput source="name" />
-    <SelectInput source="programme" />
-  </Filter>
-);
+const WorkoutFilter = (props) => {
+  const { resource } = props;
+  return (
+    <Filter {...props}>
+      <LocalisedReferenceInput
+        resource={resource}
+        reference="trainer"
+        source="trainer"
+        perPage={1000}
+        sort={{ field: 'name', order: 'ASC' }}
+        allowEmpty={true}
+      >
+        <SelectInput />
+      </LocalisedReferenceInput>
+      <NumberInput source="week" />
+      <TextInput source="name" />
+      {/* TODO: Check if this shoudld be programme ID or environment */}
+      {/* <LocalisedReferenceInput
+        resource={resource}
+        source="programme"
+        reference="programme"
+        localisationsPath="trainer.localisations"
+        additionalChoices={programmeEnvironmentChoices}
+        additionalChoiceComparisonField="environment"
+        resource={resource}
+      >
+        <SelectInput />
+      </LocalisedReferenceInput> */}
+      <SelectInput source="programme" choices={programmeEnvironmentChoices} />
+    </Filter>
+  );
+};
 
 export default WorkoutFilter;
