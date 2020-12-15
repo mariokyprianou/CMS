@@ -18,10 +18,11 @@ const supportedLanguages = process.env.REACT_APP_SUPPORTED_LANG.split(' ');
 const LocalisedComponentCloner = ({
   component,
   direction = 'column',
+  fullWidth,
   ...props
 }) => {
   const { source, record, label, resource } = props;
-  const classes = columnStyles(direction);
+  const classes = columnStyles(direction, fullWidth ? '100%' : null);
   const translate = useTranslate();
 
   const children = [];
@@ -54,10 +55,9 @@ const LocalisedComponentCloner = ({
       <div key={`localisations[${index}].${source}`} className={classes.column}>
         {React.cloneElement(component, {
           ...props,
-
           source: `localisations[${index}].${source}`,
           label: `${translate(
-            `resources.${resource}.fields.${label}`
+            `resources.${resource}.fields.${label || source}`
           )} (${languageNames.of(language)})`,
           initialValue,
           defaultValue: initialValue,

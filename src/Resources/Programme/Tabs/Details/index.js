@@ -8,83 +8,72 @@
 
 import React, { Fragment } from 'react';
 import {
-  ReferenceInput,
-  SelectInput,
   required,
-  TextInput,
+  ImageField,
   ImageInput,
+  SelectInput,
+  TextInput,
 } from 'react-admin';
+import { LocalisedReferenceInput, PercentageInput } from 'Components/Inputs';
+import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { programmeEnvironmentChoices } from 'utils/choices';
 import { columnStyles } from 'styles';
-import PercentageInput from 'Components/Inputs/PercentageInput';
 
-const DetailTab = () => {
+const DetailTab = (props) => {
+  const { resource } = props;
   const classes = columnStyles();
   return (
     <Fragment>
       <div className={classes.root}>
         <div className={classes.column}>
-          <ReferenceInput
-            // TODO: How to populate a dynamic list of trainers without creating a Choices.
-            source="trainer"
+          <LocalisedReferenceInput
+            resource={resource}
+            source="trainer.id"
             reference="trainer"
+            validate={required()}
           >
-            <SelectInput
-              source="name"
-              choices="localisations"
-              validate={required()}
-            />
-          </ReferenceInput>
+            <SelectInput />
+          </LocalisedReferenceInput>
           <SelectInput
-            // TODO: a Trainer can only be assigned a maximum of one Gym programme and one Home programme
-            source="type"
+            source="environment"
             choices={programmeEnvironmentChoices}
             validate={required()}
           />
         </div>
         <div className={classes.column}>
           <PercentageInput
-            source="stats.fitness"
+            source="fitness"
             label="resources.programme.fields.fitness"
           />
           <PercentageInput
-            source="stats.muscle"
+            source="muscle"
             label="resources.programme.fields.muscle"
           />
           <PercentageInput
-            source="stats.fatLoss"
+            source="fatLoss"
             label="resources.programme.fields.fatLoss"
           />
         </div>
         <div className={classes.column}>
+          {/* TODO: add validation to prevent more than 5 files exisitng at one time - the maxFiles prop doesn't appear to work */}
           <ImageInput
-            source=""
+            source="images"
             label="resources.programme.fields.trainerImages"
             validate={required()}
             multiple
             options={{
               maxFiles: 5,
             }}
-          />
+            accept="image/*"
+          >
+            <ImageField source="url" title="img" />
+          </ImageInput>
         </div>
       </div>
-      <TextInput
-        // TODO: Check with Jess if there is a better way to do this
-        source="localisations[0].description"
-        label="resources.programme.fields.trainerDescriptionEnglish"
-        validate={required()}
-        fullWidth
-      />
-      <TextInput
-        source="localisations[1].description"
-        label="resources.programme.fields.trainerDescriptionHindi"
-        validate={required()}
-        fullWidth
-      />
-      <TextInput
-        source="localisations[2].description"
-        label="resources.programme.fields.trainerDescriptionUrdu"
-        validate={required()}
+      <LocalisedComponentCloner
+        resource={resource}
+        component={<TextInput multiline validate={required()} />}
+        source="description"
         fullWidth
       />
     </Fragment>

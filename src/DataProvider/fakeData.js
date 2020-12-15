@@ -9,7 +9,7 @@
 export default {
   user: [
     {
-      id: '1',
+      id: 1,
       firstName: 'Logan',
       lastName: 'Schowalter',
       email: 'logan@grr.la',
@@ -21,14 +21,14 @@ export default {
         isSubscribed: false,
         platform: null,
       },
-      previousTrainers: ['2', '3'],
+      previousTrainers: [2, 3],
       currentTrainerProgram: {
-        id: '1',
+        id: 1,
         currentWeek: 1,
       },
     },
     {
-      id: '2',
+      id: 2,
       firstName: 'Gabby',
       lastName: 'Doodoo',
       email: 'gabby@grr.la',
@@ -44,7 +44,7 @@ export default {
       previousTrainers: [],
     },
     {
-      id: '3',
+      id: 3,
       firstName: 'Brod',
       lastName: 'Greenwood',
       email: 'brod@grr.la',
@@ -57,13 +57,13 @@ export default {
         platform: 'ANDROID',
       },
       currentTrainerProgram: {
-        id: '1',
+        id: 1,
         currentWeek: 1,
       },
       previousTrainers: [],
     },
     {
-      id: '4',
+      id: 4,
       firstName: 'Fran',
       lastName: 'Smith',
       email: 'fran@grr.la',
@@ -76,7 +76,7 @@ export default {
         platform: 'IOS',
       },
       currentTrainerProgram: {
-        id: '1',
+        id: 1,
         currentWeek: 1,
       },
       previousTrainers: [],
@@ -84,19 +84,19 @@ export default {
   ],
   administrator: [
     {
-      id: '1',
+      id: 1,
       name: 'Bob Daltry',
       email: 'bob@grr.la',
     },
     {
-      id: '2',
+      id: 2,
       name: 'Cynthia Pleasant',
       email: 'cynthia@grr.la',
     },
   ],
   trainer: [
     {
-      id: '1',
+      id: 1,
       localisations: [
         {
           language: 'en',
@@ -113,7 +113,7 @@ export default {
       ],
     },
     {
-      id: '2',
+      id: 2,
       localisations: [
         {
           language: 'en',
@@ -130,7 +130,7 @@ export default {
       ],
     },
     {
-      id: '3',
+      id: 3,
       localisations: [
         {
           language: 'en',
@@ -149,16 +149,14 @@ export default {
   ],
   programme: [
     {
-      id: '1',
+      id: 1,
       environment: 'HOME', // HOME / GYM
       subscribers: 2,
-      stats: {
-        fitness: 99,
-        muscle: 30,
-        fatLoss: 55,
-      },
+      fitness: 99,
+      muscle: 30,
+      fatLoss: 55,
       trainer: {
-        id: '1',
+        id: 1,
         localisations: [
           {
             language: 'en',
@@ -176,14 +174,14 @@ export default {
       },
       images: [
         {
-          id: '1',
+          id: 1,
           url:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
         },
       ],
       shareMediaImages: [
         {
-          id: '1',
+          id: 1,
           type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
           url:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
@@ -192,33 +190,31 @@ export default {
       ],
       localisations: [
         {
-          id: '1',
+          id: 1,
           locale: 'en',
-          description: '(E) Train with your icon, Katrina!',
+          description: 'Train with your icon, Katrina!',
         },
         {
-          id: '2',
+          id: 2,
           locale: 'hi',
-          description: '(H) Train with your icon, Katrina!',
+          description: 'अपने आइकन के साथ ट्रेन, कैटरीना!',
         },
         {
-          id: '3',
+          id: 3,
           locale: 'ur',
-          description: '(U) Train with your icon, Katrina!',
+          description: 'اپنے آئیکن کے ساتھ ٹرین ، کترینہ!',
         },
       ],
     },
     {
-      id: '2',
+      id: 2,
       environment: 'GYM', // HOME / GYM
       subscribers: 2,
-      stats: {
-        fitness: 99,
-        muscle: 30,
-        fatLoss: 55,
-      },
+      fitness: 99,
+      muscle: 30,
+      fatLoss: 55,
       trainer: {
-        id: '1',
+        id: 1,
         localisations: [
           {
             language: 'en',
@@ -236,14 +232,14 @@ export default {
       },
       images: [
         {
-          id: '1',
+          id: 1,
           url:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
         },
       ],
       shareMediaImages: [
         {
-          id: '1',
+          id: 1,
           type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
           url:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
@@ -252,44 +248,44 @@ export default {
       ],
       localisations: [
         {
-          id: '1',
+          id: 1,
           locale: 'en',
-          description: '(E) Train with your icon, Katrina!',
+          description: 'Train with your icon, Katrina!',
         },
         {
-          id: '2',
+          id: 2,
           locale: 'hi',
-          description: '(H) Train with your icon, Katrina!',
+          description: 'अपने आइकन के साथ ट्रेन, कैटरीना!',
         },
         {
-          id: '3',
+          id: 3,
           locale: 'ur',
-          description: '(U) Train with your icon, Katrina!',
+          description: 'اپنے آئیکن کے ساتھ ٹرین ، کترینہ!',
         },
       ],
     },
   ],
   challenge: [
     {
-      id: '1',
+      id: 1,
       type: 'COUNTDOWN',
       localisations: [
         {
-          id: '1',
+          id: 1,
           locale: 'en',
           name: '(E) 50 x Squats',
           description: '(E) Do 50 squats in 1 minute',
           fieldLabel: '(E) field label here',
         },
         {
-          id: '2',
+          id: 2,
           locale: 'hi',
           name: '(H) 50 x Squats',
           description: '(H) Do 50 squats in 1 minute',
           fieldLabel: '(H) field label here',
         },
         {
-          id: '3',
+          id: 3,
           locale: 'ur',
           name: '(U) 50 x Squats',
           description: '(U) Do 50 squats in 1 minute',
@@ -300,58 +296,58 @@ export default {
   ],
   exerciseCategory: [
     {
-      id: '1',
+      id: 1,
       name: 'Lunges',
     },
     {
-      id: '2',
+      id: 2,
       name: 'Squats',
     },
     {
-      id: '3',
+      id: 3,
       name: 'Bicep Curls',
     },
   ],
   exercise: [
     {
-      id: '1',
+      id: 1,
       isWeight: false,
       category: {
-        id: '2',
+        id: 2,
         name: 'Squats',
       },
       videos: [
         {
-          id: '1',
+          id: 1,
           url: 'https://www.google.co.uk',
           difficulty: 'HARD',
         },
         {
-          id: '2',
+          id: 2,
           url: 'https://www.google.co.uk',
           difficulty: 'MEDIUM',
         },
         {
-          id: '3',
+          id: 3,
           url: 'https://www.google.co.uk',
           difficulty: 'EASY',
         },
       ],
       localisations: [
         {
-          id: '1',
+          id: 1,
           locale: 'en',
           name: '(E) Squats',
           coachingTips: "(E) Let's got for it!",
         },
         {
-          id: '2',
+          id: 2,
           locale: 'hi',
           name: '(H) Squats',
           coachingTips: "(H) Let's got for it!",
         },
         {
-          id: '3',
+          id: 3,
           locale: 'ur',
           name: '(U) Squats',
           coachingTips: "(U) Let's got for it!",
@@ -359,44 +355,44 @@ export default {
       ],
     },
     {
-      id: '2',
+      id: 2,
       isWeight: true,
       category: {
-        id: '3',
+        id: 3,
         name: 'Bicep Curls',
       },
       videos: [
         {
-          id: '1',
+          id: 1,
           url: 'https://www.google.co.uk',
           difficulty: 'EASY',
         },
         {
-          id: '2',
+          id: 2,
           url: 'https://www.google.co.uk',
           difficulty: 'MEDIUM',
         },
         {
-          id: '3',
+          id: 3,
           url: 'https://www.google.co.uk',
           difficulty: 'HARD',
         },
       ],
       localisations: [
         {
-          id: '1',
+          id: 1,
           locale: 'en',
           name: '(E) Bicep Curls',
           coachingTips: "(E) Let's got for it!",
         },
         {
-          id: '2',
+          id: 2,
           locale: 'hi',
           name: '(H) Bicep Curls',
           coachingTips: "(H) Let's got for it!",
         },
         {
-          id: '3',
+          id: 3,
           locale: 'ur',
           name: '(U) Bicep Curls',
           coachingTips: "(U) Let's got for it!",
@@ -406,7 +402,7 @@ export default {
   ],
   feedback: [
     {
-      id: '1',
+      id: 1,
       trainerName: 'Julia',
       week: 1,
       programme: 'Home',
@@ -420,7 +416,7 @@ export default {
   ],
   configuration: [
     {
-      id: '1',
+      id: 1,
       localisations: [
         {
           language: 'en',
@@ -428,25 +424,25 @@ export default {
           privacyPolicy: 'Privacy Policy',
           onboarding: [
             {
-              id: '1',
+              id: 1,
               text: 'Welcome Onboarding 1',
               image: 'https://www.google.co.uk/images',
             },
             {
-              id: '2',
+              id: 2,
               text: 'Welcome Onboarding 2',
               image: 'https://www.google.co.uk/images',
             },
           ],
           notifications: [
             {
-              id: '1',
+              id: 1,
               type: '?',
               title: 'Title',
               body: 'Body',
             },
             {
-              id: '2',
+              id: 2,
               type: '?',
               title: 'Title',
               body: 'Body',
@@ -459,25 +455,25 @@ export default {
           privacyPolicy: 'गोपनीयता नीति',
           onboarding: [
             {
-              id: '1',
+              id: 1,
               text: 'Welcome Onboarding 1',
               image: 'https://www.google.co.uk/images',
             },
             {
-              id: '2',
+              id: 2,
               text: 'Welcome Onboarding 2',
               image: 'https://www.google.co.uk/images',
             },
           ],
           notifications: [
             {
-              id: '1',
+              id: 1,
               type: '?',
               title: 'Title',
               body: 'Body',
             },
             {
-              id: '2',
+              id: 2,
               type: '?',
               title: 'Title',
               body: 'Body',
@@ -520,13 +516,13 @@ export default {
   ],
   helpMeChoose: [
     {
-      id: '1',
+      id: 1,
       questions: [
         {
-          id: '1',
+          id: 1,
           localisations: [
             {
-              id: '1',
+              id: 1,
               locale: 'en',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
@@ -535,7 +531,7 @@ export default {
               answer4: 'Twerking',
             },
             {
-              id: '2',
+              id: 2,
               locale: 'hi',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
@@ -544,7 +540,7 @@ export default {
               answer4: 'Twerking',
             },
             {
-              id: '3',
+              id: 3,
               locale: 'ur',
               question: 'What exercise do you like doing?',
               answer1: 'People watching',
@@ -555,26 +551,26 @@ export default {
           ],
           trainerScores: [
             {
-              id: '1',
+              id: 1,
               answer1: 10,
               answer2: 20,
               answer3: 30,
               answer4: 40,
               trainer: {
-                id: '1',
+                id: 1,
                 localisations: [
                   {
-                    id: '1',
+                    id: 1,
                     locale: 'en',
                     name: '(E) Katrina',
                   },
                   {
-                    id: '2',
+                    id: 2,
                     locale: 'hi',
                     name: '(H) Katrina',
                   },
                   {
-                    id: '3',
+                    id: 3,
                     locale: 'ur',
                     name: '(U) Katrina',
                   },
@@ -588,36 +584,36 @@ export default {
   ],
   workout: [
     {
-      id: '1',
+      id: 1,
       additionalInfo: 'Additional workout info',
       overviewImage: 'https://www.google.co.uk/images',
       week: 1,
       localisations: [
         {
-          id: '1',
+          id: 1,
           locale: 'en',
           name: '(E) Fun workout',
         },
         {
-          id: '2',
+          id: 2,
           locale: 'hi',
           name: '(H) Fun workout',
         },
         {
-          id: '3',
+          id: 3,
           locale: 'ur',
           name: '(U) Fun workout',
         },
       ],
       programme: {
-        id: '1',
+        id: 1,
         environment: 'HOME', // HOME / GYM
         subscribers: 2,
         fitness: 99,
         muscle: 30,
         fatLoss: 55,
         trainer: {
-          id: '1',
+          id: 1,
           localisations: [
             {
               language: 'en',
@@ -635,14 +631,14 @@ export default {
         },
         images: [
           {
-            id: '1',
+            id: 1,
             url:
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
           },
         ],
         shareMediaImages: [
           {
-            id: '1',
+            id: 1,
             type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
             url:
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
@@ -651,17 +647,17 @@ export default {
         ],
         localisations: [
           {
-            id: '1',
+            id: 1,
             locale: 'en',
             description: '(E) Train with your icon, Katrina!',
           },
           {
-            id: '2',
+            id: 2,
             locale: 'hi',
             description: '(H) Train with your icon, Katrina!',
           },
           {
-            id: '3',
+            id: 3,
             locale: 'ur',
             description: '(U) Train with your icon, Katrina!',
           },
@@ -669,47 +665,47 @@ export default {
       },
       exercises: [
         {
-          id: '1',
+          id: 1,
           type: 'REPETITIONS', // REPETITIONS || TIME_INTERVAL
           exercise: {
-            id: '1',
+            id: 1,
             isWeight: false,
             category: {
-              id: '2',
+              id: 2,
               name: 'Squats',
             },
             videos: [
               {
-                id: '1',
+                id: 1,
                 url: 'https://www.google.co.uk',
                 difficulty: 'HARD',
               },
               {
-                id: '2',
+                id: 2,
                 url: 'https://www.google.co.uk',
                 difficulty: 'MEDIUM',
               },
               {
-                id: '3',
+                id: 3,
                 url: 'https://www.google.co.uk',
                 difficulty: 'EASY',
               },
             ],
             localisations: [
               {
-                id: '1',
+                id: 1,
                 locale: 'en',
                 name: '(E) Squats',
                 coachingTips: "(E) Let's got for it!",
               },
               {
-                id: '2',
+                id: 2,
                 locale: 'hi',
                 name: '(H) Squats',
                 coachingTips: "(H) Let's got for it!",
               },
               {
-                id: '3',
+                id: 3,
                 locale: 'ur',
                 name: '(U) Squats',
                 coachingTips: "(U) Let's got for it!",

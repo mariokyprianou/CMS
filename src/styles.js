@@ -25,7 +25,7 @@ export const appStyles = makeStyles({
   },
 });
 
-export const columnStyles = (flexDirection = 'column') =>
+export const columnStyles = (flexDirection = 'column', width = '20vw') =>
   makeStyles({
     root: {
       display: 'flex',
@@ -36,7 +36,7 @@ export const columnStyles = (flexDirection = 'column') =>
     column: {
       display: 'flex',
       flexDirection,
-      width: flexDirection === 'column' && '20vw',
+      width: flexDirection === 'column' && width,
       marginRight: 25,
     },
   })();

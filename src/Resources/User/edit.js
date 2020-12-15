@@ -82,10 +82,8 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
       </div>
       <div className={classes.column}>
         <LocalisedReferenceInput
-          language="en"
           source="currentTrainerProgram.id"
           reference="programme"
-          localisedFieldSource="name"
           localisationsPath="trainer.localisations"
           additionalChoices={programmeEnvironmentChoices}
           additionalChoiceComparisonField="environment"

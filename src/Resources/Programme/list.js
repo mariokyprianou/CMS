@@ -38,20 +38,16 @@ const ProgrammeList = (props) => (
       />
       <FunctionField
         source="fitness"
-        render={(record) => (
-          <PercentageTextField value={record.stats.fitness} />
-        )}
+        render={(record) => <PercentageTextField value={record.fitness} />}
       />
       <FunctionField
         source="muscle"
-        render={(record) => <PercentageTextField value={record.stats.muscle} />}
+        render={(record) => <PercentageTextField value={record.muscle} />}
       />
       <FunctionField
         source="fatLoss"
         label="resources.programme.fields.fatLoss"
-        render={(record) => (
-          <PercentageTextField value={record.stats.fatLoss} />
-        )}
+        render={(record) => <PercentageTextField value={record.fatLoss} />}
       />
       <SelectField source="environment" choices={programmeEnvironmentChoices} />
       <TextField source="subscribers" />
