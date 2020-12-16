@@ -85,7 +85,7 @@ const App = () => {
       <Fragment>
         <Admin
           history={history}
-          // authProvider={authProvider} //TODO: comment back in when authentication ready
+          authProvider={authProvider}
           dataProvider={dataProvider}
           title="Power - Admin"
           loginPage={Login}

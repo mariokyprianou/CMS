@@ -13,16 +13,27 @@ const englishMessages = {
       submit: 'Submit',
       email: 'Email',
       cardContent:
-        'Please enter your email address above. You will receive an email with a code that you can redeem to reset your password.',
+        'Please enter your email address above.\nYou will receive an email with a code that you can redeem to reset your password.',
       verification: 'Verification Code',
       verificationCardContent:
-        'We just sent you an email with a verification code attached. Please enter this here and type your new password below to reset.',
+        'We just sent you an email with a verification code attached.\nPlease enter this here and type your new password below to reset.',
       newPassword: 'New Password',
     },
     changePassword: {
       password: 'Password',
       submit: 'Change password',
       cardContent: 'Please change your password to continue signing in.',
+    },
+    changePassword: {
+      verificationCode: 'Verification Code',
+      newPassword: 'New Password',
+      cardContent:
+        'We just sent you an email with a verification code attached.\nPlease enter this here and type your new password below to reset.',
+      submit: 'Reset Password',
+    },
+    forceChangePassword: {
+      cardContent: 'Please change your password to continue signing in.',
+      submit: 'Change Password',
     },
   },
   resources: {
@@ -260,6 +271,12 @@ const englishMessages = {
     exerciseType: {
       reps: 'Repetitions',
       time: 'Time',
+    },
+  },
+  notification: {
+    auth: {
+      passwdResetSent: 'Reset password request sent',
+      passwdChanged: 'Password changed successfully',
     },
   },
   error: {
