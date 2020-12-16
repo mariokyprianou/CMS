@@ -12,11 +12,7 @@ import { Create, SimpleForm, TextInput, required } from 'react-admin';
 const ExerciseCategoryCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput
-        source="name"
-        label="resources.exerciseCategory.fields.name"
-        validate={required()}
-      />
+      <TextInput source="name" validate={required()} />
     </SimpleForm>
   </Create>
 );
