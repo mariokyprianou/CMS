@@ -177,7 +177,21 @@ const englishMessages = {
       titles: {
         helpMeChooseManagement: 'Help Me Choose Management',
       },
-      fields: {},
+      fields: {
+        question: 'Question',
+        orderIndex: 'Order Index',
+        answer1: 'Answer 1',
+        answer2: 'Answer 2',
+        answer3: 'Answer 3',
+        answer4: 'Answer 4',
+        answer1Score: 'Answer 1 Score',
+        answer2Score: 'Answer 2 Score',
+        answer3Score: 'Answer 3 Score',
+        answer4Score: 'Answer 4 Score',
+        questions: 'Questions',
+        answers: 'Answers',
+        trainerScores: 'Trainer Scores (%{trainerName} - %{programmeEnv})',
+      },
     },
     workout: {
       name: 'Workout |||| Workouts',

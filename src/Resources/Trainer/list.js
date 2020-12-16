@@ -21,11 +21,7 @@ const TrainerList = (props) => {
       filters={<TrainerFilter />}
     >
       <Datagrid>
-        <LocalisedTextField
-          source="name"
-          language="en"
-          label="resources.trainer.fields.name"
-        />
+        <LocalisedTextField source="name" language="en" />
         <EditButton />
       </Datagrid>
     </List>

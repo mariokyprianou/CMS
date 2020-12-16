@@ -19,7 +19,7 @@ export function partition(array, isValid) {
 }
 
 export const getLocalisedFieldByLanguage = ({
-  language,
+  language = 'en',
   source,
   localisations,
   format,

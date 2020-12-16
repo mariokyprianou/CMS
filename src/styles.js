@@ -36,7 +36,7 @@ export const columnStyles = (flexDirection = 'column', width = '20vw') =>
     column: {
       display: 'flex',
       flexDirection,
-      width: flexDirection === 'column' && width,
+      width: flexDirection === 'column' ? width : '100%',
       marginRight: 25,
     },
   })();

@@ -7,10 +7,14 @@
  */
 
 import create from './create';
+import edit from './edit';
+import list from './list';
 import { QuestionAnswer as icon } from '@material-ui/icons';
 
 export default {
   name: 'helpMeChoose',
   create,
+  edit,
+  list,
   icon,
 };

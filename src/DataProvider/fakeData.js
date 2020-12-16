@@ -560,67 +560,113 @@ export default {
   helpMeChoose: [
     {
       id: 1,
-      questions: [
+      orderIndex: 1,
+      localisations: [
+        {
+          language: 'en',
+          question: 'What exercise do you like doing?',
+          answer1: 'Hiking',
+          answer2: 'Ball sports',
+          answer3: 'Swimming',
+          answer4: 'Running',
+        },
+        {
+          language: 'hi',
+          question: 'आपको कौन सा व्यायाम करना पसंद है?',
+          answer1: 'लंबी पैदल यात्रा',
+          answer2: 'लंबी पैदल यात्रा',
+          answer3: 'तैराकी',
+          answer4: 'चल रहा है',
+        },
+        {
+          language: 'ur',
+          question: 'آپ کیا ورزش کرنا پسند کرتے ہیں؟',
+          answer1: 'پیدل سفر',
+          answer2: 'تیراکی',
+          answer3: 'تیراکی',
+          answer4: 'چل رہا ہے',
+        },
+      ],
+      trainerScores: [
         {
           id: 1,
-          localisations: [
-            {
-              id: 1,
-              language: 'en',
-              question: 'What exercise do you like doing?',
-              answer1: 'People watching',
-              answer2: 'Reading exercise books',
-              answer3: 'Day dreaming',
-              answer4: 'Twerking',
-            },
-            {
-              id: 2,
-              language: 'hi',
-              question: 'What exercise do you like doing?',
-              answer1: 'People watching',
-              answer2: 'Reading exercise books',
-              answer3: 'Day dreaming',
-              answer4: 'Twerking',
-            },
-            {
-              id: 3,
-              language: 'ur',
-              question: 'What exercise do you like doing?',
-              answer1: 'People watching',
-              answer2: 'Reading exercise books',
-              answer3: 'Day dreaming',
-              answer4: 'Twerking',
-            },
-          ],
-          trainerScores: [
-            {
-              id: 1,
-              answer1: 10,
-              answer2: 20,
-              answer3: 30,
-              answer4: 40,
-              trainer: {
-                id: 1,
-                localisations: [
-                  {
-                    id: 1,
-                    language: 'en',
-                    name: '(E) Katrina',
-                  },
-                  {
-                    id: 2,
-                    language: 'hi',
-                    name: '(H) Katrina',
-                  },
-                  {
-                    id: 3,
-                    language: 'ur',
-                    name: '(U) Katrina',
-                  },
-                ],
+          answer1: 10,
+          answer2: 20,
+          answer3: 30,
+          answer4: 40,
+          trainer: {
+            id: 1,
+            localisations: [
+              {
+                language: 'en',
+                name: 'Katrina',
               },
-            },
-          ],
+              {
+                language: 'hi',
+                name: 'कैटरिना',
+              },
+              {
+                language: 'ur',
+                name: 'کترینہ',
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      id: 2,
+      orderIndex: 2,
+      localisations: [
+        {
+          language: 'en',
+          question: 'How many times a week do you exercise?',
+          answer1: '0',
+          answer2: '1-2',
+          answer3: '3-4',
+          answer4: '5+',
+        },
+        {
+          language: 'hi',
+          question: 'सप्ताह में कितनी बार आप व्यायाम करते हैं?',
+          answer1: '0',
+          answer2: '1-2',
+          answer3: '3-4',
+          answer4: '5+',
+        },
+        {
+          language: 'ur',
+          question: 'آپ ہفتے میں کتنی بار ورزش کرتے ہیں؟',
+          answer1: '0',
+          answer2: '1-2',
+          answer3: '3-4',
+          answer4: '5+',
+        },
+      ],
+      trainerScores: [
+        {
+          id: 1,
+          answer1: 10,
+          answer2: 20,
+          answer3: 30,
+          answer4: 40,
+          trainer: {
+            id: 1,
+            localisations: [
+              {
+                language: 'en',
+                name: 'Katrina',
+              },
+              {
+                language: 'hi',
+                name: 'कैटरिना',
+              },
+              {
+                language: 'ur',
+                name: 'کترینہ',
+              },
+            ],
+          },
         },
       ],
     },
