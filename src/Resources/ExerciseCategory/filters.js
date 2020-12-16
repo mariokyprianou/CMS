@@ -11,7 +11,7 @@ import { Filter, TextInput } from 'react-admin';
 
 const ExerciseCategoryFilter = (props) => (
   <Filter {...props}>
-    <TextInput source="q" label="resources.exerciseCategory.fields.name" />
+    <TextInput source="name" />
   </Filter>
 );
 
