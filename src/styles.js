@@ -41,6 +41,20 @@ export const columnStyles = (flexDirection = 'column', width = '20vw') =>
     },
   })();
 
+export const rowStyles = () =>
+  makeStyles({
+    root: {
+      display: 'flex',
+      flexDirection: 'row',
+      marginBottom: 10,
+      justifyContent: 'flex-start',
+    },
+    rowItems: {
+      marginRight: 15,
+      width: '15vw',
+    },
+  })();
+
 export const toolbarStyles = makeStyles((theme) => ({
   root: {
     flex: 1,
