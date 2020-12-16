@@ -6,12 +6,11 @@
  * Copyright (c) 2020 The Distance
  */
 
-import create from './create';
+import edit from './edit';
 import { Notifications as icon } from '@material-ui/icons';
 
-// TODO: Show a hybrid Create with a list screen underneath ??
 export default {
   name: 'notification',
-  create,
+  edit,
   icon,
 };

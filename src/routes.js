@@ -10,6 +10,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { ForgotPassword } from 'Resources/auth';
 import ConfigurationPage from 'Resources/Configuration/edit';
+import NotificationPage from 'Resources/Notification/edit';
 
 export default [
   <Route
@@ -20,7 +21,12 @@ export default [
   />,
   <Route
     exact
-    path="/Configuration"
+    path="/configuration"
     render={(props) => <ConfigurationPage {...props} />}
+  />,
+  <Route
+    exact
+    path="/notification"
+    render={(props) => <NotificationPage {...props} />}
   />,
 ];
