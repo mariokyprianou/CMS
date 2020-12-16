@@ -7,13 +7,26 @@
  */
 
 import React from 'react';
-import { Filter, TextInput } from 'react-admin';
+import { Filter, SelectInput, TextInput } from 'react-admin';
+import { LocalisedReferenceInput } from 'Components/Inputs';
 
-const ExerciseFilter = (props) => (
-  <Filter {...props}>
-    <TextInput source="q" label="resources.exercise.fields.trainer" />
-    <TextInput source="q" label="resources.exercise.fields.name" />
-  </Filter>
-);
+const ExerciseFilter = (props) => {
+  const { resource } = props;
+  return (
+    <Filter {...props}>
+      <LocalisedReferenceInput
+        resource={resource}
+        reference="trainer"
+        source="trainer"
+        perPage={1000}
+        sort={{ field: 'name', order: 'ASC' }}
+        allowEmpty={true}
+      >
+        <SelectInput />
+      </LocalisedReferenceInput>
+      <TextInput source="name" />
+    </Filter>
+  );
+};
 
 export default ExerciseFilter;

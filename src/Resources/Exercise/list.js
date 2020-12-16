@@ -26,6 +26,7 @@ const ExerciseList = (props) => (
         language="en"
         sortable={false}
         textVisibleLength="100px"
+        label="resources.exercise.fields.trainer"
       />
       <LocalisedTextField
         source="name"

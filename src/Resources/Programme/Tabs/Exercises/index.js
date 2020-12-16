@@ -30,6 +30,7 @@ const ExerciseTab = (props) => {
             parentPath="trainer"
             source="name"
             language="en"
+            label="resources.exercise.fields.trainer"
             sortable={false}
             textVisibleLength="100px"
           />
