@@ -248,6 +248,8 @@ Then create an "auth-initiate.json" file in `dev_scrips` containing the user and
    ./dev_scripts/build-cms-schema.sh
    ```
 
+*NOTE: If generating `schema.json` file from an authenticated endpoint, the `generate-token.sh` script requires `jq` - you can install it using brew: `brew install jq`.*
+
 ### Generating Schema Fragments
 
 In some cases, the schema will use fragments. These pieces of the schema are not detected through Introspection as per the previous section, and so to retrieve information on the fragments you will have to perform the following actions:
