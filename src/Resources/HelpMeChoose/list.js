@@ -12,10 +12,10 @@ import { LocalisedTextField } from 'Components/Fields';
 
 const HelpMeChooseList = (props) => {
   return (
-    <List exporter={false} {...props}>
+    <List bulkActionButtons={false} exporter={false} {...props}>
       <Datagrid>
-        <LocalisedTextField source="question" language="en" />
-        <NumberField source="orderIndex" />
+        <LocalisedTextField source="question" language="en" sortable={false} />
+        <NumberField source="orderIndex" sortable={false} />
         <EditButton />
       </Datagrid>
     </List>
