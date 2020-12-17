@@ -10,7 +10,11 @@ import React from 'react';
 import { useTranslate } from 'react-admin';
 import { columnStyles } from 'styles';
 
-const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
+// TODO: DisplayName not supported in FF
+
+const languageNames = Intl.hasOwnProperty('DisplayNames')
+  ? new Intl.DisplayNames(['en'], { type: 'language' })
+  : null;
 const supportedLanguages = process.env.REACT_APP_SUPPORTED_LANG.split(' ');
 
 // takes the component you specify and clones it for the number of localisations the app supports

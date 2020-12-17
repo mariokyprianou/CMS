@@ -9,4 +9,5 @@
 //  add your resource name mapping here (resource_name: api_name)
 export default {
   user: 'User',
+  configuration: 'Configuration',
 };

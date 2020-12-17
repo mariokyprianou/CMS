@@ -40,7 +40,7 @@ const SetsInput = ({ scopedFormData, translate }) => {
       <RestrictedSimpleFormIterator maximumSize={5}>
         <NumberInput
           label="resources.workout.fields.work"
-          source={`quantity`}
+          source="quantity"
           validate={required()}
           InputProps={{
             endAdornment: (

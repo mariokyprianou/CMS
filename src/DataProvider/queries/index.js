@@ -6,7 +6,8 @@
  * Copyright (c) 2020 The Distance
  */
 
-// import getListUser from './User/GET_LIST'; // e.g.
-
 // export your custom queries from here
-export {};
+import getOneConfig from './Configuration/GET_ONE';
+import updateConfig from './Configuration/UPDATE';
+
+export { getOneConfig, updateConfig };

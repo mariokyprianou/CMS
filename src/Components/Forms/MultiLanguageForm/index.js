@@ -24,7 +24,10 @@ import { multiLangFormStyles } from 'styles';
 import { checkNoPropertiesExist } from 'utils/helpers';
 import { ReactAdminNotifyError } from 'utils/errors';
 
-const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
+// TODO: DisplayName not supported in FF
+const languageNames = Intl.hasOwnProperty('DisplayNames')
+  ? new Intl.DisplayNames(['en'], { type: 'language' })
+  : null;
 
 const validateNoMissingLocaleFields = ({
   children,
@@ -111,6 +114,7 @@ const FormChildren = (props) => {
     sources,
     sourcesToSkipRecursion,
     resource,
+    cleanOrphaned,
   } = props;
 
   const form = useForm(); // form methods
@@ -171,7 +175,7 @@ const FormChildren = (props) => {
           {}
         );
         updatedLocalisations.push(newLocalisation);
-      } else {
+      } else if (cleanOrphaned) {
         updatedLocalisations = cleanedOrphanedLocalisations(
           event.target.value,
           updatedLocalisations,
@@ -201,6 +205,12 @@ const FormChildren = (props) => {
 
     // multiLanguage sources
     sources.forEach((source) => {
+      const currentLocalisation =
+        updatedLocalisations && updatedLocalisations.length > 0
+          ? updatedLocalisations.find(
+              (localisation) => localisation.language === language
+            )
+          : {} || {};
       // always update if language, and only if there is a localisation
       if (source === 'language') {
         form.change('language', language);
@@ -282,6 +292,7 @@ const MultiLanguageForm = ({
   doRedirect = false,
   supportedLanguages = [],
   allowLanguageRemoval = true,
+  cleanOrphaned = true, // cleans out languages that have not yet been set
   ...props
 }) => {
   const { disabled, children, resource, record, redirect } = props;
@@ -360,6 +371,7 @@ const MultiLanguageForm = ({
     setInvalid,
     sources,
     sourcesToSkipRecursion,
+    cleanOrphaned,
   };
 
   // let SimpleForm know which localisation we are using
@@ -416,8 +428,22 @@ const MultiLanguageForm = ({
 
   const handleMultiLanguageSubmit = (values) => {
     const data = values;
-    console.log('values: ', values);
+    // append the state localisations
     data.localisations = localisations;
+    console.log('pre merge localisation data: ', data);
+    // merge the last localisation form data to make sure all current values are up to date
+    data.localisations.forEach((localisation) => {
+      if (localisation.language === data.language) {
+        for (const field in localisation) {
+          if (localisation.hasOwnProperty(field)) {
+            localisation[field] = data[field];
+          }
+        }
+      }
+      return localisation;
+    });
+    console.log('post merge localisation data: ', data);
+
     const invalidLocaleFields = validateNoMissingLocaleFields({
       children: childrenExtended,
       excludedSources,
@@ -433,7 +459,6 @@ const MultiLanguageForm = ({
       });
     }
     setSaving(true);
-    console.log('record: ', record);
     return callToDataProvider({
       type: record && record.id ? 'UPDATE' : 'CREATE',
       resource,

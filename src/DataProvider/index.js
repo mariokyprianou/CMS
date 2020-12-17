@@ -66,7 +66,7 @@ const createProvider = async () => {
         exerciseCategory: 'exerciseCategory',
         exercise: 'exercise',
         feedback: 'feedback',
-        configuration: 'configuration',
+        // configuration: 'configuration',
         helpMeChoose: 'helpMeChoose',
         workout: 'workout',
       },
@@ -74,6 +74,7 @@ const createProvider = async () => {
   ];
 
   return async (type, resource, params) => {
+    console.log('type, resource, params: ', type, resource, params);
     const dataProviderMapping = dataProviders.find(
       (dp) => !dp.resources || dp.resources.hasOwnProperty(resource)
     );
@@ -144,6 +145,7 @@ const createProvider = async () => {
       resource,
       params
     );
+
     return decorateResponse({
       type,
       resource,

@@ -142,6 +142,16 @@ const englishMessages = {
       name: 'Configuration',
       fields: {
         name: 'Category Name',
+        termsAndConditions: 'Terms and Conditions',
+        privacyPolicy: 'Privacy Policy',
+        orderIndex: 'Order Index',
+        title: 'Title',
+        body: 'Body',
+        description: 'Description',
+        image: 'Onboarding Image',
+        type: 'Notification Type',
+        notifications: 'Notification Templates',
+        onboardings: 'Onboarding Screens',
       },
     },
     exercise: {
@@ -272,6 +282,20 @@ const englishMessages = {
       reps: 'Repetitions',
       time: 'Time',
     },
+    notificationType: {
+      threeDaysNoTraining: 'Trigger: 3 days without training',
+      twoWeeksNoActivity: 'Trigger: 2 weeks without opening the app',
+      sevenDaysNoLogging: 'Trigger: 7 days without logging a challenge',
+      newTrainer: 'Trigger: New trainer added',
+      newChallenge: 'Trigger: New challenge added',
+      endOfWorkoutWeek: 'Trigger: At the end of every completed workout week',
+    },
+    onboardingscreens: {
+      title1: 'Screen 1',
+      title2: 'Screen 2',
+      title3: 'Screen 3',
+      title4: 'Screen 4',
+    },
   },
   notification: {
     auth: {
@@ -285,6 +309,13 @@ const englishMessages = {
       title: 'Access Denied',
       header: 'You do not have the required permissions to view this page',
       subtitle: 'Contact your administrator for necessary permissions',
+    },
+    form: {
+      multiLang: {
+        missingField:
+          'The "%{source}" field is not complete for the %{language} translation',
+        noLocalisations: 'Must have at least one defined localisation',
+      },
     },
   },
   validation: {

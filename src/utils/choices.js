@@ -149,14 +149,49 @@ const localeChoices = [
   },
 ];
 
-const workoutExerciseTypeChoices = [
+const notificationTypeChoices = [
   {
-    id: 'REPETITIONS',
-    name: 'choices.workoutExerciseType.repetitions',
+    id: 'THREE_DAYS_WITHOUT_TRAINING',
+    name: 'choices.notificationType.threeDaysNoTraining',
   },
   {
-    id: 'TIME_INTERVAL',
-    name: 'choices.workoutExerciseType.timeInterval',
+    id: 'TWO_WEEKS_WITHOUT_OPENING_APP',
+    name: 'choices.notificationType.twoWeeksNoActivity',
+  },
+  {
+    id: 'SEVEN_DAYS_WITHOUT_LOGGING_CHALLENGE',
+    name: 'choices.notificationType.sevenDaysNoLogging',
+  },
+  {
+    id: 'NEW_TRAINER_ADDED',
+    name: 'choices.notificationType.newTrainer',
+  },
+  {
+    id: 'NEW_CHALLENGE_ADDED',
+    name: 'choices.notificationType.newChallenge',
+  },
+  {
+    id: 'END_OF_COMPLETED_WORKOUT_WEEK',
+    name: 'choices.notificationType.endOfWorkoutWeek',
+  },
+];
+
+const onboardingScreens = [
+  {
+    id: 'onboarding0',
+    name: 'choices.onboardingscreens.title1',
+  },
+  {
+    id: 'onboarding1',
+    name: 'choices.onboardingscreens.title2',
+  },
+  {
+    id: 'onboarding2',
+    name: 'choices.onboardingscreens.title3',
+  },
+  {
+    id: 'onboarding3',
+    name: 'choices.onboardingscreens.title4',
   },
 ];
 
@@ -197,8 +232,9 @@ export {
   challengeTypeChoices,
   exerciseVideoDifficultyChoices,
   localeChoices,
-  workoutExerciseTypeChoices,
+  notificationTypeChoices,
   publishStatusChoices,
   intensityChoices,
   exerciseTypeChoices,
+  onboardingScreens,
 };
