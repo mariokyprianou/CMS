@@ -7,6 +7,7 @@
  */
 
 import gql from 'graphql-tag';
+import { onboardingScreens } from 'utils/choices';
 
 export const updateConfigurationMutation = gql`
   mutation UpdateConfiguration(
@@ -45,18 +46,94 @@ export const updateConfigurationMutation = gql`
 
 export default async ({ client, params }) => {
   try {
-    // TODO: unflatted the notification and onboardings arrays
-    // merged localisations
-    // get current localisation state
-    var formattedParams = { ...params.data.localisations };
-    // update the values with
+    params.data.localisations.array.forEach((localisation) => {
+      for (let i = 0; i < onboardingScreens.length; i++) {
+        const onboardingScreen = onboardingScreens[i].id;
+        const onboardingImg = localisation[`image_${onboardingScreen}`];
+        if (onboardingImg.hasOwnProperty('rawFile')) {
+          // TODO: handle image uploads
+          // const uploadRequest = await uploadFile(onboardingImg);
+          // localisation[`image_${onboardingScreen}`] = uploadRequest.id;
+        }
+      }
+    });
 
-    // const result = await client.query({
-    //   query: updateConfigurationMutation,
-    //   fetchPolicy: 'no-cache',
-    // });
-    // return result;
-    return;
+    // TODO: unflatted the notification and onboardings arrays
+    var formattedParams = params.data.localisations.map((localisation) => {
+      return {
+        language: localisation.language,
+        termsAndConditions: localisation.termsAndConditions,
+        privacyPolicy: localisation.privacyPolicy,
+        onboardings: [
+          {
+            orderIndex: 0,
+            title: localisation.title_onboarding0,
+            description: localisation.description_onboarding0,
+            image: localisation.image_onboarding0,
+          },
+          {
+            orderIndex: 1,
+            title: localisation.title_onboarding1,
+            description: localisation.description_onboarding1,
+            image: localisation.image_onboarding1,
+          },
+          {
+            orderIndex: 2,
+            title: localisation.title_onboarding2,
+            description: localisation.description_onboarding2,
+            image: localisation.image_onboarding2,
+          },
+          {
+            orderIndex: 3,
+            title: localisation.title_onboarding3,
+            description: localisation.description_onboarding3,
+            image: localisation.image_onboarding3,
+          },
+        ],
+        notifications: [
+          {
+            type: 'THREE_DAYS_WITHOUT_TRAINING',
+            title: localisation.body_THREE_DAYS_WITHOUT_TRAINING,
+            body: localisation.title_THREE_DAYS_WITHOUT_TRAINING,
+          },
+          {
+            type: 'TWO_WEEKS_WITHOUT_OPENING_APP',
+            title: localisation.body_TWO_WEEKS_WITHOUT_OPENING_APP,
+            body: localisation.title_TWO_WEEKS_WITHOUT_OPENING_APP,
+          },
+          {
+            type: 'SEVEN_DAYS_WITHOUT_LOGGING_CHALLENGE',
+            title: localisation.body_SEVEN_DAYS_WITHOUT_LOGGING_CHALLENGE,
+            body: localisation.title_SEVEN_DAYS_WITHOUT_LOGGING_CHALLENGE,
+          },
+          {
+            type: 'NEW_TRAINER_ADDED',
+            title: localisation.body_NEW_TRAINER_ADDED,
+            body: localisation.title_NEW_TRAINER_ADDED,
+          },
+          {
+            type: 'NEW_CHALLENGE_ADDED',
+            title: localisation.body_NEW_CHALLENGE_ADDED,
+            body: localisation.title_NEW_CHALLENGE_ADDED,
+          },
+          {
+            type: 'END_OF_COMPLETED_WORKOUT_WEEK',
+            title: localisation.body_END_OF_COMPLETED_WORKOUT_WEEK,
+            body: localisation.title_END_OF_COMPLETED_WORKOUT_WEEK,
+          },
+        ],
+      };
+    });
+    console.log('formattedParams: ', formattedParams);
+
+    const result = await client.query({
+      mutation: updateConfigurationMutation,
+      variables: {
+        ...formattedParams,
+      },
+    });
+
+    return result;
   } catch (e) {
     if (e.graphQLErrors && e.graphQLErrors.length) {
       const [error] = e.graphQLErrors;

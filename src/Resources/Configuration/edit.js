@@ -68,7 +68,7 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                   label={`resources.${resource}.fields.description`}
                 />
                 <ImageInput
-                  validate={required()} //TODO: add back in when we can upload images
+                  // validate={required()} //TODO: add back in when we can upload images
                   source={`image_${choice.id}`}
                   label={`resources.${resource}.fields.image`}
                 >
