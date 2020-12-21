@@ -40,7 +40,7 @@ const useDataProviderWrapper = () => {
           return notify('error.generic', 'warning');
         });
     },
-    [dataProvider, dispatch]
+    [dataProvider, dispatch, notify]
   );
   return dataProviderWrapperProxy;
 };

@@ -342,7 +342,7 @@ const MultiLanguageForm = ({
       }
     };
     initialiseLanguageInput();
-  }, [callToDataProvider, notify]);
+  }, [callToDataProvider, notify, supportedLanguages]);
 
   const childrenExtended = FormChildrenWithLanguageInput({
     children,
