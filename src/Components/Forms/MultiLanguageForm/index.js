@@ -327,7 +327,7 @@ const MultiLanguageForm = ({
           onSuccess: (result) => {
             setLanguages(result.data);
           },
-        }).catch((error) => notify(error.message, 'warning'));
+        });
       } else {
         const supportedLanguagesWithCodes = supportedLanguages.map(
           (language) => {
