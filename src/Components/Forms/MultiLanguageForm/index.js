@@ -24,10 +24,7 @@ import { multiLangFormStyles } from 'styles';
 import { checkNoPropertiesExist } from 'utils/helpers';
 import { ReactAdminNotifyError } from 'utils/errors';
 
-// TODO: DisplayName not supported in FF
-const languageNames = Intl.hasOwnProperty('DisplayNames')
-  ? new Intl.DisplayNames(['en'], { type: 'language' })
-  : null;
+const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
 
 const validateNoMissingLocaleFields = ({
   children,
@@ -88,7 +85,6 @@ const FormChildrenWithLanguageInput = ({
       />
       {disabled || !allowLanguageRemoval ? null : (
         <RemoveTranslationButton
-          key="remove-translation-button"
           className={classes.removeTranslation}
           name="multiLang.button.removeTranslation"
           icon={<TranslateIcon />}
@@ -148,7 +144,9 @@ const FormChildren = (props) => {
     );
   };
 
-  const onBlur = (event) => {
+  // we have to handle richTextInput sources as the Quill editor does not use onBlur (https://github.com/zenoamaro/react-quill/issues/276)
+  // quick fix is to wrap the component in a div and pass the "addonblur" prop on the div with the input's source prop
+  const onBlur = (event, richTextSource = null) => {
     let updatedLocalisations =
       (localisations &&
         localisations.length > 0 &&
@@ -184,9 +182,6 @@ const FormChildren = (props) => {
       }
     }
 
-    // update the localisations
-    setLocalisations(updatedLocalisations);
-
     // updating the record with the non-translated field
     if (
       event &&
@@ -201,24 +196,36 @@ const FormChildren = (props) => {
             ? Number(event.currentTarget.value)
             : event.currentTarget.value,
       });
+    } else if (richTextSource && event && event.target.innerHTML) {
+      setCurrentRecord({
+        ...currentRecord,
+        localisations: updatedLocalisations,
+        [richTextSource]: event.target.innerHTML,
+      });
     }
+
+    // pick the current language (take into account that we might have switched languages at this point)
+    const theCurrentLocalisation =
+      updatedLocalisations && updatedLocalisations.length > 0
+        ? updatedLocalisations.find(
+            (localisation) =>
+              localisation.language ===
+              (event.target.name === 'language' ? event.target.value : language)
+          )
+        : {} || {};
 
     // multiLanguage sources
     sources.forEach((source) => {
-      const currentLocalisation =
-        updatedLocalisations && updatedLocalisations.length > 0
-          ? updatedLocalisations.find(
-              (localisation) => localisation.language === language
-            )
-          : {} || {};
       // always update if language, and only if there is a localisation
       if (source === 'language') {
         form.change('language', language);
-      } else if (source && currentLocalisation) {
-        form.change(source, currentLocalisation[source]);
+      } else if (source && theCurrentLocalisation) {
+        form.change(source, theCurrentLocalisation[source]);
       }
     });
 
+    // update the localisations
+    setLocalisations(updatedLocalisations);
     // update the prop that's not being passed to simpleform/save button
     setInvalid(invalid);
   };
@@ -233,10 +240,13 @@ const FormChildren = (props) => {
     children,
     (child) => {
       // checking isValidElement is the safe way and avoids a typescript error too
-      if (isValidElement(child) && child.type !== 'div') {
+      if (
+        isValidElement(child) &&
+        (child.type !== 'div' || child.props.addonblur)
+      ) {
         const childProps = {
           ...child.props,
-          onBlur: onBlur,
+          onBlur: (event) => onBlur(event, child.props.addonblur),
           resource,
         };
         // add props for the button
@@ -347,7 +357,6 @@ const MultiLanguageForm = ({
     childrenExtended,
     (child) => {
       if (
-        child &&
         child.props &&
         child.props.source &&
         !excludedSources.includes(child.props.source)
@@ -371,7 +380,6 @@ const MultiLanguageForm = ({
     setInvalid,
     sources,
     sourcesToSkipRecursion,
-    cleanOrphaned,
   };
 
   // let SimpleForm know which localisation we are using
@@ -427,72 +435,59 @@ const MultiLanguageForm = ({
   }
 
   const handleMultiLanguageSubmit = (values) => {
-    const data = values;
-    // append the state localisations
-    data.localisations = localisations;
-    console.log('pre merge localisation data: ', data);
-    // merge the last localisation form data to make sure all current values are up to date
-    data.localisations.forEach((localisation) => {
-      if (localisation.language === data.language) {
-        for (const field in localisation) {
-          if (localisation.hasOwnProperty(field)) {
-            localisation[field] = data[field];
-          }
-        }
-      }
-      return localisation;
-    });
-    console.log('post merge localisation data: ', data);
-
-    const invalidLocaleFields = validateNoMissingLocaleFields({
-      children: childrenExtended,
-      excludedSources,
-      localisations,
-      sourcesToSkipRecursion,
-    });
-    if (invalidLocaleFields && invalidLocaleFields.language) {
-      throw new ReactAdminNotifyError({
-        message: 'error.form.multiLang.missingField',
-        payload: invalidLocaleFields,
-        undoable: false,
-        timeout: 10000,
+    try {
+      const data = values;
+      data.localisations = localisations;
+      const invalidLocaleFields = validateNoMissingLocaleFields({
+        children: childrenExtended,
+        excludedSources,
+        localisations,
+        sourcesToSkipRecursion,
       });
-    }
-    setSaving(true);
-    return callToDataProvider({
-      type: record && record.id ? 'UPDATE' : 'CREATE',
-      resource,
-      payload: {
-        data,
-      },
-      onSuccess: (result) => {
-        setSaving(false);
-        if (doRedirect) {
-          // handle the redirection request
-          let redirectionPath = `/${resource}`;
-          if (redirect === 'edit') {
-            redirectionPath += `/${result.data.id}`;
-          } else if (redirect === 'show') {
-            redirectionPath += `/${result.data.id}/show`;
-          } else {
-            // assume custom path
-            redirectionPath += redirect;
+      if (invalidLocaleFields && invalidLocaleFields.language) {
+        throw new ReactAdminNotifyError({
+          message: 'error.form.multiLang.missingField',
+          payload: invalidLocaleFields,
+          undoable: false,
+          timeout: 10000,
+        });
+      }
+      setSaving(true);
+      return callToDataProvider({
+        type: record && record.id ? 'UPDATE' : 'CREATE',
+        resource,
+        payload: {
+          data,
+        },
+        onSuccess: (result) => {
+          setSaving(false);
+          if (doRedirect) {
+            // handle the redirection request
+            let redirectionPath = `/${resource}`;
+            if (redirect === 'edit') {
+              redirectionPath += `/${result.data.id}`;
+            } else if (redirect === 'show') {
+              redirectionPath += `/${result.data.id}/show`;
+            } else {
+              // assume custom path
+              redirectionPath += redirect;
+            }
+            redirectTo(redirectionPath);
           }
-          redirectTo(redirectionPath);
-        }
-      },
-      onFailure: () => {
-        setSaving(false);
-      },
-    }).catch((error) =>
-      notify(
+        },
+        onFailure: () => {
+          setSaving(false);
+        },
+      });
+    } catch (error) {
+      return notify(
         error.message,
         'warning',
         error.payload,
         error.undoable,
         error.timeout
-      )
-    );
+      );
+    }
   };
 
   return !(languages.length > 0 && localisations.length > 0) ? null : (

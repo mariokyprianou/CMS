@@ -46,7 +46,6 @@ export const updateConfigurationMutation = gql`
 export default async ({ client, params }) => {
   try {
     // TODO: unflatted the notification and onboardings arrays
-    console.log('params: ', params.data.localisations);
     // merged localisations
     // get current localisation state
     var formattedParams = { ...params.data.localisations };

@@ -7,12 +7,13 @@
  */
 
 import { useMemo } from 'react';
-import { fetchEnd, fetchStart, useDataProvider } from 'react-admin';
+import { fetchEnd, fetchStart, useDataProvider, useNotify } from 'react-admin';
 import { useDispatch } from 'react-redux';
 
 const useDataProviderWrapper = () => {
   const dataProvider = useDataProvider();
   const dispatch = useDispatch();
+  const notify = useNotify();
 
   const dataProviderWrapperProxy = useMemo(
     () => async ({ type, resource, payload, onSuccess, onFailure }) => {
@@ -33,10 +34,10 @@ const useDataProviderWrapper = () => {
               message,
             } = error.graphQLErrors[0];
             if (code !== 'INTERNAL_SERVER_ERROR') {
-              throw new Error(message);
+              return notify(message, 'warning');
             }
           }
-          throw new Error('error.generic');
+          return notify('error.generic', 'warning');
         });
     },
     [dataProvider, dispatch]

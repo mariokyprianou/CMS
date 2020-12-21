@@ -18,6 +18,7 @@ import {
 } from 'react-admin';
 import { MultiLanguageForm } from 'Components/Forms';
 import RichTextInput from 'ra-input-rich-text';
+import { CustomRichTextInput } from 'Components/Inputs';
 import { notificationTypeChoices, onboardingScreens } from 'utils/choices';
 import { columnStyles } from 'styles';
 
@@ -34,7 +35,6 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
       supportedLanguages={supportedLanguages}
       allowLanguageRemoval={false}
       extendToolbar={0}
-      cleanOrphaned={false}
       sourcesToSkipRecursion={[
         'image_onboarding0',
         'image_onboarding1',
@@ -42,8 +42,12 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
         'image_onboarding3',
       ]} // skip nested fields to avoid breaking on recursive children
     >
-      <RichTextInput source="termsAndConditions" validation={required()} />
-      <RichTextInput source="privacyPolicy" validation={required()} />
+      <div addonblur="termsAndConditions">
+        <RichTextInput source="termsAndConditions" validate={required()} />
+      </div>
+      <div addonblur="privacyPolicy">
+        <RichTextInput source="privacyPolicy" validate={required()} />
+      </div>
       <div className={classes.root}>
         <div className={classes.column}>
           <Labeled label={`resources.${resource}.fields.onboardings`} />
@@ -53,18 +57,18 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                 <div>{translate(choice.name)}</div>
                 <TextInput
                   fullWidth
-                  // validate={required()}
+                  validate={required()}
                   source={`title_${choice.id}`}
                   label={`resources.${resource}.fields.title`}
                 />
                 <TextInput
                   fullWidth
-                  // validate={required()}
+                  validate={required()}
                   source={`description_${choice.id}`}
                   label={`resources.${resource}.fields.description`}
                 />
                 <ImageInput
-                  // validate={required()}
+                  validate={required()} //TODO: add back in when we can upload images
                   source={`image_${choice.id}`}
                   label={`resources.${resource}.fields.image`}
                 >
@@ -82,13 +86,13 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                 <div>{translate(choice.name)}</div>
                 <TextInput
                   fullWidth
-                  // validate={required()}
+                  validate={required()}
                   source={`title_${choice.id}`}
                   label={`resources.${resource}.fields.title`}
                 />
                 <TextInput
                   fullWidth
-                  // validate={required()}
+                  validate={required()}
                   multiline
                   source={`body_${choice.id}`}
                   label={`resources.${resource}.fields.body`}

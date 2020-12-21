@@ -10,20 +10,12 @@ import * as Query from './queries';
 import decorateResponse from './decorateResponse';
 
 export default async ({ type, resource, params, client }) => {
-  console.log(
-    'CUSTOM type, resource, params, client: ',
-    type,
-    resource,
-    params,
-    client
-  );
   var result;
   if (resource === 'Configuration') {
     if (type === 'GET_ONE') {
       result = await Query.getOneConfig({ client, params });
     }
     if (type === 'UPDATE' || type === 'CREATE') {
-      console.log('update please');
       result = await Query.updateConfig({ client, params });
     }
   }

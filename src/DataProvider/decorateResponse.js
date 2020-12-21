@@ -7,7 +7,6 @@
  */
 
 export default ({ type, resource, result }) => {
-  console.log('hi');
   // override results returned from backend here, e.g. create required field names
   if (resource === 'Configuration') {
     result.data.id = 'configuration'; // fake the ID
