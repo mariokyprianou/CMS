@@ -7,6 +7,6 @@
  */
 
 export default {
-  name: 'timezone',
+  name: 'timeZone',
   options: { excludeFromMenu: true },
 };

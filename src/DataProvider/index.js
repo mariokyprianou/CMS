@@ -59,7 +59,7 @@ const createProvider = async () => {
       //add resources here to override with fake data
       resources: {
         // administrator: 'administrator',
-        // user: 'user',
+        user: 'user',
         trainer: 'trainer',
         programme: 'programme',
         challenge: 'challenge',

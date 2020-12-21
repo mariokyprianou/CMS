@@ -45,54 +45,6 @@ const publishStatusChoices = [
   { id: 'DRAFT', name: 'choices.publishStatus.draft' },
 ];
 
-// TODO: comes form the backend as County resource
-const countryChoices = [
-  {
-    id: 'UK',
-    name: 'UK',
-  },
-  {
-    id: 'India',
-    name: 'India',
-  },
-];
-
-// TODO: comes form the backend as Region resource
-const regionChoices = [
-  {
-    id: 'Assam',
-    name: 'Assam',
-  },
-  {
-    id: 'Bihar',
-    name: 'Bihar',
-  },
-  {
-    id: 'Goa',
-    name: 'Goa',
-  },
-];
-
-// TODO: comes form the backend as TimeZone resource
-const timeZoneChoices = [
-  {
-    id: 'UTC +0',
-    name: 'UTC +0',
-  },
-  {
-    id: 'UTC +1',
-    name: 'UTC +1',
-  },
-  {
-    id: 'UTC +2',
-    name: 'UTC +2',
-  },
-  {
-    id: 'UTC +3',
-    name: 'UTC +3',
-  },
-];
-
 const textColourChoices = [
   {
     id: 'WHITE',
@@ -225,9 +177,6 @@ export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
   programmeEnvironmentChoices,
-  countryChoices,
-  regionChoices,
-  timeZoneChoices,
   textColourChoices,
   challengeTypeChoices,
   exerciseVideoDifficultyChoices,

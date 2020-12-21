@@ -12,6 +12,7 @@ import {
   Edit,
   FormDataConsumer,
   NumberInput,
+  ReferenceInput,
   required,
   SelectArrayInput,
   SelectInput,
@@ -26,9 +27,6 @@ import { columnStyles } from 'styles';
 import {
   programmeEnvironmentChoices,
   subscriptionPlatformChoices,
-  countryChoices,
-  regionChoices,
-  timeZoneChoices,
 } from 'utils/choices';
 
 const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
@@ -47,23 +45,25 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
           validate={required()}
         />
         <TextInput resource={resource} source="email" validate={required()} />
-        {/* TODO: probably needs to be a referenceinput */}
-        <SelectInput
+        <ReferenceInput
           resource={resource}
+          reference="country"
           source="country"
-          choices={countryChoices}
           validate={required()}
-        />
+        >
+          <SelectInput optionText="country" />
+        </ReferenceInput>
         <FormDataConsumer>
           {({ formData }) =>
-            formData.country === 'India' && (
-              // TODO: probably needs to be a referenceinput
-              <SelectInput
+            formData.country === process.env.REACT_APP_INDIA_ID && (
+              <ReferenceInput
                 resource={resource}
+                reference="region"
                 source="region"
-                choices={regionChoices}
                 validate={required()}
-              />
+              >
+                <SelectInput optionText="region" />
+              </ReferenceInput>
             )
           }
         </FormDataConsumer>
@@ -109,13 +109,14 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
           <SelectArrayInput />
         </LocalisedReferenceArrayInput>
         <BooleanInput resource={resource} source="canChangeDevice" />
-        {/* TODO: needs to be a referenceinput */}
-        <SelectInput
+        <ReferenceInput
           resource={resource}
+          reference="timeZone"
           source="timeZone"
-          choices={timeZoneChoices}
           validate={required()}
-        />
+        >
+          <SelectInput optionText="timeZone" />
+        </ReferenceInput>
       </div>
     </div>
   );
