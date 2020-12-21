@@ -8,6 +8,7 @@
 
 import React from 'react';
 import { useTranslate } from 'react-admin';
+import { useForm } from 'react-final-form';
 import { columnStyles } from 'styles';
 
 // TODO: DisplayName not supported in FF
@@ -28,6 +29,7 @@ const LocalisedComponentCloner = ({
   const { source, record, label, resource } = props;
   const classes = columnStyles(direction, fullWidth ? '100%' : null);
   const translate = useTranslate();
+  const form = useForm();
 
   const children = [];
 
@@ -55,6 +57,10 @@ const LocalisedComponentCloner = ({
         notFoundIndex++;
       }
     }
+
+    // make sure the language for the index is set
+    form.change(`localisations[${index}].language`, language);
+
     const fieldLabel = label
       ? translate(label)
       : translate(`resources.${resource}.fields.${source}`);

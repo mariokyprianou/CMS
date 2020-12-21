@@ -30,5 +30,24 @@ export default ({ type, resource, result }) => {
       }
     }
   }
+  if (
+    resource === 'HmcQuestion' &&
+    type === 'GET_ONE' &&
+    result &&
+    result.data
+  ) {
+    for (let i = 0; i < result.data.programmeScores.length; i++) {
+      const programmeScore = result.data.programmeScores[i];
+      // loop through the programme scores and flatten
+      result.data[`${programmeScore.trainingProgrammeId}_answer1Score`] =
+        programmeScore.answer1Score;
+      result.data[`${programmeScore.trainingProgrammeId}_answer2Score`] =
+        programmeScore.answer2Score;
+      result.data[`${programmeScore.trainingProgrammeId}_answer3Score`] =
+        programmeScore.answer3Score;
+      result.data[`${programmeScore.trainingProgrammeId}_answer4Score`] =
+        programmeScore.answer4Score;
+    }
+  }
   return result;
 };

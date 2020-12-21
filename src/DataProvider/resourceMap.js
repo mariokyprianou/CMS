@@ -10,4 +10,6 @@
 export default {
   user: 'User',
   configuration: 'Configuration',
+  helpMeChoose: 'HmcQuestion',
+  // programme: 'Programme', //TODO: add back in when no longer broken in backend
 };

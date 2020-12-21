@@ -10,4 +10,7 @@
 import getOneConfig from './Configuration/GET_ONE';
 import updateConfig from './Configuration/UPDATE';
 
-export { getOneConfig, updateConfig };
+import updateHmcQuestion from './HmcQuestion/UPDATE';
+import createHmcQuestion from './HmcQuestion/CREATE';
+
+export { getOneConfig, updateConfig, updateHmcQuestion, createHmcQuestion };

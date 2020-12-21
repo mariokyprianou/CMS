@@ -149,7 +149,7 @@ export default {
   ],
   programme: [
     {
-      id: 1,
+      id: '64edfc99-657a-4179-990c-df0a189a01b8',
       environment: 'HOME', // HOME / GYM
       subscribers: 2,
       fitness: 99,
@@ -208,73 +208,73 @@ export default {
         },
       ],
     },
-    {
-      id: 2,
-      environment: 'GYM', // HOME / GYM
-      subscribers: 2,
-      fitness: 99,
-      status: 'DRAFT',
-      workoutIds: [1, 2],
-      muscle: 30,
-      fatLoss: 55,
-      trainer: {
-        id: 1,
-        localisations: [
-          {
-            language: 'en',
-            name: 'Katrina',
-          },
-          {
-            language: 'hi',
-            name: 'कैटरिना',
-          },
-          {
-            language: 'ur',
-            name: 'کترینہ',
-          },
-        ],
-      },
-      images: [
-        {
-          id: 1,
-          url:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
-        },
-      ],
-      shareMediaImages: [
-        {
-          id: 1,
-          type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
-          url:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
-          textColour: '#dad',
-        },
-      ],
-      localisations: [
-        {
-          id: 1,
-          language: 'en',
-          description: 'Train with your icon, Katrina!',
-        },
-        {
-          id: 2,
-          language: 'hi',
-          description: 'अपने आइकन के साथ ट्रेन, कैटरीना!',
-        },
-        {
-          id: 3,
-          language: 'ur',
-          description: 'اپنے آئیکن کے ساتھ ٹرین ، کترینہ!',
-        },
-      ],
-    },
+    // {
+    //   id: 2,
+    //   environment: 'GYM', // HOME / GYM
+    //   subscribers: 2,
+    //   fitness: 99,
+    //   status: 'DRAFT',
+    //   workoutIds: [1, 2],
+    //   muscle: 30,
+    //   fatLoss: 55,
+    //   trainer: {
+    //     id: 1,
+    //     localisations: [
+    //       {
+    //         language: 'en',
+    //         name: 'Katrina',
+    //       },
+    //       {
+    //         language: 'hi',
+    //         name: 'कैटरिना',
+    //       },
+    //       {
+    //         language: 'ur',
+    //         name: 'کترینہ',
+    //       },
+    //     ],
+    //   },
+    //   images: [
+    //     {
+    //       id: 1,
+    //       url:
+    //         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZT6uWI65XnbMMN7xXpecVtb5NMKlVbim_A&usqp=CAU',
+    //     },
+    //   ],
+    //   shareMediaImages: [
+    //     {
+    //       id: 1,
+    //       type: 'PROGRAMME_START', // PROGRAMME_START / WEEK_COMPLETE / CHALLENGE_COMPLETE / PROGRESS
+    //       url:
+    //         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifuo_v_EVyiH06ZwBNa6jQ_ZNL4naJ-liXg&usqp=CAU',
+    //       textColour: '#dad',
+    //     },
+    //   ],
+    //   localisations: [
+    //     {
+    //       id: 1,
+    //       language: 'en',
+    //       description: 'Train with your icon, Katrina!',
+    //     },
+    //     {
+    //       id: 2,
+    //       language: 'hi',
+    //       description: 'अपने आइकन के साथ ट्रेन, कैटरीना!',
+    //     },
+    //     {
+    //       id: 3,
+    //       language: 'ur',
+    //       description: 'اپنے آئیکن کے ساتھ ٹرین ، کترینہ!',
+    //     },
+    //   ],
+    // },
   ],
   challenge: [
     {
       id: 1,
       type: 'COUNTDOWN',
       duration: 60,
-      programmeId: 1,
+      programmeId: '64edfc99-657a-4179-990c-df0a189a01b8',
       localisations: [
         {
           id: 1,
@@ -398,7 +398,7 @@ export default {
           },
         ],
       },
-      programmeId: 1,
+      programmeId: '64edfc99-657a-4179-990c-df0a189a01b8',
       isWeight: true,
       category: {
         id: 3,
@@ -587,30 +587,13 @@ export default {
           answer4: 'چل رہا ہے',
         },
       ],
-      trainerScores: [
+      programmeScores: [
         {
-          id: 1,
-          answer1: 10,
-          answer2: 20,
-          answer3: 30,
-          answer4: 40,
-          trainer: {
-            id: 1,
-            localisations: [
-              {
-                language: 'en',
-                name: 'Katrina',
-              },
-              {
-                language: 'hi',
-                name: 'कैटरिना',
-              },
-              {
-                language: 'ur',
-                name: 'کترینہ',
-              },
-            ],
-          },
+          trainingProgrammeId: '64edfc99-657a-4179-990c-df0a189a01b8',
+          answer1Score: 10,
+          answer2Score: 20,
+          answer3Score: 30,
+          answer4Score: 40,
         },
       ],
     },
@@ -695,7 +678,7 @@ export default {
         },
       ],
       programme: {
-        id: 1,
+        id: '64edfc99-657a-4179-990c-df0a189a01b8',
         environment: 'HOME', // HOME / GYM
         subscribers: 2,
         fitness: 99,
@@ -827,7 +810,7 @@ export default {
         },
       ],
       programme: {
-        id: 1,
+        id: '64edfc99-657a-4179-990c-df0a189a01b8',
         environment: 'HOME', // HOME / GYM
         subscribers: 2,
         fitness: 99,

@@ -19,6 +19,14 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.updateConfig({ client, params });
     }
   }
+  if (resource === 'HmcQuestion') {
+    if (type === 'CREATE') {
+      result = await Query.createHmcQuestion({ client, params });
+    }
+    if (type === 'UPDATE') {
+      result = await Query.updateHmcQuestion({ client, params });
+    }
+  }
   return decorateResponse({
     type,
     resource,

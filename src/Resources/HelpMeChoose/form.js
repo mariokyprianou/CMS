@@ -17,7 +17,10 @@ import useDataProviderWrapper from 'hooks/dataProviderWrapper';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { programmeEnvironmentChoices } from 'utils/choices';
 import { getLocalisedFieldByLanguage } from 'utils';
+import { nonNegativeInt } from 'utils/validation';
 import { columnStyles } from 'styles';
+
+const orderIndexValidation = [required(), nonNegativeInt];
 
 const HelpMeChooseForm = (props) => {
   const { resource } = props;
@@ -50,6 +53,11 @@ const HelpMeChooseForm = (props) => {
 
   return (
     <Fragment>
+      <NumberInput
+        resource={resource}
+        source="orderIndex"
+        validate={orderIndexValidation}
+      />
       {/* Questions */}
       <div>{translate(`resources.${resource}.fields.questions`)}</div>
       <LocalisedComponentCloner
@@ -114,7 +122,7 @@ const HelpMeChooseForm = (props) => {
             <div className={classes.root}>
               <div className={classes.column}>
                 <NumberInput
-                  source={`${programme.id}-answer1Score`}
+                  source={`${programme.id}_answer1Score`}
                   label={`resources.${resource}.fields.answer1Score`}
                   min={0}
                   max={100}
@@ -124,7 +132,7 @@ const HelpMeChooseForm = (props) => {
               <div className={classes.column}>
                 <NumberInput
                   label={`resources.${resource}.fields.answer2Score`}
-                  source={`${programme.id}-answer2Score`}
+                  source={`${programme.id}_answer2Score`}
                   min={0}
                   max={100}
                   validate={required()}
@@ -133,7 +141,7 @@ const HelpMeChooseForm = (props) => {
               <div className={classes.column}>
                 <NumberInput
                   label={`resources.${resource}.fields.answer3Score`}
-                  source={`${programme.id}-answer3Score`}
+                  source={`${programme.id}_answer3Score`}
                   min={0}
                   max={100}
                   validate={required()}
@@ -142,7 +150,7 @@ const HelpMeChooseForm = (props) => {
               <div className={classes.column}>
                 <NumberInput
                   label={`resources.${resource}.fields.answer4Score`}
-                  source={`${programme.id}-answer4Score`}
+                  source={`${programme.id}_answer4Score`}
                   min={0}
                   max={100}
                   validate={required()}

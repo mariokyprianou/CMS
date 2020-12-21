@@ -12,7 +12,7 @@ import HelpMeChooseForm from './form';
 
 const HelpMeChooseEdit = (props) => {
   return (
-    <Edit {...props}>
+    <Edit redirect={false} undoable={false} {...props}>
       <SimpleForm>
         <HelpMeChooseForm />
       </SimpleForm>

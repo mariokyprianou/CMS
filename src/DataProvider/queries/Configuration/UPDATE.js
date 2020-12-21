@@ -124,9 +124,8 @@ export default async ({ client, params }) => {
         ],
       };
     });
-    console.log('formattedParams: ', formattedParams);
 
-    const result = await client.query({
+    const result = await client.mutate({
       mutation: updateConfigurationMutation,
       variables: {
         ...formattedParams,

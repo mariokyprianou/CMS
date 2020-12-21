@@ -55,7 +55,6 @@ const validateNoMissingLocaleFields = ({
   if (requiredLocalisedSources && requiredLocalisedSources.length > 0) {
     requiredLocalisedSources.forEach((source) => {
       localisations.forEach((locale) => {
-        console.log('locale: ', locale);
         if (!locale[source])
           unsetFields = {
             source,
