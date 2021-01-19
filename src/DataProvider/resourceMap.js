@@ -21,5 +21,5 @@ export default {
   exerciseCategory: 'ExerciseCategory',
   exercise: 'Exercise',
   feedback: 'Feedback',
-  workout: 'Workout',
+  workout: 'WorkoutWeek',
 };

@@ -38,7 +38,7 @@ import {
   TimeZone,
   Trainer,
   User,
-  Workout,
+  WorkoutWeek,
 } from 'Resources';
 
 const history = createHistory();
@@ -102,12 +102,12 @@ const App = () => {
             <Resource {...Administrator} />,
             <Resource {...Trainer} />,
             <Resource {...Programme} />,
-            <Resource {...Workout} />,
+            <Resource {...WorkoutWeek} />,
             <Resource {...ExerciseCategory} />,
             <Resource {...Exercise} />,
             <Resource {...Configuration} />,
             <Resource {...HelpMeChoose} />,
-            <Resource {...Notification} />,
+            // <Resource {...Notification} />, //TODO: add back in when notifications are ready
             <Resource {...Feedback} />,
             <Resource {...Challenge} />,
             <Resource {...Country} />,

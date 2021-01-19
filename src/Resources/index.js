@@ -20,7 +20,7 @@ import Region from './Region';
 import TimeZone from './TimeZone';
 import Trainer from './Trainer';
 import User from './User';
-import Workout from './Workout';
+import WorkoutWeek from './WorkoutWeek';
 
 export {
   Administrator,
@@ -37,5 +37,5 @@ export {
   TimeZone,
   Trainer,
   User,
-  Workout,
+  WorkoutWeek,
 };

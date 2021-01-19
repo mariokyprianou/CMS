@@ -305,6 +305,13 @@ const englishMessages = {
   },
   error: {
     generic: 'Oops! Something went wrong. Please try again',
+    auth: {
+      invalidCredentials:
+        'The email and password combination is not recognised. Please re-enter and try again.',
+      passwdChangeUnsuccessful: 'Password change unsuccessful',
+      resetPwdFailure: 'Unable to reset password: %{errMsg}',
+      unableToLogin: 'Unable to login. Please try again',
+    },
     permissions: {
       title: 'Access Denied',
       header: 'You do not have the required permissions to view this page',

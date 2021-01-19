@@ -1866,7 +1866,7 @@
             "deprecationReason": null
           },
           {
-            "name": "Workout",
+            "name": "WorkoutWeek",
             "description": null,
             "args": [
               {
@@ -1897,7 +1897,7 @@
             "deprecationReason": null
           },
           {
-            "name": "allWorkouts",
+            "name": "allWorkoutWeeks",
             "description": null,
             "args": [
               {
@@ -1945,7 +1945,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "WorkoutFilter",
+                  "name": "WorkoutWeekFilter",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -1972,7 +1972,7 @@
             "deprecationReason": null
           },
           {
-            "name": "_allWorkoutsMeta",
+            "name": "_allWorkoutWeeksMeta",
             "description": null,
             "args": [
               {
@@ -1980,7 +1980,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "WorkoutFilter",
+                  "name": "WorkoutWeekFilter",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -2420,6 +2420,16 @@
             "type": {
               "kind": "ENUM",
               "name": "ChallengeType",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "programmeId",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
               "ofType": null
             },
             "defaultValue": null
@@ -3128,6 +3138,22 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "trainer",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -3409,6 +3435,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "environment",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "ProgrammeEnvironment",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -3424,6 +3462,29 @@
         "inputFields": null,
         "interfaces": null,
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ProgrammeEnvironment",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "GYM",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "HOME",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
@@ -3846,29 +3907,6 @@
         ],
         "interfaces": null,
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "ProgrammeEnvironment",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "GYM",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "HOME",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {
@@ -4335,13 +4373,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4658,13 +4692,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Country",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "Country",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4924,6 +4954,18 @@
                 "name": "Workout",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "trainingProgrammeId",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -5252,7 +5294,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "WorkoutFilter",
+        "name": "WorkoutWeekFilter",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -5291,21 +5333,21 @@
             "defaultValue": null
           },
           {
-            "name": "programme",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "name",
             "description": null,
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "week",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
               "ofType": null
             },
             "defaultValue": null
@@ -6204,7 +6246,7 @@
             "deprecationReason": null
           },
           {
-            "name": "createWorkout",
+            "name": "createWorkoutWeek",
             "description": null,
             "args": [
               {
@@ -6231,7 +6273,7 @@
             "deprecationReason": null
           },
           {
-            "name": "updateWorkout",
+            "name": "updateWorkoutWeek",
             "description": null,
             "args": [
               {
@@ -6272,7 +6314,7 @@
             "deprecationReason": null
           },
           {
-            "name": "deleteWorkout",
+            "name": "deleteWorkoutWeek",
             "description": null,
             "args": [
               {
@@ -7542,13 +7584,9 @@
             "name": "colour",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           }
