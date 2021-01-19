@@ -27,6 +27,11 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.updateHmcQuestion({ client, params });
     }
   }
+  if (resource === 'Feedback') {
+    if (type === 'EXPORT') {
+      result = await Query.exportFeedback({ client, params });
+    }
+  }
   return decorateResponse({
     type,
     resource,

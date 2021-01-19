@@ -13,4 +13,12 @@ import updateConfig from './Configuration/UPDATE';
 import updateHmcQuestion from './HmcQuestion/UPDATE';
 import createHmcQuestion from './HmcQuestion/CREATE';
 
-export { getOneConfig, updateConfig, updateHmcQuestion, createHmcQuestion };
+import exportFeedback from './Feedback/EXPORT';
+
+export {
+  getOneConfig,
+  updateConfig,
+  updateHmcQuestion,
+  createHmcQuestion,
+  exportFeedback,
+};

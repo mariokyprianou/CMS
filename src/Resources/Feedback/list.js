@@ -14,9 +14,12 @@ import {
   List,
   NumberField,
   TextField,
+  useNotify,
 } from 'react-admin';
 import FeedbackAction from './actions';
 import FeedbackFilter from './filters';
+import useDataProviderWrapper from 'hooks/dataProviderWrapper';
+import downloadFile from 'utils/downloadFile';
 import { horizontalList } from 'styles';
 
 const EmojisField = ({ record, source }) => {
@@ -33,9 +36,32 @@ const EmojisField = ({ record, source }) => {
 };
 
 const FeedbackList = (props) => {
-  // TODO: export feedback CSV Logic - use callDataProvider
+  const notify = useNotify();
+  const callToDataProvider = useDataProviderWrapper();
   const exportCSV = (filterValues) => {
     console.log('filterValues: ', filterValues);
+    try {
+      return callToDataProvider({
+        type: 'EXPORT',
+        resource: 'feedback',
+        payload: {
+          // filter: {filterValues}, //TODO: probably should handle filtering in the backend query
+        },
+        onSuccess: (result) => {
+          if (result.data.data) {
+            downloadFile({ uri: result.data.data, filename: 'feedback.csv' });
+          }
+        },
+      });
+    } catch (error) {
+      return notify(
+        error.message,
+        'warning',
+        error.payload,
+        error.undoable,
+        error.timeout
+      );
+    }
   };
 
   return (
