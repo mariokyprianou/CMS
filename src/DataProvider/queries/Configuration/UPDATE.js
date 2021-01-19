@@ -10,20 +10,8 @@ import gql from 'graphql-tag';
 import { onboardingScreens } from 'utils/choices';
 
 export const updateConfigurationMutation = gql`
-  mutation UpdateConfiguration(
-    $language: String!
-    $termsAndConditions: String!
-    $privacyPolicy: String!
-    $onboardings: [OnboardingInput!]
-    $notifications: [NotificationInput!]
-  ) {
-    data: updateConfiguration(
-      language: language
-      termsAndConditions: termsAndConditions
-      privacyPolicy: privacyPolicy
-      onboardings: onboardings
-      notifications: notifications
-    ) {
+  mutation UpdateConfiguration($input: ConfigurationInput) {
+    data: updateConfiguration(input: $input) {
       localisations {
         language
         termsAndConditions
@@ -130,7 +118,9 @@ export default async ({ client, params }) => {
     const result = await client.mutate({
       mutation: updateConfigurationMutation,
       variables: {
-        ...formattedParams,
+        input: {
+          localisations: formattedParams,
+        },
       },
     });
 
