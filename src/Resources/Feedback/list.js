@@ -16,6 +16,7 @@ import {
   TextField,
   useNotify,
 } from 'react-admin';
+import emojiDictionary from 'emoji-dictionary';
 import FeedbackAction from './actions';
 import FeedbackFilter from './filters';
 import useDataProviderWrapper from 'hooks/dataProviderWrapper';
@@ -28,7 +29,7 @@ const EmojisField = ({ record, source }) => {
     <ul className={classes.root}>
       {record[source].map((emoji, index) => (
         <span role="img" key={`emoji-${index}`} aria-label={emoji}>
-          {emoji}
+          {emojiDictionary.getUnicode(emoji.replace(/-/g, '_'))}
         </span>
       ))}
     </ul>
@@ -39,14 +40,11 @@ const FeedbackList = (props) => {
   const notify = useNotify();
   const callToDataProvider = useDataProviderWrapper();
   const exportCSV = (filterValues) => {
-    console.log('filterValues: ', filterValues);
     try {
       return callToDataProvider({
         type: 'EXPORT',
         resource: 'feedback',
-        payload: {
-          // filter: {filterValues}, //TODO: probably should handle filtering in the backend query
-        },
+        payload: {},
         onSuccess: (result) => {
           if (result.data.data) {
             downloadFile({ uri: result.data.data, filename: 'feedback.csv' });
