@@ -8,6 +8,7 @@
 
 import * as Query from './queries';
 import decorateResponse from './decorateResponse';
+import { allTimeZones } from 'utils/choices';
 
 export default async ({ type, resource, params, client }) => {
   var result;
@@ -30,6 +31,15 @@ export default async ({ type, resource, params, client }) => {
   if (resource === 'Feedback') {
     if (type === 'EXPORT') {
       result = await Query.exportFeedback({ client, params });
+    }
+  }
+  // Backend no longer supports time zones
+  if (resource === 'TimeZone') {
+    if (type === 'GET_LIST') {
+      result = { data: allTimeZones };
+    }
+    if (type === 'GET_ONE') {
+      result = { data: getOneTimeZone(params) };
     }
   }
   return decorateResponse({

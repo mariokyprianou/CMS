@@ -6,6 +6,8 @@
  * Copyright (c) 2020 The Distance
  */
 
+import timezones from './timezones';
+
 // all choices available throughout the app
 const booleanTranslatedChoices = [
   {
@@ -173,6 +175,10 @@ const exerciseTypeChoices = [
   },
 ];
 
+const allTimeZones = timezones.map((timeZone) => {
+  return { id: timeZone, name: timeZone };
+});
+
 export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
@@ -186,4 +192,5 @@ export {
   intensityChoices,
   exerciseTypeChoices,
   onboardingScreens,
+  allTimeZones,
 };
