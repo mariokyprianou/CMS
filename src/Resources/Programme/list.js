@@ -12,6 +12,7 @@ import {
   Datagrid,
   TextField,
   EditButton,
+  ReferenceField,
   SelectField,
   FunctionField,
 } from 'react-admin';
@@ -28,14 +29,20 @@ const ProgrammeList = (props) => (
     filters={<ProgrammeFilter />}
   >
     <Datagrid>
-      <LocalisedTextField
-        parentPath="trainer"
-        source="name"
-        language="en"
-        sortable={false}
-        textVisibleLength="100px"
+      <ReferenceField
         label="resources.programme.fields.trainerName"
-      />
+        source="trainer.id"
+        reference="trainer"
+      >
+        <LocalisedTextField
+          parentPath="trainer"
+          source="name"
+          language="en"
+          sortable={false}
+          textVisibleLength="100px"
+          label="resources.programme.fields.trainerName"
+        />
+      </ReferenceField>
       <FunctionField
         source="fitness"
         render={(record) => <PercentageTextField value={record.fitness} />}
