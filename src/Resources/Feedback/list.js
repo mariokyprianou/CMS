@@ -43,6 +43,7 @@ const FeedbackList = (props) => {
       {...props}
       actions={<FeedbackAction onClick={exportCSV} />}
       filters={<FeedbackFilter />}
+      bulkActionButtons={false}
     >
       <Datagrid>
         <TextField source="trainerName" />
@@ -52,7 +53,7 @@ const FeedbackList = (props) => {
         <TextField source="userEmail" />
         <FunctionField
           source="timeTaken"
-          render={(record) => record.timeTaken + ' mins'}
+          render={(record) => record.timeTaken || '-' + ' mins'}
         />
         <TextField source="workoutIntensity" />
         <DateField source="date" />

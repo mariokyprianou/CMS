@@ -45,18 +45,20 @@ export const updateConfigurationMutation = gql`
 `;
 
 export default async ({ client, params }) => {
+  console.log('params: ', params);
   try {
-    params.data.localisations.array.forEach((localisation) => {
+    for (let j = 0; j < params.data.localisations.length; j++) {
+      const localisation = params.data.localisations[j];
       for (let i = 0; i < onboardingScreens.length; i++) {
         const onboardingScreen = onboardingScreens[i].id;
         const onboardingImg = localisation[`image_${onboardingScreen}`];
-        if (onboardingImg.hasOwnProperty('rawFile')) {
+        if (onboardingImg && onboardingImg.hasOwnProperty('rawFile')) {
           // TODO: handle image uploads
           // const uploadRequest = await uploadFile(onboardingImg);
           // localisation[`image_${onboardingScreen}`] = uploadRequest.id;
         }
       }
-    });
+    }
 
     // TODO: unflatted the notification and onboardings arrays
     var formattedParams = params.data.localisations.map((localisation) => {

@@ -8,12 +8,18 @@
 
 //  add your resource name mapping here (resource_name: api_name)
 export default {
-  // user: 'User',
+  user: 'User',
   configuration: 'Configuration',
   helpMeChoose: 'HmcQuestion',
   administrator: 'Administrator',
   country: 'Country',
   timeZone: 'TimeZone',
   region: 'Region',
-  // programme: 'Programme', //TODO: add back in when no longer broken in backend
+  programme: 'Programme',
+  trainer: 'Trainer',
+  challenge: 'Challenge',
+  exerciseCategory: 'ExerciseCategory',
+  exercise: 'Exercise',
+  feedback: 'Feedback',
+  workout: 'Workout',
 };

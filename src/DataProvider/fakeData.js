@@ -654,6 +654,12 @@ export default {
       ],
     },
   ],
+  notification: [
+    {
+      id: 1,
+      title: 'hi',
+    },
+  ],
   workout: [
     {
       id: 1,

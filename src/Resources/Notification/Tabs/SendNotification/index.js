@@ -11,7 +11,7 @@ import { SimpleForm, TextInput } from 'react-admin';
 
 const SendNotificationTab = (props) => {
   return (
-    <SimpleForm>
+    <SimpleForm {...props}>
       <TextInput source="message" />
     </SimpleForm>
   );
