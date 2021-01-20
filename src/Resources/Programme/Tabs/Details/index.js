@@ -20,7 +20,19 @@ import {
   programmeEnvironmentChoices,
   publishStatusChoices,
 } from 'utils/choices';
+import { maxImageSize } from 'utils/helpers';
 import { columnStyles } from 'styles';
+
+const maxFileCountValidation = (files = []) => {
+  if (files && files.length >= 5)
+    return {
+      message: 'error.field.image.maxFilesExceeded',
+      args: { maxFiles: 5 },
+    };
+  return;
+};
+
+const fileValidation = [required(), maxFileCountValidation];
 
 const DetailTab = (props) => {
   const { resource } = props;
@@ -68,12 +80,10 @@ const DetailTab = (props) => {
           <ImageInput
             source="images"
             label="resources.programme.fields.trainerImages"
-            validate={required()}
+            validate={fileValidation}
             multiple
-            options={{
-              maxFiles: 5,
-            }}
             accept="image/*"
+            maxSize={maxImageSize}
           >
             <ImageField source="url" title="img" />
           </ImageInput>

@@ -18,8 +18,8 @@ import {
 } from 'react-admin';
 import { MultiLanguageForm } from 'Components/Forms';
 import RichTextInput from 'ra-input-rich-text';
-import { CustomRichTextInput } from 'Components/Inputs';
 import { notificationTypeChoices, onboardingScreens } from 'utils/choices';
+import { maxImageSize } from 'utils/helpers';
 import { columnStyles } from 'styles';
 
 const supportedLanguages = process.env.REACT_APP_SUPPORTED_LANG.split(' ');
@@ -68,7 +68,9 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                   label={`resources.${resource}.fields.description`}
                 />
                 <ImageInput
-                  // validate={required()} //TODO: add back in when we can upload images
+                  accept="image/*"
+                  maxSize={maxImageSize}
+                  validate={required()} //TODO: add back in when we can upload images
                   source={`image_${choice.id}`}
                   label={`resources.${resource}.fields.image`}
                 >

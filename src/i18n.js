@@ -331,6 +331,7 @@ const englishMessages = {
     field: {
       image: {
         notFound: 'Image not found',
+        maxFilesExceeded: 'No more than %{maxFiles} images allowed',
       },
       file: {
         notFound: 'File not found',

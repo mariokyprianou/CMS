@@ -18,6 +18,8 @@ export function partition(array, isValid) {
   );
 }
 
+export const maxImageSize = 2500000; // 2.5MB
+
 export const getLocalisedFieldByLanguage = ({
   language = 'en',
   source,

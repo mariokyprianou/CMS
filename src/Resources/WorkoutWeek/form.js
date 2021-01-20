@@ -29,6 +29,7 @@ import {
   intensityChoices,
   exerciseTypeChoices,
 } from 'utils/choices';
+import { maxImageSize } from 'utils/helpers';
 import { columnStyles } from 'styles';
 
 const nonNegativeNonZeroValidation = [required(), nonNegativeNonZeroInt];
@@ -122,7 +123,12 @@ const WorkoutForm = (props) => {
           />
         </div>
       </div>
-      <ImageInput resource={resource} source="overviewImage">
+      <ImageInput
+        resource={resource}
+        source="overviewImage"
+        accept="image/*"
+        maxSize={maxImageSize}
+      >
         <ImageField source="src" title="Overview Image" />
       </ImageInput>
       {/* Exercises */}
