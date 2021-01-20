@@ -27,18 +27,6 @@ const WorkoutFilter = (props) => {
       </LocalisedReferenceInput>
       <NumberInput source="week" />
       <TextInput source="name" />
-      {/* TODO: Check if this shoudld be programme ID or environment */}
-      {/* <LocalisedReferenceInput
-        resource={resource}
-        source="programme"
-        reference="programme"
-        localisationsPath="trainer.localisations"
-        additionalChoices={programmeEnvironmentChoices}
-        additionalChoiceComparisonField="environment"
-        resource={resource}
-      >
-        <SelectInput />
-      </LocalisedReferenceInput> */}
       <SelectInput source="programme" choices={programmeEnvironmentChoices} />
     </Filter>
   );

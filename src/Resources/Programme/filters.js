@@ -7,14 +7,27 @@
  */
 
 import React from 'react';
-import { Filter, SelectInput, TextInput } from 'react-admin';
+import { Filter, SelectInput } from 'react-admin';
+import { LocalisedReferenceInput } from 'Components/Inputs';
 import { programmeEnvironmentChoices } from 'utils/choices';
 
-const ProgrammeFilter = (props) => (
-  <Filter {...props}>
-    <TextInput source="trainer" />
-    <SelectInput source="environment" choices={programmeEnvironmentChoices} />
-  </Filter>
-);
+const ProgrammeFilter = (props) => {
+  const { resource } = props;
+  return (
+    <Filter {...props}>
+      <LocalisedReferenceInput
+        resource={resource}
+        reference="trainer"
+        source="trainerId"
+        perPage={1000}
+        sort={{ field: 'name', order: 'ASC' }}
+        allowEmpty={true}
+      >
+        <SelectInput />
+      </LocalisedReferenceInput>
+      <SelectInput source="environment" choices={programmeEnvironmentChoices} />
+    </Filter>
+  );
+};
 
 export default ProgrammeFilter;
