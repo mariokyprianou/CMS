@@ -30,6 +30,18 @@ export default ({ type, resource, result }) => {
       }
     }
   }
+  if (resource === 'Programme') {
+    if (result.data) {
+      if (type === 'GET_ONE') {
+        for (let i = 0; i < result.data.shareMediaImages.length; i++) {
+          const shareMediaImage = result.data.shareMediaImages[i];
+          // loop through the share media images and flatten
+          // TODO: Do once backend confirms how the non-localised images will come through
+        }
+      } else if (type === 'GET_LIST') {
+      }
+    }
+  }
   if (
     resource === 'HmcQuestion' &&
     type === 'GET_ONE' &&

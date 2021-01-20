@@ -57,6 +57,7 @@ const ShareMediaTab = () => {
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             defaultValue="WHITE"
+            initialValue="WHITE"
             validate={required()}
           />
         </div>
@@ -77,6 +78,7 @@ const ShareMediaTab = () => {
                   label="resources.programme.fields.textColour"
                   choices={textColourChoices}
                   defaultValue="WHITE"
+                  initialValue="WHITE"
                   validate={required()}
                 />
               )
@@ -100,6 +102,7 @@ const ShareMediaTab = () => {
                   label="resources.programme.fields.textColour"
                   choices={textColourChoices}
                   defaultValue="WHITE"
+                  initialValue="WHITE"
                   validate={required()}
                 />
               )
@@ -124,6 +127,7 @@ const ShareMediaTab = () => {
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             defaultValue="WHITE"
+            initialValue="WHITE"
             validate={required()}
           />
         </div>
@@ -144,6 +148,7 @@ const ShareMediaTab = () => {
                   label="resources.programme.fields.textColour"
                   choices={textColourChoices}
                   defaultValue="WHITE"
+                  initialValue="WHITE"
                   validate={required()}
                 />
               )
@@ -167,6 +172,7 @@ const ShareMediaTab = () => {
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             defaultValue="WHITE"
+            initialValue="WHITE"
             validate={required()}
           />
         </div>
