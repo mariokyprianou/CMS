@@ -160,7 +160,8 @@ const englishMessages = {
         exerciseManagement: 'Exercise Management',
       },
       fields: {
-        trainer: 'Trainer *',
+        trainer: 'Trainer',
+        trainerRequired: 'Trainer *',
         name: 'Name',
         weight: 'Weight',
         exerciseCategory: 'Exercise Category',
