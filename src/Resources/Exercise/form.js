@@ -16,6 +16,7 @@ import {
   SelectInput,
   TextInput,
 } from 'react-admin';
+import { PreviewFileField } from 'Components/Fields';
 import { LocalisedReferenceInput } from 'Components/Inputs';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { booleanTranslatedChoices } from 'utils/choices';
@@ -87,13 +88,16 @@ const ExerciseForm = (props) => {
         source="video"
         validate={required()}
       >
-        <FileField source="src" title="video" target="_blank" />
+        <PreviewFileField />
+        {/* <FileField source="src" title="video" target="_blank" /> */}
       </FileInput>
       <FileInput accept="video/*" resource={resource} source="videoEasy">
-        <FileField source="src" title="videoEasy" target="_blank" />
+        <PreviewFileField />
+        {/* <FileField source="src" title="videoEasy" target="_blank" /> */}
       </FileInput>
       <FileInput accept="video/*" resource={resource} source="videoEasiest">
-        <FileField source="src" title="videoEasiest" target="_blank" />
+        <PreviewFileField />
+        {/* <FileField source="src" title="videoEasiest" target="_blank" /> */}
       </FileInput>
     </Fragment>
   );

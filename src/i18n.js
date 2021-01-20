@@ -328,6 +328,14 @@ const englishMessages = {
         missingTrainers: 'No Trainer Programmes found',
       },
     },
+    field: {
+      image: {
+        notFound: 'Image not found',
+      },
+      file: {
+        notFound: 'File not found',
+      },
+    },
   },
   validation: {
     passwdSpecial: 'Password must contain a special character',

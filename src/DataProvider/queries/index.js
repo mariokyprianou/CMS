@@ -17,6 +17,9 @@ import exportFeedback from './Feedback/EXPORT';
 
 import { getListProgrammesQuery } from './Programme/GET_LIST';
 
+import createExercise from './Exercise/CREATE';
+import updateExercise from './Exercise/UPDATE';
+
 export {
   getOneConfig,
   updateConfig,
@@ -24,4 +27,6 @@ export {
   createHmcQuestion,
   exportFeedback,
   getListProgrammesQuery,
+  createExercise,
+  updateExercise,
 };

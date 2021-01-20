@@ -42,6 +42,15 @@ export default async ({ type, resource, params, client }) => {
       result = { data: getOneTimeZone(params) };
     }
   }
+  if (resource === 'Exercise') {
+    if (type === 'CREATE') {
+      result = await Query.createExercise({ client, params });
+    }
+    if (type === 'UPDATE') {
+      result = await Query.updateExercise({ client, params });
+    }
+  }
+
   return decorateResponse({
     type,
     resource,

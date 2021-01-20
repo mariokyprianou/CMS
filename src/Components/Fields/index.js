@@ -8,5 +8,6 @@
 
 import LocalisedTextField from './LocalisedTextField';
 import PercentageTextField from './PercentageTextField';
+import PreviewFileField from './PreviewFileField';
 
-export { LocalisedTextField, PercentageTextField };
+export { LocalisedTextField, PercentageTextField, PreviewFileField };
