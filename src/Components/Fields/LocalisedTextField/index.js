@@ -19,7 +19,6 @@ const TextByLocalisationField = ({
   textVisibleLength,
 }) => {
   const classes = longTextStyles(textVisibleLength);
-  console.log('record: ', record);
 
   let recordData = record;
   if (parentPath) {

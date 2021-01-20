@@ -35,7 +35,6 @@ const ProgrammeList = (props) => (
         reference="trainer"
       >
         <LocalisedTextField
-          parentPath="trainer"
           source="name"
           language="en"
           sortable={false}
