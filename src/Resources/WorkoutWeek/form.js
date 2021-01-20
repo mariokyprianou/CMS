@@ -145,7 +145,7 @@ const WorkoutForm = (props) => {
             validate={required()}
             defaultValue="REPS"
           />
-          {/* TODO: needs logic to display the correct information - check if this is the exercise info field - should it be disabled/uneditable? */}
+          {/* TODO: needs logic to display the correct information - check if this is the exercise info field - should be uneditable */}
           <LocalisedComponentCloner
             label={`resources.${resource}.fields.additionalTrainerInfo`}
             fullWidth

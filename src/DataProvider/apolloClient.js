@@ -25,7 +25,7 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 });
 
 const authLink = setContext(async (_, { headers }) => {
-  const token = await getToken(); // change this to use another auth library
+  const token = await getToken();
   return {
     headers: {
       ...headers,

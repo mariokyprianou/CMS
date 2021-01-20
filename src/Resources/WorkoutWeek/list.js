@@ -14,6 +14,7 @@ import {
   Datagrid,
   SelectField,
   TextField,
+  ReferenceField,
 } from 'react-admin';
 import WorkoutAction from './actions';
 import WorkoutFilter from './filters';
@@ -23,28 +24,49 @@ import { programmeEnvironmentChoices } from 'utils/choices';
 const WorkoutList = (props) => (
   <List {...props} actions={<WorkoutAction />} filters={<WorkoutFilter />}>
     <Datagrid>
-      <LocalisedTextField
-        parentPath="programme.trainer"
-        source="name"
-        language="en"
+      <ReferenceField
         label="resources.trainer.fields.name"
-        textVisibleLength="100px"
-      />
+        source="trainingProgrammeId"
+        reference="programme"
+      >
+        <LocalisedTextField
+          parentPath="programme.trainer"
+          source="name"
+          language="en"
+          label="resources.trainer.fields.name"
+          textVisibleLength="100px"
+        />
+      </ReferenceField>
       <TextField source="weekNumber" />
-      <LocalisedTextField
-        source="name"
-        language="en"
+      <FunctionField
+        source="workout"
         label="resources.workout.fields.name"
-        textVisibleLength="200px"
+        render={(record) => (
+          <LocalisedTextField
+            record={record.workout}
+            source="name"
+            language="en"
+            label="resources.workout.fields.name"
+            textVisibleLength="200px"
+          />
+        )}
       />
       <FunctionField
         source="exercises"
-        render={(record) => record.exercises.length}
+        render={(record) =>
+          (record.workout.exercises && record.workout.exercises.length) || 0
+        }
       />
-      <SelectField
-        source="programme.environment"
-        choices={programmeEnvironmentChoices}
-      />
+      <ReferenceField
+        label="resources.programme.fields.environment"
+        source="trainingProgrammeId"
+        reference="programme"
+      >
+        <SelectField
+          source="programme.environment"
+          choices={programmeEnvironmentChoices}
+        />
+      </ReferenceField>
       <EditButton />
     </Datagrid>
   </List>

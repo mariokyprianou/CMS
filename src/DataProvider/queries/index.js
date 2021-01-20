@@ -15,10 +15,13 @@ import createHmcQuestion from './HmcQuestion/CREATE';
 
 import exportFeedback from './Feedback/EXPORT';
 
+import { getListProgrammesQuery } from './Programme/GET_LIST';
+
 export {
   getOneConfig,
   updateConfig,
   updateHmcQuestion,
   createHmcQuestion,
   exportFeedback,
+  getListProgrammesQuery,
 };

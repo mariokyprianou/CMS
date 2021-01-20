@@ -323,6 +323,9 @@ const englishMessages = {
           'The "%{source}" field is not complete for the %{language} translation',
         noLocalisations: 'Must have at least one defined localisation',
       },
+      helpMeChoose: {
+        missingTrainers: 'No Trainer Programmes found',
+      },
     },
   },
   validation: {

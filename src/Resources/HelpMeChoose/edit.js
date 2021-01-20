@@ -13,7 +13,7 @@ import HelpMeChooseForm from './form';
 const HelpMeChooseEdit = (props) => {
   return (
     <Edit redirect={false} undoable={false} {...props}>
-      <SimpleForm>
+      <SimpleForm subscription={{ silent: true }}>
         <HelpMeChooseForm />
       </SimpleForm>
     </Edit>

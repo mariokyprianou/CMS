@@ -28,7 +28,7 @@ const HelpMeChooseForm = (props) => {
   const classes = columnStyles();
   const callToDataProvider = useDataProviderWrapper();
   const notify = useNotify();
-  const [programmes, setProgrammes] = useState([]);
+  const [programmes, setProgrammes] = useState(false);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -38,7 +38,6 @@ const HelpMeChooseForm = (props) => {
         resource: 'programme',
         payload: {
           pagination: { page: 1, perPage: 1000 },
-          sort: { field: 'name', order: 'DESC' },
         },
         onSuccess: (result) => {
           if (isSubscribed) {
@@ -52,115 +51,120 @@ const HelpMeChooseForm = (props) => {
   }, [callToDataProvider, notify]);
 
   return (
-    <Fragment>
-      <NumberInput
-        resource={resource}
-        source="orderIndex"
-        validate={orderIndexValidation}
-      />
-      {/* Questions */}
-      <div>{translate(`resources.${resource}.fields.questions`)}</div>
-      <LocalisedComponentCloner
-        fullWidth
-        component={<TextInput multiline validate={required()} />}
-        source="question"
-        resource={resource}
-      />
-      {/* Answers */}
-      <div>{translate(`resources.${resource}.fields.answers`)}</div>
-      <div className={classes.root}>
-        <div className={classes.column}>
-          <LocalisedComponentCloner
-            fullWidth
-            component={<TextInput validate={required()} />}
-            source="answer1"
-            resource={resource}
-          />
+    // only render the form once our fetch programmes query has returned (even if it's an empty array - prevents form child listeners hitting unregistered fields)
+    programmes && (
+      <Fragment>
+        <NumberInput
+          resource={resource}
+          source="orderIndex"
+          validate={orderIndexValidation}
+        />
+        {/* Questions */}
+        <div>{translate(`resources.${resource}.fields.questions`)}</div>
+        <LocalisedComponentCloner
+          fullWidth
+          component={<TextInput multiline validate={required()} />}
+          source="question"
+          resource={resource}
+        />
+        {/* Answers */}
+        <div>{translate(`resources.${resource}.fields.answers`)}</div>
+        <div className={classes.root}>
+          <div className={classes.column}>
+            <LocalisedComponentCloner
+              fullWidth
+              component={<TextInput validate={required()} />}
+              source="answer1"
+              resource={resource}
+            />
+          </div>
+          <div className={classes.column}>
+            <LocalisedComponentCloner
+              fullWidth
+              component={<TextInput validate={required()} />}
+              source="answer2"
+              resource={resource}
+            />
+          </div>
+          <div className={classes.column}>
+            <LocalisedComponentCloner
+              fullWidth
+              component={<TextInput validate={required()} />}
+              source="answer3"
+              resource={resource}
+            />
+          </div>
+          <div className={classes.column}>
+            <LocalisedComponentCloner
+              fullWidth
+              component={<TextInput validate={required()} />}
+              source="answer4"
+              resource={resource}
+            />
+          </div>
         </div>
-        <div className={classes.column}>
-          <LocalisedComponentCloner
-            fullWidth
-            component={<TextInput validate={required()} />}
-            source="answer2"
-            resource={resource}
-          />
-        </div>
-        <div className={classes.column}>
-          <LocalisedComponentCloner
-            fullWidth
-            component={<TextInput validate={required()} />}
-            source="answer3"
-            resource={resource}
-          />
-        </div>
-        <div className={classes.column}>
-          <LocalisedComponentCloner
-            fullWidth
-            component={<TextInput validate={required()} />}
-            source="answer4"
-            resource={resource}
-          />
-        </div>
-      </div>
-      {/* Trainer Programme Scores */}
-      {programmes.map((programme) => {
-        return (
-          <Fragment key={programme.id}>
-            <div>
-              {translate(`resources.${resource}.fields.trainerScores`, {
-                trainerName: getLocalisedFieldByLanguage({
-                  source: 'name',
-                  localisations: programme.trainer.localisations,
-                }),
-                programmeEnv: translate(
-                  programmeEnvironmentChoices.find(
-                    (choice) => choice.id === programme.environment
-                  ).name
-                ),
-              })}
-            </div>
-            <div className={classes.root}>
-              <div className={classes.column}>
-                <NumberInput
-                  source={`${programme.id}_answer1Score`}
-                  label={`resources.${resource}.fields.answer1Score`}
-                  min={0}
-                  max={100}
-                  validate={required()}
-                />
-              </div>
-              <div className={classes.column}>
-                <NumberInput
-                  label={`resources.${resource}.fields.answer2Score`}
-                  source={`${programme.id}_answer2Score`}
-                  min={0}
-                  max={100}
-                  validate={required()}
-                />
-              </div>
-              <div className={classes.column}>
-                <NumberInput
-                  label={`resources.${resource}.fields.answer3Score`}
-                  source={`${programme.id}_answer3Score`}
-                  min={0}
-                  max={100}
-                  validate={required()}
-                />
-              </div>
-              <div className={classes.column}>
-                <NumberInput
-                  label={`resources.${resource}.fields.answer4Score`}
-                  source={`${programme.id}_answer4Score`}
-                  min={0}
-                  max={100}
-                  validate={required()}
-                />
-              </div>
-            </div>
-          </Fragment>
-        );
-      })}
-    </Fragment>
+        {/* Trainer Programme Scores */}
+        {programmes && programmes.length > 0
+          ? programmes.map((programme) => {
+              return (
+                <Fragment key={programme.id}>
+                  <div>
+                    {translate(`resources.${resource}.fields.trainerScores`, {
+                      trainerName: getLocalisedFieldByLanguage({
+                        source: 'name',
+                        localisations: programme.trainer.localisations,
+                      }),
+                      programmeEnv: translate(
+                        programmeEnvironmentChoices.find(
+                          (choice) => choice.id === programme.environment
+                        ).name
+                      ),
+                    })}
+                  </div>
+                  <div className={classes.root}>
+                    <div className={classes.column}>
+                      <NumberInput
+                        source={`${programme.id}_answer1Score`}
+                        label={`resources.${resource}.fields.answer1Score`}
+                        min={0}
+                        max={100}
+                        validate={required()}
+                      />
+                    </div>
+                    <div className={classes.column}>
+                      <NumberInput
+                        label={`resources.${resource}.fields.answer2Score`}
+                        source={`${programme.id}_answer2Score`}
+                        min={0}
+                        max={100}
+                        validate={required()}
+                      />
+                    </div>
+                    <div className={classes.column}>
+                      <NumberInput
+                        label={`resources.${resource}.fields.answer3Score`}
+                        source={`${programme.id}_answer3Score`}
+                        min={0}
+                        max={100}
+                        validate={required()}
+                      />
+                    </div>
+                    <div className={classes.column}>
+                      <NumberInput
+                        label={`resources.${resource}.fields.answer4Score`}
+                        source={`${programme.id}_answer4Score`}
+                        min={0}
+                        max={100}
+                        validate={required()}
+                      />
+                    </div>
+                  </div>
+                </Fragment>
+              );
+            })
+          : translate('error.form.helpMeChoose.missingTrainers')}
+      </Fragment>
+    )
   );
 };
 export default HelpMeChooseForm;

@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { List, Datagrid, EditButton } from 'react-admin';
+import { List, Datagrid, EditButton, ReferenceField } from 'react-admin';
 import ExerciseActions from './actions';
 import ExerciseFilter from './filters';
 import { LocalisedTextField } from 'Components/Fields';
@@ -20,14 +20,20 @@ const ExerciseList = (props) => (
     filters={<ExerciseFilter />}
   >
     <Datagrid>
-      <LocalisedTextField
-        parentPath="trainer"
-        source="name"
-        language="en"
-        sortable={false}
-        textVisibleLength="100px"
-        label="resources.exercise.fields.trainer"
-      />
+      <ReferenceField
+        label="resources.programme.fields.trainerName"
+        source="trainer"
+        reference="trainer"
+      >
+        <LocalisedTextField
+          parentPath="trainer"
+          source="name"
+          language="en"
+          sortable={false}
+          textVisibleLength="100px"
+          label="resources.exercise.fields.trainer"
+        />
+      </ReferenceField>
       <LocalisedTextField
         source="name"
         language="en"
