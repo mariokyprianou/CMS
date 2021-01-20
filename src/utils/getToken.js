@@ -11,7 +11,7 @@ import { Auth } from 'aws-amplify';
 export default () => {
   return Auth.currentSession()
     .then((response) => {
-      return response.getIdToken().getJwtToken();
+      return response.getAccessToken().getJwtToken();
     })
     .catch((error) => {
       throw new Error('Failed to set dataprovider auth header ' + error);
