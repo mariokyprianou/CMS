@@ -17,6 +17,9 @@ import exportFeedback from './Feedback/EXPORT';
 
 import { getListProgrammesQuery } from './Programme/GET_LIST';
 
+import { getOneWorkoutWeekQuery } from './WorkoutWeek/GET_ONE';
+import { getListWorkoutWeeksQuery } from './WorkoutWeek/GET_LIST';
+
 import createExercise from './Exercise/CREATE';
 import updateExercise from './Exercise/UPDATE';
 
@@ -27,6 +30,8 @@ export {
   createHmcQuestion,
   exportFeedback,
   getListProgrammesQuery,
+  getOneWorkoutWeekQuery,
+  getListWorkoutWeeksQuery,
   createExercise,
   updateExercise,
 };

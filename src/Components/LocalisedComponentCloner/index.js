@@ -10,6 +10,7 @@ import React from 'react';
 import { useTranslate } from 'react-admin';
 import { useForm } from 'react-final-form';
 import { columnStyles } from 'styles';
+import get from 'lodash/get';
 
 // TODO: DisplayName not supported in FF
 
@@ -24,6 +25,7 @@ const LocalisedComponentCloner = ({
   component,
   direction = 'column',
   fullWidth,
+  parentPath = null,
   ...props
 }) => {
   const { source, record, label, resource } = props;
@@ -35,6 +37,13 @@ const LocalisedComponentCloner = ({
 
   var notFoundIndex = supportedLanguages.length;
 
+  let recordData = record;
+
+  // handle for some deeply nested fields - e.g. the exercise coaching tips on a workout week
+  if (parentPath) {
+    recordData = get(record, parentPath);
+  }
+
   for (let i = 0; i < supportedLanguages.length; i++) {
     const language = supportedLanguages[i];
 
@@ -42,15 +51,19 @@ const LocalisedComponentCloner = ({
 
     let index = i;
 
-    if (record && record.localisations && record.localisations.length > 0) {
+    if (
+      recordData &&
+      recordData.localisations &&
+      recordData.localisations.length > 0
+    ) {
       // find the supported language as an existing record
-      let existingLanguageIndex = record.localisations
+      let existingLanguageIndex = recordData.localisations
         .map((locale) => locale.language)
         .indexOf(language);
       // if the record exists, match the index
       if (existingLanguageIndex >= 0) {
         index = existingLanguageIndex;
-        initialValue = record.localisations[existingLanguageIndex][source];
+        initialValue = recordData.localisations[existingLanguageIndex][source];
       } else {
         // if the language does not exist, make sure to set it's position outside of existing records
         index = notFoundIndex;
@@ -58,23 +71,49 @@ const LocalisedComponentCloner = ({
       }
     }
 
-    // make sure the language for the index is set
-    form.change(`localisations[${index}].language`, language);
+    if (parentPath) {
+      // make sure the language for the index is set
+      form.change(`${parentPath}.localisations[${index}].language`, language);
 
-    const fieldLabel = label
-      ? translate(label)
-      : translate(`resources.${resource}.fields.${source}`);
-    children.push(
-      <div key={`localisations[${index}].${source}`} className={classes.column}>
-        {React.cloneElement(component, {
-          ...props,
-          source: `localisations[${index}].${source}`,
-          label: `${fieldLabel} (${languageNames.of(language)})`,
-          initialValue,
-          defaultValue: initialValue,
-        })}
-      </div>
-    );
+      const fieldLabel = label
+        ? translate(label)
+        : translate(`resources.${resource}.fields.${source}`);
+      children.push(
+        <div
+          key={`${parentPath}.localisations[${index}].${source}`}
+          className={classes.column}
+        >
+          {React.cloneElement(component, {
+            ...props,
+            source: `${parentPath}.localisations[${index}].${source}`,
+            label: `${fieldLabel} (${languageNames.of(language)})`,
+            initialValue,
+            defaultValue: initialValue,
+          })}
+        </div>
+      );
+    } else {
+      // make sure the language for the index is set
+      form.change(`localisations[${index}].language`, language);
+
+      const fieldLabel = label
+        ? translate(label)
+        : translate(`resources.${resource}.fields.${source}`);
+      children.push(
+        <div
+          key={`localisations[${index}].${source}`}
+          className={classes.column}
+        >
+          {React.cloneElement(component, {
+            ...props,
+            source: `localisations[${index}].${source}`,
+            label: `${fieldLabel} (${languageNames.of(language)})`,
+            initialValue,
+            defaultValue: initialValue,
+          })}
+        </div>
+      );
+    }
   }
 
   return (

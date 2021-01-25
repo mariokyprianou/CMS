@@ -35,9 +35,14 @@ import { columnStyles } from 'styles';
 const nonNegativeNonZeroValidation = [required(), nonNegativeNonZeroInt];
 const nonNegativeIntValidation = [required(), nonNegativeInt];
 
-const SetsInput = ({ scopedFormData, translate }) => {
+const SetsInput = ({ getSource, scopedFormData, translate }) => {
   return (
-    <ArrayInput validate={required()} source="sets">
+    <ArrayInput
+      record={scopedFormData}
+      validate={required()}
+      source={getSource('sets')}
+      label="resources.workout.fields.sets"
+    >
       <RestrictedSimpleFormIterator maximumSize={5}>
         <NumberInput
           label="resources.workout.fields.work"
@@ -76,17 +81,22 @@ const WorkoutForm = (props) => {
   const { resource } = props;
   return (
     <Fragment>
-      <LocalisedComponentCloner
-        resource={resource}
-        fullWidth
-        component={<TextInput fullWidth multiline validate={required()} />}
-        source="name"
-      />
+      <FormDataConsumer>
+        {({ formData, ...rest }) => (
+          <LocalisedComponentCloner
+            resource={resource}
+            fullWidth
+            record={formData.workout}
+            component={<TextInput fullWidth multiline validate={required()} />}
+            source="name"
+          />
+        )}
+      </FormDataConsumer>
       <div className={classes.root}>
         <div className={classes.column}>
           <LocalisedReferenceInput
             resource={resource}
-            source="programmeId"
+            source="trainingProgrammeId"
             reference="programme"
             localisationsPath="trainer.localisations"
             additionalChoices={programmeEnvironmentChoices}
@@ -110,14 +120,14 @@ const WorkoutForm = (props) => {
           />
           <NumberInput
             resource={resource}
-            source="duration"
+            source="workout.duration"
             validate={nonNegativeNonZeroValidation}
           />
         </div>
         <div className={classes.column}>
           <SelectInput
             resource={resource}
-            source="intensity"
+            source="workout.intensity"
             choices={intensityChoices}
             validate={required()}
           />
@@ -132,49 +142,62 @@ const WorkoutForm = (props) => {
         <ImageField source="src" title="Overview Image" />
       </ImageInput>
       {/* Exercises */}
-      <ArrayInput source="exercises" validate={required()}>
-        <SimpleFormIterator>
-          {/* TODO: filter the exercises to the trainer in scope - via programme */}
-          <LocalisedReferenceInput
-            resource="workout"
-            label={`resources.${resource}.fields.exercise`}
-            source="exercise"
-            reference="exercise"
-            validate={required()}
+      <FormDataConsumer>
+        {({ formData }) => (
+          <ArrayInput
+            label="resources.workout.fields.exercisesRequired"
+            source="workout.exercises"
           >
-            <SelectInput />
-          </LocalisedReferenceInput>
-          <SelectInput
-            label={`resources.${resource}.fields.setType`}
-            source="setType"
-            choices={exerciseTypeChoices}
-            validate={required()}
-            defaultValue="REPS"
-          />
-          {/* TODO: needs logic to display the correct information - check if this is the exercise info field - should be uneditable */}
-          <LocalisedComponentCloner
-            label={`resources.${resource}.fields.additionalTrainerInfo`}
-            fullWidth
-            disabled
-            component={<TextInput disabled fullWidth multiline />}
-            source="name"
-          />
-          <FormDataConsumer>
-            {({
-              getSource, // A function to get the valid source inside an ArrayInput
-              ...rest
-            }) => (
-              <SetsInput
-                {...rest}
-                source={getSource('exercises')}
-                getSource={getSource}
-                extraClasses={classes}
-                translate={translate}
+            <SimpleFormIterator>
+              {/* TODO: filter the exercises to the trainer in scope - via programme */}
+              {/* TODO: find out if formData.trainerId is correct when added */}
+              <LocalisedReferenceInput
+                resource="exercise"
+                label={`resources.${resource}.fields.exerciseRequired`}
+                source="exercise.id"
+                reference="exercise"
+                validate={required()}
+                filter={{ trainer: formData.trainerId }}
+              >
+                <SelectInput />
+              </LocalisedReferenceInput>
+              <SelectInput
+                label={`resources.${resource}.fields.setType`}
+                source="setType"
+                choices={exerciseTypeChoices}
+                validate={required()}
+                defaultValue="REPS"
               />
-            )}
-          </FormDataConsumer>
-        </SimpleFormIterator>
-      </ArrayInput>
+              <FormDataConsumer>
+                {({
+                  formData,
+                  getSource, // A function to get the valid source inside an ArrayInput
+                  ...rest
+                }) => (
+                  <Fragment>
+                    <LocalisedComponentCloner
+                      label={`resources.${resource}.fields.additionalTrainerInfo`}
+                      fullWidth
+                      component={<TextInput fullWidth multiline />}
+                      source="coachingTips"
+                      parentPath={getSource('exercise')}
+                      record={formData}
+                    />
+                    {/* TODO: fix the sets - not showing up */}
+                    <SetsInput
+                      {...rest}
+                      source={getSource('exercises')}
+                      getSource={getSource}
+                      extraClasses={classes}
+                      translate={translate}
+                    />
+                  </Fragment>
+                )}
+              </FormDataConsumer>
+            </SimpleFormIterator>
+          </ArrayInput>
+        )}
+      </FormDataConsumer>
     </Fragment>
   );
 };

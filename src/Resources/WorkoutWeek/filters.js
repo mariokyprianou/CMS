@@ -27,7 +27,7 @@ const WorkoutFilter = (props) => {
       </LocalisedReferenceInput>
       <NumberInput source="week" />
       <TextInput source="name" />
-      <SelectInput source="programme" choices={programmeEnvironmentChoices} />
+      <SelectInput source="environment" choices={programmeEnvironmentChoices} />
     </Filter>
   );
 };

@@ -31,7 +31,7 @@ export default ({ type, resource, result }) => {
     }
   }
   if (resource === 'Programme') {
-    if (result.data) {
+    if (result && result.data) {
       if (type === 'GET_ONE') {
         for (let i = 0; i < result.data.shareMediaImages.length; i++) {
           const shareMediaImage = result.data.shareMediaImages[i];
