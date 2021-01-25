@@ -23,6 +23,9 @@ import { getListWorkoutWeeksQuery } from './WorkoutWeek/GET_LIST';
 import createExercise from './Exercise/CREATE';
 import updateExercise from './Exercise/UPDATE';
 
+import createWorkoutWeek from './WorkoutWeek/CREATE';
+import updateWorkoutWeek from './WorkoutWeek/UPDATE';
+
 export {
   getOneConfig,
   updateConfig,
@@ -34,4 +37,6 @@ export {
   getListWorkoutWeeksQuery,
   createExercise,
   updateExercise,
+  createWorkoutWeek,
+  updateWorkoutWeek,
 };

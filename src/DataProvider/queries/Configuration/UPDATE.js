@@ -33,7 +33,6 @@ export const updateConfigurationMutation = gql`
 `;
 
 export default async ({ client, params }) => {
-  console.log('params: ', params);
   try {
     for (let j = 0; j < params.data.localisations.length; j++) {
       const localisation = params.data.localisations[j];

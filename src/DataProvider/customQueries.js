@@ -50,6 +50,14 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.updateExercise({ client, params });
     }
   }
+  if (resource === 'WorkoutWeek') {
+    if (type === 'CREATE') {
+      result = await Query.createWorkoutWeek({ client, params });
+    }
+    if (type === 'UPDATE') {
+      result = await Query.updateWorkoutWeek({ client, params });
+    }
+  }
 
   return decorateResponse({
     type,
