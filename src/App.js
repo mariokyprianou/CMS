@@ -32,7 +32,7 @@ import {
   ExerciseCategory,
   Feedback,
   HelpMeChoose,
-  Notification,
+  // Notification,
   Programme,
   Region,
   TimeZone,

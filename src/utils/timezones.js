@@ -6,6 +6,7 @@
  * Copyright (c) 2021 The Distance
  */
 
+//  longer list of available timezones
 const timezones = [
   'Europe/Andorra',
   'Asia/Dubai',
@@ -357,9 +358,61 @@ const timezones = [
   'Africa/Johannesburg',
 ];
 
+// client specified time zones
+const requestedTimeZones = [
+  'Pacific/Pago_Pago',
+  'America/Honolulu',
+  'America/Anchorage',
+  'America/Los_Angeles',
+  'America/Vancouver',
+  'America/Phoenix',
+  'America/Chicago',
+  'America/Detroit',
+  'America/New_York',
+  'America/Halifax',
+  'America/Campo_Grande',
+  'America/St_Johns',
+  'America/Sao_Paulo',
+  'America/Cordoba',
+  'America/Noronha',
+  'Atlantic/Cape_Verde',
+  'Europe/Paris',
+  'Europe/Rome',
+  'Europe/Madrid',
+  'Asia/Jerusalem',
+  'Africa/Johannesburg',
+  'Asia/Riyadh',
+  'Asia/Aden',
+  'Europe/Istanbul',
+  'Asia/Moscow',
+  'Asia/Qatar',
+  'Asia/Tehran',
+  'Asia/Dubai',
+  'Asia/Muscat',
+  'Asia/Kabul',
+  'Asia/Karachi',
+  'Asia/Kolkata',
+  'Asia/Colombo',
+  'Asia/Kathmandu',
+  'Asia/Urumqi',
+  'Asia/Dhaka',
+  'Asia/Jakarta',
+  'Asia/Shanghai',
+  'Asia/Taipei',
+  'Asia/Makassar',
+  'Asia/Seoul',
+  'Asia/Tokyo',
+  'Australia/Darwin',
+  'Australia/Adelaide',
+  'Australia/Syndey',
+  'Asia/Kamchatka',
+  'Pacific/Tongatapu',
+  'Europe/London',
+];
+
 export const getOneTimeZone = (timezone) => {
   if (timezones.find(timezone)) return { id: timezone, name: timezone };
   return null;
 };
 
-export default timezones;
+export default requestedTimeZones;
