@@ -26,6 +26,9 @@ import updateExercise from './Exercise/UPDATE';
 import createWorkoutWeek from './WorkoutWeek/CREATE';
 import updateWorkoutWeek from './WorkoutWeek/UPDATE';
 
+import createChallenge from './Challenge/CREATE';
+import updateChallenge from './Challenge/UPDATE';
+
 export {
   getOneConfig,
   updateConfig,
@@ -39,4 +42,6 @@ export {
   updateExercise,
   createWorkoutWeek,
   updateWorkoutWeek,
+  createChallenge,
+  updateChallenge,
 };

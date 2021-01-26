@@ -58,6 +58,14 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.updateWorkoutWeek({ client, params });
     }
   }
+  if (resource === 'Challenge') {
+    if (type === 'CREATE') {
+      result = await Query.createChallenge({ client, params });
+    }
+    if (type === 'UPDATE') {
+      result = await Query.updateChallenge({ client, params });
+    }
+  }
 
   return decorateResponse({
     type,

@@ -29,7 +29,8 @@ const ChallengesTab = (props) => {
           pathname={'/challenge/create'}
           state={{
             record: {
-              programmeId: props && props.record ? props.record.id : null,
+              trainingProgrammeId:
+                props && props.record ? props.record.id : null,
             },
           }}
           icon={<Add />}
@@ -48,6 +49,9 @@ const ChallengesTab = (props) => {
               <EditButton
                 to={{
                   pathname: `/challenge/${record.id}`,
+                  state: {
+                    programmeId: props.record && props.record.id,
+                  },
                 }}
               />
             )}

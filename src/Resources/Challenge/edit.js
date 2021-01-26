@@ -6,27 +6,51 @@
  * Copyright (c) 2020 The Distance
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   Edit,
+  DeleteButton,
   FormDataConsumer,
   NumberInput,
   required,
+  SaveButton,
   SelectInput,
   SimpleForm,
   TextInput,
 } from 'react-admin';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
+import { TemplateToolbar } from 'Components/Toolbars';
 import { InputAdornment } from '@material-ui/core';
 import { challengeTypeChoices } from 'utils/choices';
 import { nonNegativeNonZeroInt } from 'utils/validation';
 
 const durationValidation = [required(), nonNegativeNonZeroInt];
 
+const ChallengeToolbar = ({ classes, deleteRedirect, ...props }) => {
+  return (
+    <TemplateToolbar {...props}>
+      <SaveButton />
+      <DeleteButton redirect={deleteRedirect} />
+    </TemplateToolbar>
+  );
+};
+
 const ChallengeEdit = (props) => {
+  const {
+    location: { state },
+  } = props;
   return (
     <Edit {...props}>
-      <SimpleForm>
+      <SimpleForm
+        toolbar={
+          <ChallengeToolbar
+            deleteRedirect={
+              state ? `/programme/${state.programmeId}/3` : '/programme' //custom toolbar to redirect delete back to programmeId
+            }
+          />
+        }
+        redirect={false} //do not redirect on save
+      >
         <LocalisedComponentCloner
           direction="row"
           component={<TextInput validate={required()} />}

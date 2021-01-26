@@ -90,7 +90,7 @@ export default async ({ client, params }) => {
       },
     });
 
-    return result;
+    return result.data;
   } catch (e) {
     if (e.graphQLErrors && e.graphQLErrors.length) {
       const [error] = e.graphQLErrors;

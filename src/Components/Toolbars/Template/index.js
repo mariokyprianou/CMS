@@ -10,18 +10,10 @@ import React from 'react';
 import { Toolbar } from 'react-admin';
 import { toolbarStyles } from 'styles';
 
-const SanitizedChildren = ({ children }) => {
-  return children;
-};
-
 const CustomToolbar = (props) => {
   const { hasList, hasShow, hasEdit, hasCreate, ...rest } = props;
   const classes = toolbarStyles();
-  return (
-    <Toolbar className={classes.root} {...rest}>
-      <SanitizedChildren {...rest} />
-    </Toolbar>
-  );
+  return <Toolbar className={classes.root} {...rest} />;
 };
 
 export default CustomToolbar;

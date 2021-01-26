@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { ForgotPassword } from 'Resources/auth';
 import ConfigurationPage from 'Resources/Configuration/edit';
 import NotificationPage from 'Resources/Notification/edit';
@@ -29,4 +29,8 @@ export default [
     path="/notification"
     render={(props) => <NotificationPage {...props} />}
   />,
+  <Route exact path="/challenge" render={() => <Redirect to="/programme" />} />,
+  <Route exact path="/timezone" render={() => <Redirect to="/" />} />,
+  <Route exact path="/region" render={() => <Redirect to="/" />} />,
+  <Route exact path="/country" render={() => <Redirect to="/" />} />,
 ];
