@@ -66,6 +66,14 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.updateChallenge({ client, params });
     }
   }
+  if (resource === 'Programme') {
+    if (type === 'CREATE') {
+      result = await Query.createProgramme({ client, params });
+    }
+    if (type === 'UPDATE') {
+      result = await Query.updateProgramme({ client, params });
+    }
+  }
 
   return decorateResponse({
     type,

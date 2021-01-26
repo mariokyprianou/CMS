@@ -16,6 +16,8 @@ import createHmcQuestion from './HmcQuestion/CREATE';
 import exportFeedback from './Feedback/EXPORT';
 
 import { getListProgrammesQuery } from './Programme/GET_LIST';
+import createProgramme from './Programme/CREATE';
+import updateProgramme from './Programme/UPDATE';
 
 import { getOneWorkoutWeekQuery } from './WorkoutWeek/GET_ONE';
 import { getListWorkoutWeeksQuery } from './WorkoutWeek/GET_LIST';
@@ -44,4 +46,6 @@ export {
   updateWorkoutWeek,
   createChallenge,
   updateChallenge,
+  createProgramme,
+  updateProgramme,
 };

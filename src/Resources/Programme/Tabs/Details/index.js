@@ -80,7 +80,7 @@ const DetailTab = (props) => {
           <ImageInput
             source="images"
             label="resources.programme.fields.trainerImages"
-            validate={fileValidation}
+            // validate={fileValidation} //TODO: add back in once unblocked by backend
             multiple
             accept="image/*"
             maxSize={maxImageSize}
