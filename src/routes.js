@@ -8,16 +8,17 @@
 
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { ForgotPassword } from 'Resources/auth';
+import { ForgotPassword } from 'Layout/Auth';
 import ConfigurationPage from 'Resources/Configuration/edit';
 import NotificationPage from 'Resources/Notification/edit';
 
 export default [
   <Route
+    key="forgotPassword"
     exact
+    noLayout
     path="/forgotPassword"
     render={(props) => <ForgotPassword {...props} />}
-    noLayout
   />,
   <Route
     exact

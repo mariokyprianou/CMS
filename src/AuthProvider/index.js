@@ -6,12 +6,6 @@
  * Copyright (c) 2020 The Distance
  */
 
-import { AuthProvider as authProviderFactory } from '@thedistance/the-core-cms-module-authentication-amplify';
-import { login, logout, checkAuth, getPermissions } from './amplifyHandlers';
+import { AuthProviderFactory } from '@thedistance/the-core-cms-module-authentication-amplify';
 
-export default authProviderFactory({
-  login,
-  logout,
-  checkAuth,
-  getPermissions,
-});
+export default AuthProviderFactory();

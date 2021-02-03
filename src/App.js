@@ -15,13 +15,12 @@ import i18nProvider from './i18n';
 import { CircularProgress } from '@material-ui/core';
 import authProvider from 'AuthProvider';
 import buildProvider from 'DataProvider';
-import { Login } from 'Resources/auth';
 import defaultTheme, { darkTheme, lightTheme } from 'theme';
 import Layout from 'Layout';
+import { Login } from 'Layout/Auth';
 import { appStyles } from 'styles';
 import defaultMessages from 'ra-language-english';
 import customRoutes from 'routes';
-
 // Resources
 import {
   Administrator,
@@ -56,7 +55,7 @@ const App = () => {
     const initialiseApp = async () => {
       return buildProvider().then((dataProvider) => {
         const store = createStore({
-          authProvider,
+          authProvider: authProvider,
           dataProvider,
           history,
           customReducers,

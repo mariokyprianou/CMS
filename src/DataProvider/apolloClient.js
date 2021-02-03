@@ -14,7 +14,7 @@ import {
   IntrospectionFragmentMatcher,
 } from 'apollo-cache-inmemory';
 import schemaFragments from './fragmentTypes.json';
-import getToken from 'utils/getToken';
+import { amplifyHandlers } from '@thedistance/the-core-cms-module-authentication-amplify';
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_GRAPHQL_URI,
@@ -25,11 +25,11 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 });
 
 const authLink = setContext(async (_, { headers }) => {
-  const token = await getToken();
+  const token = await amplifyHandlers.getToken();
   return {
     headers: {
       ...headers,
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
   };
 });

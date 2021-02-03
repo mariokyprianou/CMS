@@ -322,6 +322,7 @@ const englishMessages = {
       passwdChangeUnsuccessful: 'Password change unsuccessful',
       resetPwdFailure: 'Unable to reset password: %{errMsg}',
       unableToLogin: 'Unable to login. Please try again',
+      accessDenied: 'You need to sign in to access that page',
     },
     permissions: {
       title: 'Access Denied',
