@@ -37,7 +37,7 @@ const WorkoutTab = (props) => {
             label="resources.trainer.fields.name"
             textVisibleLength="100px"
           />
-          <TextField resource={resource} source="week" />
+          <TextField resource={resource} source="weekNumber" />
           <LocalisedTextField
             source="name"
             language="en"
@@ -47,7 +47,7 @@ const WorkoutTab = (props) => {
           <FunctionField
             resource={resource}
             source="exercises"
-            render={(record) => record.exercises.length}
+            render={(record) => record.workout.exercises.length}
           />
           <SelectField
             resource={resource}

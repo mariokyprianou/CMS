@@ -36,7 +36,7 @@ const UserList = (props) => {
         <TextField source="email" />
         <TextField source="country" />
         <TextField source="region" />
-        <BooleanField source="subscription.isSubscribed" />
+        <BooleanField source="emailMarketing" />
         <FunctionField
           label="resources.user.fields.subscription.platform"
           render={(record) =>
