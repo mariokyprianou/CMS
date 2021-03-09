@@ -50,7 +50,7 @@ const ChallengesTab = (props) => {
                 to={{
                   pathname: `/challenge/${record.id}`,
                   state: {
-                    programmeId: props.record && props.record.id,
+                    programmeId: props && props.record && props.record.id,
                   },
                 }}
               />

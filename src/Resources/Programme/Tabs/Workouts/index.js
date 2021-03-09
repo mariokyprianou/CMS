@@ -13,11 +13,9 @@ import {
   FunctionField,
   Pagination,
   ReferenceManyField,
-  SelectField,
   TextField,
 } from 'react-admin';
 import { LocalisedTextField } from 'Components/Fields';
-import { programmeEnvironmentChoices } from 'utils/choices';
 
 const WorkoutTab = (props) => {
   const { resource } = props;
@@ -30,29 +28,28 @@ const WorkoutTab = (props) => {
         {...props}
       >
         <Datagrid>
-          <LocalisedTextField
-            parentPath="programme.trainer"
-            source="name"
-            language="en"
-            label="resources.trainer.fields.name"
-            textVisibleLength="100px"
-          />
-          <TextField resource={resource} source="week" />
-          <LocalisedTextField
-            source="name"
-            language="en"
+          <TextField resource={resource} source="weekNumber" />
+          <FunctionField
+            source="workout"
             label="resources.workout.fields.name"
-            textVisibleLength="200px"
+            render={(record) => (
+              <LocalisedTextField
+                record={record.workout}
+                source="name"
+                language="en"
+                label="resources.workout.fields.name"
+                textVisibleLength="200px"
+              />
+            )}
           />
           <FunctionField
             resource={resource}
             source="exercises"
-            render={(record) => record.exercises.length}
-          />
-          <SelectField
-            resource={resource}
-            source="programme.environment"
-            choices={programmeEnvironmentChoices}
+            render={(record) =>
+              record.workout &&
+              record.workout.exercises &&
+              record.workout.exercises.length
+            }
           />
           <FunctionField
             render={(record) => (

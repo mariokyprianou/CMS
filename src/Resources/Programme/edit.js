@@ -10,7 +10,6 @@ import React from 'react';
 import { Edit, TabbedForm, FormTab } from 'react-admin';
 import Details from './Tabs/Details';
 import Workouts from './Tabs/Workouts';
-import Exercises from './Tabs/Exercises';
 import Challenges from './Tabs/Challenges';
 import ShareMedia from './Tabs/ShareMedia';
 
