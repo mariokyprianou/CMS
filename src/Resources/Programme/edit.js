@@ -25,9 +25,6 @@ const ProgrammeEdit = (props) => {
         <FormTab label={`resources.${resource}.tabs.workouts`}>
           <Workouts />
         </FormTab>
-        <FormTab label={`resources.${resource}.tabs.exercises`}>
-          <Exercises />
-        </FormTab>
         <FormTab label={`resources.${resource}.tabs.challenges`}>
           <Challenges />
         </FormTab>

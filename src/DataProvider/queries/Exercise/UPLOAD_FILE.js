@@ -25,9 +25,9 @@ export default async ({ client, file }) => {
   });
   const response = uploadRequest.data.data;
   await axios.put(response.url, file.rawFile, {
-    //   headers: {
-    //     'Content-Type': response.contentType,
-    //   },
+    headers: {
+      'Content-Type': 'video/mp4', // video mp4 only
+    },
   });
   return response;
 };

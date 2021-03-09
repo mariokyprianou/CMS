@@ -11,7 +11,8 @@ import { FileField, useTranslate } from 'react-admin';
 
 const PreviewFileField = (props) => {
   const translate = useTranslate();
-  const { record, value } = props;
+  const { record, value, title } = props;
+
   if (record) {
     if (record.rawFile) {
       return (
@@ -30,6 +31,13 @@ const PreviewFileField = (props) => {
           title={`${record.fileName}`}
           target="_blank"
         />
+      );
+    } else {
+      // record exists, but has no valid properties - show the file
+      return (
+        <a href={record} target="_blank">
+          {translate(title)}
+        </a>
       );
     }
   } else if (value) {

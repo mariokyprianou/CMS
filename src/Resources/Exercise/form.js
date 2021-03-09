@@ -8,7 +8,6 @@
 
 import React, { Fragment } from 'react';
 import {
-  FileField,
   FileInput,
   FormDataConsumer,
   ReferenceInput,
@@ -83,21 +82,18 @@ const ExerciseForm = (props) => {
         resource={resource}
       />
       <FileInput
-        accept="video/*"
+        accept="video/mp4"
         resource={resource}
         source="video"
         validate={required()}
       >
-        <PreviewFileField />
-        {/* <FileField source="src" title="video" target="_blank" /> */}
+        <PreviewFileField title={`resources.${resource}.fields.video`} />
       </FileInput>
-      <FileInput accept="video/*" resource={resource} source="videoEasy">
-        <PreviewFileField />
-        {/* <FileField source="src" title="videoEasy" target="_blank" /> */}
+      <FileInput accept="video/mp4" resource={resource} source="videoEasy">
+        <PreviewFileField title={`resources.${resource}.fields.videoEasy`} />
       </FileInput>
-      <FileInput accept="video/*" resource={resource} source="videoEasiest">
-        <PreviewFileField />
-        {/* <FileField source="src" title="videoEasiest" target="_blank" /> */}
+      <FileInput accept="video/mp4" resource={resource} source="videoEasiest">
+        <PreviewFileField title={`resources.${resource}.fields.videoEasiest`} />
       </FileInput>
     </Fragment>
   );
