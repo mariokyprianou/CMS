@@ -7,5 +7,11 @@
  */
 
 import MultiLanguageForm from './MultiLanguageForm';
+import CustomSimpleFormIterator from './CustomSimpleFormIterator';
+import RestrictedSimpleFormIterator from './RestrictedSimpleFormIterator';
 
-export { MultiLanguageForm };
+export {
+  MultiLanguageForm,
+  CustomSimpleFormIterator,
+  RestrictedSimpleFormIterator,
+};

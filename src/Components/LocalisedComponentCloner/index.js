@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { useTranslate } from 'react-admin';
-import { useForm } from 'react-final-form';
+import { useForm, useFormState } from 'react-final-form';
 import { columnStyles } from 'styles';
 import get from 'lodash/get';
 
@@ -26,12 +26,15 @@ const LocalisedComponentCloner = ({
   direction = 'column',
   fullWidth,
   parentPath = null,
+  defaultValues = [],
+  defaultValueFieldName = '',
   ...props
 }) => {
   const { source, record, label, resource } = props;
   const classes = columnStyles(direction, fullWidth ? '100%' : null);
   const translate = useTranslate();
   const form = useForm();
+  const { values } = useFormState();
 
   const children = [];
 
@@ -47,7 +50,15 @@ const LocalisedComponentCloner = ({
   for (let i = 0; i < supportedLanguages.length; i++) {
     const language = supportedLanguages[i];
 
-    let initialValue = null;
+    let defaultValue = null;
+    // check if there's a set of default values and a field name to map
+    if (defaultValues.length > 0 && defaultValueFieldName) {
+      defaultValue = defaultValues.find(
+        (localisation) => localisation.language === language
+      )[defaultValueFieldName];
+    }
+
+    let initialValue = defaultValue;
 
     let index = i;
 
@@ -72,8 +83,15 @@ const LocalisedComponentCloner = ({
     }
 
     if (parentPath) {
+      const languageSet = get(
+        values,
+        `${parentPath}.localisations[${index}].language`
+      );
+
       // make sure the language for the index is set
-      form.change(`${parentPath}.localisations[${index}].language`, language);
+      if (!languageSet || languageSet !== language) {
+        form.change(`${parentPath}.localisations[${index}].language`, language);
+      }
 
       const fieldLabel = label
         ? translate(label)
@@ -88,13 +106,17 @@ const LocalisedComponentCloner = ({
             source: `${parentPath}.localisations[${index}].${source}`,
             label: `${fieldLabel} (${languageNames.of(language)})`,
             initialValue,
-            defaultValue: initialValue,
+            defaultValue: defaultValue || initialValue,
           })}
         </div>
       );
     } else {
+      const languageSet = get(values, `localisations[${index}].language`);
+
       // make sure the language for the index is set
-      form.change(`localisations[${index}].language`, language);
+      if (!languageSet || languageSet !== language) {
+        form.change(`localisations[${index}].language`, language);
+      }
 
       const fieldLabel = label
         ? translate(label)
@@ -109,7 +131,7 @@ const LocalisedComponentCloner = ({
             source: `localisations[${index}].${source}`,
             label: `${fieldLabel} (${languageNames.of(language)})`,
             initialValue,
-            defaultValue: initialValue,
+            defaultValue: defaultValue || initialValue,
           })}
         </div>
       );

@@ -10,7 +10,10 @@ import * as Query from './queries';
 
 export default ({ type, resource, params, builtQuery }) => {
   // override ra-data-graphql-simple predicted queries here e.g.
-  if (resource === 'Programme' && type === 'GET_LIST') {
+  if (
+    resource === 'Programme' &&
+    (type === 'GET_LIST' || type === 'GET_MANY')
+  ) {
     return Query.getListProgrammesQuery;
   }
   if (resource === 'WorkoutWeek') {
