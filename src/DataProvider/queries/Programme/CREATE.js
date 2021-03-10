@@ -7,6 +7,7 @@
  */
 
 import gql from 'graphql-tag';
+import uploadFile from './UPLOAD_FILE';
 
 export const createProgrammeMutation = gql`
   mutation CreateProgramme($programme: ProgrammeInput!) {
@@ -47,7 +48,24 @@ export const createProgrammeMutation = gql`
 `;
 
 export default async ({ client, params }) => {
+  // placeholder array
+  params.data.imagesToUpload = [];
   try {
+    if (params.data.images && params.data.images.length > 0) {
+      for (let i = 0; i < params.data.images.length; i++) {
+        const image = params.data.images[i];
+        if (image.hasOwnProperty('rawFile')) {
+          const responseFile = await uploadFile({
+            client,
+            file: image,
+          });
+          params.data.imagesToUpload.push({
+            imageKey: responseFile.key,
+            orderIndex: i,
+          });
+        }
+      }
+    }
     // TODO: handle trainer image uploads
     const result = await client.mutate({
       mutation: createProgrammeMutation,
@@ -60,10 +78,13 @@ export default async ({ client, params }) => {
           fatLoss: params.data.fatLoss,
           fitness: params.data.fitness,
           trainerId: params.data.trainer.id,
+          localisations: params.data.localisations,
+          images: params.data.imagesToUpload,
         },
       },
     });
 
+    console.log('result: ', result);
     return result.data;
   } catch (e) {
     if (e.graphQLErrors && e.graphQLErrors.length) {
