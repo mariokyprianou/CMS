@@ -7,6 +7,7 @@
  */
 
 import gql from 'graphql-tag';
+import uploadFile from 'DataProvider/queries/FileUpload/UPLOAD_FILE';
 import { onboardingScreens } from 'utils/choices';
 
 export const updateConfigurationMutation = gql`
@@ -20,7 +21,10 @@ export const updateConfigurationMutation = gql`
           orderIndex
           title
           description
-          image
+          image {
+            key
+            url
+          }
         }
         notifications {
           type
@@ -40,6 +44,7 @@ export default async ({ client, params }) => {
         const onboardingScreen = onboardingScreens[i].id;
         const onboardingImg = localisation[`image_${onboardingScreen}`];
         if (onboardingImg && onboardingImg.hasOwnProperty('rawFile')) {
+          console.log('Image!', onboardingImg);
           // TODO: handle image uploads
           // const uploadRequest = await uploadFile(onboardingImg);
           // localisation[`image_${onboardingScreen}`] = uploadRequest.id;

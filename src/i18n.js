@@ -165,6 +165,9 @@ const englishMessages = {
         name: 'Name',
         weight: 'Weight',
         exerciseCategory: 'Exercise Category',
+        category: {
+          id: 'Exercise Category',
+        },
         coachingTips: 'Coaching Tips',
         video: 'Main Video',
         videoEasy: 'Easier Video 1 (Optional)',

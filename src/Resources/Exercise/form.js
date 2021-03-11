@@ -58,7 +58,7 @@ const ExerciseForm = (props) => {
               formData.weight && (
                 <ReferenceInput
                   resource={resource}
-                  source="exerciseCategory"
+                  source="category.id"
                   reference="exerciseCategory"
                   fullWidth
                 >

@@ -19,7 +19,10 @@ export const getOneConfigQuery = gql`
           orderIndex
           title
           description
-          image
+          image {
+            key
+            url
+          }
         }
         notifications {
           type
