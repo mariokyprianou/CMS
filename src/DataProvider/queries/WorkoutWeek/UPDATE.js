@@ -17,7 +17,10 @@ export const updateWorkoutWeekMutation = gql`
       weekNumber
       orderIndex
       workout {
-        overviewImage
+        overviewImage {
+          key
+          url
+        }
         intensity
         duration
         localisations {
@@ -58,6 +61,12 @@ export default async ({ client, params }) => {
         file: params.data.workout.overviewImage,
       });
       params.data.workout.overviewImageKey = uploadRequest.key;
+    } else if (
+      params.data.workout.overviewImage &&
+      params.data.workout.overviewImage.hasOwnProperty('key')
+    ) {
+      params.data.workout.overviewImageKey =
+        params.data.workout.overviewImage.key;
     }
 
     // assign setNumber to each set in each exercise (use array index pos)

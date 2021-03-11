@@ -27,7 +27,10 @@ export const getListWorkoutWeeksQuery = gql`
       weekNumber
       orderIndex
       workout {
-        overviewImage
+        overviewImage {
+          key
+          url
+        }
         intensity
         duration
         localisations {
