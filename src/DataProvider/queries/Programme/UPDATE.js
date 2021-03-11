@@ -47,7 +47,6 @@ export const updateProgrammeMutation = gql`
 `;
 
 export default async ({ client, params }) => {
-  console.log('params: ', params);
   try {
     // TODO: handle trainer image uploads
     const result = await client.mutate({

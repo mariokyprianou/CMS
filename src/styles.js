@@ -427,3 +427,14 @@ export const dialogStyles = () => ({
     overflow: 'auto',
   },
 });
+
+export const previewImageStyles = ({
+  margin = '0.5rem',
+  maxHeight = '10rem',
+}) =>
+  makeStyles({
+    root: {
+      margin,
+      maxHeight,
+    },
+  })();

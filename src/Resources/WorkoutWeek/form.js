@@ -9,14 +9,12 @@
 import React, { Fragment, useState, useRef } from 'react';
 import {
   ArrayInput,
-  Button,
   FormDataConsumer,
   ImageField,
   ImageInput,
   NumberInput,
   required,
   SelectInput,
-  // SimpleFormIterator,
   TextInput,
   useTranslate,
 } from 'react-admin';
@@ -29,6 +27,7 @@ import { InputAdornment } from '@material-ui/core';
 import { nonNegativeNonZeroInt, nonNegativeInt } from 'utils/validation';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { LocalisedReferenceInput } from 'Components/Inputs';
+import { PreviewImageField } from 'Components/Fields';
 import get from 'lodash/get';
 import {
   programmeEnvironmentChoices,
@@ -181,11 +180,11 @@ const WorkoutForm = (props) => {
       </div>
       <ImageInput
         resource={resource}
-        source="overviewImage"
+        source="workout.overviewImage"
         accept="image/*"
         maxSize={maxImageSize}
       >
-        <ImageField source="src" title="Overview Image" />
+        <PreviewImageField />
       </ImageInput>
       {/* Exercises */}
       <FormDataConsumer>
@@ -202,7 +201,6 @@ const WorkoutForm = (props) => {
                   label={`resources.${resource}.fields.exerciseRequired`}
                   source="exercise.id"
                   reference="exercise"
-                  {...console.log('FORM DATA', formData)}
                   validate={required()}
                   filter={{ trainer: selectedTrainerId }}
                   customFunc={(selection, index) => {

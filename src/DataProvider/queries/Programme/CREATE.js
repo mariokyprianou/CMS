@@ -7,7 +7,7 @@
  */
 
 import gql from 'graphql-tag';
-import uploadFile from './UPLOAD_FILE';
+import uploadFile from 'DataProvider/queries/FileUpload/UPLOAD_FILE';
 
 export const createProgrammeMutation = gql`
   mutation CreateProgramme($programme: ProgrammeInput!) {
@@ -84,7 +84,6 @@ export default async ({ client, params }) => {
       },
     });
 
-    console.log('result: ', result);
     return result.data;
   } catch (e) {
     if (e.graphQLErrors && e.graphQLErrors.length) {

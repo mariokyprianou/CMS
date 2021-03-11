@@ -14,6 +14,8 @@ import get from 'lodash/get';
 
 // TODO: DisplayName not supported in FF
 
+// TODO: too many re-renders, very inefficient/slow
+
 const languageNames = Intl.hasOwnProperty('DisplayNames')
   ? new Intl.DisplayNames(['en'], { type: 'language' })
   : null;

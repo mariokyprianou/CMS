@@ -965,6 +965,46 @@
             "description": null,
             "args": [
               {
+                "name": "page",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "perPage",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "sortField",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "sortOrder",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -3132,6 +3172,22 @@
             "deprecationReason": null
           },
           {
+            "name": "videoKey",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "videoEasy",
             "description": null,
             "args": [],
@@ -3144,12 +3200,36 @@
             "deprecationReason": null
           },
           {
+            "name": "videoEasyKey",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "videoEasiest",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "URL",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "videoEasiestKey",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -6221,30 +6301,20 @@
             "deprecationReason": null
           },
           {
-            "name": "createShareImage",
+            "name": "uploadMedia",
             "description": null,
             "args": [
               {
-                "name": "programme",
+                "name": "input",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
+                    "kind": "INPUT_OBJECT",
+                    "name": "UploadMediaInput",
                     "ofType": null
                   }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "media",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ProgrammeSharedImageInput",
-                  "ofType": null
                 },
                 "defaultValue": null
               }
@@ -6254,62 +6324,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Programme",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "updateShareImage",
-            "description": null,
-            "args": [
-              {
-                "name": "programme",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "id",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "media",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ProgrammeSharedImageInput",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Programme",
+                "name": "UploadMedia",
                 "ofType": null
               }
             },
@@ -7076,13 +7091,9 @@
             "name": "videoKey",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -7740,69 +7751,12 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ProgrammeSharedImageInput",
+        "name": "UploadMediaInput",
         "description": null,
         "fields": null,
         "inputFields": [
           {
-            "name": "type",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "ProgrammeSharedImageType",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "localisations",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ProgrammeSharedLocalisationInput",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "ProgrammeSharedLocalisationInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "language",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ISOLanguage",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "imageKey",
+            "name": "contentType",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -7816,17 +7770,80 @@
             "defaultValue": null
           },
           {
-            "name": "colour",
+            "name": "key",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           }
         ],
         "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UploadMedia",
+        "description": null,
+        "fields": [
+          {
+            "name": "contentType",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "key",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uploadUrl",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -8998,6 +9015,98 @@
             "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ProgrammeSharedLocalisationInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "language",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ISOLanguage",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "imageKey",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "colour",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ProgrammeSharedImageInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "type",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "ProgrammeSharedImageType",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "localisations",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ProgrammeSharedLocalisationInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
         "possibleTypes": null
       },
       {
