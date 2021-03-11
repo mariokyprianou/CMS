@@ -21,6 +21,19 @@ import WorkoutFilter from './filters';
 import { LocalisedTextField } from 'Components/Fields';
 import { programmeEnvironmentChoices } from 'utils/choices';
 
+const EnvironmentSelect = (props) => {
+  // for some reason the values were not being translated when using the SelectField directly
+  // i.e. showing 'choices.programmeEnvironment.home' rather than 'HOME' etc
+  const { record } = props;
+  return (
+    <SelectField
+      record={record}
+      source="environment"
+      choices={programmeEnvironmentChoices}
+    />
+  );
+};
+
 const WorkoutList = (props) => (
   <List {...props} actions={<WorkoutAction />} filters={<WorkoutFilter />}>
     <Datagrid>
@@ -30,7 +43,7 @@ const WorkoutList = (props) => (
         reference="programme"
       >
         <LocalisedTextField
-          parentPath="programme.trainer"
+          parentPath="trainer"
           source="name"
           language="en"
           label="resources.trainer.fields.name"
@@ -62,10 +75,7 @@ const WorkoutList = (props) => (
         source="trainingProgrammeId"
         reference="programme"
       >
-        <SelectField
-          source="programme.environment"
-          choices={programmeEnvironmentChoices}
-        />
+        <EnvironmentSelect />
       </ReferenceField>
       <EditButton />
     </Datagrid>
