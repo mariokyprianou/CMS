@@ -76,11 +76,10 @@ const DetailTab = (props) => {
           />
         </div>
         <div className={classes.column}>
-          {/* TODO: add validation to prevent more than 5 files exisitng at one time - the maxFiles prop doesn't appear to work */}
           <ImageInput
             source="images"
             label="resources.programme.fields.trainerImages"
-            // validate={fileValidation} //TODO: add back in once unblocked by backend
+            validate={fileValidation}
             multiple
             accept="image/*"
             maxSize={maxImageSize}

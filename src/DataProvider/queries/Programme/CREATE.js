@@ -48,38 +48,38 @@ export const createProgrammeMutation = gql`
 `;
 
 export default async ({ client, params }) => {
-  // placeholder array
-  params.data.imagesToUpload = [];
   try {
+    // trainer images
     if (params.data.images && params.data.images.length > 0) {
       for (let i = 0; i < params.data.images.length; i++) {
         const image = params.data.images[i];
         if (image.hasOwnProperty('rawFile')) {
-          const responseFile = await uploadFile({
+          const uploadRequest = await uploadFile({
             client,
             file: image,
           });
-          params.data.imagesToUpload.push({
-            imageKey: responseFile.key,
-            orderIndex: i,
-          });
+          params.data.images[i].imageKey = uploadRequest.key;
+          params.data.images[i].orderIndex = i; // add the order index
+          // tidy up unwanted uploaded file props
+          delete params.data.images[i].img;
+          delete params.data.images[i].rawFile;
         }
+        // tidy up the params
+        delete params.data.images[i].url;
       }
     }
-    // TODO: handle trainer image uploads
     const result = await client.mutate({
       mutation: createProgrammeMutation,
       variables: {
         programme: {
-          // TODO: add the image ID
           environment: params.data.environment,
           status: params.data.status,
           muscle: params.data.muscle,
           fatLoss: params.data.fatLoss,
           fitness: params.data.fitness,
           trainerId: params.data.trainer.id,
+          images: params.data.images,
           localisations: params.data.localisations,
-          images: params.data.imagesToUpload,
         },
       },
     });

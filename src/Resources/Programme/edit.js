@@ -27,9 +27,10 @@ const ProgrammeEdit = (props) => {
         <FormTab label={`resources.${resource}.tabs.challenges`}>
           <Challenges />
         </FormTab>
-        <FormTab label={`resources.${resource}.tabs.shareMedia`}>
+        {/* TODO: Comment back in once Share Media is ready in backend */}
+        {/* <FormTab label={`resources.${resource}.tabs.shareMedia`}>
           <ShareMedia />
-        </FormTab>
+        </FormTab> */}
       </TabbedForm>
     </Edit>
   );
