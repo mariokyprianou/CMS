@@ -10,8 +10,12 @@ export default ({ type, resource, result }) => {
   // override results returned from backend here, e.g. create required field names
   if (resource === 'Configuration') {
     result.data.id = 'configuration'; // fake the ID
-    for (let i = 0; i < result.data.data.localisations.length; i++) {
-      const localisation = result.data.data.localisations[i];
+    let resultToParse = result.data.data;
+    if (type === 'UPDATE') {
+      resultToParse = result.data;
+    }
+    for (let i = 0; i < resultToParse.localisations.length; i++) {
+      const localisation = resultToParse.localisations[i];
       // loop through the notifications and flatten
       for (let j = 0; j < localisation.notifications.length; j++) {
         const notification = localisation.notifications[j];
@@ -21,6 +25,7 @@ export default ({ type, resource, result }) => {
       // loop through the onboarding screens and flatten
       for (let k = 0; k < localisation.onboardings.length; k++) {
         const onboarding = localisation.onboardings[k];
+        console.log('onboarding: ', onboarding);
         localisation[`title_onboarding${onboarding.orderIndex}`] =
           onboarding.title;
         localisation[`description_onboarding${onboarding.orderIndex}`] =

@@ -37,21 +37,30 @@ export const updateConfigurationMutation = gql`
 `;
 
 export default async ({ client, params }) => {
+  console.log('params: ', params);
   try {
     for (let j = 0; j < params.data.localisations.length; j++) {
       const localisation = params.data.localisations[j];
       for (let i = 0; i < onboardingScreens.length; i++) {
         const onboardingScreen = onboardingScreens[i].id;
         const onboardingImg = localisation[`image_${onboardingScreen}`];
+        console.log('onboardingImg: ', onboardingImg);
         if (onboardingImg && onboardingImg.hasOwnProperty('rawFile')) {
-          console.log('Image!', onboardingImg);
-          // TODO: handle image uploads
-          // const uploadRequest = await uploadFile(onboardingImg);
-          // localisation[`image_${onboardingScreen}`] = uploadRequest.id;
+          console.log('onboardingImg: ', onboardingImg);
+          // handle image uploads
+          const uploadRequest = await uploadFile({
+            client,
+            file: onboardingImg,
+          });
+          localisation[`image_${onboardingScreen}`] = uploadRequest.key;
+        } else if (onboardingImg && onboardingImg.hasOwnProperty('key')) {
+          // just pass on the current image
+          localisation[`image_${onboardingScreen}`] = onboardingImg.key;
         }
       }
     }
 
+    console.log('params: ', params.data);
     // TODO: unflatted the notification and onboardings arrays
     var formattedParams = params.data.localisations.map((localisation) => {
       return {
@@ -128,7 +137,7 @@ export default async ({ client, params }) => {
       },
     });
 
-    return result.data;
+    return result;
   } catch (e) {
     if (e.graphQLErrors && e.graphQLErrors.length) {
       const [error] = e.graphQLErrors;

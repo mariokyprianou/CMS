@@ -18,7 +18,7 @@ import { Translate as TranslateIcon } from '@material-ui/icons';
 import { MultiLanguageToolbar } from 'Components/Toolbars';
 import useDataProviderWrapper from 'hooks/dataProviderWrapper';
 import { useFormState, useForm } from 'react-final-form';
-import _ from 'lodash';
+import pick from 'lodash.pick';
 import recursiveMap from 'utils/recursiveMapReactChildren';
 import { multiLangFormStyles } from 'styles';
 import { checkNoPropertiesExist } from 'utils/helpers';
@@ -152,7 +152,7 @@ const FormChildren = (props) => {
         localisations.length > 0 &&
         localisations.map((localisation) => {
           return localisation.language === values.language
-            ? _.pick(values, sources)
+            ? pick(values, sources)
             : localisation;
         })) ||
       {};
@@ -210,7 +210,9 @@ const FormChildren = (props) => {
         ? updatedLocalisations.find(
             (localisation) =>
               localisation.language ===
-              (event.target.name === 'language' ? event.target.value : language)
+              (event.target && event.target.name === 'language'
+                ? event.target.value
+                : language)
           )
         : {} || {};
 
@@ -248,6 +250,7 @@ const FormChildren = (props) => {
           ...child.props,
           onBlur: (event) => onBlur(event, child.props.addonblur),
           resource,
+          options: {},
         };
         // add props for the button
         if (child.props.name === 'multiLang.button.removeTranslation') {
@@ -268,7 +271,7 @@ const FormChildren = (props) => {
         } else {
           const value = currentRecord[child.props.source];
           childProps.value = value;
-          childProps.defaultValue = child.props.defaultValue || value;
+          childProps.defaultValue = value || child.props.defaultValue;
           // set the excluded field props to isEqual evaluate function to always return false
           // this prevents react-final-form from resetting the fields if they were not changed or same as initialValue
           childProps.isEqual = () => false;
@@ -299,8 +302,10 @@ const MultiLanguageForm = ({
   hideDelete,
   extendToolbar = 0,
   sourcesToSkipRecursion,
-  doRedirect = false,
+  onSuccess = () => {},
+  onFailure = () => {},
   supportedLanguages = [],
+  doRedirect = false,
   allowLanguageRemoval = true,
   cleanOrphaned = true, // cleans out languages that have not yet been set
   ...props
@@ -391,10 +396,13 @@ const MultiLanguageForm = ({
     );
     languageProps.record = {
       ...localisation,
-      id: record.id,
+      // id: record.id,
       orderIndex: record.orderIndex,
     };
-    languageProps.id = record.id;
+    if (record.id) {
+      languageProps.record.id = record.id;
+      languageProps.id = record.id;
+    }
   } else {
     // initialise the form data with the default lang
     const newLocalisation = sources.reduce(
@@ -453,6 +461,7 @@ const MultiLanguageForm = ({
         });
       }
       setSaving(true);
+
       return callToDataProvider({
         type: record && record.id ? 'UPDATE' : 'CREATE',
         resource,
@@ -461,6 +470,8 @@ const MultiLanguageForm = ({
         },
         onSuccess: (result) => {
           setSaving(false);
+          // perform any passed onSuccess functions e.g. refreshView
+          onSuccess(result);
           if (doRedirect) {
             // handle the redirection request
             let redirectionPath = `/${resource}`;
@@ -475,8 +486,10 @@ const MultiLanguageForm = ({
             redirectTo(redirectionPath);
           }
         },
-        onFailure: () => {
+        onFailure: (error) => {
           setSaving(false);
+          // perform any failed sideeffects
+          onFailure(error);
         },
       });
     } catch (error) {
@@ -499,6 +512,7 @@ const MultiLanguageForm = ({
         disabled ? null : (
           <MultiLanguageToolbar
             extend={extendToolbar}
+            isSaving={saving}
             isInvalid={invalid}
             hideDelete={hideDelete}
           />

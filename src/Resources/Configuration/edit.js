@@ -67,15 +67,17 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                   source={`description_${choice.id}`}
                   label={`resources.${resource}.fields.description`}
                 />
-                <ImageInput
-                  accept="image/*"
-                  maxSize={maxImageSize}
-                  validate={required()} //TODO: add back in when we can upload images
-                  source={`image_${choice.id}`}
-                  label={`resources.${resource}.fields.image`}
-                >
-                  <ImageField source="src" title={`img_${choice}`} />
-                </ImageInput>
+                <div addonblur={`image_${choice.id}`}>
+                  <ImageInput
+                    accept="image/*"
+                    maxSize={maxImageSize}
+                    validate={required()}
+                    source={`image_${choice.id}`}
+                    label={`resources.${resource}.fields.image`}
+                  >
+                    <ImageField source="url" title={`img_${choice}`} />
+                  </ImageInput>
+                </div>
               </Fragment>
             );
           })}

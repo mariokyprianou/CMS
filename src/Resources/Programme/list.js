@@ -38,7 +38,7 @@ const ProgrammeList = (props) => (
           source="name"
           language="en"
           sortable={false}
-          textVisibleLength="100px"
+          textVisibleLength="150px"
           label="resources.programme.fields.trainerName"
         />
       </ReferenceField>
