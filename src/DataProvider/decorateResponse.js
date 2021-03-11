@@ -25,7 +25,6 @@ export default ({ type, resource, result }) => {
       // loop through the onboarding screens and flatten
       for (let k = 0; k < localisation.onboardings.length; k++) {
         const onboarding = localisation.onboardings[k];
-        console.log('onboarding: ', onboarding);
         localisation[`title_onboarding${onboarding.orderIndex}`] =
           onboarding.title;
         localisation[`description_onboarding${onboarding.orderIndex}`] =
