@@ -43,7 +43,7 @@ export default async ({ client, params }) => {
   const exerciseParams = {
     weight: params.data.weight,
     trainerId: params.data.trainer,
-    categoryId: params.data.category.id,
+    categoryId: params.data.category && params.data.category.id,
   };
   try {
     if (params.data.video && params.data.video.hasOwnProperty('rawFile')) {
@@ -81,6 +81,10 @@ export default async ({ client, params }) => {
       exerciseParams.videoKeyEasiest =
         params.data.videoEasiest && params.data.videoEasiest.key;
     }
+
+    params.data.localisations.forEach((localisation) => {
+      delete localisation.__typename;
+    });
 
     const result = await client.mutate({
       mutation: updateExerciseMutation,

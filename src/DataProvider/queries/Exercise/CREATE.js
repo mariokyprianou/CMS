@@ -38,7 +38,7 @@ export default async ({ client, params }) => {
   const exerciseParams = {
     weight: params.data.weight,
     trainerId: params.data.trainer,
-    categoryId: params.data.category.id,
+    categoryId: params.data.category && params.data.category.id,
   };
   try {
     if (params.data.video && params.data.video.hasOwnProperty('rawFile')) {

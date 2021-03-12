@@ -512,7 +512,6 @@ const MultiLanguageForm = ({
         disabled ? null : (
           <MultiLanguageToolbar
             extend={extendToolbar}
-            isSaving={saving}
             isInvalid={invalid}
             hideDelete={hideDelete}
           />

@@ -14,13 +14,7 @@ const SanitizedDeleteButton = ({ onSave, ...rest }) => (
   <DeleteButton {...rest} />
 );
 
-const MultiLanguageToolbar = ({
-  invalid,
-  isInvalid,
-  saving,
-  isSaving,
-  ...props
-}) => {
+const MultiLanguageToolbar = ({ invalid, isInvalid, ...props }) => {
   const {
     hideDelete = false,
     className,
@@ -33,7 +27,7 @@ const MultiLanguageToolbar = ({
   const classes = toolbarStyles(extend);
   return (
     <Toolbar className={classes.root} {...rest}>
-      <SaveButton invalid={isInvalid} saving={isSaving} redirect={redirect} />
+      <SaveButton invalid={isInvalid} redirect={redirect} />
       {hideDelete ? null : (
         <SanitizedDeleteButton redirect={deleteRedirect} undoable={false} />
       )}

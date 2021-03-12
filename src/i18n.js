@@ -47,6 +47,9 @@ const englishMessages = {
         lastName: 'Last Name',
         email: 'Email',
         country: 'Country',
+        country: {
+          id: 'Country',
+        },
         region: 'Region',
         timeZone: 'Time Zone',
         previousTrainers: 'Previous Trainers',

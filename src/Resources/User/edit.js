@@ -28,6 +28,9 @@ import {
   programmeEnvironmentChoices,
   subscriptionPlatformChoices,
 } from 'utils/choices';
+import { nonNegativeInt } from 'utils/validation';
+
+const nonNegativeIntValidation = [required(), nonNegativeInt];
 
 const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
   const { resource } = props;
@@ -48,7 +51,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
         <ReferenceInput
           resource={resource}
           reference="country"
-          source="country"
+          source="country.id"
           validate={required()}
         >
           <SelectInput optionText="country" />
@@ -92,11 +95,10 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
         >
           <SelectInput />
         </LocalisedReferenceInput>
-        {/* TODO: add currentWeek validation, int > 0 */}
         <NumberInput
           resource={resource}
           source="currentTrainerProgram.currentWeek"
-          validate={required()}
+          validate={nonNegativeIntValidation}
           min={1}
         />
         <LocalisedReferenceArrayInput
