@@ -6,7 +6,7 @@
  * Copyright (c) 2021 The Distance
  */
 
-//  longer list of available timezones
+// longer list of available timezones
 const timezones = [
   'Europe/Andorra',
   'Asia/Dubai',

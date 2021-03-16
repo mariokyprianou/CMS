@@ -6,7 +6,9 @@
  * Copyright (c) 2020 The Distance
  */
 
+import feedbackEmojis from './emojis';
 import timezones from './timezones';
+import emojiDictionary from 'emoji-dictionary';
 
 // all choices available throughout the app
 const booleanTranslatedChoices = [
@@ -205,6 +207,13 @@ const allTimeZones = timezones.map((timeZone) => {
   return { id: timeZone, name: timeZone };
 });
 
+const allFeedbackEmojis = feedbackEmojis.map((emoji) => {
+  return {
+    id: emoji,
+    name: emojiDictionary.getUnicode(emoji.replace(/-/g, '_')),
+  };
+});
+
 export {
   booleanTranslatedChoices,
   subscriptionPlatformChoices,
@@ -221,4 +230,5 @@ export {
   allTimeZones,
   subscriptionChoices,
   challengeUnitTypeChoices,
+  allFeedbackEmojis,
 };

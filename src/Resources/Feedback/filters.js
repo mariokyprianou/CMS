@@ -7,21 +7,32 @@
  */
 
 import React from 'react';
-import { Filter, TextInput } from 'react-admin';
+import { Filter, TextInput, NumberInput, SelectInput } from 'react-admin';
+import { LocalisedReferenceInput } from 'Components/Inputs';
+import { allFeedbackEmojis } from 'utils/choices';
 
-// TODO: Add filter functionality.
-
-const FeedbackFilter = (props) => (
-  <Filter {...props}>
-    <TextInput source="trainer" />
-    <TextInput source="programme" />
-    <TextInput source="workoutName" />
-    <TextInput source="emoji" />
-    <TextInput source="user" />
-    <TextInput source="timeTaken" />
-    <TextInput source="workoutIntensity" />
-    <TextInput source="date" />
-  </Filter>
-);
+const FeedbackFilter = (props) => {
+  const { resource } = props;
+  return (
+    <Filter {...props}>
+      <LocalisedReferenceInput
+        resource={resource}
+        reference="trainer"
+        source="trainerId"
+        perPage={1000}
+        sort={{ field: 'name', order: 'ASC' }}
+        allowEmpty={true}
+      >
+        <SelectInput />
+      </LocalisedReferenceInput>
+      <TextInput source="programme" />
+      <TextInput source="workoutName" />
+      <SelectInput source="emoji" choices={allFeedbackEmojis} />
+      <NumberInput source="timeTaken" />
+      <NumberInput source="feedbackIntensity" />
+      <TextInput source="date" />
+    </Filter>
+  );
+};
 
 export default FeedbackFilter;

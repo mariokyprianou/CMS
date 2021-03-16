@@ -79,7 +79,7 @@ const FeedbackList = (props) => {
           source="timeTaken"
           render={(record) => record.timeTaken || '-' + ' mins'}
         />
-        <TextField source="workoutIntensity" />
+        <TextField source="feedbackIntensity" />
         <DateField source="date" />
       </Datagrid>
     </List>
