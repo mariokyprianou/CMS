@@ -82,10 +82,6 @@ export default async ({ client, params }) => {
         params.data.videoEasiest && params.data.videoEasiest.key;
     }
 
-    params.data.localisations.forEach((localisation) => {
-      delete localisation.__typename;
-    });
-
     const result = await client.mutate({
       mutation: updateExerciseMutation,
       variables: {

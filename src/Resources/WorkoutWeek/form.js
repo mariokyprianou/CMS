@@ -198,7 +198,7 @@ const WorkoutForm = (props) => {
               <SimpleFormIterator ref={iteratorRef}>
                 <LocalisedReferenceInput
                   resource="exercise"
-                  label={`resources.${resource}.fields.exerciseRequired`}
+                  label={`resources.${resource}.fields.exercise`}
                   source="exercise.id"
                   reference="exercise"
                   validate={required()}

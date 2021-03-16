@@ -63,7 +63,6 @@ export const getListProgrammesQuery = gql`
       filter: $filter
     ) {
       count
-      __typename
     }
   }
 `;

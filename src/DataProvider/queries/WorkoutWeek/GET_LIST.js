@@ -65,7 +65,6 @@ export const getListWorkoutWeeksQuery = gql`
       filter: $filter
     ) {
       count
-      __typename
     }
   }
 `;
