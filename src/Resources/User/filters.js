@@ -8,13 +8,20 @@
 
 import React from 'react';
 import { Filter, TextInput, SelectInput } from 'react-admin';
-import { subscriptionPlatformChoices } from 'utils/choices';
+import {
+  subscriptionPlatformChoices,
+  booleanTranslatedChoices,
+} from 'utils/choices';
 
 const UserFilter = (props) => (
   <Filter {...props}>
     <TextInput source="email" />
     <TextInput source="country" />
-    <SelectInput source="subscription.isSubscribed" />
+    <SelectInput
+      source="subscription.isSubscribed"
+      fullWidth
+      choices={booleanTranslatedChoices}
+    />
     <SelectInput
       source="subscription.platform"
       choices={subscriptionPlatformChoices}

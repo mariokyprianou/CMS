@@ -175,6 +175,17 @@ const exerciseTypeChoices = [
   },
 ];
 
+const subscriptionChoices = [
+  {
+    id: 'AUTOMATIC',
+    name: 'choices.subscription.auto',
+  },
+  {
+    id: 'MANUAL',
+    name: 'choices.subscription.manual',
+  },
+];
+
 const allTimeZones = timezones.map((timeZone) => {
   return { id: timeZone, name: timeZone };
 });
@@ -193,4 +204,5 @@ export {
   exerciseTypeChoices,
   onboardingScreens,
   allTimeZones,
+  subscriptionChoices,
 };

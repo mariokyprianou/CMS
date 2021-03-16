@@ -15,6 +15,7 @@ import {
   SelectField,
   EditButton,
   FunctionField,
+  ReferenceField,
   useTranslate,
 } from 'react-admin';
 import { subscriptionPlatformChoices } from 'utils/choices';
@@ -34,8 +35,12 @@ const UserList = (props) => {
         <TextField source="firstName" />
         <TextField source="lastName" />
         <TextField source="email" />
-        <TextField source="country" />
-        <TextField source="region" />
+        <ReferenceField source="country.id" reference="country">
+          <TextField source="country" />
+        </ReferenceField>
+        <ReferenceField source="region.id" reference="region">
+          <TextField source="region" />
+        </ReferenceField>
         <BooleanField source="emailMarketing" />
         <FunctionField
           label="resources.user.fields.subscription.platform"

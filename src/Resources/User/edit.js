@@ -27,6 +27,8 @@ import { columnStyles } from 'styles';
 import {
   programmeEnvironmentChoices,
   subscriptionPlatformChoices,
+  subscriptionChoices,
+  allTimeZones,
 } from 'utils/choices';
 import { nonNegativeInt } from 'utils/validation';
 
@@ -70,15 +72,25 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
             )
           }
         </FormDataConsumer>
-        <BooleanInput
-          resource={resource}
-          label="resources.user.fields.subscription.isSubscribed"
-          source="subscription.isSubscribed"
-          disabled
-        />
+        <BooleanInput resource={resource} source="emailMarketing" disabled />
         <SelectInput
           resource={resource}
-          label="resources.user.fields.subscription.platform"
+          source="subscription.type"
+          initialValue="AUTOMATIC"
+          defaultValue="AUTOMATIC"
+          choices={subscriptionChoices}
+        />
+        <FormDataConsumer>
+          {({ formData }) => (
+            <BooleanInput
+              resource={resource}
+              source="subscription.isSubscribed"
+              disabled={!(formData.subscription.type === 'MANUAL')}
+            />
+          )}
+        </FormDataConsumer>
+        <SelectInput
+          resource={resource}
           source="subscription.platform"
           choices={subscriptionPlatformChoices}
         />
@@ -111,14 +123,12 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
           <SelectArrayInput />
         </LocalisedReferenceArrayInput>
         <BooleanInput resource={resource} source="canChangeDevice" />
-        <ReferenceInput
+        <SelectInput
           resource={resource}
-          reference="timeZone"
           source="timeZone"
+          choices={allTimeZones}
           validate={required()}
-        >
-          <SelectInput optionText="timeZone" />
-        </ReferenceInput>
+        />
       </div>
     </div>
   );

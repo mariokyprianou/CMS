@@ -51,12 +51,17 @@ const englishMessages = {
           id: 'Country',
         },
         region: 'Region',
+        region: {
+          id: 'Region',
+        },
         timeZone: 'Time Zone',
         previousTrainers: 'Previous Trainers',
         canChangeDevice: '30-day Device Limit',
         subscription: {
-          isSubscribed: 'Email Marketing Preference',
-          platform: 'Subscriber Status',
+          isSubscribed: 'Subscribed?',
+          type: 'Subscription Type',
+          emailMarketing: 'Email Marketing Preference',
+          platform: 'Subscriber Platform',
         },
         currentTrainerProgram: {
           id: 'Current Programme',
@@ -298,6 +303,10 @@ const englishMessages = {
     exerciseType: {
       reps: 'Repetitions',
       time: 'Time',
+    },
+    subscription: {
+      auto: 'Automatic',
+      manual: 'Manual',
     },
     notificationType: {
       threeDaysNoTraining: 'Trigger: 3 days without training',
