@@ -338,6 +338,7 @@ const englishMessages = {
     },
   },
   error: {
+    accessDenied: 'Access Denied',
     generic: 'Oops! Something went wrong. Please try again',
     auth: {
       invalidCredentials:

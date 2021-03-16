@@ -11,7 +11,7 @@ import { Edit, SimpleForm, TextInput, required } from 'react-admin';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 
 const TrainerEdit = (props) => (
-  <Edit {...props}>
+  <Edit mutationMode="optimistic" {...props}>
     <SimpleForm>
       <LocalisedComponentCloner
         component={<TextInput validate={required()} />}
