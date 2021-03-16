@@ -196,7 +196,10 @@ const englishMessages = {
         emojis: 'Emoji',
         userEmail: 'User',
         timeTaken: 'Time Taken',
+        feedbackIntensity: 'Workout Intensity',
         workoutIntensity: 'Workout Intensity',
+        dateTo: 'Date To',
+        dateFrom: 'Date From',
       },
     },
     notification: {

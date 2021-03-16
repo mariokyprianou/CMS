@@ -7,9 +7,15 @@
  */
 
 import React from 'react';
-import { Filter, TextInput, NumberInput, SelectInput } from 'react-admin';
+import {
+  DateInput,
+  Filter,
+  TextInput,
+  NumberInput,
+  SelectInput,
+} from 'react-admin';
 import { LocalisedReferenceInput } from 'Components/Inputs';
-import { allFeedbackEmojis } from 'utils/choices';
+import { allFeedbackEmojis, programmeEnvironmentChoices } from 'utils/choices';
 
 const FeedbackFilter = (props) => {
   const { resource } = props;
@@ -25,12 +31,15 @@ const FeedbackFilter = (props) => {
       >
         <SelectInput />
       </LocalisedReferenceInput>
-      <TextInput source="programme" />
+      <SelectInput source="environment" choices={programmeEnvironmentChoices} />
+      <NumberInput source="week" />
       <TextInput source="workoutName" />
       <SelectInput source="emoji" choices={allFeedbackEmojis} />
+      <TextInput source="user" />
       <NumberInput source="timeTaken" />
       <NumberInput source="feedbackIntensity" />
-      <TextInput source="date" />
+      <DateInput source="dateTo" />
+      <DateInput source="dateFrom" />
     </Filter>
   );
 };

@@ -13,6 +13,7 @@ import {
   FunctionField,
   List,
   NumberField,
+  SelectField,
   TextField,
   useNotify,
 } from 'react-admin';
@@ -22,6 +23,7 @@ import FeedbackFilter from './filters';
 import useDataProviderWrapper from 'hooks/dataProviderWrapper';
 import downloadFile from 'utils/downloadFile';
 import { horizontalList } from 'styles';
+import { programmeEnvironmentChoices } from 'utils/choices';
 
 const EmojisField = ({ record, source }) => {
   const classes = horizontalList();
@@ -71,6 +73,10 @@ const FeedbackList = (props) => {
     >
       <Datagrid>
         <TextField source="trainerName" />
+        <SelectField
+          source="environment"
+          choices={programmeEnvironmentChoices}
+        />
         <NumberField source="week" />
         <TextField source="workoutName" />
         <EmojisField source="emojis" />
@@ -79,7 +85,7 @@ const FeedbackList = (props) => {
           source="timeTaken"
           render={(record) => record.timeTaken || '-' + ' mins'}
         />
-        <TextField source="feedbackIntensity" />
+        <TextField source="workoutIntensity" />
         <DateField source="date" />
       </Datagrid>
     </List>
