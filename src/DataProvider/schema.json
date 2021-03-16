@@ -5082,7 +5082,7 @@
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "EmailAddress",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null

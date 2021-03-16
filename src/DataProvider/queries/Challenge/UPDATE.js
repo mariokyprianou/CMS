@@ -14,6 +14,7 @@ export const updateChallengeMutation = gql`
       id
       type
       duration
+      unitType
       localisations {
         language
         name
@@ -34,6 +35,7 @@ export default async ({ client, params }) => {
           id: params.data.id,
           duration: params.data.duration,
           type: params.data.type,
+          unitType: params.data.type === 'OTHER' ? params.data.unitType : null,
           localisations: params.data.localisations,
         },
       },

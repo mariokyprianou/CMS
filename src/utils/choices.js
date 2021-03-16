@@ -61,15 +61,15 @@ const textColourChoices = [
 const challengeTypeChoices = [
   {
     id: 'COUNTDOWN',
-    name: 'choices.challengeType.countdown',
+    name: 'choices.challenge.type.countdown',
   },
   {
     id: 'STOPWATCH',
-    name: 'choices.challengeType.stopwatch',
+    name: 'choices.challenge.type.stopwatch',
   },
   {
     id: 'OTHER',
-    name: 'choices.challengeType.other',
+    name: 'choices.challenge.type.other',
   },
 ];
 
@@ -186,6 +186,21 @@ const subscriptionChoices = [
   },
 ];
 
+const challengeUnitTypeChoices = [
+  {
+    id: 'WEIGHT',
+    name: 'choices.challenge.unitType.weight',
+  },
+  {
+    id: 'REPS',
+    name: 'choices.challenge.unitType.reps',
+  },
+  {
+    id: 'DISTANCE',
+    name: 'choices.challenge.unitType.distance',
+  },
+];
+
 const allTimeZones = timezones.map((timeZone) => {
   return { id: timeZone, name: timeZone };
 });
@@ -205,4 +220,5 @@ export {
   onboardingScreens,
   allTimeZones,
   subscriptionChoices,
+  challengeUnitTypeChoices,
 };

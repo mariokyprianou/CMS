@@ -135,6 +135,7 @@ const englishMessages = {
         name: 'Challenge Name',
         fieldTitle: 'Challenge Field Title',
         fieldDescription: 'Challenge Description',
+        unitType: 'Unit Type',
       },
     },
     exerciseCategory: {
@@ -277,10 +278,17 @@ const englishMessages = {
       white: 'White',
       black: 'Black',
     },
-    challengeType: {
-      countdown: 'Countdown',
-      stopwatch: 'Stopwatch',
-      other: 'Other',
+    challenge: {
+      type: {
+        countdown: 'Countdown',
+        stopwatch: 'Stopwatch',
+        other: 'Other',
+      },
+      unitType: {
+        weight: 'Weight',
+        reps: 'Reps',
+        distance: 'Distance',
+      },
     },
     exerciseVideoDifficulty: {
       easy: 'Easy',

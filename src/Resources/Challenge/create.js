@@ -18,7 +18,7 @@ import {
 } from 'react-admin';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { InputAdornment } from '@material-ui/core';
-import { challengeTypeChoices } from 'utils/choices';
+import { challengeTypeChoices, challengeUnitTypeChoices } from 'utils/choices';
 import { nonNegativeNonZeroInt } from 'utils/validation';
 
 const durationValidation = [required(), nonNegativeNonZeroInt];
@@ -49,6 +49,13 @@ const ChallengeCreate = (props) => {
                     <InputAdornment position="end">seconds</InputAdornment>
                   ),
                 }}
+              />
+            ) : formData.type === 'OTHER' ? (
+              <SelectInput
+                {...rest}
+                source="unitType"
+                validate={required()}
+                choices={challengeUnitTypeChoices}
               />
             ) : null
           }

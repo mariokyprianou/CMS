@@ -6,7 +6,7 @@
  * Copyright (c) 2020 The Distance
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   Edit,
   DeleteButton,
@@ -21,7 +21,7 @@ import {
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { TemplateToolbar } from 'Components/Toolbars';
 import { InputAdornment } from '@material-ui/core';
-import { challengeTypeChoices } from 'utils/choices';
+import { challengeTypeChoices, challengeUnitTypeChoices } from 'utils/choices';
 import { nonNegativeNonZeroInt } from 'utils/validation';
 
 const durationValidation = [required(), nonNegativeNonZeroInt];
@@ -73,6 +73,13 @@ const ChallengeEdit = (props) => {
                     <InputAdornment position="end">seconds</InputAdornment>
                   ),
                 }}
+              />
+            ) : formData.type === 'OTHER' ? (
+              <SelectInput
+                {...rest}
+                source="unitType"
+                validate={required()}
+                choices={challengeUnitTypeChoices}
               />
             ) : null
           }
