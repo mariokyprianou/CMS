@@ -31,7 +31,6 @@ export default [
     render={(props) => <NotificationPage {...props} />}
   />,
   <Route exact path="/challenge" render={() => <Redirect to="/programme" />} />,
-  <Route exact path="/timezone" render={() => <Redirect to="/" />} />,
   <Route exact path="/region" render={() => <Redirect to="/" />} />,
   <Route exact path="/country" render={() => <Redirect to="/" />} />,
 ];

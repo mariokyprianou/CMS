@@ -34,7 +34,6 @@ import {
   // Notification,
   Programme,
   Region,
-  TimeZone,
   Trainer,
   User,
   WorkoutWeek,
@@ -111,7 +110,6 @@ const App = () => {
             <Resource {...Challenge} />,
             <Resource {...Country} />,
             <Resource {...Region} />,
-            <Resource {...TimeZone} />,
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}

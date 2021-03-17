@@ -33,15 +33,6 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.exportFeedback({ client, params });
     }
   }
-  // Backend no longer supports time zones
-  if (resource === 'TimeZone') {
-    if (type === 'GET_LIST') {
-      result = { data: allTimeZones };
-    }
-    if (type === 'GET_ONE') {
-      result = { data: getOneTimeZone(params) };
-    }
-  }
   if (resource === 'Exercise') {
     if (type === 'CREATE') {
       result = await Query.createExercise({ client, params });

@@ -13,7 +13,6 @@ export default {
   helpMeChoose: 'HmcQuestion',
   administrator: 'Administrator',
   country: 'Country',
-  timeZone: 'TimeZone',
   region: 'Region',
   programme: 'Programme',
   trainer: 'Trainer',

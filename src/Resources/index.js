@@ -17,7 +17,6 @@ import HelpMeChoose from './HelpMeChoose';
 import Notification from './Notification';
 import Programme from './Programme';
 import Region from './Region';
-import TimeZone from './TimeZone';
 import Trainer from './Trainer';
 import User from './User';
 import WorkoutWeek from './WorkoutWeek';
@@ -34,7 +33,6 @@ export {
   Notification,
   Programme,
   Region,
-  TimeZone,
   Trainer,
   User,
   WorkoutWeek,
