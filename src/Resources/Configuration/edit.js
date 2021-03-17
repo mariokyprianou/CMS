@@ -75,7 +75,7 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                     source={`image_${choice.id}`}
                     label={`resources.${resource}.fields.image`}
                   >
-                    <ImageField source="url" title={`img_${choice}`} />
+                    <ImageField source="url" title={`img_${choice.name}`} />
                   </ImageInput>
                 </div>
               </Fragment>

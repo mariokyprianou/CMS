@@ -49,10 +49,10 @@ export default async ({ client, params }) => {
             client,
             file: onboardingImg,
           });
-          localisation[`image_${onboardingScreen}`] = uploadRequest.key;
+          localisation[`image_${onboardingScreen}_key`] = uploadRequest.key;
         } else if (onboardingImg && onboardingImg.hasOwnProperty('key')) {
           // just pass on the current image
-          localisation[`image_${onboardingScreen}`] = onboardingImg.key;
+          localisation[`image_${onboardingScreen}_key`] = onboardingImg.key;
         }
       }
     }
@@ -68,25 +68,25 @@ export default async ({ client, params }) => {
             orderIndex: 0,
             title: localisation.title_onboarding0,
             description: localisation.description_onboarding0,
-            image: localisation.image_onboarding0,
+            image: localisation.image_onboarding0_key,
           },
           {
             orderIndex: 1,
             title: localisation.title_onboarding1,
             description: localisation.description_onboarding1,
-            image: localisation.image_onboarding1,
+            image: localisation.image_onboarding1_key,
           },
           {
             orderIndex: 2,
             title: localisation.title_onboarding2,
             description: localisation.description_onboarding2,
-            image: localisation.image_onboarding2,
+            image: localisation.image_onboarding2_key,
           },
           {
             orderIndex: 3,
             title: localisation.title_onboarding3,
             description: localisation.description_onboarding3,
-            image: localisation.image_onboarding3,
+            image: localisation.image_onboarding3_key,
           },
         ],
         notifications: [
