@@ -137,7 +137,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
 const UserEdit = (props) => {
   const classes = columnStyles();
   return (
-    <Edit {...props}>
+    <Edit mutationMode="optimistic" {...props}>
       <SimpleForm>
         <SanitizedForm classes={classes} />
       </SimpleForm>

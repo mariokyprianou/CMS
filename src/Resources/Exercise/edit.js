@@ -12,7 +12,7 @@ import ExerciseForm from './form';
 
 const ExerciseEdit = (props) => {
   return (
-    <Edit {...props}>
+    <Edit mutationMode="optimistic" {...props}>
       <SimpleForm>
         <ExerciseForm />
       </SimpleForm>

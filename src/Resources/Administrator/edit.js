@@ -10,7 +10,7 @@ import React from 'react';
 import { Edit, SimpleForm, TextInput } from 'react-admin';
 
 const AdministratorEdit = (props) => (
-  <Edit {...props}>
+  <Edit mutationMode="optimistic" {...props}>
     <SimpleForm>
       <TextInput source="name" />
       <TextInput source="email" />

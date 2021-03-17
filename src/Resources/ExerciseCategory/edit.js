@@ -10,7 +10,7 @@ import React from 'react';
 import { Edit, SimpleForm, TextInput, required } from 'react-admin';
 
 const ExerciseCategoryEdit = (props) => (
-  <Edit {...props}>
+  <Edit mutationMode="optimistic" {...props}>
     <SimpleForm>
       <TextInput source="name" validate={required()} />
     </SimpleForm>

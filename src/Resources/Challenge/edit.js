@@ -40,7 +40,7 @@ const ChallengeEdit = (props) => {
     location: { state },
   } = props;
   return (
-    <Edit {...props}>
+    <Edit mutationMode="optimistic" {...props}>
       <SimpleForm
         toolbar={
           <ChallengeToolbar

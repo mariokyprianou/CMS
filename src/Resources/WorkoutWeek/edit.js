@@ -11,7 +11,7 @@ import { Edit, SimpleForm } from 'react-admin';
 import WorkoutForm from './form';
 
 const WorkoutEdit = (props) => (
-  <Edit {...props}>
+  <Edit mutationMode="optimistic" {...props}>
     <SimpleForm>
       <WorkoutForm />
     </SimpleForm>
