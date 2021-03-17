@@ -99,17 +99,13 @@ const WorkoutForm = (props) => {
 
   return (
     <Fragment>
-      <FormDataConsumer>
-        {({ formData }) => (
-          <LocalisedComponentCloner
-            resource={resource}
-            fullWidth
-            record={formData.workout}
-            component={<TextInput fullWidth multiline validate={required()} />}
-            source="name"
-          />
-        )}
-      </FormDataConsumer>
+      <LocalisedComponentCloner
+        resource={resource}
+        fullWidth
+        parentPath="workout"
+        component={<TextInput fullWidth multiline validate={required()} />}
+        source="name"
+      />
       <div className={classes.root}>
         <div className={classes.column}>
           <LocalisedReferenceInput

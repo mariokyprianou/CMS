@@ -93,7 +93,7 @@ export default async ({ client, params }) => {
     }
 
     const variables = {
-      localisations: params.data.localisations,
+      localisations: params.data.workout.localisations,
       intensity: params.data.workout.intensity,
       duration: params.data.workout.duration,
       exercises: params.data.workout.exercises,
