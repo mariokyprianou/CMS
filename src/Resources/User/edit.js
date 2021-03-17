@@ -60,7 +60,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
         </ReferenceInput>
         <FormDataConsumer>
           {({ formData }) =>
-            formData.country === process.env.REACT_APP_INDIA_ID && (
+            formData.country.id === process.env.REACT_APP_INDIA_ID && (
               <ReferenceInput
                 resource={resource}
                 reference="region"
