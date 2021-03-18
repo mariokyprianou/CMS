@@ -24,7 +24,7 @@ import { maxImageSize } from 'utils/helpers';
 import { columnStyles } from 'styles';
 
 const maxFileCountValidation = (files = []) => {
-  if (files && files.length >= 5)
+  if (files && files.length > 5)
     return {
       message: 'error.field.image.maxFilesExceeded',
       args: { maxFiles: 5 },
