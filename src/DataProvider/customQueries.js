@@ -65,6 +65,11 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.updateProgramme({ client, params });
     }
   }
+  if (resource === 'User') {
+    if (type === 'UPDATE') {
+      result = await Query.updateUser({ client, params });
+    }
+  }
 
   return decorateResponse({
     type,

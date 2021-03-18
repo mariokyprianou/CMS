@@ -33,3 +33,15 @@ export const nonNegativeInt = (num) => {
     return 'ra.validation.required';
   }
 };
+
+const emailEx = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/, 'i');
+
+const isValidEmailTest = (email) => {
+  return emailEx.test(email);
+};
+
+export const isValidEmail = (email) => {
+  if (email && !isValidEmailTest(email)) {
+    return 'validation.invalidEmail';
+  }
+};

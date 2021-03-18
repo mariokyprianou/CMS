@@ -31,6 +31,9 @@ import updateWorkoutWeek from './WorkoutWeek/UPDATE';
 import createChallenge from './Challenge/CREATE';
 import updateChallenge from './Challenge/UPDATE';
 
+import { getOneUserQuery } from './User/GET_ONE';
+import updateUser from './User/UPDATE';
+
 export {
   getOneConfig,
   updateConfig,
@@ -48,4 +51,6 @@ export {
   updateChallenge,
   createProgramme,
   updateProgramme,
+  getOneUserQuery,
+  updateUser,
 };

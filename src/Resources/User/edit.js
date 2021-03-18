@@ -18,24 +18,45 @@ import {
   SelectInput,
   SimpleForm,
   TextInput,
+  useTranslate,
 } from 'react-admin';
 import {
   LocalisedReferenceArrayInput,
-  LocalisedReferenceInput,
+  // LocalisedReferenceInput,
 } from 'Components/Inputs';
 import { columnStyles } from 'styles';
 import {
-  programmeEnvironmentChoices,
+  // programmeEnvironmentChoices,
   subscriptionPlatformChoices,
   subscriptionChoices,
   allTimeZones,
 } from 'utils/choices';
-import { nonNegativeInt } from 'utils/validation';
+import { nonNegativeInt, isValidEmail } from 'utils/validation';
 
 const nonNegativeIntValidation = [required(), nonNegativeInt];
+const emailValidation = [required(), isValidEmail];
 
-const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
-  const { resource } = props;
+const SanitizedForm = ({ basePath, classes, ...props }) => {
+  const translate = useTranslate();
+  const { resource, record } = props;
+
+  const helperString = (formData) => {
+    if (formData && formData.deviceLimitEnabled) {
+      // device limit is enabled (no changing of device for 30 days)
+      var countDown = new Date();
+      if (!record.deviceLimitEnabled) {
+        return 'notification.user.deviceLimitEnabled';
+      } else {
+        // current limit
+        var countDown = new Date(record.deviceLimit);
+        return translate('notification.user.currentLimit', { countDown });
+      }
+    } else {
+      // device limit disabled - user will be able to switch
+      return 'notification.user.deviceLimitDisabled';
+    }
+  };
+
   return (
     <div className={classes.root}>
       <div className={classes.column}>
@@ -49,7 +70,12 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
           source="lastName"
           validate={required()}
         />
-        <TextInput resource={resource} source="email" validate={required()} />
+        <TextInput
+          resource={resource}
+          multiline
+          source="email"
+          validate={emailValidation}
+        />
         <ReferenceInput
           resource={resource}
           reference="country"
@@ -65,7 +91,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
               <ReferenceInput
                 resource={resource}
                 reference="region"
-                source="region"
+                source="region.id"
                 validate={required()}
               >
                 <SelectInput optionText="region" />
@@ -97,9 +123,9 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
         />
       </div>
       <div className={classes.column}>
-        {/* Disable editing of Current Programme/Week */}
-        <LocalisedReferenceInput
-          source="currentTrainerProgram.id"
+        {/* TODO: Once decision made (Disable editing of Current Programme/Week) remove the redundant */}
+        {/* <LocalisedReferenceInput
+          source="currentTrainingProgramme.id"
           reference="programme"
           localisationsPath="trainer.localisations"
           additionalChoices={programmeEnvironmentChoices}
@@ -109,10 +135,17 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
           resource={resource}
         >
           <SelectInput />
-        </LocalisedReferenceInput>
+        </LocalisedReferenceInput> */}
+        <TextInput
+          resource={resource}
+          source="currentTrainingProgramme.name"
+          multiline
+          validate={required()}
+          disabled={true}
+        />
         <NumberInput
           resource={resource}
-          source="currentTrainerProgram.currentWeek"
+          source="currentWeek"
           validate={nonNegativeIntValidation}
           disabled={true}
           min={1}
@@ -126,7 +159,15 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
         >
           <SelectArrayInput />
         </LocalisedReferenceArrayInput>
-        <BooleanInput resource={resource} source="canChangeDevice" />
+        <FormDataConsumer>
+          {({ formData }) => (
+            <BooleanInput
+              resource={resource}
+              source="deviceLimitEnabled"
+              helperText={helperString(formData)}
+            />
+          )}
+        </FormDataConsumer>
         <SelectInput
           resource={resource}
           source="timeZone"
@@ -141,7 +182,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
 const UserEdit = (props) => {
   const classes = columnStyles();
   return (
-    <Edit mutationMode="optimistic" {...props}>
+    <Edit mutationMode="pessimistic" {...props}>
       <SimpleForm>
         <SanitizedForm classes={classes} />
       </SimpleForm>

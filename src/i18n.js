@@ -56,16 +56,17 @@ const englishMessages = {
         },
         timeZone: 'Time Zone',
         previousTrainers: 'Previous Trainers',
-        canChangeDevice: '30-day Device Limit',
+        deviceLimitEnabled: '30-day Device Limit',
         subscription: {
           isSubscribed: 'Subscribed?',
           type: 'Subscription Type',
           emailMarketing: 'Email Marketing Preference',
           platform: 'Subscriber Platform',
         },
-        currentTrainerProgram: {
+        currentWeek: 'Current Week',
+        currentTrainingProgramme: {
           id: 'Current Programme',
-          currentWeek: 'Current Week',
+          name: 'Current Programme',
         },
       },
     },
@@ -338,6 +339,11 @@ const englishMessages = {
     auth: {
       passwdResetSent: 'Reset password request sent',
       passwdChanged: 'Password changed successfully',
+    },
+    user: {
+      currentLimit: 'Device switching disabled until:  %{countDown}',
+      deviceLimitEnabled: 'User will not be able to switch devices for 30 days',
+      deviceLimitDisabled: 'User may switch devices',
     },
   },
   error: {
