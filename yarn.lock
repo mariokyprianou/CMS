@@ -3062,9 +3062,9 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-"@thedistance/the-core-cms-module-authentication-amplify@git+ssh://git@bitbucket.org/thedistance/the-core-cms-module-authentication-amplify.git#v1.4.1":
+"@thedistance/the-core-cms-module-authentication-amplify@git+ssh://git@bitbucket.org/thedistance/the-core-cms-module-authentication-amplify.git#v1.4.2":
   version "1.4.0"
-  resolved "git+ssh://git@bitbucket.org/thedistance/the-core-cms-module-authentication-amplify.git#47303e2edfff0b7a49677e65f5d9385408f112c7"
+  resolved "git+ssh://git@bitbucket.org/thedistance/the-core-cms-module-authentication-amplify.git#9baa5f954fedc8eba350068a9dd2361d8a27ed4b"
 
 "@types/anymatch@*":
   version "1.3.1"
