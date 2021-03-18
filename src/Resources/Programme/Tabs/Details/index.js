@@ -35,7 +35,8 @@ const maxFileCountValidation = (files = []) => {
 const fileValidation = [required(), maxFileCountValidation];
 
 const DetailTab = (props) => {
-  const { resource } = props;
+  const { resource, record } = props;
+  console.log('record: ', record);
   const classes = columnStyles();
   return (
     <Fragment>
@@ -59,6 +60,7 @@ const DetailTab = (props) => {
             choices={publishStatusChoices}
             validate={required()}
             defaultValue="DRAFT"
+            disabled={record.id ? false : true} // do not allow edit of field on a create record
           />
         </div>
         <div className={classes.column}>

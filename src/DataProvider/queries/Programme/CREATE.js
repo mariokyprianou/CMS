@@ -73,7 +73,7 @@ export default async ({ client, params }) => {
       variables: {
         programme: {
           environment: params.data.environment,
-          status: params.data.status,
+          status: 'DRAFT', // do not trust UI - all created programmes are drafts until edited and share media added
           muscle: params.data.muscle,
           fatLoss: params.data.fatLoss,
           fitness: params.data.fitness,
