@@ -60,6 +60,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
         </ReferenceInput>
         <FormDataConsumer>
           {({ formData }) =>
+            formData.country &&
             formData.country.id === process.env.REACT_APP_INDIA_ID && (
               <ReferenceInput
                 resource={resource}
@@ -96,6 +97,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
         />
       </div>
       <div className={classes.column}>
+        {/* Disable editing of Current Programme/Week */}
         <LocalisedReferenceInput
           source="currentTrainerProgram.id"
           reference="programme"
@@ -103,6 +105,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
           additionalChoices={programmeEnvironmentChoices}
           additionalChoiceComparisonField="environment"
           validate={required()}
+          disabled={true}
           resource={resource}
         >
           <SelectInput />
@@ -111,6 +114,7 @@ const SanitizedForm = ({ basePath, classes, translate, ...props }) => {
           resource={resource}
           source="currentTrainerProgram.currentWeek"
           validate={nonNegativeIntValidation}
+          disabled={true}
           min={1}
         />
         <LocalisedReferenceArrayInput
