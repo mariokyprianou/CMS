@@ -36,7 +36,6 @@ const fileValidation = [required(), maxFileCountValidation];
 
 const DetailTab = (props) => {
   const { resource, record } = props;
-  console.log('record: ', record);
   const classes = columnStyles();
   return (
     <Fragment>
