@@ -68,7 +68,153 @@ export default async ({ client, params }) => {
         delete params.data.images[i].url;
       }
     }
-    // TODO: Shared Media - needs discussion with backend
+
+    // reset the share media images array
+    params.data.shareMediaImages = [];
+
+    // handle the share media images
+    const programmeStartImageLocalisations = [];
+    // programme start images and their localisations
+    if (params.data.programmeStartImages) {
+      for (
+        let i = 0;
+        i < params.data.programmeStartImages.localisations.length;
+        i++
+      ) {
+        const localisation = params.data.programmeStartImages.localisations[i];
+        if (localisation && localisation.image.hasOwnProperty('rawFile')) {
+          const uploadRequest = await uploadFile({
+            client,
+            file: localisation.image,
+          });
+          programmeStartImageLocalisations.push({
+            language: localisation.language,
+            imageKey: uploadRequest.key,
+            colour: 'WHITE', // no colour to set - mock to satisfy backend db requirement
+          });
+        } else if (localisation) {
+          programmeStartImageLocalisations.push({
+            language: localisation.language,
+            imageKey: localisation.imageKey,
+            colour: 'WHITE', // no colour to set - mock to satisfy backend db requirement
+          });
+        }
+      }
+    }
+
+    if (programmeStartImageLocalisations.length > 0) {
+      // add the localised programme start images:
+      params.data.shareMediaImages.push({
+        id:
+          params.data.programmeStartImages &&
+          params.data.programmeStartImages.id,
+        type: 'PROGRAMME_START',
+        localisations: programmeStartImageLocalisations,
+      });
+    }
+
+    // handle the week complete, challenge complete and progress images
+    const weekCompleteNames = [
+      'weekComplete0',
+      'weekComplete1',
+      'weekComplete2',
+    ];
+    const challengeCompleteNames = ['challengeComplete0', 'challengeComplete1'];
+    const progressNames = ['progress0'];
+
+    // workout complete images
+    for (let i = 0; i < weekCompleteNames.length; i++) {
+      const weekCompleteImageLocalisations = [];
+      const shareMediaName = weekCompleteNames[i];
+      const shareMedia = params.data[`${shareMediaName}`];
+      if (shareMedia && shareMedia.image.hasOwnProperty('rawFile')) {
+        const uploadRequest = await uploadFile({
+          client,
+          file: shareMedia.image,
+        });
+        weekCompleteImageLocalisations.push({
+          language: 'en', // no localisation in the CMS form so mock it
+          imageKey: uploadRequest.key,
+          colour: shareMedia.colour,
+        });
+      } else if (shareMedia) {
+        weekCompleteImageLocalisations.push({
+          language: 'en', // no localisation in the CMS form so mock it
+          imageKey: shareMedia.image.imageKey,
+          colour: shareMedia.colour,
+        });
+      }
+      if (weekCompleteImageLocalisations.length > 0) {
+        params.data.shareMediaImages.push({
+          id: shareMedia && shareMedia.id,
+          type: 'WEEK_COMPLETE',
+          localisations: weekCompleteImageLocalisations,
+        });
+      }
+    }
+
+    // challenge complete images
+    for (let i = 0; i < challengeCompleteNames.length; i++) {
+      const challengeCompleteImageLocalisations = [];
+      const shareMediaName = challengeCompleteNames[i];
+      const shareMedia = params.data[`${shareMediaName}`];
+      if (shareMedia && shareMedia.image.hasOwnProperty('rawFile')) {
+        const uploadRequest = await uploadFile({
+          client,
+          file: shareMedia.image,
+        });
+        challengeCompleteImageLocalisations.push({
+          language: 'en', // no localisation in the CMS form so mock it
+          imageKey: uploadRequest.key,
+          colour: shareMedia.colour,
+        });
+      } else if (shareMedia) {
+        challengeCompleteImageLocalisations.push({
+          language: 'en', // no localisation in the CMS form so mock it
+          imageKey: shareMedia.image.imageKey,
+          colour: shareMedia.colour,
+        });
+      }
+      if (challengeCompleteImageLocalisations.length > 0) {
+        params.data.shareMediaImages.push({
+          id: shareMedia && shareMedia.id,
+          type: 'CHALLENGE_COMPLETE',
+          localisations: challengeCompleteImageLocalisations,
+        });
+      }
+    }
+
+    // progress image
+    for (let i = 0; i < progressNames.length; i++) {
+      const progressImageLocalisations = [];
+      const shareMediaName = progressNames[i];
+      const shareMedia = params.data[`${shareMediaName}`];
+      if (shareMedia && shareMedia.image.hasOwnProperty('rawFile')) {
+        const uploadRequest = await uploadFile({
+          client,
+          file: shareMedia.image,
+        });
+        progressImageLocalisations.push({
+          language: 'en', // no localisation in the CMS form so mock it
+          imageKey: uploadRequest.key,
+          colour: shareMedia.colour,
+        });
+      } else if (shareMedia) {
+        progressImageLocalisations.push({
+          language: 'en', // no localisation in the CMS form so mock it
+          imageKey: shareMedia.image.imageKey,
+          colour: shareMedia.colour,
+        });
+      }
+      if (progressImageLocalisations.length > 0) {
+        params.data.shareMediaImages.push({
+          id: shareMedia && shareMedia.id,
+          type: 'PROGRESS',
+          localisations: progressImageLocalisations,
+        });
+      }
+    }
+
     const result = await client.mutate({
       mutation: updateProgrammeMutation,
       variables: {
@@ -82,6 +228,7 @@ export default async ({ client, params }) => {
           trainerId: params.data.trainer.id,
           images: params.data.images,
           localisations: params.data.localisations,
+          shareMediaImages: params.data.shareMediaImages,
         },
       },
     });

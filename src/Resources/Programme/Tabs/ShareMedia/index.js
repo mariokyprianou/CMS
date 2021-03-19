@@ -8,7 +8,6 @@
 
 import React, { Fragment } from 'react';
 import {
-  ImageField,
   ImageInput,
   FormDataConsumer,
   SelectInput,
@@ -18,10 +17,11 @@ import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { columnStyles } from 'styles';
 import { textColourChoices } from 'utils/choices';
 import { maxImageSize } from 'utils/helpers';
+import { PreviewImageField } from 'Components/Fields';
 
-// TODO: CMS Logic need to format the data to localised fields to match backend
-// and pull out data from localised fields to match the form requirements here
-const ShareMediaTab = () => {
+const ShareMediaTab = (props) => {
+  const { record } = props;
+
   const classes = columnStyles();
   return (
     <Fragment>
@@ -29,31 +29,34 @@ const ShareMediaTab = () => {
       <LocalisedComponentCloner
         component={
           <ImageInput>
-            <ImageField source="src" title="programmeStartImage" />
+            <PreviewImageField />
           </ImageInput>
         }
+        source="image"
+        record={record}
+        label="resources.programme.fields.programmeStartImage"
         accept="image/*"
         validate={required()}
         resource="programme"
         direction="row"
         fullWidth
         maxSize={maxImageSize}
-        source="programmeStartImage"
+        parentPath="programmeStartImages"
       />
       {/* 2nd Row - Week Complete */}
       <div className={classes.root}>
         <div className={classes.column}>
           <ImageInput
-            source="weekCompleteImage1"
+            source="weekComplete0.image"
             accept="image/*"
             validate={required()}
             maxSize={maxImageSize}
             label="resources.programme.fields.weekCompleteImage1"
           >
-            <ImageField source="src" title="weekCompleteImage1" />
+            <PreviewImageField />
           </ImageInput>
           <SelectInput
-            source="weekCompleteImage1Colour"
+            source="weekComplete0.colour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             defaultValue="WHITE"
@@ -63,18 +66,18 @@ const ShareMediaTab = () => {
         </div>
         <div className={classes.column}>
           <ImageInput
-            source="weekCompleteImage2"
+            source="weekComplete1.image"
             accept="image/*"
             maxSize={maxImageSize}
             label="resources.programme.fields.weekCompleteImage2"
           >
-            <ImageField source="src" title="weekCompleteImage2" />
+            <PreviewImageField />
           </ImageInput>
           <FormDataConsumer>
             {({ formData, ...rest }) =>
-              formData.weekCompleteImage2 && (
+              formData.weekComplete1 && (
                 <SelectInput
-                  source="weekCompleteImage2Colour"
+                  source="weekComplete1.colour"
                   label="resources.programme.fields.textColour"
                   choices={textColourChoices}
                   defaultValue="WHITE"
@@ -87,18 +90,18 @@ const ShareMediaTab = () => {
         </div>
         <div className={classes.column}>
           <ImageInput
-            source="weekCompleteImage3"
+            source="weekComplete2.image"
             accept="image/*"
             maxSize={maxImageSize}
             label="resources.programme.fields.weekCompleteImage3"
           >
-            <ImageField source="src" title="weekCompleteImage3" />
+            <PreviewImageField />
           </ImageInput>
           <FormDataConsumer>
             {({ formData, ...rest }) =>
-              formData.weekCompleteImage3 && (
+              formData.weekComplete2 && (
                 <SelectInput
-                  source="weekCompleteImage3Colour"
+                  source="weekComplete2.colour"
                   label="resources.programme.fields.textColour"
                   choices={textColourChoices}
                   defaultValue="WHITE"
@@ -114,16 +117,16 @@ const ShareMediaTab = () => {
       <div className={classes.root}>
         <div className={classes.column}>
           <ImageInput
-            source="challengeImage1"
+            source="challengeComplete0.image"
             accept="image/*"
             maxSize={maxImageSize}
             validate={required()}
             label="resources.programme.fields.challengeCompleteImage1"
           >
-            <ImageField source="src" title="challengeImage1" />
+            <PreviewImageField />
           </ImageInput>
           <SelectInput
-            source="challengeImage1Colour"
+            source="challengeComplete0.colour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             defaultValue="WHITE"
@@ -133,18 +136,18 @@ const ShareMediaTab = () => {
         </div>
         <div className={classes.column}>
           <ImageInput
-            source="challengeImage2"
+            source="challengeComplete1.image"
             accept="image/*"
             maxSize={maxImageSize}
             label="resources.programme.fields.challengeCompleteImage2"
           >
-            <ImageField source="src" title="challengeImage2" />
+            <PreviewImageField />
           </ImageInput>
           <FormDataConsumer>
             {({ formData, ...rest }) =>
-              formData.challengeImage2 && (
+              formData.challengeComplete1 && (
                 <SelectInput
-                  source="challengeImage2Colour"
+                  source="challengeComplete1.colour"
                   label="resources.programme.fields.textColour"
                   choices={textColourChoices}
                   defaultValue="WHITE"
@@ -160,15 +163,15 @@ const ShareMediaTab = () => {
       <div className={classes.root}>
         <div className={classes.column}>
           <ImageInput
-            source="progressImage"
+            source="progress0.image"
             accept="image/*"
             maxSize={maxImageSize}
             label="resources.programme.fields.progressImage"
           >
-            <ImageField source="src" title="progressImage" />
+            <PreviewImageField />
           </ImageInput>
           <SelectInput
-            source="progressImageColour"
+            source="progress0.colour"
             label="resources.programme.fields.textColour"
             choices={textColourChoices}
             defaultValue="WHITE"

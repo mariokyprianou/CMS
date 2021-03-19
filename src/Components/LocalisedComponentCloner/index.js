@@ -12,8 +12,6 @@ import { useForm, useFormState } from 'react-final-form';
 import { columnStyles } from 'styles';
 import get from 'lodash/get';
 
-// TODO: DisplayName not supported in FF
-
 // TODO: too many re-renders, very inefficient/slow
 
 const languageNames = Intl.hasOwnProperty('DisplayNames')
@@ -71,7 +69,7 @@ const LocalisedComponentCloner = ({
     ) {
       // find the supported language as an existing record
       let existingLanguageIndex = recordData.localisations
-        .map((locale) => locale.language)
+        .map((locale) => locale && locale.language)
         .indexOf(language);
       // if the record exists, match the index
       if (existingLanguageIndex >= 0) {
@@ -123,6 +121,7 @@ const LocalisedComponentCloner = ({
       const fieldLabel = label
         ? translate(label)
         : translate(`resources.${resource}.fields.${source}`);
+
       children.push(
         <div
           key={`localisations[${index}].${source}`}

@@ -6,6 +6,8 @@
  * Copyright (c) 2020 The Distance
  */
 
+import { partition } from 'utils/helpers';
+
 export default ({ type, resource, result }) => {
   // override results returned from backend here, e.g. create required field names
   if (resource === 'Configuration') {
@@ -35,14 +37,75 @@ export default ({ type, resource, result }) => {
     }
   }
   if (resource === 'Programme') {
-    if (result && result.data) {
-      if (type === 'GET_ONE') {
-        for (let i = 0; i < result.data.shareMediaImages.length; i++) {
-          const shareMediaImage = result.data.shareMediaImages[i];
-          // loop through the share media images and flatten
-          // TODO: Do once backend confirms how the non-localised images will come through
+    if ((type === 'GET_ONE' || type === 'UPDATE') && result && result.data) {
+      let resultToParse = result.data;
+      const [programmeStartImages, otherImages] = partition(
+        resultToParse.shareMediaImages,
+        (shareImage) => shareImage.type === 'PROGRAMME_START'
+      );
+      // programme start images - take the first result
+      resultToParse['programmeStartImages'] = programmeStartImages[0]; // 1 allowed
+      resultToParse['programmeStartImages'].localisations.forEach(
+        (localisation) => {
+          localisation['image'] = {
+            imageKey: localisation.imageKey,
+            url: localisation.url,
+          };
         }
-      } else if (type === 'GET_LIST') {
+      );
+
+      // other images (non localised in the CMS UI)
+      const weekCompleteImages = otherImages.filter(
+        (image) => image.type === 'WEEK_COMPLETE'
+      ); // up to 3
+      const challengeImages = otherImages.filter(
+        (image) => image.type === 'CHALLENGE_COMPLETE'
+      ); // up to 2
+      const progressImages = otherImages.filter(
+        (image) => image.type === 'PROGRESS'
+      ); // 1
+
+      for (let i = 0; i < 3; i++) {
+        const image = weekCompleteImages[i];
+        resultToParse[`weekComplete${i}`] = null;
+        if (image) {
+          resultToParse[`weekComplete${i}`] = {
+            id: image.id,
+            image: {
+              imageKey: image.localisations[0].imageKey,
+              url: image.localisations[0].url,
+            },
+            colour: image.localisations[0].colour,
+          };
+        }
+      }
+      for (let i = 0; i < 2; i++) {
+        const image = challengeImages[i];
+        resultToParse[`challengeComplete${i}`] = null;
+        if (image) {
+          resultToParse[`challengeComplete${i}`] = {
+            id: image.id,
+            image: {
+              imageKey: image.localisations[0].imageKey,
+              url: image.localisations[0].url,
+            },
+            colour: image.localisations[0].colour,
+          };
+        }
+      }
+      for (let i = 0; i < 1; i++) {
+        const image = progressImages[i];
+        resultToParse[`progress${i}`] = null;
+        if (image) {
+          resultToParse[`progress${i}`] = {
+            id: image.id,
+            image: {
+              imageKey: image.localisations[0].imageKey,
+              url: image.localisations[0].url,
+            },
+            colour: image.localisations[0].colour,
+          };
+        }
       }
     }
   }
