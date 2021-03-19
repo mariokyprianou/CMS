@@ -34,6 +34,18 @@ export const nonNegativeInt = (num) => {
   }
 };
 
+export const nonNegativeNotRequiredInt = (num) => {
+  if (num !== null) {
+    if (Number.isInteger(num)) {
+      if (num < 0) {
+        return 'validation.positivieInt';
+      }
+    } else {
+      return 'validation.notAnInt';
+    }
+  }
+};
+
 const emailEx = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/, 'i');
 
 const isValidEmailTest = (email) => {

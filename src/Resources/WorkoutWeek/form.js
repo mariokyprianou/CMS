@@ -24,7 +24,10 @@ import {
   RestrictedSimpleFormIterator,
 } from 'Components/Forms';
 import { InputAdornment } from '@material-ui/core';
-import { nonNegativeNonZeroInt, nonNegativeInt } from 'utils/validation';
+import {
+  nonNegativeNonZeroInt,
+  nonNegativeNotRequiredInt,
+} from 'utils/validation';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { LocalisedReferenceInput } from 'Components/Inputs';
 import { PreviewImageField } from 'Components/Fields';
@@ -38,7 +41,7 @@ import { maxImageSize } from 'utils/helpers';
 import { columnStyles } from 'styles';
 
 const nonNegativeNonZeroValidation = [required(), nonNegativeNonZeroInt];
-const nonNegativeIntValidation = [required(), nonNegativeInt];
+const nonNegativeIntValidation = [nonNegativeNotRequiredInt];
 
 const SetsInput = ({ getSource, scopedFormData, translate }) => {
   return (
