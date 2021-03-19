@@ -45,14 +45,21 @@ export default ({ type, resource, result }) => {
       );
       // programme start images - take the first result
       resultToParse['programmeStartImages'] = programmeStartImages[0]; // 1 allowed
-      resultToParse['programmeStartImages'].localisations.forEach(
-        (localisation) => {
-          localisation['image'] = {
-            imageKey: localisation.imageKey,
-            url: localisation.url,
-          };
-        }
-      );
+      if (resultToParse['programmeStartImages']) {
+        resultToParse['programmeStartImages'].localisations.forEach(
+          (localisation) => {
+            localisation['image'] = {
+              imageKey: localisation.imageKey,
+              url: localisation.url,
+            };
+          }
+        );
+      } else {
+        resultToParse['programmeStartImages'] = {
+          localisations: [],
+          type: 'PROGRAMME_START',
+        };
+      }
 
       // other images (non localised in the CMS UI)
       const weekCompleteImages = otherImages.filter(

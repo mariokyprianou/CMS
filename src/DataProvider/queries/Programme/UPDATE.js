@@ -104,13 +104,20 @@ export default async ({ client, params }) => {
 
     if (programmeStartImageLocalisations.length > 0) {
       // add the localised programme start images:
-      params.data.shareMediaImages.push({
+      const startImageParams = {
         id:
           params.data.programmeStartImages &&
           params.data.programmeStartImages.id,
         type: 'PROGRAMME_START',
         localisations: programmeStartImageLocalisations,
-      });
+      };
+      if (
+        params.data.programmeStartImages &&
+        params.data.programmeStartImages.id
+      ) {
+        startImageParams['id'] = params.data.programmeStartImages.id;
+      }
+      params.data.shareMediaImages.push(startImageParams);
     }
 
     // handle the week complete, challenge complete and progress images
@@ -127,7 +134,11 @@ export default async ({ client, params }) => {
       const weekCompleteImageLocalisations = [];
       const shareMediaName = weekCompleteNames[i];
       const shareMedia = params.data[`${shareMediaName}`];
-      if (shareMedia && shareMedia.image.hasOwnProperty('rawFile')) {
+      if (
+        shareMedia &&
+        shareMedia.image &&
+        shareMedia.image.hasOwnProperty('rawFile')
+      ) {
         const uploadRequest = await uploadFile({
           client,
           file: shareMedia.image,
