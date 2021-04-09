@@ -21,16 +21,14 @@ export default [
     render={(props) => <ForgotPassword {...props} />}
   />,
   <Route
-    exact
     path="/configuration"
     render={(props) => <ConfigurationPage {...props} />}
   />,
   <Route
-    exact
     path="/notification"
     render={(props) => <NotificationPage {...props} />}
   />,
-  <Route exact path="/challenge" render={() => <Redirect to="/programme" />} />,
-  <Route exact path="/region" render={() => <Redirect to="/" />} />,
-  <Route exact path="/country" render={() => <Redirect to="/" />} />,
+  <Route path="/challenge" render={() => <Redirect to="/programme" />} />,
+  <Route path="/region" render={() => <Redirect to="/" />} />,
+  <Route path="/country" render={() => <Redirect to="/" />} />,
 ];

@@ -5,7 +5,9 @@
  * Email: jessica.mowatt@thedistance.co.uk
  * Copyright (c) 2020 The Distance
  */
+import convertBytes from './convertBytes';
+import onDropRejected from './onDropRejected';
 
 export { default as createStore } from './customStore';
-
 export * from './helpers';
+export { convertBytes, onDropRejected };

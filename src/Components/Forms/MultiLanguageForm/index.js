@@ -250,7 +250,6 @@ const FormChildren = (props) => {
           ...child.props,
           onBlur: (event) => onBlur(event, child.props.addonblur),
           resource,
-          options: {},
         };
         // add props for the button
         if (child.props.name === 'multiLang.button.removeTranslation') {

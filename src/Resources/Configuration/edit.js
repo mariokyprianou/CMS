@@ -15,12 +15,14 @@ import {
   required,
   TextInput,
   useTranslate,
+  useNotify,
 } from 'react-admin';
 import { MultiLanguageForm } from 'Components/Forms';
 import RichTextInput from 'ra-input-rich-text';
 import { notificationTypeChoices, onboardingScreens } from 'utils/choices';
 import { maxImageSize } from 'utils/helpers';
 import { columnStyles } from 'styles';
+import { onDropRejected as onFileDropRejected } from 'utils';
 
 const supportedLanguages = process.env.REACT_APP_SUPPORTED_LANG.split(' ');
 
@@ -28,6 +30,7 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
   const classes = columnStyles('column', '40vw');
   const { data } = record;
   const { resource } = props;
+  const notify = useNotify();
   return (
     <MultiLanguageForm
       {...props}
@@ -74,6 +77,15 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                     validate={required()}
                     source={`image_${choice.id}`}
                     label={`resources.${resource}.fields.image`}
+                    options={{
+                      onDropRejected: (files) =>
+                        onFileDropRejected({
+                          files,
+                          translate,
+                          notify,
+                          maxFileSize: maxImageSize,
+                        }),
+                    }}
                   >
                     <ImageField source="url" title={`img_${choice.name}`} />
                   </ImageInput>

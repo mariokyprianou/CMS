@@ -381,6 +381,12 @@ const englishMessages = {
         notFound: 'File not found',
       },
     },
+    fileUpload: {
+      fileTooBig: 'File %{filename} is larger than %{maxSize}',
+      fileWrongType:
+        'File %{filename} is not one of accepted types %{allowedFileTypes}',
+      unknownRejection: 'Unable to upload file %{filename}',
+    },
   },
   validation: {
     passwdSpecial: 'Password must contain a special character',

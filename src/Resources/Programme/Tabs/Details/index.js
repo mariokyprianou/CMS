@@ -13,6 +13,8 @@ import {
   ImageInput,
   SelectInput,
   TextInput,
+  useTranslate,
+  useNotify,
 } from 'react-admin';
 import { LocalisedReferenceInput, PercentageInput } from 'Components/Inputs';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
@@ -20,6 +22,7 @@ import {
   programmeEnvironmentChoices,
   publishStatusChoices,
 } from 'utils/choices';
+import { onDropRejected as onFileDropRejected } from 'utils';
 import { maxImageSize } from 'utils/helpers';
 import { columnStyles } from 'styles';
 
@@ -35,6 +38,8 @@ const maxFileCountValidation = (files = []) => {
 const fileValidation = [required(), maxFileCountValidation];
 
 const DetailTab = (props) => {
+  const translate = useTranslate();
+  const notify = useNotify();
   const { resource, record } = props;
   const classes = columnStyles();
   return (
@@ -82,8 +87,17 @@ const DetailTab = (props) => {
             label="resources.programme.fields.trainerImages"
             validate={fileValidation}
             multiple
-            accept="image/*"
             maxSize={maxImageSize}
+            options={{
+              onDropRejected: (files) =>
+                onFileDropRejected({
+                  files,
+                  translate,
+                  notify,
+                  maxFileSize: maxImageSize,
+                }),
+            }}
+            accept="image/*"
           >
             <ImageField source="url" title="img" />
           </ImageInput>

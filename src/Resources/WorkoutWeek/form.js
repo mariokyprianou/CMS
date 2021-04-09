@@ -10,13 +10,13 @@ import React, { Fragment, useState, useRef } from 'react';
 import {
   ArrayInput,
   FormDataConsumer,
-  ImageField,
   ImageInput,
   NumberInput,
   required,
   SelectInput,
   TextInput,
   useTranslate,
+  useNotify,
 } from 'react-admin';
 import { useForm, useFormState } from 'react-final-form';
 import {
@@ -32,6 +32,7 @@ import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { LocalisedReferenceInput } from 'Components/Inputs';
 import { PreviewImageField } from 'Components/Fields';
 import get from 'lodash/get';
+import { onDropRejected as onFileDropRejected } from 'utils';
 import {
   programmeEnvironmentChoices,
   intensityChoices,
@@ -87,6 +88,7 @@ const WorkoutForm = (props) => {
   const { record } = props;
   const classes = columnStyles();
   const translate = useTranslate();
+  const notify = useNotify();
   const [selectedTrainerId, setSelectedTrainerId] = useState(
     (record && record.trainingProgrammeId) || null
   );
@@ -182,6 +184,15 @@ const WorkoutForm = (props) => {
         source="workout.overviewImage"
         accept="image/*"
         maxSize={maxImageSize}
+        options={{
+          onDropRejected: (files) =>
+            onFileDropRejected({
+              files,
+              translate,
+              notify,
+              maxFileSize: maxImageSize,
+            }),
+        }}
       >
         <PreviewImageField />
       </ImageInput>

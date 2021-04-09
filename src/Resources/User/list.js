@@ -35,10 +35,10 @@ const UserList = (props) => {
         <TextField source="firstName" />
         <TextField source="lastName" />
         <TextField source="email" />
-        <ReferenceField source="country.id" reference="country">
+        <ReferenceField source="country.id" reference="country" link={false}>
           <TextField source="country" />
         </ReferenceField>
-        <ReferenceField source="region.id" reference="region">
+        <ReferenceField source="region.id" reference="region" link={false}>
           <TextField source="region" />
         </ReferenceField>
         <BooleanField source="emailMarketing" />
