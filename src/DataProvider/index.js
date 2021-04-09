@@ -11,9 +11,6 @@ import getApolloClient from './apolloClient';
 import { __schema as schema } from './schema';
 // resource name mapping
 import resources from './resourceMap';
-// fake data
-import jsonRestProvider from 'ra-data-fakerest';
-import data from './fakeData';
 // custom queries
 import overrideQueries from './overrideQueries';
 import addCustomQueries from './customQueries.js';
@@ -54,13 +51,6 @@ const createProvider = async () => {
       dataProvider: gqlProvider,
       resources,
     },
-    {
-      dataProvider: jsonRestProvider(data, true),
-      //add resources here to override with fake data
-      resources: {
-        notification: 'notification',
-      },
-    },
   ];
 
   return async (type, resource, params) => {
@@ -81,52 +71,6 @@ const createProvider = async () => {
 
     if (customQueries) {
       return customQueries;
-    }
-
-    // Fakedata Dataprovider type mapping
-    if (typeof dataProviderMapping.dataProvider === 'object') {
-      switch (type) {
-        case 'GET_LIST':
-          type = 'getList';
-          break;
-        case 'GET_ONE':
-          type = 'getOne';
-          break;
-        case 'GET_MANY':
-          type = 'getMany';
-          break;
-        case 'GET_MANY_REFERENCE':
-          type = 'getManyReference';
-          break;
-        case 'UPDATE':
-          type = 'update';
-          break;
-        case 'UPDATE_MANY':
-          type = 'updateMany';
-          break;
-        case 'CREATE':
-          type = 'create';
-          break;
-        case 'DELETE':
-          type = 'delete';
-          break;
-        case 'DELETE_MANY':
-          type = 'deleteMany';
-          break;
-        default:
-          throw new Error('Unsupported query type');
-      }
-
-      const result = await dataProviderMapping.dataProvider[type](
-        resource,
-        params
-      );
-
-      return decorateResponse({
-        type,
-        resource,
-        result,
-      });
     }
 
     const result = await dataProviderMapping.dataProvider(

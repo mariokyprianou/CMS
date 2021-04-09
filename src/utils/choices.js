@@ -203,6 +203,25 @@ const challengeUnitTypeChoices = [
   },
 ];
 
+const feedbackIntensityChoices = [
+  {
+    id: '1,5',
+    name: 'choices.feedback.intensity.oneToFive',
+  },
+  {
+    id: '5,10',
+    name: 'choices.feedback.intensity.fiveToTen',
+  },
+  {
+    id: '10,15',
+    name: 'choices.feedback.intensity.tenToFifteen',
+  },
+  {
+    id: '15,20',
+    name: 'choices.feedback.intensity.fifteenToTwenty',
+  },
+];
+
 const allTimeZones = timezones.map((timeZone) => {
   return { id: timeZone, name: timeZone };
 });
@@ -231,4 +250,5 @@ export {
   subscriptionChoices,
   challengeUnitTypeChoices,
   allFeedbackEmojis,
+  feedbackIntensityChoices,
 };

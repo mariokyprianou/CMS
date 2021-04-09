@@ -15,7 +15,7 @@ import {
   SelectInput,
 } from 'react-admin';
 import { LocalisedReferenceInput } from 'Components/Inputs';
-import { allFeedbackEmojis } from 'utils/choices';
+import { allFeedbackEmojis, feedbackIntensityChoices } from 'utils/choices';
 
 const FeedbackFilter = (props) => {
   const { resource } = props;
@@ -36,7 +36,27 @@ const FeedbackFilter = (props) => {
       <SelectInput source="emoji" choices={allFeedbackEmojis} />
       <TextInput source="userEmail" />
       <NumberInput source="timeTaken" />
-      <NumberInput source="feedbackIntensity" />
+      <SelectInput
+        source="feedbackIntensity"
+        choices={feedbackIntensityChoices}
+        format={(option) => {
+          if (
+            option &&
+            option.hasOwnProperty('to') &&
+            option.hasOwnProperty('from')
+          ) {
+            return `${option.from},${option.to}`;
+          }
+          return null;
+        }}
+        parse={(option) => {
+          const minMax = option.split(',');
+          return {
+            from: minMax[0],
+            to: minMax[1],
+          };
+        }}
+      />
       <DateInput
         parse={(d) => {
           const dateTime = new Date(d); // start of day 00:00:00

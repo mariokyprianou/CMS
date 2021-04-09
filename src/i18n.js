@@ -334,6 +334,14 @@ const englishMessages = {
       title3: 'Screen 3',
       title4: 'Screen 4',
     },
+    feedback: {
+      intensity: {
+        oneToFive: '1 - 5',
+        fiveToTen: '5 - 10',
+        tenToFifteen: '10 - 15',
+        fifteenToTwenty: '15 - 20',
+      },
+    },
   },
   notification: {
     auth: {
