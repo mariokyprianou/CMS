@@ -50,7 +50,7 @@ export default async ({ client, params }) => {
   try {
     if (params.data.email !== params.previousData.email) {
       // update the email
-      const userUpdatedEmail = await client.mutate({
+      await client.mutate({
         mutation: updateUserEmailMutation,
         variables: {
           id: params.id,
@@ -63,6 +63,7 @@ export default async ({ client, params }) => {
       firstName: params.data.firstName,
       lastName: params.data.firstName,
       country: params.data.country.id,
+      currentWeek: params.data.currentWeek,
       region:
         params.data.country.id === process.env.REACT_APP_INDIA_ID
           ? params.data.region.id

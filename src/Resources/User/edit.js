@@ -20,20 +20,16 @@ import {
   TextInput,
   useTranslate,
 } from 'react-admin';
-import {
-  LocalisedReferenceArrayInput,
-  // LocalisedReferenceInput,
-} from 'Components/Inputs';
+import { LocalisedReferenceArrayInput } from 'Components/Inputs';
 import { columnStyles } from 'styles';
 import {
-  // programmeEnvironmentChoices,
   subscriptionPlatformChoices,
   subscriptionChoices,
   allTimeZones,
 } from 'utils/choices';
-import { nonNegativeInt, isValidEmail } from 'utils/validation';
+import { nonNegativeNonZeroInt, isValidEmail } from 'utils/validation';
 
-const nonNegativeIntValidation = [required(), nonNegativeInt];
+const nonNegativeNonZeroIntValidation = [required(), nonNegativeNonZeroInt];
 const emailValidation = [required(), isValidEmail];
 
 const SanitizedForm = ({ basePath, classes, ...props }) => {
@@ -123,19 +119,6 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
         />
       </div>
       <div className={classes.column}>
-        {/* TODO: Once decision made (Disable editing of Current Programme/Week) remove the redundant */}
-        {/* <LocalisedReferenceInput
-          source="currentTrainingProgramme.id"
-          reference="programme"
-          localisationsPath="trainer.localisations"
-          additionalChoices={programmeEnvironmentChoices}
-          additionalChoiceComparisonField="environment"
-          validate={required()}
-          disabled={true}
-          resource={resource}
-        >
-          <SelectInput />
-        </LocalisedReferenceInput> */}
         <TextInput
           resource={resource}
           source="currentTrainingProgramme.name"
@@ -146,9 +129,7 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
         <NumberInput
           resource={resource}
           source="currentWeek"
-          validate={nonNegativeIntValidation}
-          disabled={true}
-          min={1}
+          validate={nonNegativeNonZeroIntValidation}
         />
         <LocalisedReferenceArrayInput
           language="en"

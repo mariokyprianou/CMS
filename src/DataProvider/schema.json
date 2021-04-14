@@ -8341,16 +8341,6 @@
             "defaultValue": null
           },
           {
-            "name": "trainingProgrammeId",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "currentWeek",
             "description": null,
             "type": {
