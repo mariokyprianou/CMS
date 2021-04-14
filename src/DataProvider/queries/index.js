@@ -13,6 +13,7 @@ import updateConfig from './Configuration/UPDATE';
 import updateHmcQuestion from './HmcQuestion/UPDATE';
 import createHmcQuestion from './HmcQuestion/CREATE';
 
+import getListFeedback from './Feedback/GET_LIST';
 import exportFeedback from './Feedback/EXPORT';
 
 import { getListProgrammesQuery } from './Programme/GET_LIST';
@@ -39,6 +40,7 @@ export {
   updateConfig,
   updateHmcQuestion,
   createHmcQuestion,
+  getListFeedback,
   exportFeedback,
   getListProgrammesQuery,
   getOneWorkoutWeekQuery,

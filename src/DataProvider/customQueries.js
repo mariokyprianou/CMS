@@ -8,7 +8,6 @@
 
 import * as Query from './queries';
 import decorateResponse from './decorateResponse';
-import { allTimeZones } from 'utils/choices';
 
 export default async ({ type, resource, params, client }) => {
   var result;
@@ -31,6 +30,9 @@ export default async ({ type, resource, params, client }) => {
   if (resource === 'Feedback') {
     if (type === 'EXPORT') {
       result = await Query.exportFeedback({ client, params });
+    }
+    if (type === 'GET_LIST') {
+      result = await Query.getListFeedback({ client, params });
     }
   }
   if (resource === 'Exercise') {

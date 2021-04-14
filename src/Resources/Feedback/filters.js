@@ -37,7 +37,7 @@ const FeedbackFilter = (props) => {
       <TextInput source="userEmail" />
       <NumberInput source="timeTaken" />
       <SelectInput
-        source="feedbackIntensity"
+        source="workoutIntensity"
         choices={feedbackIntensityChoices}
         format={(option) => {
           if (
@@ -52,8 +52,8 @@ const FeedbackFilter = (props) => {
         parse={(option) => {
           const minMax = option.split(',');
           return {
-            from: minMax[0],
-            to: minMax[1],
+            from: parseInt(minMax[0]), // schema expects Int
+            to: parseInt(minMax[1]),
           };
         }}
       />
