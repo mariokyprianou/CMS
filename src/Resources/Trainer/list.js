@@ -19,6 +19,7 @@ const TrainerList = (props) => {
       title="resources.trainer.titles.trainerManagement"
       actions={<TrainerAction />}
       filters={<TrainerFilter />}
+      bulkActionButtons={false}
     >
       <Datagrid>
         <LocalisedTextField source="name" language="en" />

@@ -30,6 +30,7 @@ const UserList = (props) => {
       title="resources.user.titles.userManagement"
       actions={<UserAction />}
       filters={<UserFilter />}
+      bulkActionButtons={false}
     >
       <Datagrid>
         <TextField source="firstName" />

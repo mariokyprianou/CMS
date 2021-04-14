@@ -18,6 +18,7 @@ const ExerciseList = (props) => (
     title="resources.exercise.titles.exerciseManagement"
     actions={<ExerciseActions />}
     filters={<ExerciseFilter />}
+    bulkActionButtons={false}
   >
     <Datagrid>
       <ReferenceField

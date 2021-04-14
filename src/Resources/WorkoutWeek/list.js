@@ -35,7 +35,12 @@ const EnvironmentSelect = (props) => {
 };
 
 const WorkoutList = (props) => (
-  <List {...props} actions={<WorkoutAction />} filters={<WorkoutFilter />}>
+  <List
+    {...props}
+    actions={<WorkoutAction />}
+    filters={<WorkoutFilter />}
+    bulkActionButtons={false}
+  >
     <Datagrid>
       <ReferenceField
         label="resources.trainer.fields.name"

@@ -17,6 +17,7 @@ const AdministratorList = (props) => (
     title="resources.administrator.titles.administratorManagement"
     actions={<AdministratorActions />}
     filters={<AdministratorFilter />}
+    bulkActionButtons={false}
   >
     <Datagrid>
       <TextField source="name" />

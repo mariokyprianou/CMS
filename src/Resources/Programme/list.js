@@ -27,6 +27,7 @@ const ProgrammeList = (props) => (
     title="resources.programme.titles.programmeManagement"
     actions={<ProgrammeAction />}
     filters={<ProgrammeFilter />}
+    bulkActionButtons={false}
   >
     <Datagrid>
       <ReferenceField

@@ -17,6 +17,7 @@ const ExerciseCategoryList = (props) => (
     title="resources.exerciseCategory.titles.exerciseCategoryManagement"
     actions={<TrainerAction />}
     filters={<TrainerFilter />}
+    bulkActionButtons={false}
   >
     <Datagrid>
       <TextField source="name" />
