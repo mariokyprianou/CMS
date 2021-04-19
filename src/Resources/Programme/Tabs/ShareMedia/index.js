@@ -235,6 +235,7 @@ const ShareMediaTab = (props) => {
                 }),
             }}
             label="resources.programme.fields.progressImage"
+            validate={required()}
           >
             <PreviewImageField />
           </ImageInput>

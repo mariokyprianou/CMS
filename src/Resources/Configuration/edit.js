@@ -6,7 +6,7 @@
  * Copyright (c) 2020 The Distance
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   Edit,
   Labeled,
@@ -18,6 +18,7 @@ import {
   useNotify,
 } from 'react-admin';
 import { MultiLanguageForm } from 'Components/Forms';
+import { Divider, Typography } from '@material-ui/core';
 import RichTextInput from 'ra-input-rich-text';
 import { notificationTypeChoices, onboardingScreens } from 'utils/choices';
 import { maxImageSize } from 'utils/helpers';
@@ -56,21 +57,17 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
           <Labeled label={`resources.${resource}.fields.onboardings`} />
           {onboardingScreens.map((choice) => {
             return (
-              <Fragment key={choice.id}>
-                <div>{translate(choice.name)}</div>
+              <div key={choice.id} className={classes.section}>
+                <Typography variant="h6" className={classes.title}>
+                  {translate(choice.name)}
+                </Typography>
                 <TextInput
                   fullWidth
                   validate={required()}
                   source={`title_${choice.id}`}
                   label={`resources.${resource}.fields.title`}
                 />
-                <TextInput
-                  fullWidth
-                  validate={required()}
-                  source={`description_${choice.id}`}
-                  label={`resources.${resource}.fields.description`}
-                />
-                <div addonblur={`image_${choice.id}`}>
+                <div addonblur={`image_${choice.id}`} className={classes.image}>
                   <ImageInput
                     accept="image/*"
                     maxSize={maxImageSize}
@@ -90,7 +87,14 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                     <ImageField source="url" title={`img_${choice.name}`} />
                   </ImageInput>
                 </div>
-              </Fragment>
+                <TextInput
+                  fullWidth
+                  validate={required()}
+                  source={`description_${choice.id}`}
+                  label={`resources.${resource}.fields.description`}
+                />
+                <Divider className={classes.divider} />
+              </div>
             );
           })}
         </div>
@@ -98,8 +102,10 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
           <Labeled label={`resources.${resource}.fields.notifications`} />
           {notificationTypeChoices.map((choice) => {
             return (
-              <Fragment key={choice.id}>
-                <div>{translate(choice.name)}</div>
+              <div key={choice.id} className={classes.section}>
+                <Typography variant="h6" className={classes.title}>
+                  {translate(choice.name)}
+                </Typography>
                 <TextInput
                   fullWidth
                   validate={required()}
@@ -113,7 +119,8 @@ const ConfigurationForm = ({ record, translate, ...props }) => {
                   source={`body_${choice.id}`}
                   label={`resources.${resource}.fields.body`}
                 />
-              </Fragment>
+                <Divider className={classes.divider} />
+              </div>
             );
           })}
         </div>

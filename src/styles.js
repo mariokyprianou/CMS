@@ -39,6 +39,19 @@ export const columnStyles = (flexDirection = 'column', width = '20vw') =>
       width: flexDirection === 'column' ? width : '100%',
       marginRight: 25,
     },
+    title: {
+      marginBottom: 10,
+    },
+    section: {
+      marginTop: 10,
+      marginBottom: 10,
+    },
+    divider: {
+      marginTop: 10,
+    },
+    image: {
+      marginTop: -22,
+    },
   })();
 
 export const rowStyles = () =>
