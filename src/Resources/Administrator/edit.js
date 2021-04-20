@@ -6,16 +6,53 @@
  * Copyright (c) 2020 The Distance
  */
 
-import React from 'react';
-import { Edit, SimpleForm, TextInput } from 'react-admin';
+import React, { useEffect, useState } from 'react';
+import {
+  Edit,
+  DeleteButton,
+  SaveButton,
+  SimpleForm,
+  TextInput,
+  Toolbar,
+} from 'react-admin';
+import { getCurrentLoggedInUser } from 'utils';
+import { toolbarStyles } from 'styles';
 
-const AdministratorEdit = (props) => (
-  <Edit mutationMode="optimistic" {...props}>
-    <SimpleForm>
-      <TextInput source="name" />
-      <TextInput source="email" />
-    </SimpleForm>
-  </Edit>
-);
+const AdminToolbar = ({ currentUserId, ...props }) => {
+  const classes = toolbarStyles();
+  const { record } = props;
+
+  return (
+    <Toolbar className={classes.root} {...props}>
+      <SaveButton />
+      {record.id && currentUserId && record.id === currentUserId ? null : (
+        <DeleteButton undoable={false} mutationMode="optimistic" />
+      )}
+    </Toolbar>
+  );
+};
+
+const AdministratorEdit = (props) => {
+  const [currentUserId, setCurrentUserId] = useState(null);
+
+  useEffect(() => {
+    async function getCurrentUser() {
+      const { sub } = await getCurrentLoggedInUser();
+      setCurrentUserId(sub);
+    }
+    if (!currentUserId) {
+      getCurrentUser();
+    }
+  }, [currentUserId, setCurrentUserId]);
+
+  return (
+    <Edit {...props}>
+      <SimpleForm toolbar={<AdminToolbar currentUserId={currentUserId} />}>
+        <TextInput source="name" />
+        <TextInput source="email" fullWidth />
+      </SimpleForm>
+    </Edit>
+  );
+};
 
 export default AdministratorEdit;

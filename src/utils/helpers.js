@@ -6,17 +6,23 @@
  * Copyright (c) 2020 The Distance
  */
 
+import { Auth } from 'aws-amplify';
 import get from 'lodash/get';
 
+export const getCurrentLoggedInUser = async () => {
+  const { attributes } = await Auth.currentAuthenticatedUser();
+  return attributes;
+};
+
 // partition an array based on isValid (e.g. ['apples','oranges'] => isOrange => (false) ['apples'] ; (true) ['oranges'])
-export function partition(array, isValid) {
+export const partition = (array, isValid) => {
   return array.reduce(
     ([pass, fail], elem) => {
       return isValid(elem) ? [[...pass, elem], fail] : [pass, [...fail, elem]];
     },
     [[], []]
   );
-}
+};
 
 export const maxImageSize = 2500000; // 2.5MB
 
