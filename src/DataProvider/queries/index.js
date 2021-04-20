@@ -34,6 +34,7 @@ import updateChallenge from './Challenge/UPDATE';
 
 import { getOneUserQuery } from './User/GET_ONE';
 import updateUser from './User/UPDATE';
+import exportUsers from './User/EXPORT';
 
 export {
   getOneConfig,
@@ -55,4 +56,5 @@ export {
   updateProgramme,
   getOneUserQuery,
   updateUser,
+  exportUsers,
 };

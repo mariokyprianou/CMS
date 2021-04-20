@@ -17,18 +17,49 @@ import {
   FunctionField,
   ReferenceField,
   useTranslate,
+  useNotify,
 } from 'react-admin';
+import useDataProviderWrapper from 'hooks/dataProviderWrapper';
 import { subscriptionPlatformChoices } from 'utils/choices';
 import UserAction from './actions';
 import UserFilter from './filters';
+import downloadFile from 'utils/downloadFile';
 
 const UserList = (props) => {
   const translate = useTranslate();
+  const notify = useNotify();
+  const callToDataProvider = useDataProviderWrapper();
+  const exportCSV = (filterValues) => {
+    try {
+      return callToDataProvider({
+        type: 'EXPORT',
+        resource: 'user',
+        payload: {},
+        onSuccess: (result) => {
+          if (result.data.data) {
+            downloadFile({
+              uri: result.data.data.downloadUrl,
+              filename: 'user.csv',
+            });
+          }
+        },
+      });
+    } catch (error) {
+      return notify(
+        error.message,
+        'warning',
+        error.payload,
+        error.undoable,
+        error.timeout
+      );
+    }
+  };
+
   return (
     <List
       {...props}
       title="resources.user.titles.userManagement"
-      actions={<UserAction />}
+      actions={<UserAction onClick={exportCSV} />}
       filters={<UserFilter />}
       bulkActionButtons={false}
     >

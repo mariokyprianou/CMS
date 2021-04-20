@@ -7,32 +7,12 @@
  */
 
 import React, { cloneElement } from 'react';
-import {
-  useListContext,
-  TopToolbar,
-  ExportButton,
-  sanitizeListRestProps,
-} from 'react-admin';
-
-// TODO: Add action to Export Button - this will be a custom request to the backend
-// https://thedistance.atlassian.net/wiki/spaces/PDL/pages/2026242085/2.1+User+Management
-// A csv report can be exported from the user list which will comprise the following columns:
-
-// First Name
-// Last Name
-// Email
-// Gender
-// Date of Birth
-// Country
-// Region
-// Email Marketing Preferences
-// Subscriber Status
-// Subscription Start Date
-// Registration Date
-// Billing cadence (yearly/monthly)
+import { useListContext, TopToolbar, sanitizeListRestProps } from 'react-admin';
+import { ActionButton } from 'Components/Buttons';
+import { GetApp } from '@material-ui/icons';
 
 const UserAction = (props) => {
-  const { className, exporter, filters, maxResults, ...rest } = props;
+  const { className, exporter, filters, maxResults, onClick, ...rest } = props;
   const {
     resource,
     displayedFilters,
@@ -49,7 +29,12 @@ const UserAction = (props) => {
           filterValues,
           context: 'button',
         })}
-      <ExportButton />
+      <ActionButton
+        label={'ra.action.export'}
+        variant="text"
+        onClick={() => onClick(filterValues)}
+        icon={<GetApp />}
+      />
     </TopToolbar>
   );
 };

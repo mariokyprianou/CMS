@@ -71,6 +71,9 @@ export default async ({ type, resource, params, client }) => {
     if (type === 'UPDATE') {
       result = await Query.updateUser({ client, params });
     }
+    if (type === 'EXPORT') {
+      result = await Query.exportUsers({ client, params });
+    }
   }
 
   return decorateResponse({
