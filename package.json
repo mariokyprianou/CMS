@@ -29,9 +29,11 @@
     "precommit": "lint-staged",
     "release": "standard-version",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "bash ./dev_scripts/replace_env_variables.sh && react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-cms-schema": "./dev_scripts/build-cms-schema",
+    "build-cms-schema-fragments": "./dev_scripts/fragmentBuilder.js"
   },
   "browserslist": {
     "production": [
