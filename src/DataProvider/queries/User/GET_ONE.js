@@ -23,7 +23,6 @@ export const getOneUserQuery = gql`
       timeZone
       currentTrainingProgramme {
         id
-        name
       }
       emailMarketing
       subscription {

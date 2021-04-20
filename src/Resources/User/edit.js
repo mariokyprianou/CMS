@@ -20,12 +20,16 @@ import {
   TextInput,
   useTranslate,
 } from 'react-admin';
-import { LocalisedReferenceArrayInput } from 'Components/Inputs';
+import {
+  LocalisedReferenceInput,
+  LocalisedReferenceArrayInput,
+} from 'Components/Inputs';
 import { columnStyles } from 'styles';
 import {
   subscriptionPlatformChoices,
   subscriptionChoices,
   allTimeZones,
+  programmeEnvironmentChoices,
 } from 'utils/choices';
 import { nonNegativeNonZeroInt, isValidEmail } from 'utils/validation';
 
@@ -120,13 +124,18 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
         />
       </div>
       <div className={classes.column}>
-        <TextInput
+        <LocalisedReferenceInput
           resource={resource}
-          source="currentTrainingProgramme.name"
-          multiline
+          source="currentTrainingProgramme.id"
+          reference="programme"
+          localisationsPath="trainer.localisations"
+          additionalChoices={programmeEnvironmentChoices}
+          additionalChoiceComparisonField="environment"
           validate={required()}
           disabled={true}
-        />
+        >
+          <SelectInput />
+        </LocalisedReferenceInput>
         <NumberInput
           resource={resource}
           source="currentWeek"
