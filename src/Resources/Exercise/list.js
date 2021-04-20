@@ -25,6 +25,7 @@ const ExerciseList = (props) => (
         label="resources.programme.fields.trainerName"
         source="trainer"
         reference="trainer"
+        sortable={false}
       >
         <LocalisedTextField
           source="name"
@@ -39,6 +40,7 @@ const ExerciseList = (props) => (
         language="en"
         sortable={false}
         textVisibleLength="100px"
+        sortable={false}
       />
       <EditButton />
     </Datagrid>

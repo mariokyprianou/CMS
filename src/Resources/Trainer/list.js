@@ -22,7 +22,7 @@ const TrainerList = (props) => {
       bulkActionButtons={false}
     >
       <Datagrid>
-        <LocalisedTextField source="name" language="en" />
+        <LocalisedTextField source="name" language="en" sortable={false} />
         <EditButton />
       </Datagrid>
     </List>

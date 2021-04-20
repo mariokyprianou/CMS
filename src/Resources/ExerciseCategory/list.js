@@ -20,7 +20,7 @@ const ExerciseCategoryList = (props) => (
     bulkActionButtons={false}
   >
     <Datagrid>
-      <TextField source="name" />
+      <TextField source="name" sortable={false} />
       <EditButton />
     </Datagrid>
   </List>

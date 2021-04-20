@@ -46,6 +46,7 @@ const WorkoutList = (props) => (
         label="resources.trainer.fields.name"
         source="trainingProgrammeId"
         reference="programme"
+        sortable={false}
       >
         <LocalisedTextField
           parentPath="trainer"
@@ -55,10 +56,11 @@ const WorkoutList = (props) => (
           textVisibleLength="100px"
         />
       </ReferenceField>
-      <TextField source="weekNumber" />
+      <TextField source="weekNumber" sortable={false} />
       <FunctionField
         source="workout"
         label="resources.workout.fields.name"
+        sortable={false}
         render={(record) => (
           <LocalisedTextField
             record={record.workout}
@@ -71,6 +73,7 @@ const WorkoutList = (props) => (
       />
       <FunctionField
         source="exercises"
+        sortable={false}
         render={(record) =>
           (record.workout.exercises && record.workout.exercises.length) || 0
         }
@@ -79,6 +82,7 @@ const WorkoutList = (props) => (
         label="resources.programme.fields.environment"
         source="trainingProgrammeId"
         reference="programme"
+        sortable={false}
       >
         <EnvironmentSelect />
       </ReferenceField>

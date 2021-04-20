@@ -34,6 +34,7 @@ const ProgrammeList = (props) => (
         label="resources.programme.fields.trainerName"
         source="trainer.id"
         reference="trainer"
+        sortable={false}
       >
         <LocalisedTextField
           source="name"
@@ -46,18 +47,25 @@ const ProgrammeList = (props) => (
       <FunctionField
         source="fitness"
         render={(record) => <PercentageTextField value={record.fitness} />}
+        sortable={false}
       />
       <FunctionField
         source="muscle"
         render={(record) => <PercentageTextField value={record.muscle} />}
+        sortable={false}
       />
       <FunctionField
         source="fatLoss"
         label="resources.programme.fields.fatLoss"
         render={(record) => <PercentageTextField value={record.fatLoss} />}
+        sortable={false}
       />
-      <SelectField source="environment" choices={programmeEnvironmentChoices} />
-      <TextField source="subscribers" />
+      <SelectField
+        source="environment"
+        choices={programmeEnvironmentChoices}
+        sortable={false}
+      />
+      <TextField source="subscribers" sortable={false} />
       <EditButton />
     </Datagrid>
   </List>

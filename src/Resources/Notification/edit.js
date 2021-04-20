@@ -26,6 +26,7 @@ const SanitiziedForm = ({ saving, save, ...props }) => {
   );
 };
 
+// TODO: Turn notifications into a list view with create (revoke button in list) - see updated FDs
 const NotificationsPage = (props) => {
   return (
     // mix the Edit and show layout to achieve form per tab

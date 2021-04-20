@@ -72,21 +72,23 @@ const FeedbackList = (props) => {
       bulkActionButtons={false}
     >
       <Datagrid>
-        <TextField source="trainerName" />
+        <TextField source="trainerName" sortable={false} />
         <SelectField
           source="environment"
           choices={programmeEnvironmentChoices}
+          sortable={false}
         />
-        <NumberField source="week" />
-        <TextField source="workoutName" />
-        <EmojisField source="emojis" />
-        <TextField source="userEmail" />
+        <NumberField source="week" sortable={false} />
+        <TextField source="workoutName" sortable={false} />
+        <EmojisField source="emojis" sortable={false} />
+        <TextField source="userEmail" sortable={false} />
         <FunctionField
           source="timeTaken"
           render={(record) => record.timeTaken || '-' + ' mins'}
+          sortable={false}
         />
-        <TextField source="workoutIntensity" />
-        <DateField source="date" />
+        <TextField source="workoutIntensity" sortable={false} />
+        <DateField source="date" sortable={false} />
       </Datagrid>
     </List>
   );

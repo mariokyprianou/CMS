@@ -20,8 +20,8 @@ const AdministratorList = (props) => (
     bulkActionButtons={false}
   >
     <Datagrid>
-      <TextField source="name" />
-      <TextField source="email" />
+      <TextField source="name" sortable={false} />
+      <TextField source="email" sortable={false} />
       <EditButton />
     </Datagrid>
   </List>

@@ -33,18 +33,29 @@ const UserList = (props) => {
       bulkActionButtons={false}
     >
       <Datagrid>
-        <TextField source="firstName" />
-        <TextField source="lastName" />
-        <TextField source="email" />
-        <ReferenceField source="country.id" reference="country" link={false}>
+        <TextField source="firstName" sortable={false} />
+        <TextField source="lastName" sortable={false} />
+        <TextField source="email" sortable={false} />
+        <ReferenceField
+          source="country.id"
+          reference="country"
+          link={false}
+          sortable={false}
+        >
           <TextField source="country" />
         </ReferenceField>
-        <ReferenceField source="region.id" reference="region" link={false}>
+        <ReferenceField
+          source="region.id"
+          reference="region"
+          link={false}
+          sortable={false}
+        >
           <TextField source="region" />
         </ReferenceField>
-        <BooleanField source="emailMarketing" />
+        <BooleanField source="emailMarketing" sortable={false} />
         <FunctionField
           label="resources.user.fields.subscription.platform"
+          sortable={false}
           render={(record) =>
             record.subscription.platform ? (
               <SelectField

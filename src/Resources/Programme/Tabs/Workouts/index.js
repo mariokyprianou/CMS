@@ -28,10 +28,11 @@ const WorkoutTab = (props) => {
         {...props}
       >
         <Datagrid>
-          <TextField resource={resource} source="weekNumber" />
+          <TextField resource={resource} source="weekNumber" sortable={false} />
           <FunctionField
             source="workout"
             label="resources.workout.fields.name"
+            sortable={false}
             render={(record) => (
               <LocalisedTextField
                 record={record.workout}
@@ -45,6 +46,7 @@ const WorkoutTab = (props) => {
           <FunctionField
             resource={resource}
             source="exercises"
+            sortable={false}
             render={(record) =>
               record.workout &&
               record.workout.exercises &&
@@ -52,6 +54,7 @@ const WorkoutTab = (props) => {
             }
           />
           <FunctionField
+            sortable={false}
             render={(record) => (
               <EditButton
                 to={{
