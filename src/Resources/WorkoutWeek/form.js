@@ -148,7 +148,6 @@ const WorkoutForm = (props) => {
                 setSelectedTrainerId(selection.trainer.id);
               }
             }}
-            resource={resource}
           >
             <SelectInput />
           </LocalisedReferenceInput>
