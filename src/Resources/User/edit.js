@@ -76,6 +76,7 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
           resource={resource}
           reference="country"
           source="country.id"
+          sort={{ field: 'name', order: 'ASC' }}
           validate={required()}
         >
           <SelectInput optionText="country" />
