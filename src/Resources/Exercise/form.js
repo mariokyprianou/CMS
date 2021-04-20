@@ -59,6 +59,7 @@ const ExerciseForm = (props) => {
                   resource={resource}
                   source="category.id"
                   reference="exerciseCategory"
+                  allowEmpty={true}
                   fullWidth
                 >
                   <SelectInput source="name" />
