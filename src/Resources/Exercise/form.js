@@ -33,7 +33,6 @@ const ExerciseForm = (props) => {
             resource={resource}
             reference="trainer"
             source="trainer"
-            label={`resources.${resource}.fields.trainerRequired`}
             perPage={1000}
             fullWidth
             validate={required()}
