@@ -28,7 +28,7 @@ export default [
     path="/notification"
     render={(props) => <NotificationPage {...props} />}
   />,
-  <Route path="/challenge" render={() => <Redirect to="/programme" />} />,
+  <Route exact path="/challenge" render={() => <Redirect to="/programme" />} />,
   <Route path="/region" render={() => <Redirect to="/" />} />,
   <Route path="/country" render={() => <Redirect to="/" />} />,
 ];
