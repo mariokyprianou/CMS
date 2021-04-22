@@ -9,10 +9,11 @@
 import React from 'react';
 import { Create, SimpleForm } from 'react-admin';
 import WorkoutForm from './form';
+import validateForm from './validateForm';
 
 const WorkoutEdit = (props) => (
   <Create {...props}>
-    <SimpleForm>
+    <SimpleForm validate={validateForm}>
       <WorkoutForm />
     </SimpleForm>
   </Create>

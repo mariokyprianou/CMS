@@ -9,6 +9,7 @@
 import React, { Fragment, useState, useRef } from 'react';
 import {
   ArrayInput,
+  BooleanInput,
   FormDataConsumer,
   ImageInput,
   NumberInput,
@@ -39,12 +40,15 @@ import {
   exerciseTypeChoices,
 } from 'utils/choices';
 import { maxImageSize } from 'utils/helpers';
-import { columnStyles } from 'styles';
+import { columnStyles, nestedSimpleIterator } from 'styles';
 
 const nonNegativeNonZeroValidation = [required(), nonNegativeNonZeroInt];
 const nonNegativeIntValidation = [nonNegativeNotRequiredInt];
 
-const SetsInput = ({ getSource, scopedFormData, translate }) => {
+const SetsInput = ({ getSource, formData, scopedFormData, translate }) => {
+  // regular workouts (non-continuous) can have up to 5 sets, continuous only have 1
+  const maxSetSize = formData.workout.isContinuous ? 1 : 5;
+  const classes = nestedSimpleIterator();
   return (
     <ArrayInput
       record={scopedFormData}
@@ -52,7 +56,10 @@ const SetsInput = ({ getSource, scopedFormData, translate }) => {
       validate={required()}
       label="resources.workout.fields.sets"
     >
-      <RestrictedSimpleFormIterator maximumSize={5}>
+      <RestrictedSimpleFormIterator
+        className={classes.root}
+        maximumSize={maxSetSize}
+      >
         <NumberInput
           label="resources.workout.fields.work"
           source="quantity"
@@ -85,7 +92,7 @@ const SetsInput = ({ getSource, scopedFormData, translate }) => {
 };
 
 const WorkoutForm = (props) => {
-  const { record } = props;
+  const { record, resource } = props;
   const classes = columnStyles();
   const translate = useTranslate();
   const notify = useNotify();
@@ -95,11 +102,10 @@ const WorkoutForm = (props) => {
   const form = useForm();
   const { values } = useFormState();
   const [defaultCoachingTips, setDefaultCoachingTips] = useState({});
-  const iteratorRef = useRef();
-  const { resource } = props;
+  const exerciseIteratorRef = useRef();
 
   const resetAllFields = () => {
-    iteratorRef.current.resetAll();
+    exerciseIteratorRef.current.resetAll();
   };
 
   return (
@@ -163,13 +169,18 @@ const WorkoutForm = (props) => {
             source="orderIndex"
             validate={nonNegativeNonZeroValidation}
           />
+          <BooleanInput
+            resource={resource}
+            source="workout.isContinuous"
+            defaultValue={false}
+          />
+        </div>
+        <div className={classes.column}>
           <NumberInput
             resource={resource}
             source="workout.duration"
             validate={nonNegativeNonZeroValidation}
           />
-        </div>
-        <div className={classes.column}>
           <SelectInput
             resource={resource}
             source="workout.intensity"
@@ -200,11 +211,12 @@ const WorkoutForm = (props) => {
         {({ formData }) =>
           selectedTrainerId && (
             <ArrayInput
-              label="resources.workout.fields.exercisesRequired"
+              label="resources.workout.fields.exercises"
               source="workout.exercises"
               disabled={!selectedTrainerId}
+              validate={required()}
             >
-              <SimpleFormIterator ref={iteratorRef}>
+              <SimpleFormIterator ref={exerciseIteratorRef}>
                 <LocalisedReferenceInput
                   resource="exercise"
                   label={`resources.${resource}.fields.exercise`}

@@ -27,6 +27,7 @@ export const getListWorkoutWeeksQuery = gql`
       weekNumber
       orderIndex
       workout {
+        isContinuous
         overviewImage {
           key
           url

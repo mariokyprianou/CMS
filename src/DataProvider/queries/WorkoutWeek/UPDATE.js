@@ -17,6 +17,7 @@ export const updateWorkoutWeekMutation = gql`
       weekNumber
       orderIndex
       workout {
+        isContinuous
         overviewImage {
           key
           url
@@ -80,6 +81,7 @@ export default async ({ client, params }) => {
       delete params.data.workout.exercises[i].setsIds;
       delete params.data.workout.exercises[i]['exercise.id'];
       delete params.data.workout.exercises[i].exercise.localisationsIds;
+      delete params.data.workout.exercises[i].localisationsIds;
       for (
         let j = 0;
         j < params.data.workout.exercises[i].localisations.length;
@@ -93,6 +95,7 @@ export default async ({ client, params }) => {
     }
 
     const variables = {
+      isContinuous: params.data.workout.isContinuous,
       localisations: params.data.workout.localisations,
       intensity: params.data.workout.intensity,
       duration: params.data.workout.duration,

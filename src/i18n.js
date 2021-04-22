@@ -252,6 +252,7 @@ const englishMessages = {
           intensity: 'Intensity',
           exercises: 'Exercises *',
           overviewImage: 'Workout Header Image (Optional)',
+          isContinuous: 'Continuous',
         },
         exercise: 'Exercise',
         exercises: 'Exercises',
@@ -381,6 +382,13 @@ const englishMessages = {
       },
       helpMeChoose: {
         missingTrainers: 'No Trainer Programmes found',
+      },
+      workout: {
+        continuous: {
+          oneSetPerExercise:
+            'Only one set per exercise allowed for continuous workouts',
+          wrongsetType: 'Only time based sets allowed for continuous workouts',
+        },
       },
     },
     field: {

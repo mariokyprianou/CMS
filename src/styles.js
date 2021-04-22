@@ -451,3 +451,9 @@ export const previewImageStyles = ({
       maxHeight,
     },
   })();
+
+export const nestedSimpleIterator = makeStyles({
+  root: {
+    marginTop: 8, // fix smushed up error helper text
+  },
+});
