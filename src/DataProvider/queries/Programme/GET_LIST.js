@@ -50,10 +50,12 @@ export const getListProgrammesQuery = gql`
         language
         description
       }
+      weeksAvailable
       status
       fatLoss
       fitness
       muscle
+      wellness
     }
     total: _allProgrammesMeta(
       page: $page
