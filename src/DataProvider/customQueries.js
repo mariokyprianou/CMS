@@ -75,7 +75,7 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.exportUsers({ client, params });
     }
   }
-  if (resource === 'WorkoutWeek') {
+  if (resource === 'OnDemandWorkout') {
     if (type === 'CREATE') {
       result = await Query.createOnDemandWorkout({ client, params });
     }

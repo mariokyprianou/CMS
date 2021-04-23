@@ -39,7 +39,7 @@ import exportUsers from './User/EXPORT';
 import { getOneOnDemandWorkoutQuery } from './OnDemandWorkout/GET_ONE';
 import { getListOnDemandWorkoutsQuery } from './OnDemandWorkout/GET_LIST';
 import createOnDemandWorkout from './OnDemandWorkout/CREATE';
-import updateOnDemandWorkout from './WorkoutWeek/UPDATE';
+import updateOnDemandWorkout from './OnDemandWorkout/UPDATE';
 
 import { createWorkoutTagMutation } from './OnDemandTag/CREATE';
 

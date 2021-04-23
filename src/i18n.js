@@ -274,7 +274,8 @@ const englishMessages = {
       name: 'Workout |||| Workouts',
       titles: {
         onDemandListTitle: 'On Demand Workouts',
-        onDemandDetailTitle: 'On Demand Workout',
+        onDemandDetailTitle: 'On Demand Workout #%{id}',
+        onDemandCreateTitle: 'Create On Demand Workout',
       },
       fields: {
         trainer: 'Trainer',

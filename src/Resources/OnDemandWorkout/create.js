@@ -8,10 +8,13 @@
 import React from 'react';
 import { Create, SimpleForm } from 'react-admin';
 import OnDemandWorkoutForm from './form';
-import validateForm from 'utils/validateWorkoutForm';
+import validateForm from './validateForm';
 
 const OnDemandWorkoutEdit = (props) => (
-  <Create {...props}>
+  <Create
+    title="resources.onDemandWorkout.titles.onDemandCreateTitle"
+    {...props}
+  >
     <SimpleForm validate={validateForm}>
       <OnDemandWorkoutForm />
     </SimpleForm>

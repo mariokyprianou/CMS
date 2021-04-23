@@ -9,7 +9,7 @@
 import React from 'react';
 import { Edit, SimpleForm } from 'react-admin';
 import WorkoutForm from './form';
-import validateForm from 'utils/validateWorkoutForm';
+import validateForm from './validateForm';
 
 const WorkoutEdit = (props) => (
   <Edit mutationMode="optimistic" {...props}>

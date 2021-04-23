@@ -9,7 +9,7 @@
 import React from 'react';
 import { Create, SimpleForm } from 'react-admin';
 import WorkoutForm from './form';
-import validateForm from 'utils/validateWorkoutForm';
+import validateForm from './validateForm';
 
 const WorkoutCreate = (props) => (
   <Create {...props}>

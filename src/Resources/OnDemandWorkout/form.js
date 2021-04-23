@@ -18,7 +18,6 @@ import {
   TextInput,
   useTranslate,
   useNotify,
-  ReferenceArrayInput,
 } from 'react-admin';
 import { useForm, useFormState } from 'react-final-form';
 import {
@@ -31,7 +30,10 @@ import {
   nonNegativeNotRequiredInt,
 } from 'utils/validation';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
-import { LocalisedReferenceInput } from 'Components/Inputs';
+import {
+  LocalisedReferenceInput,
+  LocalisedReferenceArrayInput,
+} from 'Components/Inputs';
 import { PreviewImageField } from 'Components/Fields';
 import get from 'lodash/get';
 import { onDropRejected as onFileDropRejected } from 'utils';
@@ -173,10 +175,14 @@ const OnDemandWorkoutForm = (props) => {
           />
         </div>
         <div className={classes.column}>
-          {/* TODO: Create a localised ReferenceArrayInput */}
-          {/* <ReferenceArrayInput source="tagIds" reference="workoutTag">
-            <SelectArrayInput optionText="name" />
-          </ReferenceArrayInput> */}
+          <LocalisedReferenceArrayInput
+            language="en"
+            source="tagIds"
+            reference="workoutTag"
+            resource={resource}
+          >
+            <SelectArrayInput />
+          </LocalisedReferenceArrayInput>
         </div>
       </div>
       <ImageInput

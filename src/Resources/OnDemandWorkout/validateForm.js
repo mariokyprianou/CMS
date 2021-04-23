@@ -7,27 +7,23 @@
 
 export default (values) => {
   const errors = {
-    workout: { exercises: [{}] },
+    exercises: [{}],
   };
-  if (
-    values.workout &&
-    values.workout.isContinuous &&
-    values.workout.exercises
-  ) {
-    for (let i = 0; i < values.workout.exercises.length; i++) {
-      const exercise = values.workout.exercises[i];
+  if (values.isContinuous && values.exercises) {
+    for (let i = 0; i < values.exercises.length; i++) {
+      const exercise = values.exercises[i];
       // check that the exercise type is time based if it's continuous
       if (exercise) {
-        errors.workout.exercises.splice(i, 0, {
+        errors.exercises.splice(i, 0, {
           sets: [],
         });
         if (exercise.setType && exercise.setType === 'REPS') {
-          errors.workout.exercises[i].setType =
+          errors.exercises[i].setType =
             'error.form.workout.continuous.wrongsetType';
         }
         // check that there's only 1 set if it's continuous
         if (exercise.sets && exercise.sets.length > 1) {
-          errors.workout.exercises[i].sets['FINAL_FORM/array-error'] =
+          errors.exercises[i].sets['FINAL_FORM/array-error'] =
             'error.form.workout.continuous.oneSetPerExercise';
         }
       }
