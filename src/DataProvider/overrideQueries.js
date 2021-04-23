@@ -37,4 +37,9 @@ export default ({ type, resource, params, builtQuery }) => {
       return Query.getOneUserQuery;
     }
   }
+  if (resource === 'WorkoutTag') {
+    if (type === 'CREATE') {
+      return Query.createWorkoutTagMutation;
+    }
+  }
 };

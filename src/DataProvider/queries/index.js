@@ -41,6 +41,8 @@ import { getListOnDemandWorkoutsQuery } from './OnDemandWorkout/GET_LIST';
 import createOnDemandWorkout from './OnDemandWorkout/CREATE';
 import updateOnDemandWorkout from './WorkoutWeek/UPDATE';
 
+import { createWorkoutTagMutation } from './OnDemandTag/CREATE';
+
 export {
   getOneConfig,
   updateConfig,
@@ -66,4 +68,5 @@ export {
   getListOnDemandWorkoutsQuery,
   createOnDemandWorkout,
   updateOnDemandWorkout,
+  createWorkoutTagMutation,
 };
