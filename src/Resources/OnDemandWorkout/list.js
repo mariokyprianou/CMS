@@ -43,6 +43,7 @@ const OnDemandWorkoutList = (props) => (
         language="en"
         label="resources.onDemandWorkout.fields.name"
         textVisibleLength="200px"
+        sortable={false}
       />
       <FunctionField
         source="exercises"
