@@ -45,7 +45,7 @@ const ChallengeEdit = (props) => {
         toolbar={
           <ChallengeToolbar
             deleteRedirect={
-              state ? `/programme/${state.programmeId}/3` : '/programme' //custom toolbar to redirect delete back to programmeId
+              state ? `/programme/${state.programmeId}/2` : '/programme' //custom toolbar to redirect delete back to programmeId
             }
           />
         }
@@ -60,6 +60,7 @@ const ChallengeEdit = (props) => {
           source="type"
           choices={challengeTypeChoices}
           validate={required()}
+          disabled={true}
         />
         <FormDataConsumer>
           {({ formData, ...rest }) =>
@@ -78,6 +79,7 @@ const ChallengeEdit = (props) => {
               <SelectInput
                 {...rest}
                 source="unitType"
+                disabled={true}
                 validate={required()}
                 choices={challengeUnitTypeChoices}
               />
