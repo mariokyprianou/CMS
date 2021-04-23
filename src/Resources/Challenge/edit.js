@@ -45,7 +45,7 @@ const ChallengeEdit = (props) => {
         toolbar={
           <ChallengeToolbar
             deleteRedirect={
-              state ? `/programme/${state.programmeId}/3` : '/programme' //custom toolbar to redirect delete back to programmeId
+              state ? `/programme/${state.programmeId}/2` : '/programme' //custom toolbar to redirect delete back to programmeId
             }
           />
         }
