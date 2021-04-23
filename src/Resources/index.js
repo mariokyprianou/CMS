@@ -20,6 +20,8 @@ import Region from './Region';
 import Trainer from './Trainer';
 import User from './User';
 import WorkoutWeek from './WorkoutWeek';
+import OnDemandWorkout from './OnDemandWorkout';
+import WorkoutTag from './WorkoutTag';
 
 export {
   Administrator,
@@ -36,4 +38,6 @@ export {
   Trainer,
   User,
   WorkoutWeek,
+  OnDemandWorkout,
+  WorkoutTag,
 };

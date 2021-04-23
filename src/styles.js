@@ -454,6 +454,6 @@ export const previewImageStyles = ({
 
 export const nestedSimpleIterator = makeStyles({
   root: {
-    marginTop: 8, // fix smushed up error helper text
+    marginTop: 8, // fix smushed up error helper text on nested SimpleFormIterator
   },
 });

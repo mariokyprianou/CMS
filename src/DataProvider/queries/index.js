@@ -36,6 +36,11 @@ import { getOneUserQuery } from './User/GET_ONE';
 import updateUser from './User/UPDATE';
 import exportUsers from './User/EXPORT';
 
+import { getOneOnDemandWorkoutQuery } from './OnDemandWorkout/GET_ONE';
+import { getListOnDemandWorkoutsQuery } from './OnDemandWorkout/GET_LIST';
+import createOnDemandWorkout from './OnDemandWorkout/CREATE';
+import updateOnDemandWorkout from './WorkoutWeek/UPDATE';
+
 export {
   getOneConfig,
   updateConfig,
@@ -57,4 +62,8 @@ export {
   getOneUserQuery,
   updateUser,
   exportUsers,
+  getOneOnDemandWorkoutQuery,
+  getListOnDemandWorkoutsQuery,
+  createOnDemandWorkout,
+  updateOnDemandWorkout,
 };

@@ -6,13 +6,16 @@
  * Copyright (c) 2020 The Distance
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { MenuItemLink, getResources, useTranslate } from 'react-admin';
+import SubMenu from './SubMenu';
 import { useMediaQuery } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import inflection from 'inflection';
 import classnames from 'classnames';
+import { OndemandVideo } from '@material-ui/icons';
 import { menuStyles } from 'styles';
+import { partition } from 'utils';
 
 const translatedResourceName = (resource, translate) =>
   translate(`resources.${resource.name}.name`, {
@@ -45,6 +48,7 @@ const AdminMenu = ({ resources, onMenuClick, translate, sidebarIsOpen }) => {
 };
 
 const CustomMenu = (props) => {
+  const windowLocation = window.location.href;
   const {
     classes,
     className,
@@ -54,23 +58,52 @@ const CustomMenu = (props) => {
     logout,
     ...rest
   } = props;
-
   const menuClasses = menuStyles();
   const open = useSelector((state) => state.admin.ui.sidebarOpen);
   const resources = useSelector(getResources);
   const translate = useTranslate();
   const isXSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+  // will have the submenu open if the user is on one of the submenu routes
+  const [subMenuOpen, setSubMenuOpen] = useState(
+    windowLocation.includes('onDemandWorkout') ||
+      windowLocation.includes('workoutTag')
+  );
+
+  const [subMenuResources, mainMenuResources] = partition(
+    resources,
+    (resource) => resource.options && resource.options.subMenu
+  );
+
+  const handleToggle = () => {
+    setSubMenuOpen(!subMenuOpen);
+  };
 
   useSelector((state) => state.router.location.pathname);
 
   return (
     <div className={classnames(menuClasses.main, className)} {...rest}>
       <AdminMenu
-        resources={resources}
+        resources={mainMenuResources}
         onMenuClick={onMenuClick}
         translate={translate}
         sidebarIsOpen={open}
       />
+      <SubMenu
+        handleToggle={handleToggle}
+        isOpen={subMenuOpen}
+        sidebarIsOpen={open}
+        name={translatedResourceName({ name: 'onDemand' }, translate)}
+        key={'resourcesSubMenu'}
+        icon={<OndemandVideo />}
+        dense={true}
+      >
+        <AdminMenu
+          resources={subMenuResources}
+          onMenuClick={onMenuClick}
+          dense={true}
+          translate={translate}
+        />
+      </SubMenu>
       {isXSmall && logout}
     </div>
   );
