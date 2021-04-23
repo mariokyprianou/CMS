@@ -60,6 +60,7 @@ const ChallengeEdit = (props) => {
           source="type"
           choices={challengeTypeChoices}
           validate={required()}
+          disabled={true}
         />
         <FormDataConsumer>
           {({ formData, ...rest }) =>
@@ -78,6 +79,7 @@ const ChallengeEdit = (props) => {
               <SelectInput
                 {...rest}
                 source="unitType"
+                disabled={true}
                 validate={required()}
                 choices={challengeUnitTypeChoices}
               />

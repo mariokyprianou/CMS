@@ -32,6 +32,8 @@ export default async ({ client, params }) => {
       variables: {
         input: {
           ...params.data,
+          duration:
+            params.data.type === 'COUNTDOWN' ? params.data.duration : null,
           unitType: params.data.type === 'OTHER' ? params.data.unitType : null,
         },
       },
