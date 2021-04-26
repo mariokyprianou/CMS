@@ -60,11 +60,10 @@ const englishMessages = {
         timeZone: 'Time Zone',
         previousTrainers: 'Previous Trainers',
         deviceLimitEnabled: '30-day Device Limit',
+        emailMarketing: 'Email Marketing',
         subscription: {
-          isSubscribed: 'Subscribed?',
-          type: 'Subscription Type',
-          emailMarketing: 'Email Marketing Preference',
-          platform: 'Subscriber Platform',
+          platform: 'Subscription Platform',
+          status: 'Subscription Status',
         },
         currentWeek: 'Current Week',
         currentTrainingProgramme: {
@@ -316,7 +315,10 @@ const englishMessages = {
     subscriptionPlatform: {
       android: 'Android',
       ios: 'iOS',
+      na: 'N/A',
       no: 'No',
+      noSub: 'No Subscription',
+      manual: 'Manual Override',
     },
     programmeEnvironment: {
       home: 'Home',

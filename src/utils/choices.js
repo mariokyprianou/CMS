@@ -31,6 +31,10 @@ const subscriptionPlatformChoices = [
     id: 'APP_STORE',
     name: 'choices.subscriptionPlatform.ios',
   },
+  {
+    id: 'MANUAL_OVERRIDE',
+    name: 'choices.subscriptionPlatform.manual',
+  },
 ];
 
 const programmeEnvironmentChoices = [

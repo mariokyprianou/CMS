@@ -8,25 +8,25 @@
 
 import React from 'react';
 import { Filter, TextInput, SelectInput } from 'react-admin';
+import { withStyles } from '@material-ui/core/styles';
 import {
   subscriptionPlatformChoices,
   booleanTranslatedChoices,
 } from 'utils/choices';
 
-const UserFilter = (props) => (
+const UserFilter = withStyles({
+  subscription: { minWidth: 200 },
+})(({ classes, ...props }) => (
   <Filter {...props}>
     <TextInput source="email" />
     <TextInput source="country" />
+    <SelectInput source="emailMarketing" choices={booleanTranslatedChoices} />
     <SelectInput
-      source="subscription.isSubscribed"
-      fullWidth
-      choices={booleanTranslatedChoices}
-    />
-    <SelectInput
+      className={classes.subscription}
       source="subscription.platform"
       choices={subscriptionPlatformChoices}
     />
   </Filter>
-);
+));
 
 export default UserFilter;
