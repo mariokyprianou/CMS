@@ -82,7 +82,6 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
           source="country.id"
           perPage={500}
           sort={{ field: 'name', order: 'ASC' }}
-          validate={required()}
         >
           <SelectInput optionText="country" />
         </ReferenceInput>
@@ -94,7 +93,6 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
                 resource={resource}
                 reference="region"
                 source="region.id"
-                validate={required()}
               >
                 <SelectInput optionText="region" />
               </ReferenceInput>
