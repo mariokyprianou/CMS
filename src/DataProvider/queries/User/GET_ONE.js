@@ -23,8 +23,10 @@ export const getOneUserQuery = gql`
       }
       emailMarketing
       subscription {
-        isSubscribed
+        isActive
         platform
+        startedAt
+        expiresAt
       }
       currentWeek
       previousTrainers

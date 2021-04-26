@@ -20,12 +20,13 @@ export const updateUserMutation = gql`
       timeZone
       currentTrainingProgramme {
         id
-        name
       }
       emailMarketing
       subscription {
-        isSubscribed
+        isActive
         platform
+        startedAt
+        expiresAt
       }
       currentWeek
       previousTrainers

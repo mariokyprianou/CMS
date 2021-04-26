@@ -5366,13 +5366,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "UserSubscription",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "UserSubscription",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -5504,7 +5500,7 @@
         "description": null,
         "fields": [
           {
-            "name": "isSubscribed",
+            "name": "isActive",
             "description": null,
             "args": [],
             "type": {
@@ -5534,6 +5530,38 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "startedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "expiresAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -5550,13 +5578,19 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "ANDROID",
+            "name": "GOOGLE_PLAY",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "IOS",
+            "name": "APP_STORE",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "MANUAL_OVERRIDE",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -5614,6 +5648,36 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "isSubscribed",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailMarketing",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "subscriptionPlatform",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SubscriptionPlatform",
               "ofType": null
             },
             "defaultValue": null

@@ -9,6 +9,7 @@
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { ApolloLink } from 'apollo-link';
+import { onError } from 'apollo-link-error';
 import { setContext } from 'apollo-link-context';
 import {
   InMemoryCache,
@@ -16,6 +17,16 @@ import {
 } from 'apollo-cache-inmemory';
 import schemaFragments from './fragmentTypes.json';
 import { amplifyHandlers } from '@thedistance/the-core-cms-module-authentication-amplify';
+
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    // add graphql error handling here
+  }
+
+  if (networkError) {
+    // add network error handling here
+  }
+});
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_GRAPHQL_URI,
@@ -52,7 +63,7 @@ const cleanTypeName = new ApolloLink((operation, forward) => {
 const apolloClient = (options = {}) => {
   const { clientOptions = {}, inMemCacheOptions = {} } = options;
   return new ApolloClient({
-    link: ApolloLink.from([cleanTypeName, authLink, httpLink]),
+    link: ApolloLink.from([cleanTypeName, authLink, errorLink, httpLink]),
     cache: new InMemoryCache({ fragmentMatcher, ...inMemCacheOptions }),
     ...clientOptions,
   });
