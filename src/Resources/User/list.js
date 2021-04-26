@@ -88,7 +88,7 @@ const UserList = (props) => {
           label="resources.user.fields.subscription.platform"
           sortable={false}
           render={(record) =>
-            record.subscription.platform ? (
+            record.subscription ? (
               <SelectField
                 record={record}
                 source="subscription.platform"

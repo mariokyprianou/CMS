@@ -73,17 +73,26 @@ const createProvider = async () => {
       return customQueries;
     }
 
-    const result = await dataProviderMapping.dataProvider(
-      type,
-      resource,
-      params
-    );
-
-    return decorateResponse({
-      type,
-      resource,
-      result,
-    });
+    // catch any errors from apollo-client and wrap them to remove GraphQL error pre-pend
+    try {
+      const result = await dataProviderMapping.dataProvider(
+        type,
+        resource,
+        params
+      );
+      return decorateResponse({
+        type,
+        resource,
+        result,
+      });
+    } catch (e) {
+      if (e.graphQLErrors && e.graphQLErrors.length) {
+        const [error] = e.graphQLErrors;
+        const message = error.message;
+        throw new Error(message);
+      }
+      throw e;
+    }
   };
 };
 

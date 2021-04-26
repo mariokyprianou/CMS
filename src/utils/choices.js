@@ -24,11 +24,11 @@ const booleanTranslatedChoices = [
 
 const subscriptionPlatformChoices = [
   {
-    id: 'ANDROID',
+    id: 'GOOGLE_PLAY',
     name: 'choices.subscriptionPlatform.android',
   },
   {
-    id: 'IOS',
+    id: 'APP_STORE',
     name: 'choices.subscriptionPlatform.ios',
   },
 ];
