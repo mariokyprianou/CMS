@@ -6,7 +6,8 @@
  * Copyright (c) 2020 The Distance
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { MenuItemLink, getResources, useTranslate } from 'react-admin';
 import SubMenu from './SubMenu';
 import { useMediaQuery } from '@material-ui/core';
@@ -48,7 +49,8 @@ const AdminMenu = ({ resources, onMenuClick, translate, sidebarIsOpen }) => {
 };
 
 const CustomMenu = (props) => {
-  const windowLocation = window.location.href;
+  // get the user's current location
+  const { pathname: currentPathname } = useLocation();
   const {
     classes,
     className,
@@ -63,22 +65,29 @@ const CustomMenu = (props) => {
   const resources = useSelector(getResources);
   const translate = useTranslate();
   const isXSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+
   // will have the submenu open if the user is on one of the submenu routes
-  const [subMenuOpen, setSubMenuOpen] = useState(
-    windowLocation.includes('onDemandWorkout') ||
-      windowLocation.includes('workoutTag')
-  );
+  const [subMenuOpen, setSubMenuOpen] = useState(undefined);
 
   const [subMenuResources, mainMenuResources] = partition(
     resources,
     (resource) => resource.options && resource.options.subMenu
   );
 
+  const subMenuPaths = subMenuResources.map((resource) => `/${resource.name}`);
+
   const handleToggle = () => {
     setSubMenuOpen(!subMenuOpen);
   };
 
   useSelector((state) => state.router.location.pathname);
+
+  useEffect(() => {
+    let getInitialSubMenuState = subMenuPaths.includes(currentPathname);
+    if (subMenuOpen === undefined && subMenuPaths.length > 0) {
+      setSubMenuOpen(getInitialSubMenuState);
+    }
+  }, [subMenuPaths, subMenuOpen]);
 
   return (
     <div className={classnames(menuClasses.main, className)} {...rest}>
