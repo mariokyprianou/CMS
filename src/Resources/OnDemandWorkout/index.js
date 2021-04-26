@@ -17,6 +17,6 @@ export default {
   edit,
   create,
   options: {
-    subMenu: true,
+    subMenu: 'onDemand',
   },
 };
