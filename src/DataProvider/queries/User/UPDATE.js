@@ -17,9 +17,6 @@ export const updateUserMutation = gql`
       country {
         id
       }
-      region {
-        id
-      }
       timeZone
       currentTrainingProgramme {
         id
@@ -65,10 +62,6 @@ export default async ({ client, params }) => {
       lastName: params.data.firstName,
       country: params.data.country.id,
       currentWeek: params.data.currentWeek,
-      region:
-        params.data.country.id === process.env.REACT_APP_INDIA_ID
-          ? params.data.region.id
-          : null, // only send a region if country was India
       timezone: params.data.timeZone,
       deviceLimit: params.data.deviceLimit,
     };

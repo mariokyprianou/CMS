@@ -39,10 +39,12 @@ export const updateProgrammeMutation = gql`
         language
         description
       }
+      weeksAvailable
       status
       fatLoss
       fitness
       muscle
+      wellness
     }
   }
 `;
@@ -236,10 +238,12 @@ export default async ({ client, params }) => {
           muscle: params.data.muscle,
           fatLoss: params.data.fatLoss,
           fitness: params.data.fitness,
+          wellness: params.data.wellness,
           trainerId: params.data.trainer.id,
           images: params.data.images,
           localisations: params.data.localisations,
           shareMediaImages: params.data.shareMediaImages,
+          weeksAvailable: params.data.weeksAvailable,
         },
       },
     });

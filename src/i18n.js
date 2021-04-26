@@ -37,6 +37,9 @@ const englishMessages = {
     },
   },
   resources: {
+    onDemand: {
+      name: 'On Demand |||| On Demand',
+    },
     user: {
       name: 'User |||| Users',
       titles: {
@@ -112,6 +115,9 @@ const englishMessages = {
         fitness: 'Fitness',
         muscle: 'Muscle',
         fatLoss: 'Fat Loss',
+        wellness: 'Wellness',
+        weeksAvailable: 'Number of Weeks Available',
+        weeksAvailableHelperText: 'Display purposes only',
         environment: 'Environment',
         subscribers: 'Current Subscribers',
         trainerImages: 'Trainer Preview Images',
@@ -249,6 +255,7 @@ const englishMessages = {
           intensity: 'Intensity',
           exercises: 'Exercises *',
           overviewImage: 'Workout Header Image (Optional)',
+          isContinuous: 'Continuous',
         },
         exercise: 'Exercise',
         exercises: 'Exercises',
@@ -261,6 +268,43 @@ const englishMessages = {
         additionalTrainerInfo: 'Additional Trainer Info',
         restTime: 'Rest Time (Optional)',
         weekNumber: 'Week',
+      },
+    },
+    onDemandWorkout: {
+      name: 'Workout |||| Workouts',
+      titles: {
+        onDemandListTitle: 'On Demand Workouts',
+        onDemandDetailTitle: 'On Demand Workout #%{id}',
+        onDemandCreateTitle: 'Create On Demand Workout',
+      },
+      fields: {
+        trainer: 'Trainer',
+        name: 'Workout Title',
+        programme: 'Training Programme',
+        orderIndex: 'Order Index',
+        duration: 'Duration (Minutes)',
+        intensity: 'Intensity',
+        exercises: 'Exercises',
+        overviewImage: 'Workout Header Image (Optional)',
+        isContinuous: 'Continuous',
+        exercise: 'Exercise',
+        exercises: 'Exercises',
+        set: 'Set',
+        sets: 'Sets',
+        work: 'Work',
+        setType: 'Set Type',
+        additionalTrainerInfo: 'Additional Trainer Info',
+        restTime: 'Rest Time (Optional)',
+      },
+    },
+    workoutTag: {
+      name: 'Tag |||| Tags',
+      titles: {
+        onDemandListTitle: 'On Demand Tags',
+        onDemandDetailTitle: 'On Demand Tag',
+      },
+      fields: {
+        name: 'Tag',
       },
     },
   },
@@ -378,6 +422,13 @@ const englishMessages = {
       },
       helpMeChoose: {
         missingTrainers: 'No Trainer Programmes found',
+      },
+      workout: {
+        continuous: {
+          oneSetPerExercise:
+            'Only one set per exercise allowed for continuous workouts',
+          wrongsetType: 'Only time based sets allowed for continuous workouts',
+        },
       },
     },
     field: {

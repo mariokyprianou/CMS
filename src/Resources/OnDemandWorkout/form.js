@@ -1,9 +1,8 @@
 /*
- * Jira Ticket:
- * Created Date: Tue, 15th Dec 2020, 16:35:00 pm
+ * Created Date: Fri, 23rd Apr 2021, 10:06:04 am
  * Author: Jessica Mowatt
  * Email: jessica.mowatt@thedistance.co.uk
- * Copyright (c) 2020 The Distance
+ * Copyright (c) 2021 The Distance
  */
 
 import React, { Fragment, useState, useRef } from 'react';
@@ -14,6 +13,7 @@ import {
   ImageInput,
   NumberInput,
   required,
+  SelectArrayInput,
   SelectInput,
   TextInput,
   useTranslate,
@@ -30,7 +30,10 @@ import {
   nonNegativeNotRequiredInt,
 } from 'utils/validation';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
-import { LocalisedReferenceInput } from 'Components/Inputs';
+import {
+  LocalisedReferenceInput,
+  LocalisedReferenceArrayInput,
+} from 'Components/Inputs';
 import { PreviewImageField } from 'Components/Fields';
 import get from 'lodash/get';
 import { onDropRejected as onFileDropRejected } from 'utils';
@@ -46,22 +49,22 @@ const nonNegativeNonZeroValidation = [required(), nonNegativeNonZeroInt];
 const nonNegativeIntValidation = [nonNegativeNotRequiredInt];
 
 const SetsInput = ({ getSource, formData, scopedFormData, translate }) => {
-  // regular workouts (non-continuous) can have up to 5 sets, continuous only have 1
-  const maxSetSize = formData.workout.isContinuous ? 1 : 5;
+  // regular OnDemandWorkouts (non-continuous) can have up to 5 sets, continuous only have 1
+  const maxSetSize = formData.isContinuous ? 1 : 5;
   const classes = nestedSimpleIterator();
   return (
     <ArrayInput
       record={scopedFormData}
       source={getSource('sets')}
       validate={required()}
-      label="resources.workout.fields.sets"
+      label="resources.onDemandWorkout.fields.sets"
     >
       <RestrictedSimpleFormIterator
         className={classes.root}
         maximumSize={maxSetSize}
       >
         <NumberInput
-          label="resources.workout.fields.work"
+          label="resources.onDemandWorkout.fields.work"
           source="quantity"
           validate={required()}
           InputProps={{
@@ -75,7 +78,7 @@ const SetsInput = ({ getSource, formData, scopedFormData, translate }) => {
           }}
         />
         <NumberInput
-          label="resources.workout.fields.restTime"
+          label="resources.onDemandWorkout.fields.restTime"
           source="restTime"
           validate={nonNegativeIntValidation}
           InputProps={{
@@ -91,7 +94,7 @@ const SetsInput = ({ getSource, formData, scopedFormData, translate }) => {
   );
 };
 
-const WorkoutForm = (props) => {
+const OnDemandWorkoutForm = (props) => {
   const { record, resource } = props;
   const classes = columnStyles();
   const translate = useTranslate();
@@ -113,7 +116,6 @@ const WorkoutForm = (props) => {
       <LocalisedComponentCloner
         resource={resource}
         fullWidth
-        parentPath="workout"
         component={<TextInput fullWidth multiline validate={required()} />}
         source="name"
       />
@@ -121,7 +123,7 @@ const WorkoutForm = (props) => {
         <div className={classes.column}>
           <LocalisedReferenceInput
             resource={resource}
-            source="trainingProgrammeId"
+            source="programme"
             reference="programme"
             localisationsPath="trainer.localisations"
             additionalChoices={programmeEnvironmentChoices}
@@ -132,18 +134,14 @@ const WorkoutForm = (props) => {
                 // set it to correct value
                 setSelectedTrainerId(null);
                 const currentValues = values;
-                if (currentValues.workout && currentValues.workout.exercises) {
-                  for (
-                    let i = 0;
-                    i < currentValues.workout.exercises.length;
-                    i++
-                  ) {
+                if (currentValues && currentValues.exercises) {
+                  for (let i = 0; i < currentValues.exercises.length; i++) {
                     form.change(
-                      `workout.exercises[${i}].exercise.id`,
+                      `onDemandWorkout.exercises[${i}].exercise.id`,
                       undefined
                     );
                     form.change(
-                      `workout.exercises[${i}].exercise.localisations`,
+                      `onDemandWorkout.exercises[${i}].exercise.localisations`,
                       undefined
                     );
                   }
@@ -157,41 +155,39 @@ const WorkoutForm = (props) => {
           >
             <SelectInput />
           </LocalisedReferenceInput>
-          <NumberInput
-            resource={resource}
-            source="weekNumber"
-            validate={nonNegativeNonZeroValidation}
-          />
-        </div>
-        <div className={classes.column}>
-          <NumberInput
-            resource={resource}
-            source="orderIndex"
-            validate={nonNegativeNonZeroValidation}
-          />
           <BooleanInput
             resource={resource}
-            source="workout.isContinuous"
+            source="isContinuous"
             defaultValue={false}
           />
         </div>
         <div className={classes.column}>
           <NumberInput
             resource={resource}
-            source="workout.duration"
+            source="duration"
             validate={nonNegativeNonZeroValidation}
           />
           <SelectInput
             resource={resource}
-            source="workout.intensity"
+            source="intensity"
             choices={intensityChoices}
             validate={required()}
           />
         </div>
+        <div className={classes.column}>
+          <LocalisedReferenceArrayInput
+            language="en"
+            source="tagIds"
+            reference="workoutTag"
+            resource={resource}
+          >
+            <SelectArrayInput />
+          </LocalisedReferenceArrayInput>
+        </div>
       </div>
       <ImageInput
         resource={resource}
-        source="workout.overviewImage"
+        source="overviewImage"
         accept="image/*"
         maxSize={maxImageSize}
         options={{
@@ -211,8 +207,8 @@ const WorkoutForm = (props) => {
         {({ formData }) =>
           selectedTrainerId && (
             <ArrayInput
-              label="resources.workout.fields.exercises"
-              source="workout.exercises"
+              label="resources.onDemandWorkout.fields.exercises"
+              source="exercises"
               disabled={!selectedTrainerId}
               validate={required()}
             >
@@ -243,7 +239,7 @@ const WorkoutForm = (props) => {
                         const defaultLocalisation = defaultLocalisations[i];
                         const coachingTipsFields = get(
                           formData,
-                          `workout.exercises[${index[0]}].exercise.localisations`
+                          `exercises[${index[0]}].exercise.localisations`
                         );
                         if (coachingTipsFields) {
                           const fieldIndex = coachingTipsFields.findIndex(
@@ -252,7 +248,7 @@ const WorkoutForm = (props) => {
                               defaultLocalisation.language
                           );
                           if (fieldIndex >= 0) {
-                            const fieldPath = `workout.exercises[${index[0]}].exercise.localisations[${i}].coachingTips`;
+                            const fieldPath = `exercises[${index[0]}].exercise.localisations[${i}].coachingTips`;
                             form.change(
                               fieldPath,
                               defaultLocalisation.coachingTips
@@ -313,4 +309,4 @@ const WorkoutForm = (props) => {
   );
 };
 
-export default WorkoutForm;
+export default OnDemandWorkoutForm;

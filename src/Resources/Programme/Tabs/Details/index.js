@@ -15,6 +15,7 @@ import {
   TextInput,
   useTranslate,
   useNotify,
+  NumberInput,
 } from 'react-admin';
 import { LocalisedReferenceInput, PercentageInput } from 'Components/Inputs';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
@@ -24,6 +25,7 @@ import {
 } from 'utils/choices';
 import { onDropRejected as onFileDropRejected } from 'utils';
 import { maxImageSize } from 'utils/helpers';
+import { nonNegativeNonZeroInt } from 'utils/validation';
 import { columnStyles } from 'styles';
 
 const maxFileCountValidation = (files = []) => {
@@ -36,6 +38,7 @@ const maxFileCountValidation = (files = []) => {
 };
 
 const fileValidation = [required(), maxFileCountValidation];
+const weeksAvailableValidation = [required(), nonNegativeNonZeroInt];
 
 const DetailTab = (props) => {
   const translate = useTranslate();
@@ -59,6 +62,12 @@ const DetailTab = (props) => {
             choices={programmeEnvironmentChoices}
             validate={required()}
           />
+          <NumberInput
+            source="weeksAvailable"
+            validate={weeksAvailableValidation}
+            label="resources.programme.fields.weeksAvailable"
+            helperText="resources.programme.fields.weeksAvailableHelperText"
+          />
           <SelectInput
             source="status"
             choices={publishStatusChoices}
@@ -79,6 +88,10 @@ const DetailTab = (props) => {
           <PercentageInput
             source="fatLoss"
             label="resources.programme.fields.fatLoss"
+          />
+          <PercentageInput
+            source="wellness"
+            label="resources.programme.fields.wellness"
           />
         </div>
         <div className={classes.column}>

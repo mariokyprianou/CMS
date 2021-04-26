@@ -60,6 +60,12 @@ const ProgrammeList = (props) => (
         render={(record) => <PercentageTextField value={record.fatLoss} />}
         sortable={false}
       />
+      <FunctionField
+        source="wellness"
+        label="resources.programme.fields.wellness"
+        render={(record) => <PercentageTextField value={record.wellness} />}
+        sortable={false}
+      />
       <SelectField
         source="environment"
         choices={programmeEnvironmentChoices}

@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
-    "@thedistance/the-core-cms-module-authentication-amplify": "git+ssh://git@bitbucket.org/thedistance/the-core-cms-module-authentication-amplify.git#v1.4.2",
+    "@thedistance/the-core-cms-module-authentication-amplify": "git+ssh://git@bitbucket.org/thedistance/the-core-cms-module-authentication-amplify.git",
     "amazon-cognito-identity-js": "^4.5.5",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",

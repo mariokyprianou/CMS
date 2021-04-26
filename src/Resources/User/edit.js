@@ -85,20 +85,6 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
         >
           <SelectInput optionText="country" />
         </ReferenceInput>
-        <FormDataConsumer>
-          {({ formData }) =>
-            formData.country &&
-            formData.country.id === process.env.REACT_APP_INDIA_ID && (
-              <ReferenceInput
-                resource={resource}
-                reference="region"
-                source="region.id"
-              >
-                <SelectInput optionText="region" />
-              </ReferenceInput>
-            )
-          }
-        </FormDataConsumer>
         <BooleanInput resource={resource} source="emailMarketing" disabled />
         <SelectInput
           resource={resource}

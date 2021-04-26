@@ -39,10 +39,12 @@ export const createProgrammeMutation = gql`
         language
         description
       }
+      weeksAvailable
       status
       fatLoss
       fitness
       muscle
+      wellness
     }
   }
 `;
@@ -77,8 +79,10 @@ export default async ({ client, params }) => {
           muscle: params.data.muscle,
           fatLoss: params.data.fatLoss,
           fitness: params.data.fitness,
+          wellness: params.data.wellness,
           trainerId: params.data.trainer.id,
           images: params.data.images,
+          weeksAvailable: params.data.weeksAvailable,
           localisations: params.data.localisations,
         },
       },

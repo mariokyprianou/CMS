@@ -21,4 +21,6 @@ export default {
   exercise: 'Exercise',
   feedback: 'Feedback',
   workout: 'WorkoutWeek',
+  onDemandWorkout: 'OnDemandWorkout',
+  workoutTag: 'WorkoutTag',
 };

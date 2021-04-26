@@ -37,6 +37,8 @@ import {
   Trainer,
   User,
   WorkoutWeek,
+  OnDemandWorkout,
+  WorkoutTag,
 } from 'Resources';
 
 const history = createHistory();
@@ -110,6 +112,8 @@ const App = () => {
             <Resource {...Challenge} />,
             <Resource {...Country} />,
             <Resource {...Region} />,
+            <Resource {...OnDemandWorkout} />,
+            <Resource {...WorkoutTag} />,
           ]}
         </Admin>
         {/* footer to display branch and commit id in Amplify for test purposes */}

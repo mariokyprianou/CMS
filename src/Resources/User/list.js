@@ -75,14 +75,6 @@ const UserList = (props) => {
         >
           <TextField source="country" />
         </ReferenceField>
-        <ReferenceField
-          source="region.id"
-          reference="region"
-          link={false}
-          sortable={false}
-        >
-          <TextField source="region" />
-        </ReferenceField>
         <BooleanField source="emailMarketing" sortable={false} />
         <FunctionField
           label="resources.user.fields.subscription.platform"

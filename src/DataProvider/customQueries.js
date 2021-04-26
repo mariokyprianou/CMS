@@ -75,6 +75,14 @@ export default async ({ type, resource, params, client }) => {
       result = await Query.exportUsers({ client, params });
     }
   }
+  if (resource === 'OnDemandWorkout') {
+    if (type === 'CREATE') {
+      result = await Query.createOnDemandWorkout({ client, params });
+    }
+    if (type === 'UPDATE') {
+      result = await Query.updateOnDemandWorkout({ client, params });
+    }
+  }
 
   return decorateResponse({
     type,

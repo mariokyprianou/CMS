@@ -17,6 +17,7 @@ export const createWorkoutWeekMutation = gql`
       weekNumber
       orderIndex
       workout {
+        isContinuous
         overviewImage {
           key
           url
@@ -83,6 +84,7 @@ export default async ({ client, params }) => {
       mutation: createWorkoutWeekMutation,
       variables: {
         workout: {
+          isContinuous: params.data.workout.isContinuous,
           localisations: params.data.workout.localisations,
           intensity: params.data.workout.intensity,
           duration: params.data.workout.duration,

@@ -24,9 +24,22 @@ export default ({ type, resource, params, builtQuery }) => {
       return Query.getListWorkoutWeeksQuery;
     }
   }
+  if (resource === 'OnDemandWorkout') {
+    if (type === 'GET_ONE') {
+      return Query.getOneOnDemandWorkoutQuery;
+    }
+    if (type === 'GET_LIST') {
+      return Query.getListOnDemandWorkoutsQuery;
+    }
+  }
   if (resource === 'User') {
     if (type === 'GET_ONE') {
       return Query.getOneUserQuery;
+    }
+  }
+  if (resource === 'WorkoutTag') {
+    if (type === 'CREATE') {
+      return Query.createWorkoutTagMutation;
     }
   }
 };

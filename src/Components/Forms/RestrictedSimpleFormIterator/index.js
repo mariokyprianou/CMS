@@ -12,7 +12,13 @@ import { SimpleFormIterator } from 'react-admin';
 const RestrictedFormIterator = (props) => {
   const maximumSizeReached = () => props.fields.length >= props.maximumSize;
 
-  return <SimpleFormIterator {...props} disableAdd={maximumSizeReached()} />;
+  return (
+    <SimpleFormIterator
+      style={{ helperText: { root: { marginTop: 5 } } }}
+      {...props}
+      disableAdd={maximumSizeReached()}
+    />
+  );
 };
 
 export default RestrictedFormIterator;

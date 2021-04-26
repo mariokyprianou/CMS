@@ -9,13 +9,14 @@
 import React from 'react';
 import { Create, SimpleForm } from 'react-admin';
 import WorkoutForm from './form';
+import validateForm from './validateForm';
 
-const WorkoutEdit = (props) => (
+const WorkoutCreate = (props) => (
   <Create {...props}>
-    <SimpleForm>
+    <SimpleForm validate={validateForm}>
       <WorkoutForm />
     </SimpleForm>
   </Create>
 );
 
-export default WorkoutEdit;
+export default WorkoutCreate;

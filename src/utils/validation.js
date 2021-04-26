@@ -21,7 +21,7 @@ export const nonNegativeNonZeroInt = (num = 0) => {
 };
 
 export const nonNegativeInt = (num) => {
-  if (num !== null) {
+  if (num || num === 0) {
     if (Number.isInteger(num)) {
       if (num < 0) {
         return 'validation.positivieInt';
@@ -35,7 +35,7 @@ export const nonNegativeInt = (num) => {
 };
 
 export const nonNegativeNotRequiredInt = (num) => {
-  if (num !== null) {
+  if (num || num === 0) {
     if (Number.isInteger(num)) {
       if (num < 0) {
         return 'validation.positivieInt';

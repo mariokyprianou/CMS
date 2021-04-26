@@ -17,9 +17,6 @@ export const getOneUserQuery = gql`
       country {
         id
       }
-      region {
-        id
-      }
       timeZone
       currentTrainingProgramme {
         id
