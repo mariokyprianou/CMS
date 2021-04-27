@@ -61,6 +61,7 @@ const englishMessages = {
         previousTrainers: 'Previous Trainers',
         deviceLimitEnabled: '30-day Device Limit',
         emailMarketing: 'Email Marketing',
+        isSubscribed: 'Active Subscription',
         subscription: {
           platform: 'Subscription Platform',
           status: 'Subscription Status',

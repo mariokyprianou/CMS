@@ -15,15 +15,21 @@ import {
 } from 'utils/choices';
 
 const UserFilter = withStyles({
-  subscription: { minWidth: 200 },
+  minWidth: { minWidth: 200 },
 })(({ classes, ...props }) => (
   <Filter {...props}>
     <TextInput source="email" />
     <TextInput source="country" />
     <SelectInput source="emailMarketing" choices={booleanTranslatedChoices} />
     <SelectInput
-      className={classes.subscription}
-      source="subscription.platform"
+      className={classes.minWidth}
+      source="isSubscribed"
+      choices={booleanTranslatedChoices}
+    />
+    <SelectInput
+      className={classes.minWidth}
+      source="subscriptionPlatform"
+      label="resources.user.fields.subscription.platform"
       choices={subscriptionPlatformChoices}
     />
   </Filter>
