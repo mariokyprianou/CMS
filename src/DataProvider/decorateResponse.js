@@ -137,7 +137,6 @@ export default ({ type, resource, result }) => {
   }
   if (resource === 'User') {
     if ((type === 'GET_ONE' || type === 'UPDATE') && result) {
-      result.data.subscription['type'] = 'AUTOMATIC'; //TODO: double check once subscription is done
       if (new Date(result.data.deviceLimit).getTime() > new Date().getTime()) {
         // add a flag to the user indicating they are unable to switch devices
         result.data['deviceLimitEnabled'] = true;

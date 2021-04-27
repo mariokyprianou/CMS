@@ -12,6 +12,7 @@ import { withStyles } from '@material-ui/core/styles';
 import {
   subscriptionPlatformChoices,
   booleanTranslatedChoices,
+  subscriptionStatusBooleanTranslatedChoices,
 } from 'utils/choices';
 
 const UserFilter = withStyles({
@@ -24,7 +25,7 @@ const UserFilter = withStyles({
     <SelectInput
       className={classes.minWidth}
       source="isSubscribed"
-      choices={booleanTranslatedChoices}
+      choices={subscriptionStatusBooleanTranslatedChoices}
     />
     <SelectInput
       className={classes.minWidth}

@@ -21,6 +21,7 @@ export const getOneUserQuery = gql`
       currentTrainingProgramme {
         id
       }
+      isManuallySubscribed
       emailMarketing
       subscription {
         isActive

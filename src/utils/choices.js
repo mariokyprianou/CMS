@@ -22,6 +22,17 @@ const booleanTranslatedChoices = [
   },
 ];
 
+const subscriptionStatusBooleanTranslatedChoices = [
+  {
+    id: true,
+    name: 'choices.subscription.active',
+  },
+  {
+    id: false,
+    name: 'choices.subscription.expired',
+  },
+];
+
 const subscriptionPlatformChoices = [
   {
     id: 'GOOGLE_PLAY',
@@ -183,12 +194,12 @@ const exerciseTypeChoices = [
 
 const subscriptionChoices = [
   {
-    id: 'AUTOMATIC',
-    name: 'choices.subscription.auto',
+    id: 'true',
+    name: 'choices.subscription.active',
   },
   {
-    id: 'MANUAL',
-    name: 'choices.subscription.manual',
+    id: 'false',
+    name: 'choices.subscription.expired',
   },
 ];
 
@@ -255,4 +266,5 @@ export {
   challengeUnitTypeChoices,
   allFeedbackEmojis,
   feedbackIntensityChoices,
+  subscriptionStatusBooleanTranslatedChoices,
 };

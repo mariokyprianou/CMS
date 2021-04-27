@@ -61,10 +61,13 @@ const englishMessages = {
         previousTrainers: 'Previous Trainers',
         deviceLimitEnabled: '30-day Device Limit',
         emailMarketing: 'Email Marketing',
-        isSubscribed: 'Active Subscription',
+        isSubscribed: 'Subscription Status',
+        isManuallySubscribed: 'Active Subscription',
+        isManuallySubscribedHelperText: 'Toggle to %{action} subscription',
+        subscriptionDetail: 'Subscription Detail',
         subscription: {
           platform: 'Subscription Platform',
-          status: 'Subscription Status',
+          isActive: 'Subscription Status',
         },
         currentWeek: 'Current Week',
         currentTrainingProgramme: {
@@ -364,8 +367,9 @@ const englishMessages = {
       time: 'Time',
     },
     subscription: {
-      auto: 'Automatic',
-      manual: 'Manual',
+      active: 'Active',
+      expired: 'Expired',
+      noSub: 'No Subscription',
     },
     notificationType: {
       threeDaysNoTraining: 'Trigger: 3 days without training',
@@ -399,6 +403,12 @@ const englishMessages = {
       currentLimit: 'Device switching disabled until:  %{countDown}',
       deviceLimitEnabled: 'User will not be able to switch devices for 30 days',
       deviceLimitDisabled: 'User may switch devices',
+    },
+  },
+  actions: {
+    subscription: {
+      deactivate: 'deactivate',
+      activate: 'activate',
     },
   },
   error: {

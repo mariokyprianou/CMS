@@ -31,6 +31,7 @@ export const updateUserMutation = gql`
       currentWeek
       previousTrainers
       deviceLimit
+      isManuallySubscribed
     }
   }
 `;
@@ -60,10 +61,11 @@ export default async ({ client, params }) => {
     var updateUserParams = {
       firstName: params.data.firstName,
       lastName: params.data.firstName,
-      country: params.data.country.id,
+      country: params.data.country && params.data.country.id,
       currentWeek: params.data.currentWeek,
       timezone: params.data.timeZone,
       deviceLimit: params.data.deviceLimit,
+      isManuallySubscribed: params.data.isManuallySubscribed,
     };
 
     if (

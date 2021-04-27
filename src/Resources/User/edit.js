@@ -20,6 +20,8 @@ import {
   TextInput,
   useTranslate,
 } from 'react-admin';
+import { TextField as MuiTextField } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   LocalisedReferenceInput,
   LocalisedReferenceArrayInput,
@@ -30,15 +32,23 @@ import {
   subscriptionChoices,
   allTimeZones,
   programmeEnvironmentChoices,
+  booleanTranslatedChoices,
 } from 'utils/choices';
 import { nonNegativeNonZeroInt, isValidEmail } from 'utils/validation';
 
 const nonNegativeNonZeroIntValidation = [required(), nonNegativeNonZeroInt];
 const emailValidation = [required(), isValidEmail];
 
+const useStyles = makeStyles({
+  root: {
+    marginBottom: 20,
+  },
+});
+
 const SanitizedForm = ({ basePath, classes, ...props }) => {
   const translate = useTranslate();
   const { resource, record } = props;
+  const selectClasses = useStyles(props);
 
   const helperString = (formData) => {
     if (formData && formData.deviceLimitEnabled) {
@@ -85,27 +95,11 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
         >
           <SelectInput optionText="country" />
         </ReferenceInput>
-        <BooleanInput resource={resource} source="emailMarketing" disabled />
         <SelectInput
           resource={resource}
-          source="subscription.type"
-          initialValue="AUTOMATIC"
-          defaultValue="AUTOMATIC"
-          choices={subscriptionChoices}
-        />
-        <FormDataConsumer>
-          {({ formData }) => (
-            <BooleanInput
-              resource={resource}
-              source="subscription.isSubscribed"
-              disabled={!(formData.subscription.type === 'MANUAL')}
-            />
-          )}
-        </FormDataConsumer>
-        <SelectInput
-          resource={resource}
-          source="subscription.platform"
-          choices={subscriptionPlatformChoices}
+          source="timeZone"
+          choices={allTimeZones}
+          validate={required()}
         />
       </div>
       <div className={classes.column}>
@@ -135,6 +129,12 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
         >
           <SelectArrayInput />
         </LocalisedReferenceArrayInput>
+        <SelectInput
+          resource={resource}
+          source="emailMarketing"
+          choices={booleanTranslatedChoices}
+          disabled
+        />
         <FormDataConsumer>
           {({ formData }) => (
             <BooleanInput
@@ -144,12 +144,53 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
             />
           )}
         </FormDataConsumer>
-        <SelectInput
-          resource={resource}
-          source="timeZone"
-          choices={allTimeZones}
-          validate={required()}
-        />
+      </div>
+      <div className={classes.column}>
+        <FormDataConsumer>
+          {({ formData }) =>
+            formData.subscription ? (
+              <>
+                <SelectInput
+                  resource={resource}
+                  source="subscription.isActive"
+                  choices={subscriptionChoices}
+                  disabled={true}
+                />
+                <SelectInput
+                  resource={resource}
+                  source="subscription.platform"
+                  choices={subscriptionPlatformChoices}
+                  disabled={true}
+                />
+              </>
+            ) : (
+              <MuiTextField
+                label={translate('resources.user.fields.subscription.isActive')}
+                value={translate('choices.subscription.noSub')}
+                disabled={true}
+                className={selectClasses.root}
+                variant="filled"
+                margin="dense"
+              />
+            )
+          }
+        </FormDataConsumer>
+        <FormDataConsumer>
+          {({ formData }) => (
+            <BooleanInput
+              resource={resource}
+              source="isManuallySubscribed"
+              helperText={translate(
+                'resources.user.fields.isManuallySubscribedHelperText',
+                {
+                  action: formData.isManuallySubscribed
+                    ? translate('actions.subscription.deactivate')
+                    : translate('actions.subscription.activate'),
+                }
+              )}
+            />
+          )}
+        </FormDataConsumer>
       </div>
     </div>
   );
