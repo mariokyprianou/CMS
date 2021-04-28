@@ -36,7 +36,8 @@ export default async ({ client, params }) => {
           duration:
             params.data.type === 'COUNTDOWN' ? params.data.duration : null,
           type: params.data.type,
-          unitType: params.data.type === 'OTHER' ? params.data.unitType : null,
+          unitType:
+            params.data.type !== 'STOPWATCH' ? params.data.unitType : null,
           localisations: params.data.localisations,
         },
       },

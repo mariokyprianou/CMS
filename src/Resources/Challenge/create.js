@@ -39,7 +39,7 @@ const ChallengeCreate = (props) => {
         />
         <FormDataConsumer>
           {({ formData, ...rest }) =>
-            formData.type === 'COUNTDOWN' ? (
+            formData.type === 'COUNTDOWN' && (
               <NumberInput
                 source="duration"
                 validate={durationValidation}
@@ -50,14 +50,19 @@ const ChallengeCreate = (props) => {
                   ),
                 }}
               />
-            ) : formData.type === 'OTHER' ? (
+            )
+          }
+        </FormDataConsumer>
+        <FormDataConsumer>
+          {({ formData, ...rest }) =>
+            formData.type !== 'STOPWATCH' && (
               <SelectInput
                 {...rest}
                 source="unitType"
                 validate={required()}
                 choices={challengeUnitTypeChoices}
               />
-            ) : null
+            )
           }
         </FormDataConsumer>
         <LocalisedComponentCloner
