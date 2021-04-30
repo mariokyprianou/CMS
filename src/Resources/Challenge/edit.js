@@ -11,6 +11,7 @@ import {
   Edit,
   DeleteButton,
   FormDataConsumer,
+  ImageInput,
   NumberInput,
   required,
   SaveButton,
@@ -19,10 +20,13 @@ import {
   TextInput,
 } from 'react-admin';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
+import { PreviewImageField } from 'Components/Fields';
 import { TemplateToolbar } from 'Components/Toolbars';
 import { InputAdornment } from '@material-ui/core';
 import { challengeTypeChoices, challengeUnitTypeChoices } from 'utils/choices';
 import { nonNegativeNonZeroInt } from 'utils/validation';
+import { maxImageSize } from 'utils/helpers';
+import { onDropRejected as onFileDropRejected } from 'utils';
 
 const durationValidation = [required(), nonNegativeNonZeroInt];
 
@@ -91,6 +95,22 @@ const ChallengeEdit = (props) => {
             )
           }
         </FormDataConsumer>
+        <ImageInput
+          source="image"
+          accept="image/*"
+          maxSize={maxImageSize}
+          options={{
+            onDropRejected: (files) =>
+              onFileDropRejected({
+                files,
+                translate,
+                notify,
+                maxFileSize: maxImageSize,
+              }),
+          }}
+        >
+          <PreviewImageField />
+        </ImageInput>
         <LocalisedComponentCloner
           fullWidth
           component={<TextInput multiline validate={required()} />}

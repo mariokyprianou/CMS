@@ -52,6 +52,7 @@ export default async ({ client, params }) => {
       const responseFile = await uploadFile({
         client,
         file: params.data.video,
+        purpose: 'exercise-video',
       });
       exerciseParams.videoKey = responseFile.key;
     } else {
@@ -64,6 +65,7 @@ export default async ({ client, params }) => {
       const responseFile = await uploadFile({
         client,
         file: params.data.videoEasy,
+        purpose: 'exercise-video',
       });
       exerciseParams.videoKeyEasy = responseFile.key;
     } else {
@@ -77,6 +79,7 @@ export default async ({ client, params }) => {
       const responseFile = await uploadFile({
         client,
         file: params.data.videoEasiest,
+        purpose: 'exercise-video',
       });
       exerciseParams.videoKeyEasiest = responseFile.key;
     } else {

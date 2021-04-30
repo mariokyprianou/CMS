@@ -67,6 +67,7 @@ export default async ({ client, params }) => {
       const uploadRequest = await uploadFile({
         client,
         file: params.data.overviewImage,
+        purpose: 'ondemandworkout-img',
       });
       params.data.overviewImageKey = uploadRequest.key;
     }

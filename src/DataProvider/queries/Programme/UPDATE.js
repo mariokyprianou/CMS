@@ -59,6 +59,7 @@ export default async ({ client, params }) => {
           const uploadRequest = await uploadFile({
             client,
             file: image,
+            purpose: 'programme-img',
           });
           params.data.images[i].imageKey = uploadRequest.key;
           params.data.images[i].orderIndex = i; // add the order index
@@ -88,6 +89,7 @@ export default async ({ client, params }) => {
           const uploadRequest = await uploadFile({
             client,
             file: localisation.image,
+            purpose: 'programme-img',
           });
           programmeStartImageLocalisations.push({
             language: localisation.language,
@@ -144,6 +146,7 @@ export default async ({ client, params }) => {
         const uploadRequest = await uploadFile({
           client,
           file: shareMedia.image,
+          purpose: 'programme-img',
         });
         weekCompleteImageLocalisations.push({
           language: 'en', // no localisation in the CMS form so mock it
@@ -175,6 +178,7 @@ export default async ({ client, params }) => {
         const uploadRequest = await uploadFile({
           client,
           file: shareMedia.image,
+          purpose: 'programme-img',
         });
         challengeCompleteImageLocalisations.push({
           language: 'en', // no localisation in the CMS form so mock it
@@ -206,6 +210,7 @@ export default async ({ client, params }) => {
         const uploadRequest = await uploadFile({
           client,
           file: shareMedia.image,
+          purpose: 'programme-img',
         });
         progressImageLocalisations.push({
           language: 'en', // no localisation in the CMS form so mock it

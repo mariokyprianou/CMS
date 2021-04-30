@@ -48,6 +48,7 @@ export default async ({ client, params }) => {
           const uploadRequest = await uploadFile({
             client,
             file: onboardingImg,
+            purpose: 'onboarding-img',
           });
           localisation[`image_${onboardingScreen}_key`] = uploadRequest.key;
         } else if (onboardingImg && onboardingImg.hasOwnProperty('key')) {

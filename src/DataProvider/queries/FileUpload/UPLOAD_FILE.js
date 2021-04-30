@@ -18,7 +18,7 @@ const uploadMediaMutation = gql`
   }
 `;
 
-export default async ({ client, file }) => {
+export default async ({ client, file, purpose }) => {
   const now = new Date();
   const isoString = now.toISOString();
 
@@ -28,6 +28,7 @@ export default async ({ client, file }) => {
       input: {
         contentType: file.rawFile.type,
         key: `${isoString}_${file.rawFile.name}`, // isotimestamp_filename
+        purpose,
       },
     },
   });

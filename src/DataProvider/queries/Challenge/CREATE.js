@@ -7,6 +7,7 @@
  */
 
 import gql from 'graphql-tag';
+import uploadFile from 'DataProvider/queries/FileUpload/UPLOAD_FILE';
 
 export const createChallengeMutation = gql`
   mutation CreateChallenge($input: CreateChallengeInput!) {
@@ -15,6 +16,10 @@ export const createChallengeMutation = gql`
       type
       duration
       unitType
+      image {
+        key
+        url
+      }
       localisations {
         language
         name
@@ -27,11 +32,26 @@ export const createChallengeMutation = gql`
 
 export default async ({ client, params }) => {
   try {
+    if (params.data.image && params.data.image.hasOwnProperty('rawFile')) {
+      const uploadRequest = await uploadFile({
+        client,
+        file: params.data.image,
+        purpose: 'challenge-img',
+      });
+      params.data.imageKey = uploadRequest.key;
+    } else {
+      params.data.imageKey = params.data.image && params.data.image.key;
+    }
+
     const result = await client.mutate({
       mutation: createChallengeMutation,
       variables: {
         input: {
-          ...params.data,
+          id: params.data.id,
+          trainingProgrammeId: params.data.trainingProgrammeId,
+          type: params.data.type,
+          imageKey: params.data.imageKey,
+          localisations: params.data.localisations,
           duration:
             params.data.type === 'COUNTDOWN' ? params.data.duration : null,
           unitType:

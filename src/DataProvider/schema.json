@@ -2624,6 +2624,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "image",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Image",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -2768,6 +2780,59 @@
         "kind": "SCALAR",
         "name": "ISOLanguage",
         "description": "A field whose value matches the provided regular expression /^[a-z]{2}$/.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Image",
+        "description": null,
+        "fields": [
+          {
+            "name": "key",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "URL",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "URL",
+        "description": "A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -3082,16 +3147,6 @@
         ],
         "inputFields": null,
         "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "URL",
-        "description": "A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -7840,6 +7895,20 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "trainingProgrammeId",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
             "name": "type",
             "description": null,
             "type": {
@@ -7896,16 +7965,12 @@
             "defaultValue": null
           },
           {
-            "name": "trainingProgrammeId",
+            "name": "imageKey",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -8002,16 +8067,6 @@
             "defaultValue": null
           },
           {
-            "name": "unitType",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "ChallengeUnitType",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "type",
             "description": null,
             "type": {
@@ -8022,6 +8077,16 @@
                 "name": "ChallengeType",
                 "ofType": null
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "unitType",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "ChallengeUnitType",
+              "ofType": null
             },
             "defaultValue": null
           },
@@ -8054,6 +8119,16 @@
                   }
                 }
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "imageKey",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -9151,6 +9226,16 @@
                 "name": "String",
                 "ofType": null
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "purpose",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "defaultValue": null
           }

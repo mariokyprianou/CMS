@@ -59,6 +59,7 @@ export default async ({ client, params }) => {
           const uploadRequest = await uploadFile({
             client,
             file: image,
+            purpose: 'programme-img',
           });
           params.data.images[i].imageKey = uploadRequest.key;
           params.data.images[i].orderIndex = i; // add the order index

@@ -146,6 +146,7 @@ const englishMessages = {
         fieldTitle: 'Challenge Field Title',
         fieldDescription: 'Challenge Description',
         unitType: 'Unit Type',
+        image: 'Challenge Image',
       },
     },
     exerciseCategory: {
