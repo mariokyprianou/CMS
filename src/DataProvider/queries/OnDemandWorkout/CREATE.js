@@ -97,7 +97,7 @@ export default async ({ client, params }) => {
           intensity: params.data.intensity,
           duration: params.data.duration,
           exercises: params.data.exercises,
-          programme: params.data.programme,
+          programme: params.data.programme.id,
           tagIds: params.data.tagIds,
           orderIndex: 0, // fake it - graphql validation (order index not used on On Demand Workouts)
           overviewImageKey: params.data.overviewImageKey,

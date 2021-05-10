@@ -26,7 +26,7 @@ const OnDemandWorkoutList = (props) => (
     <Datagrid>
       <ReferenceField
         label="resources.trainer.fields.name"
-        source="programme"
+        source="programme.id"
         reference="programme"
         sortable={false}
       >

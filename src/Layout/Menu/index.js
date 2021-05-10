@@ -74,8 +74,8 @@ const CustomMenu = (props) => {
     (resource) => resource.options && resource.options.subMenu
   );
 
-  const subMenuResourcesPaths = subMenuResources.map(
-    (resource) => `/${resource.name}`
+  const subMenuResourcesNames = subMenuResources.map(
+    (resource) => resource.name
   );
 
   const handleToggle = () => {
@@ -85,13 +85,14 @@ const CustomMenu = (props) => {
   useSelector((state) => state.router.location.pathname);
 
   useEffect(() => {
-    let getInitialSubMenuState = subMenuResourcesPaths.includes(
-      currentPathname
+    const currentResource = currentPathname.split('/', 2)[1];
+    let getInitialSubMenuState = subMenuResourcesNames.includes(
+      currentResource
     );
-    if (subMenuOpen === undefined && subMenuResourcesPaths.length > 0) {
+    if (subMenuOpen === undefined && subMenuResourcesNames.length > 0) {
       setSubMenuOpen(getInitialSubMenuState);
     }
-  }, [subMenuResourcesPaths, subMenuOpen]);
+  }, [subMenuResourcesNames, subMenuOpen]);
 
   return (
     <div className={classnames(menuClasses.main, className)} {...rest}>

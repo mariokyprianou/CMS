@@ -141,7 +141,7 @@ const SimpleFormIterator = forwardRef((props, ref) => {
 
   const removeAllFields = () => {
     fields.forEach((name, index) => {
-      removeField(index);
+      removeField(index)();
     });
   };
 

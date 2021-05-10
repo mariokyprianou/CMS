@@ -100,7 +100,7 @@ const OnDemandWorkoutForm = (props) => {
   const translate = useTranslate();
   const notify = useNotify();
   const [selectedTrainerId, setSelectedTrainerId] = useState(
-    (record && record.trainingProgrammeId) || null
+    (record.programme && record.programme.id) || null
   );
   const form = useForm();
   const { values } = useFormState();
@@ -123,7 +123,7 @@ const OnDemandWorkoutForm = (props) => {
         <div className={classes.column}>
           <LocalisedReferenceInput
             resource={resource}
-            source="programme"
+            source="programme.id"
             reference="programme"
             localisationsPath="trainer.localisations"
             additionalChoices={programmeEnvironmentChoices}

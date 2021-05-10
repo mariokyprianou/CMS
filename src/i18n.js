@@ -299,6 +299,10 @@ const englishMessages = {
         setType: 'Set Type',
         additionalTrainerInfo: 'Additional Trainer Info',
         restTime: 'Rest Time (Optional)',
+        programme: {
+          id: 'Current Programme',
+          name: 'Current Programme',
+        },
       },
     },
     workoutTag: {
