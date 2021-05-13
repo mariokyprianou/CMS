@@ -189,6 +189,7 @@ const OnDemandWorkoutForm = (props) => {
         resource={resource}
         source="overviewImage"
         accept="image/*"
+        validate={required()}
         maxSize={maxImageSize}
         options={{
           onDropRejected: (files) =>

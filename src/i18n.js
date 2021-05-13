@@ -289,7 +289,7 @@ const englishMessages = {
         duration: 'Duration (Minutes)',
         intensity: 'Intensity',
         exercises: 'Exercises',
-        overviewImage: 'Workout Header Image (Optional)',
+        overviewImage: 'Workout Header Image',
         isContinuous: 'Continuous',
         exercise: 'Exercise',
         exercises: 'Exercises',
