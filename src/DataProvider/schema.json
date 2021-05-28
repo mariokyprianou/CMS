@@ -6309,7 +6309,6 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
@@ -9751,7 +9750,6 @@
             "name": "coachingTips",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",

@@ -76,7 +76,7 @@ const ExerciseForm = (props) => {
         resource={resource}
       />
       <LocalisedComponentCloner
-        component={<TextInput multiline validate={required()} />}
+        component={<TextInput multiline />}
         source="coachingTips"
         fullWidth
         resource={resource}
