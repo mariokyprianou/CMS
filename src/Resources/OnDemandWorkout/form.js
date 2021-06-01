@@ -129,8 +129,9 @@ const OnDemandWorkoutForm = (props) => {
             additionalChoices={programmeEnvironmentChoices}
             additionalChoiceComparisonField="environment"
             validate={required()}
-            customFunc={(selection) => {
-              if (selection && selection.trainer.id) {
+            onChange={(event) => {
+              if (event.target.value) {
+                const selectedTrainerId = event.target.value;
                 // set it to correct value
                 setSelectedTrainerId(null);
                 const currentValues = values;
@@ -146,10 +147,10 @@ const OnDemandWorkoutForm = (props) => {
                     );
                   }
                 }
-                if (selectedTrainerId) {
-                  resetAllFields();
-                }
-                setSelectedTrainerId(selection.trainer.id);
+                // reset the exercise array
+                resetAllFields();
+                // update the state to reflect current selected trainer id
+                setSelectedTrainerId(selectedTrainerId);
               }
             }}
           >
@@ -221,6 +222,7 @@ const OnDemandWorkoutForm = (props) => {
                   reference="exercise"
                   validate={required()}
                   filter={{ trainer: selectedTrainerId }}
+                  // custom function to set the default coaching tips on selecting an exercise
                   customFunc={(selection, index) => {
                     if (selection && selection.localisations && index) {
                       const defaultLocalisations = selection.localisations;

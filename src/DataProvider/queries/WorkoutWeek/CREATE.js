@@ -16,6 +16,12 @@ export const createWorkoutWeekMutation = gql`
       id
       weekNumber
       orderIndex
+      programme {
+        id
+        trainer {
+          id
+        }
+      }
       workout {
         isContinuous
         overviewImage {

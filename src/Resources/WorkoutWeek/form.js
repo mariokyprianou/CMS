@@ -8,6 +8,7 @@
 
 import React, { Fragment, useState, useRef } from 'react';
 import {
+  AutocompleteInput,
   ArrayInput,
   BooleanInput,
   FormDataConsumer,
@@ -19,6 +20,7 @@ import {
   useTranslate,
   useNotify,
 } from 'react-admin';
+import { useSelector } from 'react-redux';
 import { useForm, useFormState } from 'react-final-form';
 import {
   CustomSimpleFormIterator as SimpleFormIterator,
@@ -97,7 +99,7 @@ const WorkoutForm = (props) => {
   const translate = useTranslate();
   const notify = useNotify();
   const [selectedTrainerId, setSelectedTrainerId] = useState(
-    (record && record.trainingProgrammeId) || null
+    record?.programme?.trainer?.id || null
   );
   const form = useForm();
   const { values } = useFormState();
@@ -106,6 +108,17 @@ const WorkoutForm = (props) => {
 
   const resetAllFields = () => {
     exerciseIteratorRef.current.resetAll();
+  };
+
+  const trainingProgrammes = useSelector(
+    (state) => state.admin.resources.programme.data
+  );
+  const fetchTrainer = (id) => {
+    return trainingProgrammes[id]?.trainer.id;
+  };
+  const exercises = useSelector((state) => state.admin.resources.exercise.data);
+  const fetchExercise = (id) => {
+    return exercises[id];
   };
 
   return (
@@ -127,8 +140,10 @@ const WorkoutForm = (props) => {
             additionalChoices={programmeEnvironmentChoices}
             additionalChoiceComparisonField="environment"
             validate={required()}
-            customFunc={(selection) => {
-              if (selection && selection.trainer.id) {
+            onChange={(evt) => {
+              if (evt.target.value) {
+                const selectedProgrammeId = evt.target.value;
+                const theTrainerId = fetchTrainer(selectedProgrammeId);
                 // set it to correct value
                 setSelectedTrainerId(null);
                 const currentValues = values;
@@ -148,14 +163,13 @@ const WorkoutForm = (props) => {
                     );
                   }
                 }
-                if (selectedTrainerId) {
-                  resetAllFields();
-                }
-                setSelectedTrainerId(selection.trainer.id);
+                if (theTrainerId && selectedTrainerId) resetAllFields();
+                // update the state to reflect current selected trainer id
+                setSelectedTrainerId(theTrainerId);
               }
             }}
           >
-            <SelectInput />
+            <SelectInput onChange={() => console.log('i got changed')} />
           </LocalisedReferenceInput>
           <NumberInput
             resource={resource}
@@ -223,40 +237,52 @@ const WorkoutForm = (props) => {
                   source="exercise.id"
                   reference="exercise"
                   validate={required()}
+                  perPage={1000}
                   filter={{ trainer: selectedTrainerId }}
-                  customFunc={(selection, index) => {
-                    if (selection && selection.localisations && index) {
-                      const defaultLocalisations = selection.localisations;
-                      // set the localisations in the form
-                      // first set default values - this is for when we do not yet have the fields
-                      const currentDefaultCoachingTips = {
-                        ...defaultCoachingTips,
-                      };
-                      currentDefaultCoachingTips[
-                        selection.id
-                      ] = defaultLocalisations;
-                      setDefaultCoachingTips({
-                        ...currentDefaultCoachingTips,
-                      });
-                      // then change their values after
-                      for (let i = 0; i < defaultLocalisations.length; i++) {
-                        const defaultLocalisation = defaultLocalisations[i];
-                        const coachingTipsFields = get(
-                          formData,
-                          `workout.exercises[${index[0]}].exercise.localisations`
-                        );
-                        if (coachingTipsFields) {
-                          const fieldIndex = coachingTipsFields.findIndex(
-                            (fieldLocalisation) =>
-                              fieldLocalisation.language ==
-                              defaultLocalisation.language
+                  filterToQuery={(searchText) => ({ name: searchText || null })}
+                  // custom function to set the default coaching tips on selecting an exercise
+                  onChange={(event) => {
+                    if (event.target) {
+                      const exerciseId = event.target.value;
+                      // event.target.name is like "workout.exercises[index].exercise.id"
+                      const exerciseArrayIndex = event.target.name.match(
+                        /\d+/
+                      )[0]; // get just the first index
+                      if (exerciseId && exerciseArrayIndex) {
+                        const defaultLocalisations = fetchExercise(exerciseId)
+                          .localisations;
+                        // set the localisations in the form
+                        // first set default values - this is for when we do not yet have the fields
+                        // make sure to set each default localisation in state to match the exercises array
+                        const currentDefaultCoachingTips = {
+                          ...defaultCoachingTips,
+                        };
+                        currentDefaultCoachingTips[
+                          exerciseId
+                        ] = defaultLocalisations;
+                        setDefaultCoachingTips({
+                          ...currentDefaultCoachingTips,
+                        });
+                        // then change their values after
+                        for (let i = 0; i < defaultLocalisations.length; i++) {
+                          const defaultLocalisation = defaultLocalisations[i];
+                          const coachingTipsFields = get(
+                            formData,
+                            `exercises[${exerciseArrayIndex}].exercise.localisations`
                           );
-                          if (fieldIndex >= 0) {
-                            const fieldPath = `workout.exercises[${index[0]}].exercise.localisations[${i}].coachingTips`;
-                            form.change(
-                              fieldPath,
-                              defaultLocalisation.coachingTips
+                          if (coachingTipsFields) {
+                            const fieldIndex = coachingTipsFields.findIndex(
+                              (fieldLocalisation) =>
+                                fieldLocalisation.language ==
+                                defaultLocalisation.language
                             );
+                            if (fieldIndex >= 0) {
+                              const fieldPath = `exercises[${exerciseArrayIndex}].exercise.localisations[${i}].coachingTips`;
+                              form.change(
+                                fieldPath,
+                                defaultLocalisation.coachingTips
+                              );
+                            }
                           }
                         }
                       }

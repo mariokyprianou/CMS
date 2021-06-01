@@ -34,7 +34,8 @@ const LocalisedComponentCloner = ({
   const classes = columnStyles(direction, fullWidth ? '100%' : null);
   const translate = useTranslate();
   const form = useForm();
-  const { values } = useFormState();
+  const { values, touched } = useFormState();
+  // console.log('touched: ', touched);
 
   const children = [];
 

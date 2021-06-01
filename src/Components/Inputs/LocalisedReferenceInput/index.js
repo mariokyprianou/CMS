@@ -45,6 +45,7 @@ const LocalisedChoices = ({
 
     return {
       ...choice,
+      // id: choice.id,
       localisedField,
     };
   });
@@ -56,8 +57,9 @@ const LocalisedChoices = ({
     ...props,
     optionText: 'localisedField',
     choices: localisedChoices,
-    onClick: (event) => {
-      const id = event.target.value;
+    onChange: (event) => {
+      console.log('EVENT: ', event);
+      const id = event.target.id;
       return customFunc(
         choices.find((choice) => choice.id === id),
         elementIndex
@@ -68,6 +70,7 @@ const LocalisedChoices = ({
 
 const LocalisedReferenceInput = ({ children, ...props }) => {
   const translate = useTranslate();
+
   return (
     <ReferenceInput {...props}>
       <LocalisedChoices children={children} translate={translate} />
