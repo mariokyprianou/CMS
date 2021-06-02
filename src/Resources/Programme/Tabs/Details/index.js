@@ -15,9 +15,12 @@ import {
   TextInput,
   useTranslate,
   useNotify,
-  NumberInput,
 } from 'react-admin';
-import { LocalisedReferenceInput, PercentageInput } from 'Components/Inputs';
+import {
+  LocalisedReferenceInput,
+  NoScrollNumberInput as NumberInput,
+  PercentageInput,
+} from 'Components/Inputs';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import {
   programmeEnvironmentChoices,

@@ -12,7 +12,6 @@ import {
   DeleteButton,
   FormDataConsumer,
   ImageInput,
-  NumberInput,
   required,
   SaveButton,
   SelectInput,
@@ -21,6 +20,7 @@ import {
 } from 'react-admin';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { PreviewImageField } from 'Components/Fields';
+import { NoScrollNumberInput as NumberInput } from 'Components/Inputs';
 import { TemplateToolbar } from 'Components/Toolbars';
 import { InputAdornment } from '@material-ui/core';
 import { challengeTypeChoices, challengeUnitTypeChoices } from 'utils/choices';

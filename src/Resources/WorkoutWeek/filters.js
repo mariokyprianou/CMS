@@ -7,8 +7,11 @@
  */
 
 import React from 'react';
-import { Filter, NumberInput, SelectInput, TextInput } from 'react-admin';
-import { LocalisedReferenceInput } from 'Components/Inputs';
+import { Filter, SelectInput, TextInput } from 'react-admin';
+import {
+  LocalisedReferenceInput,
+  NoScrollNumberInput as NumberInput,
+} from 'Components/Inputs';
 import { programmeEnvironmentChoices } from 'utils/choices';
 
 const WorkoutFilter = (props) => {

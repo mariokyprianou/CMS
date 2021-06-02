@@ -11,7 +11,6 @@ import {
   BooleanInput,
   Edit,
   FormDataConsumer,
-  NumberInput,
   ReferenceInput,
   required,
   SelectArrayInput,
@@ -21,6 +20,7 @@ import {
   useTranslate,
 } from 'react-admin';
 import { TextField as MuiTextField } from '@material-ui/core';
+import { NoScrollNumberInput as NumberInput } from 'Components/Inputs';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   LocalisedReferenceInput,

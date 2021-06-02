@@ -6,14 +6,9 @@
  * Copyright (c) 2020 The Distance
  */
 import React, { Fragment, useEffect, useState } from 'react';
-import {
-  required,
-  NumberInput,
-  TextInput,
-  useNotify,
-  useTranslate,
-} from 'react-admin';
+import { required, TextInput, useNotify, useTranslate } from 'react-admin';
 import useDataProviderWrapper from 'hooks/dataProviderWrapper';
+import { NoScrollNumberInput as NumberInput } from 'Components/Inputs';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { programmeEnvironmentChoices } from 'utils/choices';
 import { getLocalisedFieldByLanguage } from 'utils';

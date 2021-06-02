@@ -6,12 +6,14 @@
  * Copyright (c) 2020 The Distance
  */
 
-import PercentageInput from './PercentageInput';
 import LocalisedReferenceArrayInput from './LocalisedReferenceArrayInput';
 import LocalisedReferenceInput from './LocalisedReferenceInput';
+import NoScrollNumberInput from './NoScrollNumberInput';
+import PercentageInput from './PercentageInput';
 
 export {
   LocalisedReferenceArrayInput,
   LocalisedReferenceInput,
+  NoScrollNumberInput,
   PercentageInput,
 };

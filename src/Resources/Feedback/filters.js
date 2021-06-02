@@ -7,14 +7,11 @@
  */
 
 import React from 'react';
+import { DateInput, Filter, TextInput, SelectInput } from 'react-admin';
 import {
-  DateInput,
-  Filter,
-  TextInput,
-  NumberInput,
-  SelectInput,
-} from 'react-admin';
-import { LocalisedReferenceInput } from 'Components/Inputs';
+  LocalisedReferenceInput,
+  NoScrollNumberInput as NumberInput,
+} from 'Components/Inputs';
 import { allFeedbackEmojis, feedbackIntensityChoices } from 'utils/choices';
 
 const FeedbackFilter = (props) => {

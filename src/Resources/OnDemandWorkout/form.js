@@ -11,7 +11,6 @@ import {
   BooleanInput,
   FormDataConsumer,
   ImageInput,
-  NumberInput,
   required,
   SelectArrayInput,
   SelectInput,
@@ -24,6 +23,7 @@ import {
   CustomSimpleFormIterator as SimpleFormIterator,
   RestrictedSimpleFormIterator,
 } from 'Components/Forms';
+import { NoScrollNumberInput as NumberInput } from 'Components/Inputs';
 import { InputAdornment } from '@material-ui/core';
 import {
   nonNegativeNonZeroInt,

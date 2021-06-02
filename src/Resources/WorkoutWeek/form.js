@@ -8,12 +8,10 @@
 
 import React, { Fragment, useState, useRef } from 'react';
 import {
-  AutocompleteInput,
   ArrayInput,
   BooleanInput,
   FormDataConsumer,
   ImageInput,
-  NumberInput,
   required,
   SelectInput,
   TextInput,
@@ -26,6 +24,7 @@ import {
   CustomSimpleFormIterator as SimpleFormIterator,
   RestrictedSimpleFormIterator,
 } from 'Components/Forms';
+import { NoScrollNumberInput as NumberInput } from 'Components/Inputs';
 import { InputAdornment } from '@material-ui/core';
 import {
   nonNegativeNonZeroInt,

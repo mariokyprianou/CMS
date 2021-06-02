@@ -7,7 +7,8 @@
  */
 
 import React from 'react';
-import { required, NumberInput } from 'react-admin';
+import { required } from 'react-admin';
+import { NoScrollNumberInput as NumberInput } from 'Components/Inputs';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
 const PercentageInput = ({ label, source }) => (

@@ -11,7 +11,6 @@ import {
   Create,
   FormDataConsumer,
   ImageInput,
-  NumberInput,
   required,
   SelectInput,
   SimpleForm,
@@ -19,6 +18,7 @@ import {
 } from 'react-admin';
 import LocalisedComponentCloner from 'Components/LocalisedComponentCloner';
 import { PreviewImageField } from 'Components/Fields';
+import { NoScrollNumberInput as NumberInput } from 'Components/Inputs';
 import { InputAdornment } from '@material-ui/core';
 import { challengeTypeChoices, challengeUnitTypeChoices } from 'utils/choices';
 import { nonNegativeNonZeroInt } from 'utils/validation';
