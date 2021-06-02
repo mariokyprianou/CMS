@@ -35,14 +35,12 @@ const OnDemandWorkoutList = (props) => (
           source="name"
           language="en"
           label="resources.trainer.fields.name"
-          textVisibleLength="100px"
         />
       </ReferenceField>
       <LocalisedTextField
         source="name"
         language="en"
         label="resources.onDemandWorkout.fields.name"
-        textVisibleLength="200px"
         sortable={false}
       />
       <FunctionField

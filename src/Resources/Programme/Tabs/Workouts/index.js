@@ -39,7 +39,6 @@ const WorkoutTab = (props) => {
                 source="name"
                 language="en"
                 label="resources.workout.fields.name"
-                textVisibleLength="200px"
               />
             )}
           />

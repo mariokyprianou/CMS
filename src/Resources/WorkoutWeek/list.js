@@ -53,7 +53,6 @@ const WorkoutList = (props) => (
           source="name"
           language="en"
           label="resources.trainer.fields.name"
-          textVisibleLength="100px"
         />
       </ReferenceField>
       <TextField source="weekNumber" sortable={false} />
@@ -67,7 +66,6 @@ const WorkoutList = (props) => (
             source="name"
             language="en"
             label="resources.workout.fields.name"
-            textVisibleLength="200px"
           />
         )}
       />

@@ -32,14 +32,8 @@ const ExerciseTab = (props) => {
             language="en"
             label="resources.exercise.fields.trainer"
             sortable={false}
-            textVisibleLength="100px"
           />
-          <LocalisedTextField
-            source="name"
-            language="en"
-            sortable={false}
-            textVisibleLength="100px"
-          />
+          <LocalisedTextField source="name" language="en" sortable={false} />
           <FunctionField
             render={(record) => (
               <EditButton

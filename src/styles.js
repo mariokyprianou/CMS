@@ -254,18 +254,11 @@ export const appBarStyles = makeStyles({
   },
 });
 
-export const longTextStyles = (width = '800px') =>
-  makeStyles({
-    div: {
-      width, // default 800px is approx 100 chars length
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-    },
-    span: {
-      display: 'inline',
-    },
-  })();
+export const longTextStyles = makeStyles({
+  root: {
+    wordWrap: 'break-word',
+  },
+});
 
 export const actionButtonStyles = (marginRight = 0) =>
   makeStyles({

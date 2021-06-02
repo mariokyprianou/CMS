@@ -16,9 +16,8 @@ const TextByLocalisationField = ({
   language = 'en',
   source,
   record,
-  textVisibleLength,
 }) => {
-  const classes = longTextStyles(textVisibleLength);
+  const classes = longTextStyles();
 
   let recordData = record;
   if (parentPath) {
@@ -31,11 +30,7 @@ const TextByLocalisationField = ({
     localisations,
   });
 
-  return (
-    <div className={classes.div}>
-      <span className={classes.span}>{localisedText}</span>
-    </div>
-  );
+  return <div className={classes.root}>{localisedText}</div>;
 };
 
 export default TextByLocalisationField;
