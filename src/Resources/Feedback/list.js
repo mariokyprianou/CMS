@@ -12,10 +12,10 @@ import {
   DateField,
   FunctionField,
   List,
-  NumberField,
   SelectField,
   TextField,
   useNotify,
+  useTranslate,
 } from 'react-admin';
 import emojiDictionary from 'emoji-dictionary';
 import FeedbackAction from './actions';
@@ -40,6 +40,7 @@ const EmojisField = ({ record, source }) => {
 
 const FeedbackList = (props) => {
   const notify = useNotify();
+  const translate = useTranslate();
   const callToDataProvider = useDataProviderWrapper();
   const exportCSV = (filterValues) => {
     try {
@@ -78,13 +79,23 @@ const FeedbackList = (props) => {
           choices={programmeEnvironmentChoices}
           sortable={false}
         />
-        <NumberField source="week" sortable={false} />
+        <FunctionField
+          source="week"
+          render={(record) =>
+            record.week || translate('resources.feedback.messages.noWeek')
+          }
+          sortable={false}
+        />
         <TextField source="workoutName" sortable={false} />
         <EmojisField source="emojis" sortable={false} />
         <TextField source="userEmail" sortable={false} />
         <FunctionField
           source="timeTaken"
-          render={(record) => record.timeTaken || '-' + ' mins'}
+          render={(record) =>
+            translate('resources.feedback.messages.timeTaken', {
+              timeTaken: record.timeTaken || '-',
+            })
+          }
           sortable={false}
         />
         <TextField source="workoutIntensity" sortable={false} />

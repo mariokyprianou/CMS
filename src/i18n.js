@@ -212,6 +212,10 @@ const englishMessages = {
         dateTo: 'Date To',
         dateFrom: 'Date From',
       },
+      messages: {
+        noWeek: 'OD',
+        timeTaken: '%{timeTaken} mins',
+      },
     },
     notification: {
       name: 'Notification |||| Notifications',
