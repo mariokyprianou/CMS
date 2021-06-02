@@ -12,8 +12,6 @@ import { useForm, useFormState } from 'react-final-form';
 import { columnStyles } from 'styles';
 import get from 'lodash/get';
 
-// TODO: too many re-renders, very inefficient/slow
-
 const languageNames = Intl.hasOwnProperty('DisplayNames')
   ? new Intl.DisplayNames(['en'], { type: 'language' })
   : null;
@@ -34,8 +32,7 @@ const LocalisedComponentCloner = ({
   const classes = columnStyles(direction, fullWidth ? '100%' : null);
   const translate = useTranslate();
   const form = useForm();
-  const { values, touched } = useFormState();
-  // console.log('touched: ', touched);
+  const { values } = useFormState();
 
   const children = [];
 

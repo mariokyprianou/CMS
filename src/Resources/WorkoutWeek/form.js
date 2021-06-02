@@ -139,36 +139,17 @@ const WorkoutForm = (props) => {
             additionalChoices={programmeEnvironmentChoices}
             additionalChoiceComparisonField="environment"
             validate={required()}
-            onChange={(evt) => {
-              if (evt.target.value) {
-                const selectedProgrammeId = evt.target.value;
-                const theTrainerId = fetchTrainer(selectedProgrammeId);
-                // set it to correct value
-                setSelectedTrainerId(null);
-                const currentValues = values;
-                if (currentValues.workout && currentValues.workout.exercises) {
-                  for (
-                    let i = 0;
-                    i < currentValues.workout.exercises.length;
-                    i++
-                  ) {
-                    form.change(
-                      `workout.exercises[${i}].exercise.id`,
-                      undefined
-                    );
-                    form.change(
-                      `workout.exercises[${i}].exercise.localisations`,
-                      undefined
-                    );
-                  }
-                }
+            onChange={(event) => {
+              if (event.target.value) {
+                const selectedProgrammeId = event.target.value;
+                const theTrainerId = fetchTrainer(selectedProgrammeId) || null;
                 if (theTrainerId && selectedTrainerId) resetAllFields();
                 // update the state to reflect current selected trainer id
                 setSelectedTrainerId(theTrainerId);
               }
             }}
           >
-            <SelectInput onChange={() => console.log('i got changed')} />
+            <SelectInput />
           </LocalisedReferenceInput>
           <NumberInput
             resource={resource}
@@ -220,120 +201,94 @@ const WorkoutForm = (props) => {
         <PreviewImageField />
       </ImageInput>
       {/* Exercises */}
-      <FormDataConsumer>
-        {({ formData }) =>
-          selectedTrainerId && (
-            <ArrayInput
-              label="resources.workout.fields.exercises"
-              source="workout.exercises"
-              disabled={!selectedTrainerId}
-              validate={required()}
-            >
-              <SimpleFormIterator ref={exerciseIteratorRef}>
-                <LocalisedReferenceInput
-                  resource="exercise"
-                  label={`resources.${resource}.fields.exercise`}
-                  source="exercise.id"
-                  reference="exercise"
-                  validate={required()}
-                  perPage={1000}
-                  filter={{ trainer: selectedTrainerId }}
-                  filterToQuery={(searchText) => ({ name: searchText || null })}
-                  // custom function to set the default coaching tips on selecting an exercise
-                  onChange={(event) => {
-                    if (event.target) {
-                      const exerciseId = event.target.value;
-                      // event.target.name is like "workout.exercises[index].exercise.id"
-                      const exerciseArrayIndex = event.target.name.match(
-                        /\d+/
-                      )[0]; // get just the first index
-                      if (exerciseId && exerciseArrayIndex) {
-                        const defaultLocalisations = fetchExercise(exerciseId)
-                          .localisations;
-                        // set the localisations in the form
-                        // first set default values - this is for when we do not yet have the fields
-                        // make sure to set each default localisation in state to match the exercises array
-                        const currentDefaultCoachingTips = {
-                          ...defaultCoachingTips,
-                        };
-                        currentDefaultCoachingTips[
-                          exerciseId
-                        ] = defaultLocalisations;
-                        setDefaultCoachingTips({
-                          ...currentDefaultCoachingTips,
-                        });
-                        // then change their values after
-                        for (let i = 0; i < defaultLocalisations.length; i++) {
-                          const defaultLocalisation = defaultLocalisations[i];
-                          const coachingTipsFields = get(
-                            formData,
-                            `exercises[${exerciseArrayIndex}].exercise.localisations`
-                          );
-                          if (coachingTipsFields) {
-                            const fieldIndex = coachingTipsFields.findIndex(
-                              (fieldLocalisation) =>
-                                fieldLocalisation.language ==
-                                defaultLocalisation.language
-                            );
-                            if (fieldIndex >= 0) {
-                              const fieldPath = `exercises[${exerciseArrayIndex}].exercise.localisations[${i}].coachingTips`;
-                              form.change(
-                                fieldPath,
-                                defaultLocalisation.coachingTips
-                              );
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }}
-                >
-                  <SelectInput />
-                </LocalisedReferenceInput>
-                <SelectInput
-                  label={`resources.${resource}.fields.setType`}
-                  source="setType"
-                  choices={exerciseTypeChoices}
-                  validate={required()}
-                  defaultValue="REPS"
-                />
-                <FormDataConsumer>
-                  {({
-                    getSource, // A function to get the valid source inside an ArrayInput
-                    ...rest
-                  }) =>
-                    get(formData, `${getSource('exercise.id')}`) && (
-                      <Fragment>
-                        <LocalisedComponentCloner
-                          label={`resources.${resource}.fields.additionalTrainerInfo`}
-                          fullWidth
-                          component={<TextInput fullWidth multiline />}
-                          source="coachingTips"
-                          parentPath={getSource('exercise')}
-                          record={formData}
-                          defaultValues={
-                            defaultCoachingTips[
-                              get(formData, `${getSource('exercise.id')}`)
-                            ]
-                          }
-                          defaultValueFieldName="coachingTips"
-                        />
-                        <SetsInput
-                          {...rest}
-                          source={getSource('exercises')}
-                          getSource={getSource}
-                          extraClasses={classes}
-                          translate={translate}
-                        />
-                      </Fragment>
-                    )
+      <ArrayInput
+        label="resources.workout.fields.exercises"
+        source="workout.exercises"
+        disabled={!selectedTrainerId}
+        validate={required()}
+      >
+        <SimpleFormIterator ref={exerciseIteratorRef}>
+          <LocalisedReferenceInput
+            resource="exercise"
+            label={`resources.${resource}.fields.exercise`}
+            source="exercise.id"
+            reference="exercise"
+            validate={required()}
+            perPage={1000}
+            filter={{ trainer: selectedTrainerId }}
+            // auto-fill values for coaching tips based on the selected exercise
+            onChange={(event) => {
+              if (event.target) {
+                const exerciseId = event.target.value;
+                // event.target.name is like "workout.exercises[index].exercise.id"
+                const exerciseArrayIndex = event.target.name.match(/\d+/)[0]; // get just the first index
+                if (exerciseId && exerciseArrayIndex) {
+                  const defaultLocalisations = fetchExercise(exerciseId)
+                    .localisations;
+                  // then change their values after
+                  for (let i = 0; i < defaultLocalisations.length; i++) {
+                    const defaultLocalisation = defaultLocalisations[i];
+                    const fieldPath = `workout.exercises[${exerciseArrayIndex}].localisations[${i}].coachingTips`;
+                    form.change(fieldPath, defaultLocalisation.coachingTips);
                   }
-                </FormDataConsumer>
-              </SimpleFormIterator>
-            </ArrayInput>
-          )
-        }
-      </FormDataConsumer>
+                }
+              }
+            }}
+          >
+            <SelectInput />
+          </LocalisedReferenceInput>
+          <SelectInput
+            label={`resources.${resource}.fields.setType`}
+            source="setType"
+            choices={exerciseTypeChoices}
+            validate={required()}
+            defaultValue="REPS"
+          />
+          <FormDataConsumer>
+            {({
+              getSource, // A function to get the valid source inside an ArrayInput
+              ...rest
+            }) => (
+              <Fragment>
+                <TextInput
+                  source={`${getSource('localisations[0].coachingTips')}`}
+                  fullWidth
+                  multiline
+                  label={translate(
+                    `resources.${resource}.fields.additionalTrainerInfo`,
+                    { lang: '(English)' }
+                  )}
+                />
+                <TextInput
+                  source={`${getSource('localisations[1].coachingTips')}`}
+                  fullWidth
+                  multiline
+                  label={translate(
+                    `resources.${resource}.fields.additionalTrainerInfo`,
+                    { lang: '(Hindi)' }
+                  )}
+                />
+                <TextInput
+                  source={`${getSource('localisations[2].coachingTips')}`}
+                  fullWidth
+                  multiline
+                  label={translate(
+                    `resources.${resource}.fields.additionalTrainerInfo`,
+                    { lang: '(Urdu)' }
+                  )}
+                />
+                <SetsInput
+                  {...rest}
+                  source={getSource('exercises')}
+                  getSource={getSource}
+                  extraClasses={classes}
+                  translate={translate}
+                />
+              </Fragment>
+            )}
+          </FormDataConsumer>
+        </SimpleFormIterator>
+      </ArrayInput>
     </Fragment>
   );
 };

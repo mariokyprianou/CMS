@@ -51,6 +51,10 @@ export const getListWorkoutWeeksQuery = gql`
             quantity
             restTime
           }
+          localisations {
+            language
+            coachingTips
+          }
           exercise {
             id
             localisations {

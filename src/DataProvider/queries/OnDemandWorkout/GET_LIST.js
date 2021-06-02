@@ -43,6 +43,10 @@ export const getListOnDemandWorkoutsQuery = gql`
           quantity
           restTime
         }
+        localisations {
+          language
+          coachingTips
+        }
         exercise {
           id
           localisations {

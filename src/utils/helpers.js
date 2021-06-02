@@ -77,3 +77,11 @@ export const checkNoPropertiesExist = (
   }
   return true; // all properties are empty
 };
+
+export const exerciseOptionRenderer = (exercise) => {
+  const localisedName = getLocalisedFieldByLanguage({
+    source: 'name',
+    localisations: exercise.localisations,
+  });
+  return localisedName;
+};

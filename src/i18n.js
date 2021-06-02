@@ -273,7 +273,7 @@ const englishMessages = {
         sets: 'Sets',
         work: 'Work',
         setType: 'Set Type',
-        additionalTrainerInfo: 'Additional Trainer Info',
+        additionalTrainerInfo: 'Additional Trainer Info %{lang}',
         restTime: 'Rest Time (Optional)',
         weekNumber: 'Week',
       },
@@ -301,7 +301,7 @@ const englishMessages = {
         sets: 'Sets',
         work: 'Work',
         setType: 'Set Type',
-        additionalTrainerInfo: 'Additional Trainer Info',
+        additionalTrainerInfo: 'Additional Trainer Info %{lang}',
         restTime: 'Rest Time (Optional)',
         programme: {
           id: 'Current Programme',

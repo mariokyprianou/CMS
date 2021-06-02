@@ -19,7 +19,6 @@ const LocalisedChoices = ({
   localisationsPath = 'localisations',
   additionalChoices = [],
   additionalChoiceComparisonField,
-  customFunc = () => {},
   ...props
 }) => {
   if (!children || Array.isArray(children))
@@ -44,27 +43,15 @@ const LocalisedChoices = ({
     }
 
     return {
-      ...choice,
-      // id: choice.id,
+      id: choice.id,
       localisedField,
     };
   });
-
-  // required for custom func update
-  const elementIndex = props && props.source.match(/\d+/);
 
   return cloneElement(children, {
     ...props,
     optionText: 'localisedField',
     choices: localisedChoices,
-    onChange: (event) => {
-      console.log('EVENT: ', event);
-      const id = event.target.id;
-      return customFunc(
-        choices.find((choice) => choice.id === id),
-        elementIndex
-      );
-    },
   });
 };
 

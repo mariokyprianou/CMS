@@ -39,6 +39,10 @@ export const getOneOnDemandWorkoutQuery = gql`
             coachingTips
           }
         }
+        localisations {
+          language
+          coachingTips
+        }
         orderIndex
       }
       programme {
