@@ -215,6 +215,7 @@ const WorkoutForm = (props) => {
             reference="exercise"
             validate={required()}
             perPage={1000}
+            sort={{ field: 'name', order: 'ASC' }}
             filter={{ trainer: selectedTrainerId }}
             // auto-fill values for coaching tips based on the selected exercise
             onChange={(event) => {
