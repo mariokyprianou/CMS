@@ -47,6 +47,15 @@ export const getListFeedbacksQuery = gql`
 
 export default async ({ client, params }) => {
   try {
+    if (params.filter?.dateFrom) {
+      const dateTime = new Date(params.filter.dateFrom); // start of day 00:00:00
+      params.filter.dateFrom = dateTime;
+    }
+    if (params.filter?.dateTo) {
+      const dateTime = new Date(params.filter.dateTo);
+      dateTime.setHours(23, 59, 59, 999); // end of day 23:59:59
+      params.filter.dateTo = dateTime;
+    }
     const result = await client.query({
       query: getListFeedbacksQuery,
       variables: {

@@ -54,21 +54,8 @@ const FeedbackFilter = (props) => {
           };
         }}
       />
-      <DateInput
-        parse={(d) => {
-          const dateTime = new Date(d); // start of day 00:00:00
-          return dateTime;
-        }}
-        source="dateFrom"
-      />
-      <DateInput
-        parse={(d) => {
-          const dateTime = new Date(d);
-          dateTime.setHours(23, 59, 59, 999); // end of day 23:59:59
-          return dateTime;
-        }}
-        source="dateTo"
-      />
+      <DateInput source="dateFrom" />
+      <DateInput source="dateTo" />
     </Filter>
   );
 };
