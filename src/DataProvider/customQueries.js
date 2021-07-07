@@ -74,6 +74,9 @@ export default async ({ type, resource, params, client }) => {
     if (type === 'EXPORT') {
       result = await Query.exportUsers({ client, params });
     }
+    if (type === 'UNBLOCK') {
+      result = await Query.unblockUser({ client, params });
+    }
   }
   if (resource === 'OnDemandWorkout') {
     if (type === 'CREATE') {

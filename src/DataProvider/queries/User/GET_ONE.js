@@ -29,6 +29,7 @@ export const getOneUserQuery = gql`
         startedAt
         expiresAt
       }
+      isBlocked
       currentWeek
       previousTrainers
       deviceLimit

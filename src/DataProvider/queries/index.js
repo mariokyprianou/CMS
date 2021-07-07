@@ -35,6 +35,7 @@ import updateChallenge from './Challenge/UPDATE';
 import { getOneUserQuery } from './User/GET_ONE';
 import updateUser from './User/UPDATE';
 import exportUsers from './User/EXPORT';
+import unblockUser from './User/UNBLOCK';
 
 import { getOneOnDemandWorkoutQuery } from './OnDemandWorkout/GET_ONE';
 import { getListOnDemandWorkoutsQuery } from './OnDemandWorkout/GET_LIST';
@@ -64,6 +65,7 @@ export {
   getOneUserQuery,
   updateUser,
   exportUsers,
+  unblockUser,
   getOneOnDemandWorkoutQuery,
   getListOnDemandWorkoutsQuery,
   createOnDemandWorkout,

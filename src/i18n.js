@@ -75,6 +75,9 @@ const englishMessages = {
           name: 'Current Programme',
         },
       },
+      actions: {
+        unblockUser: 'Unblock User',
+      },
     },
     administrator: {
       name: 'Administrator |||| Administrators',

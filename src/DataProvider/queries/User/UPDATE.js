@@ -28,6 +28,7 @@ export const updateUserMutation = gql`
         startedAt
         expiresAt
       }
+      isBlocked
       currentWeek
       previousTrainers
       deviceLimit

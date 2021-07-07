@@ -6,7 +6,7 @@
  * Copyright (c) 2020 The Distance
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BooleanInput,
   Edit,
@@ -17,10 +17,13 @@ import {
   SelectInput,
   SimpleForm,
   TextInput,
+  useNotify,
   useTranslate,
 } from 'react-admin';
+import { useForm } from 'react-final-form';
 import { TextField as MuiTextField } from '@material-ui/core';
 import { NoScrollNumberInput as NumberInput } from 'Components/Inputs';
+import { ActionButton } from 'Components/Buttons';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   LocalisedReferenceInput,
@@ -35,6 +38,7 @@ import {
   booleanTranslatedChoices,
 } from 'utils/choices';
 import { nonNegativeNonZeroInt, isValidEmail } from 'utils/validation';
+import useDataProviderWrapper from 'hooks/dataProviderWrapper';
 
 const nonNegativeNonZeroIntValidation = [required(), nonNegativeNonZeroInt];
 const emailValidation = [required(), isValidEmail];
@@ -46,9 +50,13 @@ const useStyles = makeStyles({
 });
 
 const SanitizedForm = ({ basePath, classes, ...props }) => {
+  const notify = useNotify();
   const translate = useTranslate();
-  const { resource, record } = props;
+  const callToDataProvider = useDataProviderWrapper();
+  const form = useForm();
+  const { id, resource, record } = props;
   const selectClasses = useStyles(props);
+  const [isLoading, setLoading] = useState(false);
 
   const helperString = (formData) => {
     if (formData && formData.deviceLimitEnabled) {
@@ -64,6 +72,32 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
     } else {
       // device limit disabled - user will be able to switch
       return 'notification.user.deviceLimitDisabled';
+    }
+  };
+
+  const unblockUser = () => {
+    try {
+      setLoading(true); //disable the Unblock User button
+      return callToDataProvider({
+        type: 'UNBLOCK',
+        resource: 'user',
+        payload: { id },
+        onSuccess: ({ data }) => {
+          form.change('isBlocked', data.isBlocked);
+          setLoading(false);
+        },
+        onFailure: (_) => {
+          setLoading(false);
+        },
+      });
+    } catch (error) {
+      return notify(
+        error.message,
+        'warning',
+        error.payload,
+        error.undoable,
+        error.timeout
+      );
     }
   };
 
@@ -180,6 +214,7 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
             <BooleanInput
               resource={resource}
               source="isManuallySubscribed"
+              className={selectClasses.root}
               helperText={translate(
                 'resources.user.fields.isManuallySubscribedHelperText',
                 {
@@ -188,6 +223,15 @@ const SanitizedForm = ({ basePath, classes, ...props }) => {
                     : translate('actions.subscription.activate'),
                 }
               )}
+            />
+          )}
+        </FormDataConsumer>
+        <FormDataConsumer>
+          {({ formData }) => (
+            <ActionButton
+              label={'resources.user.actions.unblockUser'}
+              disabled={!(formData.isBlocked && !isLoading)}
+              onClick={() => unblockUser()}
             />
           )}
         </FormDataConsumer>
@@ -201,7 +245,7 @@ const UserEdit = (props) => {
   return (
     <Edit mutationMode="pessimistic" {...props}>
       <SimpleForm>
-        <SanitizedForm classes={classes} />
+        <SanitizedForm classes={classes} {...props} />
       </SimpleForm>
     </Edit>
   );
